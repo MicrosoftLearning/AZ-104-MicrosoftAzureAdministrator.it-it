@@ -93,10 +93,10 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
     | Impostazioni | valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | nome di un nuovo gruppo di risorse **az104-11-rg1** |
+    | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
+    | Gruppo di risorse | nome di un nuovo gruppo di risorse **az104-11-rg1** |
     | Area di lavoro Log Analytics | qualsiasi nome univoco |
-    | Region | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
+    | Area geografica | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
 
     >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
 
@@ -109,9 +109,9 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
     | Impostazioni | valore |
     | --- | --- |
     | Nome | qualsiasi nome univoco |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-11-rg1** |
-    | Location | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
+    | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
+    | Gruppo di risorse | **az104-11-rg1** |
+    | Posizione | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
     | Creare un account RunAs di Azure | **Sì** |
 
     >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
@@ -221,8 +221,8 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     | Impostazioni | valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-11-rg1** |
+    | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
+    | Gruppo di risorse | **az104-11-rg1** |
     | Nome gruppo di azioni | **az104-11-ag1** |
     | Nome visualizzato | **az104-11-ag1** |
 
