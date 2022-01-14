@@ -90,10 +90,10 @@ In questa attività verrà creato e configurato un account di archiviazione di A
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Il nome di un **nuovo** gruppo di risorse **az104-07-rg1** |
+    | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
+    | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-07-rg1** |
     | Nome account di archiviazione | Qualsiasi nome univoco globale composto da 3-24 lettere e numeri |
-    | Location | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
+    | Posizione | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
     | Prestazioni | **Standard** |
     | Ridondanza | **Archiviazione con ridondanza geografica (GRS)** |
 
