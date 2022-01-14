@@ -51,18 +51,18 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure che verrà usata nel lab |
-    | Resource group | Il nome di un nuovo gruppo di risorse **az104-08-rg01** |
+    | Sottoscrizione | Nome della sottoscrizione di Azure che verrà usata nel lab |
+    | Gruppo di risorse | Il nome di un nuovo gruppo di risorse **az104-08-rg01** |
     | Nome macchina virtuale | **az104-08-vm0** |
-    | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning delle macchine virtuali di Azure |
+    | Area geografica | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning delle macchine virtuali di Azure |
     | Opzioni di disponibilità | **Zona di disponibilità** |
     | Zona di disponibilità | **1** |
     | Immagine | **Windows Server 2019 Datacenter - Gen1/Gen2** |
     | Istanza Spot di Azure | **No** |
     | Dimensione | **Standard D2s v3** |
-    | Username | **Studente** |
+    | Nome utente | **Studente** |
     | Password | **Pa55w.rd1234** |
-    | Porte in ingresso pubbliche | **Nessuno** |
+    | Porte in ingresso pubbliche | **Nessuna** |
     | Usare una licenza esistente di Windows Server? | **No** |
 
 1. Fare clic su **Avanti: Dischi** e quindi nella scheda **Dischi** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
@@ -90,8 +90,8 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Subnet | **subnet0** |
     | IP pubblico | **default** |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | **basic** |
-    | Porte in ingresso pubbliche | **Nessuno** |
-     | Rete accelerata | **Disattivato**
+    | Porte in ingresso pubbliche | **Nessuna** |
+     | Rete accelerata | **Disattivata**
     | Associare questa macchina virtuale a una soluzione di bilanciamento del carico esistente? | **No** |
 
 1. Selezionare **Avanti: Gestione >** e quindi nella scheda **Gestione** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
@@ -118,7 +118,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Resource group | **az104-08-rg01** |
+    | Gruppo di risorse | **az104-08-rg01** |
     | Nome interfaccia di rete | **az104-08-vm1-nic1** |
     | Nome indirizzo IP pubblico | **az104-08-vm1-ip** |
     | Nome macchina virtuale | **az104-08-vm1** |
@@ -360,15 +360,15 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Il nome di un nuovo gruppo di risorse **az104-08-rg02** |
+    | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
+    | Gruppo di risorse | Il nome di un nuovo gruppo di risorse **az104-08-rg02** |
     | Nome del set di scalabilità di macchine virtuali | **az10408vmss0** |
-    | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning di macchine virtuali di Azure diversa da quella usata in precedenza per distribuire le macchine virtuali in questo lab |
+    | Area geografica | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning di macchine virtuali di Azure diversa da quella usata in precedenza per distribuire le macchine virtuali in questo lab |
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Immagine | **Windows Server 2019 Datacenter - Gen2** |
     | Istanza Spot di Azure | **No** |
     | Dimensione | **Standard D2s_v3** |
-    | Username | **Studente** |
+    | Nome utente | **Studente** |
     | Password | **Pa55w.rd1234** |
     | Si dispone già di una licenza di Windows Server? | **No** |
 
