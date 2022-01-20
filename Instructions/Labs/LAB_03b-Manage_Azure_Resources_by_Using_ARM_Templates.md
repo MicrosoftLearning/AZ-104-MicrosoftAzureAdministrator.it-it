@@ -55,7 +55,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
 1. Nel pannello **Microsoft.ManagedDisk-* XXXXXXXXX* \| Modello** fare clic su **Input**.
 
-1. Prendere nota del valore del parametro **location**. Sarà necessario nell'attività successiva.
+1. Prendere nota del valore del parametro **Posizione**. Sarà necessario nell'attività successiva.
 
 1. Estrarre il contenuto del file scaricato nella cartella **Download** nel computer del lab.
 
@@ -114,7 +114,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
     | Area geografica | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
-    | Location | Il valore del parametro location annotato nell'attività precedente |
+    | Posizione | Il valore del parametro Posizione annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |
