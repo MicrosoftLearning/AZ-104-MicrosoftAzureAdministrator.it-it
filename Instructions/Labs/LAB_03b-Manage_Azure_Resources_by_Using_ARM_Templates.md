@@ -110,7 +110,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
     | Impostazione | Valore |
     | --- |--- |
-    | Subscription | *Nome della sottoscrizione di Azure usata in questo lab* |
+    | Sottoscrizione | *Nome della sottoscrizione di Azure usata in questo lab* |
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
     | Area geografica | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
