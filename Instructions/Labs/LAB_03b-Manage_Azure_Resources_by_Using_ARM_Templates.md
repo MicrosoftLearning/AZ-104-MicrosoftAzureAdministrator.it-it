@@ -71,7 +71,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Creare un modello personalizzato nell'editor**.
 
-1. Nel pannello **Modifica modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
+1. Nel pannello **Modifica del modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
 
 1. Nel riquadro dell'editor rimuovere le righe seguenti:
 
@@ -110,11 +110,11 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
     | Impostazione | Valore |
     | --- |--- |
-    | Subscription | *Nome della sottoscrizione di Azure usata in questo lab* |
+    | Sottoscrizione | *Nome della sottoscrizione di Azure usata in questo lab* |
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
-    | Region | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
+    | Area geografica | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
-    | Location | Il valore del parametro location annotato nell'attività precedente |
+    | Posizione | Il valore del parametro location annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |
