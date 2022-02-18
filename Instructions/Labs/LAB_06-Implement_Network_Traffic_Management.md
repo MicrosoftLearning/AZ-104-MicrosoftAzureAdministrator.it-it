@@ -2,12 +2,12 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 45507e4f181e339eaceae6cce9b6a8da84627a45
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 72ac54fe14d64d35e42b524d7d1f57ba1657335a
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625590"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356620"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -54,17 +54,22 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** e **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nella home directory di Cloud Shell.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il primo gruppo di risorse che ospiterà l'ambiente lab (sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure). È possibile usare il cmdlet "(Get-AzLocation).Location" per ottenere l'elenco delle aree:
+1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
-   ```powershell (execute one command at a time)
-   $location = '[Azure_region]'
+1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il primo gruppo di risorse che ospiterà l'ambiente lab (sostituire il segnaposto "[Azure_region]" con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure). È possibile usare il cmdlet "(Get-AzLocation).Location" per ottenere l'elenco delle aree:
 
-```powershell (execute one command at a time)
-   $rgName = 'az104-06-rg1'
+    ```powershell 
+    $location = '[Azure_region]'
+    ```
+    Ora il nome del gruppo di risorse:
+    ```powershell
+    $rgName = 'az104-06-rg1'
+    ```
+    Infine, creare il gruppo di risorse nella posizione desiderata:
+    ```powershell
+    New-AzResourceGroup -Name $rgName -Location $location
+    ```
 
-```powershell (execute one command at a time)
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
@@ -130,7 +135,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
 
 1. Nel pannello della rete virtuale **az104-06-vnet01**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
 
-1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su Aggiungi:
+1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su **Aggiungi**:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -154,7 +159,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
 
 1. Nel pannello della rete virtuale **az104-06-vnet01**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
 
-1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su Aggiungi:
+1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su **Aggiungi**:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -180,7 +185,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
 1. Nel portale di Azure cercare e selezionare **Network Watcher**.
 
-1. Nel pannello **Network Watcher** espandere l'elenco delle aree di Azure e verificare che il servizio sia abilitato nell'istanza di Azure in cui sono state distribuite le risorse nella prima attività di questo lab.
+1. Nel pannello **Network Watcher** espandere l'elenco delle aree di Azure e verificare che il servizio sia abilitato nell'area in uso. 
 
 1. Nel pannello **Network Watcher** passare a **Risoluzione dei problemi di connessione**.
 
@@ -301,11 +306,11 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
    > **Nota**: attendere il completamento della creazione della tabella di route. L'operazione richiede circa 3 minuti.
 
-1. Tornare al pannello **Tabelle di route** e fare clic su **Aggiorna**, quindi su **az104-06-rt23**.
+1. Fare clic su **Vai alla risorsa**.
 
 1. Nella sezione **Impostazioni** della tabella di route **az104-06-rt23** fare clic su **Route** e quindi su **+ Aggiungi**.
 
-1. Aggiungere una nuova route con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
+1. Aggiungere un nuova route con le impostazioni seguenti:
 
     | Impostazione | valore |
     | --- | --- |
@@ -343,7 +348,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
    > **Nota**: attendere il completamento della creazione della tabella di route. L'operazione richiede circa 3 minuti.
 
-1. Nel pannello **Tabelle di route** fare clic su **Aggiorna** e quindi su **az104-06-rt32**.
+1. Fare clic su **Vai alla risorsa**.
 
 1. Nella sezione **Impostazioni** della tabella di route **az104-06-rt32** fare clic su **Route** e quindi su **+ Aggiungi**.
 
@@ -396,22 +401,26 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Nel portale di Azure cercare e selezionare **Servizi di bilanciamento del carico** e, nel pannello **Servizi di bilanciamento del carico**, fare clic su **+ Crea**.
 
-1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
+1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti (lasciare le altre con i valori predefiniti) quindi fare clic su **Avanti: Configurazione IP front-end**:
 
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-06-rg1** |
+    | Resource group | **az104-06-rg1** |
     | Nome | **az104-06-lb4** |
     | Region| Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
-    | Tipo | **Pubblica** |
     | SKU | **Standard** |
+    | Tipo | **Pubblica** |
+    
+1. Nella scheda **Configurazione IP front-end** fare clic su **Aggiungi una configurazione IP front-end** e usare l'impostazione seguente prima di fare clic su **Aggiungi**.   
+     
+    | Impostazione | Valore |
+    | --- | --- |
+    | Nome | qualsiasi nome univoco |
     | Indirizzo IP pubblico | **Crea nuovo** |
     | Nome dell'indirizzo IP pubblico | **az104-06-pip4** |
-    | Zona di disponibilità | **Nessuna zona** |
-    | Aggiungi un indirizzo IPv6 pubblico | **No** |
 
-1. Fare clic su Rivedi e crea. Attendere il completamento della convalida e fare clic su Crea per inviare la distribuzione.
+1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare clic su **Crea** per inviare la distribuzione.
 
     > **Nota**: attendere il provisioning del servizio di bilanciamento del carico di Azure. L'operazione richiede circa 2 minuti.
 
@@ -506,7 +515,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-06-rg1** |
+    | Resource group | **az104-06-rg1** |
     | Nome del gateway applicazione | **az104-06-appgw5** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | Livello | **Standard V2** |
@@ -589,7 +598,9 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

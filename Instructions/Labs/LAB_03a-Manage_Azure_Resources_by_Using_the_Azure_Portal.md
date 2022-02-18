@@ -2,12 +2,12 @@
 lab:
   title: 03a - Gestire le risorse di Azure tramite il portale di Azure
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 97557c4fb2b6730986a1dda9b25663d6ce08c8d2
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: e3327afd10833f5357c8c0d7a62b71cbb9aa3f4e
+ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625561"
+ms.lasthandoff: 02/08/2022
+ms.locfileid: "138110880"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -32,6 +32,8 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="instructions"></a>Istruzioni
 
+>**Nota**:  creare sempre la propria password sicura per qualsiasi macchina virtuale o account utente creato. Se la macchina virtuale viene creata automaticamente, usare **Reimposta password** nel portale per aggiornare la password. 
+
 ### <a name="exercise-1"></a>Esercizio 1
 
 #### <a name="task-1-create-resource-groups-and-deploy-resources-to-resource-groups"></a>Attività 1: Creare gruppi di risorse e distribuire risorse al loro interno
@@ -40,7 +42,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Aggiungi, + Crea o + Nuovo** e specificare le impostazioni seguenti:
+1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
     |Impostazione|Valore|
     |---|---|
@@ -79,7 +81,7 @@ In questa attività la risorsa disco creata nell'attività precedente verrà spo
 
 In questa attività si applicherà un blocco a un gruppo di risorse di Azure contenente una risorsa disco.
 
-1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Aggiungi, + Crea o + Nuovo** e specificare le impostazioni seguenti:
+1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
     |Impostazione|Valore|
     |---|---|
@@ -94,7 +96,9 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-1. Fare clic su Vai alla risorsa. 
+1. Fare clic su **Vai alla risorsa**. 
+
+1. Nella pagina Panoramica del disco fare clic sul nome del gruppo di risorse, **az104-03a-rg3**.
 
 1. Nel pannello del gruppo di risorse **az104-03a-rg3** fare clic su **Blocchi**, quindi su **+ Aggiungi** e specificare le impostazioni seguenti:
 

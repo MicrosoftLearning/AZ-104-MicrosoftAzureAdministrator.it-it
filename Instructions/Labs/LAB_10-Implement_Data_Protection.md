@@ -2,12 +2,12 @@
 lab:
   title: 10 - Implementare la protezione dei dati
   module: Module 10 - Data Protection
-ms.openlocfilehash: 88b9ba4e552702d7e062fb73a21ab0ec257ab2d6
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 86a5caf061d92bbba64386599ac0a9c073d408ba
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625578"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356584"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10 - Eseguire il backup delle macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -48,6 +48,8 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** nella home directory di Cloud Shell.
 
+1. Modificare il file dei parametri appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà le macchine virtuali. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure. Digitare ogni riga di comando separatamente ed eseguirle separatamente:
 
    ```powershell
@@ -82,7 +84,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | Nome di un nuovo gruppo di risorse **az104-10-rg1** |
@@ -107,7 +109,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **az104-10-rsv1 - Proprietà** visualizzato di nuovo fare clic sul collegamento **Aggiorna** sotto l'etichetta **Impostazioni di sicurezza**.
 
-1. Nel pannello **Impostazioni di sicurezza** si noti che l'opzione **Eliminazione temporanea (per macchine virtuali di Azure)** è **Abilitata**.
+1. Nel pannello **Impostazioni di sicurezza** si noti che l'opzione **Eliminazione temporanea (per carichi di lavoro in esecuzione in Azure)** è **abilitata**.
 
 1. Chiudere il pannello **Impostazioni di sicurezza** e nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** visualizzato di nuovo fare clic su **Panoramica**.
 
@@ -148,7 +150,7 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
 1. Tornare al pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** e nella sezione **Elementi protetti** fare clic su **Elementi di backup**, quindi sulla voce **Macchine virtuali di Azure**.
 
-1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** di **az104-10-vm0** esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
+1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** fare clic su **az104-10-vm0** ed esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
 
 1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Esegui backup ora**, accettare il valore predefinito nell'elenco a discesa **Conserva backup fino a** e fare clic su **OK**.
 
@@ -166,7 +168,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
 
     >**Nota:** poiché il portale di Azure non supporta più IE11, è necessario usare il browser Microsoft Edge per questa attività.
 
@@ -297,7 +299,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
 
    >**Nota:** poiché il portale di Azure non supporta più IE11, è necessario usare il browser Microsoft Edge per questa attività.
 
@@ -433,7 +435,9 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

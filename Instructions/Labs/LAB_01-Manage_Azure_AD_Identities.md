@@ -2,12 +2,12 @@
 lab:
   title: 01 - Gestire le identità di Azure Active Directory
   module: Module 01 - Identity
-ms.openlocfilehash: 5d14eb6e187308fcc3bd4256e4fbeac3b23f9687
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 217ce45f10a687f1d467d5cf7f36df0e26e001e4
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625602"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356674"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 - Gestire le identità di Azure Active Directory
 
@@ -62,7 +62,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | Nome utente | **az104-01a-aaduser1** |
     | Nome | **az104-01a-aaduser1** |
     | Consenti la creazione manuale della password | Enabled |
-    | Password iniziale | **Pa55w.rd1234** |
+    | Password iniziale | **Specificare una password sicura** |
     | Località di utilizzo | **Stati Uniti** |
     | Posizione | **Amministratore cloud** |
     | department | **IT** |
@@ -77,7 +77,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
 
     >**Nota**: i ruoli di Azure AD possono anche essere assegnati durante il provisioning di un nuovo utente.
 
-1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
+1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, impostarla su una password sicura di propria scelta. 
 
     >**Nota**: invece di digitare il nome utente (incluso il nome di dominio), è possibile incollare il contenuto degli Appunti.
 
@@ -96,7 +96,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | Nome utente | **az104-01a-aaduser2** |
     | Nome | **az104-01a-aaduser2** |
     | Consenti la creazione manuale della password | Enabled |
-    | Password iniziale | **Pa55w.rd1234** |
+    | Password iniziale | **Specificare una password sicura** |
     | Località di utilizzo | **Stati Uniti** |
     | Posizione | **Amministratore sistema** |
     | department | **IT** |
@@ -223,7 +223,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | Nome utente | **az104-01b-aaduser1** |
     | Nome | **az104-01b-aaduser1** |
     | Consenti la creazione manuale della password | Enabled |
-    | Password iniziale | **Pa55w.rd1234** |
+    | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore sistema** |
     | department | **IT** |
 
@@ -256,9 +256,11 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
 #### <a name="task-5-clean-up-resources"></a>Attività 5: Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti. Anche se, in questo caso, non sono presenti costi aggiuntivi associati ai tenant di Azure Active Directory e ai relativi oggetti, è consigliabile rimuovere gli account utente, gli account di gruppo e il tenant di Azure Active Directory creati in questo lab.
+> **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti. Anche se, in questo caso, non sono presenti costi aggiuntivi associati ai tenant di Azure Active Directory e ai relativi oggetti, è consigliabile rimuovere gli account utente, gli account di gruppo e il tenant di Azure Active Directory creati in questo lab.
 
-1. Nel **portale di Azure** cercare **Azure Active Directory** nella barra di ricerca. In **Azure Active Directory** selezionare **Licenze** in **Gestisci**. In **Licenze in** nella sezione **Gestisci** selezionare **Tutti i prodotti** e quindi la voce **Azure Active Directory Premium P2** nell'elenco. Procedere selezionando **Utenti con licenza**. Selezionare gli account utente **az104-01a-aaduser1** e **az104-01a-aaduser2** a cui sono state assegnate le licenze in questo lab, fare clic su **Rimuovi licenza** e, quando viene richiesto di confermare, fare clic su **OK**.
+ > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+
+1. Nel **portale di Azure** cercare **Azure Active Directory** nella barra di ricerca. In **Azure Active Directory** selezionare **Licenze** in **Gestisci**. In **Licenze in** nella sezione **Gestisci** selezionare **Tutti i prodotti** e quindi la voce **Azure Active Directory Premium P2** nell'elenco. Procedere selezionando **Utenti con licenza**. Selezionare gli account utente **az104-01a-aaduser1** e **az104-01a-aaduser2** a cui sono state assegnate le licenze in questo lab, fare clic su **Rimuovi licenza** e, quando viene richiesto di confermare, fare clic su **Sì**.
 
 1. Nel portale di Azure passare al pannello **Utenti - Tutti gli utenti**, fare clic sulla voce che rappresenta l'account utente guest **az104-01b-aaduser1**, quindi nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
 
@@ -270,11 +272,9 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
 1. Passare al pannello **Utenti - Tutti gli utenti**, fare clic sulla voce che rappresenta l'account utente **az104-01b-aaduser1**, quindi nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
 
-1. Passare al pannello **Contoso Lab - Panoramica** del tenant di Azure AD Contoso Lab, fare clic su **Gestisci i tenant** e quindi nella schermata successiva fare clic su **Elimina tenant**, fare clic sul collegamento **Ottieni l'autorizzazione per eliminare le risorse di Azure**, nel pannello **Proprietà di Azure Active Directory** impostare **Gestione degli accessi per le risorse di Azure** su **Sì** e fare clic su **Salva**.
+1. Passare al pannello **Contoso Lab - Panoramica** del tenant di Azure AD Contoso Lab, fare clic su **Gestisci tenant** e quindi nella schermata successiva selezionare la casella accanto a **Contoso Lab**, fare clic su **Elimina** nel pannello **Eliminare tenant "Contoso Labs"?** , fare clic sul collegamento **Ottieni l'autorizzazione per eliminare le risorse di Azure**, nel pannello **Proprietà** di Azure Active Directory impostare **Gestione degli accessi per le risorse di Azure** su **Sì** e fare clic su **Salva**.
 
-1. Disconnettersi dal portale di Azure e accedere di nuovo. 
-
-1. Tornare nel pannello **Elimina tenant 'Contoso Lab'** e fare clic su **Elimina**.
+1. Tornare nel pannello **Elimina tenant "Contoso Lab"** , fare clic su **Aggiorna** e su **Elimina**.
 
 > **Nota**: è necessario attendere la scadenza della licenza di valutazione prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
 

@@ -2,12 +2,12 @@
 lab:
   title: 11 - Implementare il monitoraggio
   module: Module 11 - Monitoring
-ms.openlocfilehash: d0c86948b0efc49224b74116e335090bb75b6ac5
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 8fca0aa5a2622740bdc7d582d9b348eb0e4167cc
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625524"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356590"
 ---
 # <a name="lab-11---implement-monitoring"></a>Lab 11 - Implementare il monitoraggio
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -21,11 +21,12 @@ ms.locfileid: "132625524"
 In questo lab si eseguiranno le attività seguenti:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
-+ Attività 2: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
-+ Attività 3: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
-+ Attività 4: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
-+ Attività 5: Esaminare la funzionalità di Monitoraggio di Azure
-+ Attività 6: Esaminare la funzionalità di Azure Log Analytics
++ Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement
++ Attività 3: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
++ Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
++ Attività 5: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
++ Attività 6: Esaminare la funzionalità di Monitoraggio di Azure
++ Attività 7: Esaminare la funzionalità di Azure Log Analytics
 
 ## <a name="estimated-timing-45-minutes"></a>Tempo stimato: 45 minuti
 
@@ -46,6 +47,8 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** e **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** nella home directory di Cloud Shell.
+
+1. Modificare il file dei parametri appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà le macchine virtuali. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure:
 
@@ -91,7 +94,7 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
 1. Nella scheda **Dati principali** del pannello **Crea area di lavoro Log Analytics** immettere le impostazioni seguenti, fare clic su **Verifica e crea** e quindi su **Crea**:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | nome di un nuovo gruppo di risorse **az104-11-rg1** |
@@ -106,19 +109,18 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
 1. Nel pannello **Creare un account di Automazione** specificare le impostazioni seguenti, quindi fare clic su **Verifica e crea** e al momento della convalida fare clic su **Crea**:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
-    | Nome | qualsiasi nome univoco |
+    | Nome dell'account di Automazione | qualsiasi nome univoco |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-11-rg1** |
-    | Location | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
-    | Creare un account RunAs di Azure | **Sì** |
+    | Region | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
 
     >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
 
     >**Nota**: attendere il completamento della distribuzione. La distribuzione può richiedere 3 minuti circa.
 
-1. Nel pannello **Creare un account di Automazione** fare clic su **Aggiorna** e quindi sulla voce che rappresenta l'account di Automazione appena creato.
+1. Fare clic su **Vai alla risorsa**.
 
 1. Nella sezione **Gestione della configurazione** del pannello Account di Automazione fare clic su **Inventario**.
 
@@ -215,11 +217,11 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
     | Granularità aggregazione (periodo) | **1 minuto** |
     | Frequenza della valutazione | **Ogni minuto** |
 
-1. Nella sezione **Gruppo di azioni** del pannello **Crea regola di avviso** fare clic su **Aggiungi gruppi di azioni** e quindi sul pulsante **+ Crea gruppo di azioni**.
+1. Fare clic su **Avanti: Azioni >** , nella sezione **Gruppo di azioni** del pannello **Crea regola di avviso** fare clic sul pulsante **+ Crea gruppo di azioni**.
 
 1. Nella scheda **Dati principali** del pannello **Crea gruppo di azioni** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi selezionare **Avanti: Notifiche >** :
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-11-rg1** |
@@ -228,22 +230,22 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Posta elettronica/SMS/Push/Voce** nell'elenco a discesa **Tipo di notifica**. Nella casella di testo **Nome** digitare **admin email**. Fare clic sul pulsante **Modifica dettagli** (icona a forma di matita).
 
-1. Nel pannello **Posta elettronica/SMS/Push/Voce** selezionare la casella di controllo **Posta elettronica**, digitare l'indirizzo di posta elettronica nella casella di testo **Posta elettronica**, lasciare i valori predefiniti per le altre impostazioni, fare clic su **OK** e nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Avanti: Azioni >** .
+1. Nel pannello **Posta elettronica/Messaggio SMS/Push/Voce** selezionare la casella di controllo **Posta elettronica**, digitare l'indirizzo di posta elettronica nella casella di testo **Posta elettronica**, lasciare i valori predefiniti per le altre impostazioni, fare clic su **OK** e nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Avanti: Azioni >** .
 
 1. Nella scheda **Azioni** del pannello **Crea gruppo di azioni** esaminare gli elementi disponibili nell'elenco a discesa **Tipo di azione** senza apportare modifiche e selezionare **Revisione e creazione**.
 
 1. Nella scheda **Revisione e creazione** del pannello **Crea gruppo di azioni** selezionare **Crea**.
 
-1. Nel pannello **Crea regola di avviso**, nella sezione **Dettagli regola di avviso**, specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
+1. Nel pannello **Crea regola di avviso** fare clic su **Avanti: Dettagli >**  e nella sezione **Dettagli regola di avviso** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
 
     | Impostazioni | Valore |
     | --- | --- |
     | Nome regola di avviso | **Percentuale CPU superiore alla soglia di test** |
-    | Descrizione | **Percentuale CPU superiore alla soglia di test** |
+    | Descrizione della regola di avviso | **Percentuale CPU superiore alla soglia di test** |
     | Gravità | **Gravità 3** |
-    | Abilita regola alla creazione | **Sì** |
+    | Abilita alla creazione | **Sì** |
 
-1. Fare clic su **Crea regola di avviso**.
+1. Fare clic su **Rivedi e crea** e quindi nella scheda **Rivedi e crea** fare clic su **Crea**.
 
     >**Nota**: possono essere necessari fino a 10 minuti prima che una regola di avviso per una metrica diventi attiva.
 
@@ -255,7 +257,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
 
 1. Nella sessione di Desktop remoto fare clic su **Start**, espandere la cartella **Sistema Windows** e fare clic su **Prompt dei comandi**.
 
@@ -283,7 +285,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota**: potrebbe essere necessario fare clic su **Attività iniziali** se è la prima volta che si accede a Log Analytics.
 
-1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** selezionare la scheda **Recenti**, selezionare **az104-11-vm0** e fare clic su **Applica**.
+1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** selezionare la scheda **Recenti**, selezionare **az104-11-rg0** e fare clic su **Applica**.
 
 1. Nella finestra delle query incollare la query seguente, fare clic su **Esegui** ed esaminare il grafico risultante:
 
@@ -297,7 +299,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
    | render timechart
    ```
 
-1. Fare clic su **Query** nella barra degli strumenti, nel riquadro **Query** individuare il riquadro **Rileva disponibilità macchina virtuale**, fare clic sul pulsante **Esegui** ed esaminare i risultati.
+1. Fare clic su **Query** nella barra degli strumenti, nel riquadro **Query** individuare **Rileva disponibilità macchina virtuale** e fare doppio clic sul riquadro per compilare la finestra della query, fare clic sul pulsante **Esegui** nel riquadro ed esaminare i risultati.
 
 1. Nella scheda **Nuova query 1** selezionare l'intestazione **Tabelle** ed esaminare l'elenco delle tabelle nella sezione **Macchine virtuali**.
 
@@ -311,7 +313,9 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

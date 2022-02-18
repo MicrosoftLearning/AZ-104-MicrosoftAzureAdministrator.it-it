@@ -2,12 +2,12 @@
 lab:
   title: 08 - Gestire le macchine virtuali
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: fb6a8f1cb5df9a0878873abb3eae619ca5d374b5
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 9e4b575e699f28b97555ce92df3ca4d3309d3cd3
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625605"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356626"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -45,7 +45,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
 1. Accedere al [portale di Azure](http://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **+ Crea**.
+1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **+ Crea** e poi su **+ Macchina virtuale**.
 
 1. Nella scheda **Informazioni di base** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -56,12 +56,12 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Nome macchina virtuale | **az104-08-vm0** |
     | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning delle macchine virtuali di Azure |
     | Opzioni di disponibilità | **Zona di disponibilità** |
-    | Zona di disponibilità | **1** |
+    | Zona di disponibilità | **Zona 1** |
     | Immagine | **Windows Server 2019 Datacenter - Gen1/Gen2** |
     | Istanza Spot di Azure | **No** |
     | Dimensione | **Standard D2s v3** |
     | Username | **Studente** |
-    | Password | **Pa55w.rd1234** |
+    | Password | **Specificare una password sicura** |
     | Porte in ingresso pubbliche | **Nessuno** |
     | Usare una licenza esistente di Windows Server? | **No** |
 
@@ -118,13 +118,14 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Resource group | **az104-08-rg01** |
+    | Gruppo di risorse | **az104-08-rg01** |
     | Nome interfaccia di rete | **az104-08-vm1-nic1** |
     | Nome indirizzo IP pubblico | **az104-08-vm1-ip** |
     | Nome macchina virtuale | **az104-08-vm1** |
     | Nome computer macchina virtuale | **az104-08-vm1** |
+    | Virtual Machine RG | **az104-08-rg01** |    
     | Nome utente amministratore | **Studente** |
-    | Password amministratore | **Pa55w.rd1234** |
+    | Password amministratore | **Specificare una password sicura**  |
     | EnableHotpatching | **false** |
     | Zona | **2** |
 
@@ -157,15 +158,15 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-08-vm0**.
 
-1. Nel pannello della macchina virtuale **az104-08-vm0**, nella sezione **Impostazioni**, fare clic su **Estensioni** e quindi su **+ Aggiungi**.
+1. Nel pannello della macchina virtuale **az104-08-vm0**, nella sezione **Impostazioni**, fare clic su **Estensioni e applicazioni**, quindi su **+ Aggiungi**.
 
-1. Nel pannello **Nuova risorsa** fare clic su **Estensione per script personalizzati** e quindi su **Crea**.
+1. Nel pannello **Installa un'estensione** fare clic su **Estensione per script personalizzati** e quindi su **Avanti**.
 
-1. Nel pannello **Installa estensione** fare clic su **Sfoglia**.
+1. Nel pannello **Configura estensione script personalizzata** fare clic su **Sfoglia**.
 
 1. Nel pannello **Account di archiviazione** fare clic sul nome dell'account di archiviazione in cui è stato caricato lo script **az104-08-install_IIS.ps1**, nel pannello **Contenitori** fare clic su **scripts**,nel pannello **scripts** fare clic su **az104-08-install_IIS.ps1** e quindi su **Seleziona**.
 
-1. Tornare nel pannello **Installa estensione**, fare clic su **Rivedi e crea** e quindi su **Crea**.
+1. Nel pannello **Installa estensione** fare clic su **Rivedi e crea** e nel **pannello Rivedi e crea** fare clic su **Crea**.
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-08-vm1**.
 
@@ -288,7 +289,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     >**Nota**: questa sezione del modello definisce le stesse dimensioni della macchina virtuale di Azure specificate per la prima macchina virtuale tramite il portale di Azure.
 
-1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **50** `"dataDisks": [ ]` con la riga seguente:
+1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **51** (riga `"dataDisks": [ ]`) con il codice seguente:
 
    ```json
                     "dataDisks": [
@@ -314,7 +315,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
     >**Nota**: questa sezione del modello crea due dischi gestiti e li collega a **az104-08-vm1**, in modo simile alla configurazione della risorsa di archiviazione della prima macchina virtuale tramite il portale di Azure.
 
 
-1. Fare clic su Salva, tornare nel pannello Modello personalizzato e fare clic su Rivedi e crea, quindi nel pannello Rivedi e crea fare clic su Crea.
+1. Fare clic su **Salva**, tornare nel pannello **Distribuzione personalizzata** e fare clic su **Rivedi e crea**, quindi nel pannello **Rivedi e crea** fare clic su **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione del modello. È possibile monitorarne lo stato di avanzamento nel pannello **Dischi** della macchina virtuale **az104-08-vm1**. Questa operazione non dovrebbe richiedere più di 3 minuti.
 
@@ -369,7 +370,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Istanza Spot di Azure | **No** |
     | Dimensione | **Standard D2s_v3** |
     | Username | **Studente** |
-    | Password | **Pa55w.rd1234** |
+    | Password | **Specificare una password sicura**  |
     | Si dispone già di una licenza di Windows Server? | **No** |
 
     >**Nota**: per l'elenco delle aree di Azure che supportano la distribuzione di macchine virtuali Windows nelle zone di disponibilità, vedere [Che cosa sono le zone di disponibilità in Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
@@ -481,7 +482,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Nel pannello **Nuova risorsa** fare clic su **Estensione per script personalizzati** e quindi su **Avanti**.
 
-1. Nel pannello **Installa estensione** scegliere **Sfoglia** e **Seleziona** per individuare e selezionare lo script **az104-08-install_IIS.ps1** caricato nel contenitore **scripts** nell'account di archiviazione in precedenza in questa attività, quindi fare clic su **OK**.
+1. Nel pannello **Installa estensione** scegliere **Sfoglia** e **Seleziona** per individuare e selezionare lo script **az104-08-install_IIS.ps1** caricato nel contenitore **scripts** nell'account di archiviazione in precedenza in questa attività, quindi fare clic su **Crea**.
 
     >**Nota**: attendere il completamento dell'installazione dell'estensione prima di proseguire al passaggio successivo.
 
@@ -619,8 +620,9 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
 1. Rimuovere az104-08-configure_VMSS_disks.ps1 eseguendo il comando seguente:

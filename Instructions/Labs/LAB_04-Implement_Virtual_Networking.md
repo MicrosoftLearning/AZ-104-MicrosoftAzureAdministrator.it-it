@@ -2,12 +2,12 @@
 lab:
   title: 04 - Implementare la rete virtuale
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: 9d2583d5e99f9c6e69ac44c397f1754cb2c4b5cb
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 8ecc8c5090c63b21a641311bde4117538cb1af7c
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625610"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356680"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
 
@@ -101,7 +101,9 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: potrebbe essere necessario caricare ogni file separatamente.
 
-1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri caricati:
+1. Modificare il file dei parametri e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+
+1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
 
    ```powershell
    $rgName = 'az104-04-rg1'
@@ -115,6 +117,13 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
     >**Nota**: questo metodo di distribuzione dei modelli di ARM usa Azure PowerShell. È possibile eseguire la stessa attività eseguendo il comando equivalente **az deployment create** dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Distribuire risorse con modelli di Resource Manager e l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli).
 
     >**Nota**: attendere il completamento dell'operazione prima di passare all'attività successiva. L'operazione richiede circa 2 minuti.
+
+    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili nell'area, seguire questa procedura:
+    > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
+    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
+    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
+    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -223,7 +232,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Tornare al pannello della macchina virtuale **az104-04-vm0**.
 
-    >**Nota**: nei passaggi successivi si verificherà che sia possibile connettersi alla macchina virtuale di destinazione ed eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+    >**Nota**: nei passaggi successivi si verificherà se è possibile connettersi correttamente alla macchina virtuale di destinazione.
 
 1. Nel pannello **az104-04-vm0** fare clic su **Connetti**, fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** usando l'indirizzo IP pubblico e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
@@ -231,7 +240,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere con il nome utente e la password riportati nel file dei parametri.
 
     >**Nota**: lasciare aperta la sessione di Desktop remoto. Sarà necessario nell'attività successiva.
 
@@ -249,7 +258,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
     | Gruppo di risorse | **az104-04-rg1** |
     | Nome | **contoso.org** |
 
-1. Fare clic su Rivedi e crea. Attendere il completamento della convalida e fare di nuovo clic su Crea per inviare la distribuzione.
+1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
 
     >**Nota**: attendere il completamento della creazione di zona DNS privato. L'operazione richiede circa 2 minuti.
 
@@ -305,7 +314,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
     | Gruppo di risorse | **az104-04-rg1** |
     | Nome | Nome di dominio DNS identificato in precedenza in questa attività |
 
-1. Fare clic su Rivedi e crea. Attendere il completamento della convalida e fare di nuovo clic su Crea per inviare la distribuzione.
+1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
 
     >**Nota**: attendere il completamento della creazione di zona DNS. L'operazione richiede circa 2 minuti.
 
@@ -363,7 +372,9 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+ > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+ > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
