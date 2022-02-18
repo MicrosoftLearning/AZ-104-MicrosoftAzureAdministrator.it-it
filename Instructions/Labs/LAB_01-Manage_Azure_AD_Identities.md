@@ -2,12 +2,12 @@
 lab:
   title: 01 - Gestire le identità di Azure Active Directory
   module: Module 01 - Identity
-ms.openlocfilehash: 217ce45f10a687f1d467d5cf7f36df0e26e001e4
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: bbcb79f00eb6988e6f53491a7b2b05207d452631
+ms.sourcegitcommit: 7291b4cdd429e19c354735ba665d7b635281774c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356674"
+ms.lasthandoff: 02/14/2022
+ms.locfileid: "138624578"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 - Gestire le identità di Azure Active Directory
 
