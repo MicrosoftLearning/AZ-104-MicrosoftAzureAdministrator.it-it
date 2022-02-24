@@ -2,12 +2,12 @@
 lab:
   title: 08 - Gestire le macchine virtuali
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: 9e4b575e699f28b97555ce92df3ca4d3309d3cd3
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: ffbf2e848a5f987d09e9dd6e427ab6783e56a494
+ms.sourcegitcommit: 804bc72bbddb8b0c0259a76ee21ee46e86ff36b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356626"
+ms.lasthandoff: 02/22/2022
+ms.locfileid: "139132836"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -122,7 +122,6 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Nome interfaccia di rete | **az104-08-vm1-nic1** |
     | Nome indirizzo IP pubblico | **az104-08-vm1-ip** |
     | Nome macchina virtuale | **az104-08-vm1** |
-    | Nome computer macchina virtuale | **az104-08-vm1** |
     | Virtual Machine RG | **az104-08-rg01** |    
     | Nome utente amministratore | **Studente** |
     | Password amministratore | **Specificare una password sicura**  |
