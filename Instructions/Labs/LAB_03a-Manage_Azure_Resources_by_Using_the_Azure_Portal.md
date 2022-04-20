@@ -2,12 +2,12 @@
 lab:
   title: 03a - Gestire le risorse di Azure tramite il portale di Azure
   module: Module 03 - Azure Administration
-ms.openlocfilehash: e3327afd10833f5357c8c0d7a62b71cbb9aa3f4e
-ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
+ms.openlocfilehash: 38ca9fa2ec16f786824e7ba5b27bb194f31f7d7b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2022
-ms.locfileid: "138110880"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611540"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -32,15 +32,13 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="instructions"></a>Istruzioni
 
->**Nota**:  creare sempre la propria password sicura per qualsiasi macchina virtuale o account utente creato. Se la macchina virtuale viene creata automaticamente, usare **Reimposta password** nel portale per aggiornare la password. 
-
 ### <a name="exercise-1"></a>Esercizio 1
 
 #### <a name="task-1-create-resource-groups-and-deploy-resources-to-resource-groups"></a>Attività 1: Creare gruppi di risorse e distribuire risorse al loro interno
 
 In questa attività si userà il portale di Azure per creare gruppi di risorse e un disco al loro interno.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
@@ -96,7 +94,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-1. Fare clic su **Vai alla risorsa**. 
+1. Fare clic su **Vai alla risorsa**.
 
 1. Nella pagina Panoramica del disco fare clic sul nome del gruppo di risorse, **az104-03a-rg3**.
 

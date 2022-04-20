@@ -2,12 +2,12 @@
 lab:
   title: 03b - Gestire le risorse di Azure usando i modelli di ARM
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 99b5c435e5e2bcaf4df7bc2a6173e6c546abe131
-ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
+ms.openlocfilehash: 602da542fdf20f6b1be637e792ec47daaa0de04b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2022
-ms.locfileid: "138110895"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611552"
 ---
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -31,15 +31,13 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="instructions"></a>Istruzioni
 
-> **Nota**:  creare sempre la propria password sicura per qualsiasi macchina virtuale o account utente creato. Se la macchina virtuale viene creata automaticamente, usare **Reimposta password** nel portale per aggiornare la password. 
-
 ### <a name="exercise-1"></a>Esercizio 1
 
 #### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
 
 In questa attività si creerà una risorsa disco di Azure usando un modello di Azure Resource Manager.
 
-1. Accedere al [**portale di Azure**](https://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 
 
