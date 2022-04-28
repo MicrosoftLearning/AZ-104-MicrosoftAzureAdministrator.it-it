@@ -2,12 +2,12 @@
 lab:
   title: 03b - Gestire le risorse di Azure usando i modelli di ARM
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 4d50e205d76db7bfeffd89a970ffcb42bd9c2f42
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 602da542fdf20f6b1be637e792ec47daaa0de04b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625525"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611552"
 ---
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -37,7 +37,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si creerà una risorsa disco di Azure usando un modello di Azure Resource Manager.
 
-1. Accedere al [**portale di Azure**](https://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 
 
@@ -67,11 +67,9 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
 1. Nel portale di Azure cercare e selezionare **Distribuisci un modello personalizzato**.
 
-1. Fare clic sull'opzione **Distribuzione modelli (distribuzione tramite modelli personalizzati)** disponibile nel gruppo **Marketplace**.
-
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Creare un modello personalizzato nell'editor**.
 
-1. Nel pannello **Modifica modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
+1. Nel pannello **Modifica del modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
 
 1. Nel riquadro dell'editor rimuovere le righe seguenti:
 
@@ -114,7 +112,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
     | Area geografica | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
-    | Posizione | Il valore del parametro Posizione annotato nell'attività precedente |
+    | Posizione | Il valore del parametro location annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |

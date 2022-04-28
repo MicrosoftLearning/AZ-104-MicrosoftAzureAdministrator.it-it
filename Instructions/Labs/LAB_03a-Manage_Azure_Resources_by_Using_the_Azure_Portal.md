@@ -2,12 +2,12 @@
 lab:
   title: 03a - Gestire le risorse di Azure tramite il portale di Azure
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 97557c4fb2b6730986a1dda9b25663d6ce08c8d2
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 38ca9fa2ec16f786824e7ba5b27bb194f31f7d7b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625561"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611540"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -38,9 +38,9 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si userà il portale di Azure per creare gruppi di risorse e un disco al loro interno.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Aggiungi, + Crea o + Nuovo** e specificare le impostazioni seguenti:
+1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
     |Impostazione|Valore|
     |---|---|
@@ -79,7 +79,7 @@ In questa attività la risorsa disco creata nell'attività precedente verrà spo
 
 In questa attività si applicherà un blocco a un gruppo di risorse di Azure contenente una risorsa disco.
 
-1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Aggiungi, + Crea o + Nuovo** e specificare le impostazioni seguenti:
+1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
     |Impostazione|Valore|
     |---|---|
@@ -94,7 +94,9 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-1. Fare clic su Vai alla risorsa. 
+1. Fare clic su **Vai alla risorsa**.
+
+1. Nella pagina Panoramica del disco fare clic sul nome del gruppo di risorse, **az104-03a-rg3**.
 
 1. Nel pannello del gruppo di risorse **az104-03a-rg3** fare clic su **Blocchi**, quindi su **+ Aggiungi** e specificare le impostazioni seguenti:
 

@@ -2,12 +2,12 @@
 lab:
   title: 09a - Implementare app Web
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: 41e7aef9f7d98adeb829618ce0c806116a6cf2df
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: af243b0cfa2b011dd419516139b5200ba349bcb4
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625585"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356614"
 ---
 # <a name="lab-09a---implement-web-apps"></a>Lab 09a - Implementare app Web
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -45,7 +45,7 @@ In questa attività verrà creata un'app Web di Azure.
 
 1. Nel portale di Azure cercare e selezionare **Servizi app** e nel pannello **Servizi app** fare clic su **+ Crea**.
 
-1. Nella scheda **Informazioni di base** del pannello **App Web** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
+1. Nella scheda **Informazioni di base** del pannello **Crea app Web** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
     | Impostazione | Valore |
     | --- | ---|
@@ -53,7 +53,7 @@ In questa attività verrà creata un'app Web di Azure.
     | Resource group | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
-    | Stack di runtime | **PHP 7.3** |
+    | Stack di runtime | **PHP 7.4** |
     | Sistema operativo | **Windows** |
     | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
     | App service plan (Piano di servizio app) | Accettare la configurazione predefinita |
@@ -70,7 +70,7 @@ In questa attività verrà creato uno slot di distribuzione di staging.
 
 1. Nel pannello dell'app Web appena distribuita fare clic sul collegamento dell'**URL** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
-1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Deployment slot** (Aggiungi uno slot di distribuzione).
+1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Slot di distribuzione**.
 
     >**Nota**: a questo punto l'app Web include un singolo slot di distribuzione con etichetta **PRODUCTION**.
 
@@ -210,6 +210,8 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Fare clic su **Save** (Salva).
 
+    >**Nota**: se si verifica un errore che indica che il provider di risorse "microsoft.insights" non è registrato, eseguire `az provider register --namespace 'Microsoft.Insights'` in Cloud Shell e riprovare a salvare le regole di scalabilità automatica.
+
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
 1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
@@ -242,7 +244,9 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

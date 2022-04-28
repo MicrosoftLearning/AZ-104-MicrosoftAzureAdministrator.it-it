@@ -2,12 +2,12 @@
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: c40198c6ac35367455f84c22411b91f69b66a34d
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: f5a00c4a985ba88fa839c308bc6bb16de72561d2
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625598"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356662"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -66,7 +66,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello del gruppo di risorse fare clic su **Tag**.
+1. Nel pannello del gruppo di risorse fare clic su **Fare clic qui per aggiungere i tag**.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
@@ -127,7 +127,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Tornare nel pannello del gruppo di risorse che ospita l'account di archiviazione usato per l'unità home di Cloud Shell, identificato nell'attività precedente.
 
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare Account di archiviazione e fare clic su **+ Crea**. 
+1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), fare clic su **Rivedi e crea** e quindi su **Crea**:
 
@@ -139,7 +139,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota**: verificare se il messaggio di errore indica che la distribuzione della risorsa non è consentita dai criteri. 
 
-    >**Nota:** facendo clic scheda **Errore raw**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
+    >**Nota**: facendo clic sulla scheda **Tag**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value** (Richiedi tag ruolo con valore Infra). La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
@@ -191,7 +191,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Tornare nel pannello del gruppo di risorse che ospita l'account di archiviazione usato per l'unità home di Cloud Shell, identificato nella prima attività.
 
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare Account di archiviazione e fare clic su **+ Crea**. 
+1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi fare clic su **Rivedi e crea**:
 
@@ -205,9 +205,9 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 #### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. 
-
-   >**Nota**: la rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
+   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
+   
+   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale cercare e selezionare **Criteri**.
 
@@ -217,9 +217,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nell'elenco degli account di archiviazione selezionare il gruppo di risorse corrispondente all'account di archiviazione creato nell'ultima attività del lab. Selezionare **Tag**, fare clic su **Elimina** (il cestino a destra) per il tag **Role:Infra** e premere **Applica**. 
 
-1. Nel portale cercare e selezionare di nuovo **Account di archiviazione** oppure usare il menu nella parte superiore per selezionare **Account di archiviazione**
-
-1. Nell'elenco selezionare l'account di archiviazione creato nell'ultima attività del lab, fare clic su **Elimina** e quindi, quando viene richiesta la conferma in **Conferma eliminazione**, digitare **sì** e fare clic su **Elimina**. 
+1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
 
 #### <a name="review"></a>Verifica
 

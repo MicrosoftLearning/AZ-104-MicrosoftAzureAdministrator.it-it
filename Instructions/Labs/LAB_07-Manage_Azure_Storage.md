@@ -2,12 +2,12 @@
 lab:
   title: 07 - Gestire Archiviazione di Azure
   module: Module 07 - Azure Storage
-ms.openlocfilehash: c0889dabc4b190ff83c077cb6d74d4ead7541c62
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 3a848e898f1bb92cb93623760086dcea634a2208
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625587"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356602"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -52,20 +52,25 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** e **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** nella home directory di Cloud Shell.
 
-1. Nel riquadro Cloud Shell eseguire quanto segue per creare il gruppo di risorse che ospiterà la macchina virtuale. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire la macchina virtuale di Azure
+1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+
+1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà la macchina virtuale. Sostituire il segnaposto "[Azure-region]" con il nome di un'area di Azure in cui si intende distribuire la macchina virtuale di Azure
 
     >**Nota**: per elencare i nomi delle aree di Azure, eseguire `(Get-AzLocation).Location`
     >**Nota**: ogni comando seguente deve essere digitato separatamente
 
-   ```powershell
-   $location = '[Azure_region]'
+    ```powershell
+    $location = '[Azure_region]'
+    ```
   
-  ```powershell
-   $rgName = 'az104-07-rg0'
- 
- ```powershell
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
+    ```powershell
+     $rgName = 'az104-07-rg0'
+    ```
+
+    ```powershell
+    New-AzResourceGroup -Name $rgName -Location $location
+    ```
+    
 1. Nel riquadro Cloud Shell eseguire quanto segue per distribuire la macchina virtuale usando i file di modello e parametri caricati:
 
    ```powershell
@@ -93,7 +98,7 @@ In questa attività verrà creato e configurato un account di archiviazione di A
     | Sottoscrizione | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-07-rg1** |
     | Nome account di archiviazione | Qualsiasi nome univoco globale composto da 3-24 lettere e numeri |
-    | Posizione | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
+    | Region | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
     | Prestazioni | **Standard** |
     | Ridondanza | **Archiviazione con ridondanza geografica (GRS)** |
 
@@ -205,7 +210,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Nel pannello **az104-07-container** fare clic su **Controllo di accesso (IAM)** .
 
-1. Nella sezione **Aggiungi** fare clic su **Aggiungi un'assegnazione di ruolo**.
+1. Nella scheda **Verifica l'accesso** fare clic su **Aggiungi un'assegnazione di ruolo**.
 
 1. Nel pannello **Aggiungi un'assegnazione di ruolo** specificare le impostazioni seguenti:
 
@@ -215,7 +220,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
     | Assegna accesso a | **Utente, gruppo o entità servizio** |
     | Membri | Il nome dell'account utente |
 
-1. Fare clic su 'Verifica e assegna' e quindi su 'Verifica e assegna', poi tornare nel pannello **Panoramica** del contenitore **az104-07-container** e verificare che sia possibile impostare il metodo di autenticazione su Passa all'account utente Azure AD.
+1. Fare clic su **Verifica e assegna** e quindi su **Verifica e assegna**, poi tornare nel pannello **Panoramica** del contenitore **az104-07-container** e verificare che sia possibile impostare il metodo di autenticazione su (Passa all'account utente Azure AD).
 
     > **Nota**: possono essere necessari circa 5 minuti prima che la modifica diventi effettiva.
 
@@ -279,7 +284,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
     > **Nota**: questo comportamento è previsto, perché ci si connette dal proprio indirizzo IP client.
 
-1. Chiudere la finestra del browser in modalità InPrivate e tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure.
+1. Chiudere la finestra del browser in modalità InPrivate e tornare nella finestra del browser in cui è visualizzato il pannello **Rete** dell'account di archiviazione di Azure.
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -298,7 +303,9 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. È anche possibile provare a eliminare il gruppo di risorse in cui si trovano le risorse. Si tratta di un collegamento rapido per l'amministratore. In caso di dubbi, parlare con l'insegnante.
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

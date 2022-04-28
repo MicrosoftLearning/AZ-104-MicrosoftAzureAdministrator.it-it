@@ -2,12 +2,12 @@
 lab:
   title: 09c - Implementare il servizio Azure Kubernetes
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: a46f97bb5112e5f79d98c1f3bb13ef3bdbbb7c43
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: d0460064e03b1fdfe011e2cac44c8a8b09096080
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625592"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356596"
 ---
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Lab 09c - Implementare il servizio Azure Kubernetes
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -97,7 +97,7 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Configurazione di rete | **kubenet** |
     | Prefisso nome DNS | Qualsiasi nome host DNS valido e univoco a livello globale |
 
-1. Fare clic su **Avanti: Integrazioni >** , nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** impostare **Monitoraggio contenitori** su **Disabilitato**, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su Crea.
+1. Fare clic su **Avanti: Integrazioni >** , nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** impostare **Monitoraggio contenitori** su **Disabilitato**, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
 
     >**Nota:** negli scenari di produzione è necessario abilitare il monitoraggio. Il monitoraggio è disabilitato in questo caso perché non è trattato nel lab.
 
@@ -242,7 +242,9 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione shell **Bash** all'interno del riquadro **Cloud Shell**.
 

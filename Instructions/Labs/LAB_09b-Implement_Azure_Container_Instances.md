@@ -2,12 +2,12 @@
 lab:
   title: 09b - Implementare Istanze di Azure Container
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: 2783bb606e0536ec7ef53d4966d07064392c6421
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 603b8b0b4777e3879c00f95771e519a5843ccbac
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625518"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356608"
 ---
 # <a name="lab-09b---implement-azure-container-instances"></a>Lab 09b - Implementare Istanze di Azure Container
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -84,7 +84,9 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

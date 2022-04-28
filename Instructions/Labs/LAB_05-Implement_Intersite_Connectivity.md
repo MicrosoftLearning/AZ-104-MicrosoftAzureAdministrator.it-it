@@ -2,12 +2,12 @@
 lab:
   title: 05 - Implementare la connettività tra siti
   module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: 609831e709135d4ba5a46178f9d0c173cf13a9d2
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: ed67186af743d7733e0f106aecf239fce15aa45f
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625601"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356668"
 ---
 # <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -45,6 +45,8 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** e **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** nella home directory di Cloud Shell.
+
+1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in `[Azure_region_1]`. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area `[Azure_region_2]`. Sostituire i segnaposto `[Azure_region_1]` e `[Azure_region_2]` con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure:
 
@@ -208,7 +210,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri. 
 
 1. Nella sessione di Desktop remoto in **az104-05-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
 
@@ -238,7 +240,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, eseguire l'accesso usando il nome utente **Student** e la password **Pa55w.rd1234**.
+1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri. 
 
 1. Nella sessione di Desktop remoto in **az104-05-vm1**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
 
@@ -254,7 +256,9 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

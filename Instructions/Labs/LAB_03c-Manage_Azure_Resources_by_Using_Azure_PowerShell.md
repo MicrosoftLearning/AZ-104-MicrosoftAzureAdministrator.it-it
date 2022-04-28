@@ -2,12 +2,12 @@
 lab:
   title: 03c - Gestire le risorse di Azure usando Azure PowerShell
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 21cf825001d2b28cd3321b5ef3e478beddb10a08
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 4210a06af5b873e1031e2224239dd8738e97f23d
+ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625523"
+ms.lasthandoff: 02/08/2022
+ms.locfileid: "138110894"
 ---
 # <a name="lab-03c---manage-azure-resources-by-using-azure-powershell"></a>Lab 03c - Gestire le risorse di Azure usando Azure PowerShell
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -31,6 +31,8 @@ In questo lab si eseguiranno le attività seguenti:
 ![image](../media/lab03c.png)
 
 ## <a name="instructions"></a>Istruzioni
+
+> **Nota**:  creare sempre la propria password sicura per qualsiasi macchina virtuale o account utente creato. Se la macchina virtuale viene creata automaticamente, usare **Reimposta password** nel portale per aggiornare la password. 
 
 ### <a name="exercise-1"></a>Esercizio 1
 

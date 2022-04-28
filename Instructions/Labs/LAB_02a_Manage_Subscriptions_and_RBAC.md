@@ -2,12 +2,12 @@
 lab:
   title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 657e62b4bc0a34da0748c95922d2e3f4868a21c3
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: ec35201e545c0100809124c8a0d6164c9b36b363
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625565"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356686"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -107,6 +107,7 @@ In questa attività si creerà una definizione di un ruolo Controllo degli acces
       ]
    }
    ```
+    > **Nota**: se non si è certi della posizione in cui i file vengono archiviati in locale nell'ambiente lab, rivolgersi all'insegnante.
 
 1. Sostituire il segnaposto `SUBSCRIPTION_ID` nel file JSON con l'ID sottoscrizione copiato negli Appunti e salvare la modifica.
 
@@ -139,13 +140,13 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
     | Nome utente | **az104-02-aaduser1**|
     | Nome | **az104-02-aaduser1**|
     | Consenti la creazione manuale della password | Enabled |
-    | Password iniziale | **Pa55w.rd1234** |
+    | Password iniziale | **Specificare una password sicura** |
 
     >**Nota**: **copiare negli Appunti** il valore completo di **Nome utente**. Sarà necessario più avanti in questa attività.
 
 1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
 
-1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Assegnazione ruolo** e assegnare il ruolo **Collaboratore richiesta di supporto** (personalizzato) all'account utente appena creato.
+1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Aggiungi un'assegnazione di ruolo** e assegnare il ruolo **Collaboratore richiesta di supporto (personalizzato)** all'account utente appena creato.
 
 1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
 
@@ -167,9 +168,9 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. 
+   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
 
-   >**Nota**: la rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
+   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia.
 
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**, quindi nel pannello Azure Active Directory fare clic su **Utenti**.
 
