@@ -2,12 +2,12 @@
 lab:
   title: 04 - Implementare la rete virtuale
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: 8ecc8c5090c63b21a641311bde4117538cb1af7c
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: ec7ee419dbce3194b01ee958f9356f48e4d1a054
+ms.sourcegitcommit: 2eea188057ba31af18c9569e14e76e9edfcf4bcd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356680"
+ms.lasthandoff: 04/27/2022
+ms.locfileid: "144334701"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
 
@@ -193,6 +193,10 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     >**Nota**: questo comportamento è previsto perché gli indirizzi IP pubblici di Standard SKU, per impostazione predefinita, richiedono che le interfacce di rete a cui sono assegnati siano protette da un gruppo di sicurezza di rete. Per consentire le connessioni Desktop remoto, verrà creato un gruppo di sicurezza di rete che consente esplicitamente il traffico RDP in ingresso da Internet e lo assegna alle interfacce di rete di entrambe le macchine virtuali.
 
+1. Arrestare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
+
+    >**Nota**: questa operazione viene eseguita per comodità per il lab. Se le macchine virtuali sono in esecuzione quando un gruppo di sicurezza di rete viene collegato all'interfaccia di rete, per rendere effettivo il collegamento possono essere richiesti più di 30 minuti. Dopo aver creato e collegato il gruppo di sicurezza di rete, le macchine virtuali verranno riavviate e il collegamento diventerà effettivo immediatamente.
+
 1. Nel portale di Azure cercare e selezionare **Gruppi di sicurezza di rete** e nel pannello **Gruppi di sicurezza di rete** fare clic su **+ Crea**.
 
 1. Creare un gruppo di sicurezza di rete con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
@@ -229,6 +233,8 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 1. Associare il gruppo di sicurezza di rete **az104-04-nsg01** alle interfacce di rete **az104-04-nic0** e **az104-04-nic1**.
 
     >**Nota**: l'applicazione delle regole del gruppo di sicurezza di rete appena creato alla scheda di interfaccia di rete può richiedere fino a 5 minuti.
+
+1. Avviare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
 
 1. Tornare al pannello della macchina virtuale **az104-04-vm0**.
 
@@ -300,7 +306,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 In questa attività verrà configurata la risoluzione dei nomi DNS esterni mediante le zone DNS pubblico di Azure.
 
-1. Nel Web browser nel sistema del lab **SEA-DEV** aprire una nuova scheda e passare a <https://www.godaddy.com/domains/domain-name-search>.
+1. In un Web browser aprire una nuova scheda e passare a <https://www.godaddy.com/domains/domain-name-search>.
 
 1. Usare la ricerca del nome di dominio per identificare un nome di dominio non in uso.
 
