@@ -2,12 +2,12 @@
 lab:
   title: 04 - Implementare la rete virtuale
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: ec7ee419dbce3194b01ee958f9356f48e4d1a054
-ms.sourcegitcommit: 2eea188057ba31af18c9569e14e76e9edfcf4bcd
+ms.openlocfilehash: 3e021d4f7a70f7fb7607cbca2c245cfe06f2489e
+ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2022
-ms.locfileid: "144334701"
+ms.lasthandoff: 05/04/2022
+ms.locfileid: "144556908"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
 
@@ -118,7 +118,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: attendere il completamento dell'operazione prima di passare all'attività successiva. L'operazione richiede circa 2 minuti.
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili nell'area, seguire questa procedura:
+    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi:
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
     > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.

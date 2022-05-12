@@ -2,12 +2,12 @@
 lab:
   title: 07 - Gestire Archiviazione di Azure
   module: Module 07 - Azure Storage
-ms.openlocfilehash: 3a848e898f1bb92cb93623760086dcea634a2208
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: c1c918fcdb20cac2adead5d0764dadeda6e1705a
+ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356602"
+ms.lasthandoff: 05/04/2022
+ms.locfileid: "144556893"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -82,6 +82,13 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
    ```
 
     >**Nota**: non attendere il completamento delle distribuzioni, ma procedere con l'attività successiva.
+
+    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
+    > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-07-vm-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
+    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
+    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
+    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
 
 1. Chiudere il riquadro Cloud Shell.
 
