@@ -2,12 +2,12 @@
 lab:
   title: 03a - Gestire le risorse di Azure tramite il portale di Azure
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 38ca9fa2ec16f786824e7ba5b27bb194f31f7d7b
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
+ms.openlocfilehash: 020f28742779dab36777e2ae7b8bddb43ebb46be
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611540"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937812"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -47,7 +47,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
     |Subscription| Nome della sottoscrizione di Azure in cui è stato creato il gruppo di risorse |
     |Gruppo di risorse| Il nome di un nuovo gruppo di risorse **az104-03a-rg1** |
     |Nome del disco| **az104-03a-disk1** |
-    |Region| Il nome dell'area di Azure in cui è stato creato il gruppo di risorse |
+    |Region| **(Stati Uniti) Stati Uniti orientali** |
     |Zona di disponibilità| **Nessuno** |
     |Tipo di origine| **Nessuno** |
 
