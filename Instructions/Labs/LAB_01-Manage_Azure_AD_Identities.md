@@ -2,12 +2,12 @@
 lab:
   title: 01 - Gestire le identità di Azure Active Directory
   module: Module 01 - Identity
-ms.openlocfilehash: bbcb79f00eb6988e6f53491a7b2b05207d452631
-ms.sourcegitcommit: 7291b4cdd429e19c354735ba665d7b635281774c
+ms.openlocfilehash: e63cc3685ae15d3e72feb171b06a9a9ceda5e2ed
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2022
-ms.locfileid: "138624578"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588482"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 - Gestire le identità di Azure Active Directory
 
@@ -276,7 +276,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
 1. Tornare nel pannello **Elimina tenant "Contoso Lab"** , fare clic su **Aggiorna** e su **Elimina**.
 
-> **Nota**: è necessario attendere la scadenza della licenza di valutazione prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
+> **Nota**: se un tenant ha una licenza di valutazione, è necessario attendere la scadenza di tale licenza prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
 
 #### <a name="review"></a>Verifica
 

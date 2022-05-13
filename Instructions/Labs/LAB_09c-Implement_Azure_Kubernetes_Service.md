@@ -2,12 +2,12 @@
 lab:
   title: 09c - Implementare il servizio Azure Kubernetes
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: d0460064e03b1fdfe011e2cac44c8a8b09096080
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 42e43fa916e61988df87b3188fba59ab7b57652e
+ms.sourcegitcommit: dd61587ee547d5efa09ad0a63c0b2af272ee1e55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356596"
+ms.lasthandoff: 03/31/2022
+ms.locfileid: "141280825"
 ---
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Lab 09c - Implementare il servizio Azure Kubernetes
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -74,6 +74,7 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Zone di disponibilità | **Nessuna** (deselezionare tutte le caselle) |
     | Versione di Kubernetes | Accettare l'impostazione predefinita |
     | Dimensioni nodo | Accettare l'impostazione predefinita |
+    | Metodo di scalabilità | **Manuale** |
     | Numero di nodi | **1** |
 
 1. Fare clic su **Avanti: Pool di nodi >** e, nella scheda **Pool di nodi** del pannello **Crea cluster Kubernetes**, specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
@@ -81,13 +82,12 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Impostazione | Valore |
     | ---- | ---- |
     | Abilitare i nodi virtuali | **Disabilitato** (impostazione predefinita) |
-    | Abilita set di scalabilità di macchine virtuali | **Abilitato** (impostazione predefinita) |
 
-1. Fare clic su **Avanti: Autenticazione >** e, nella scheda **Autenticazione** del pannello **Crea cluster Kubernetes**, specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
+1. Fare clic su **Avanti: Accesso >** e nella scheda **Accesso** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti, mantenendo i valori predefiniti per le altre:
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Metodo di autenticazione | **Identità gestita assegnata dal sistema** (impostazione predefinita) | 
+    | Metodo di autenticazione | **Identità gestita assegnata dal sistema** (impostazione predefinita, nessuna modifica) | 
     | Controllo degli accessi in base al ruolo | **Enabled** |
 
 1. Fare clic su **Avanti: Rete >** e nella scheda **Rete** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti, lasciando i valori predefiniti per le altre:

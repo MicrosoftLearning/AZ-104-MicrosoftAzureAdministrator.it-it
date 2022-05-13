@@ -2,12 +2,12 @@
 lab:
   title: 10 - Implementare la protezione dei dati
   module: Module 10 - Data Protection
-ms.openlocfilehash: 86a5caf061d92bbba64386599ac0a9c073d408ba
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 28884df63a3efefa1d426a6fbec194e113cb203b
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356584"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588494"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10 - Eseguire il backup delle macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -55,9 +55,11 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
    ```powershell
    $location = '[Azure_region]'
     ```
+    
    ```powershell
    $rgName = 'az104-10-rg0'
     ```
+    
    ```powershell
    New-AzResourceGroup -Name $rgName -Location $location
    ```
@@ -148,9 +150,9 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
     >**Nota**: attendere il completamento dell'abilitazione del backup. L'operazione richiede circa 2 minuti.
 
-1. Tornare al pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** e nella sezione **Elementi protetti** fare clic su **Elementi di backup**, quindi sulla voce **Macchine virtuali di Azure**.
+1. Tornare al pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** e nella sezione **Elementi protetti** fare clic su **Elementi di backup**, quindi sulla voce **Macchina virtuale di Azure**.
 
-1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** fare clic su **az104-10-vm0** ed esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
+1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** selezionare il collegamento **Visualizza dettagli** per **az104-10-vm0** ed esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
 
 1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Esegui backup ora**, accettare il valore predefinito nell'elenco a discesa **Conserva backup fino a** e fare clic su **OK**.
 
@@ -321,7 +323,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Macchina virtuale di Azure**.
 
-1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** fare clic su **az104-10-vm0**.
+1. Nel pannello **Elementi di backup (Macchina virtuale di Azure)** selezionare **Visualizza dettagli** per **az104-10-vm0**.
 
 1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Ripristino di file**.
 
@@ -367,7 +369,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **Elementi di backup (Azure Backup Agent)** fare clic sulla voce che rappresenta il backup di **az104-10-vm1**.
 
-1. In **C:\\ nel pannello az104-10-vm1.** fare clic su **az104-10-vm1.** la creazione.
+1. In **C:\\ nel pannello az104-10-vm1.** selezionare **Visualizza dettagli** per **az104-10-vm1.** .
 
 1. Nel pannello **az104-10-vm1.** Server protetti fare clic su **Elimina**.
 
@@ -383,11 +385,13 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Abilitare la casella di controllo accanto all'etichetta **Sono presenti dati di backup di 1 elemento di backup associati a questo server. Si è consapevoli che facendo clic su "Conferma" verranno eliminati definitivamente tutti i dati di backup cloud. Questa azione non può essere annullata. È possibile inviare un avviso agli amministratori di questa sottoscrizione per notificare l'eliminazione** e fare clic su **Elimina**.
 
+    >**Nota**: Questa operazione avrà esito negativo perché la funzionalità **Eliminazione temporanea** deve essere disabilitata.
+
 1. Tornare al pannello **az104-10-rsv1 - Elementi di backup** e fare clic su **Macchine virtuali di Azure**.
 
 1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Macchina virtuale di Azure**.
 
-1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** fare clic su **az104-10-vm0**.
+1. Nel pannello **Elementi di backup (Macchina virtuale di Azure)** selezionare **Visualizza dettagli** per **az104-10-vm0**.
 
 1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Interrompi backup**.
 
@@ -413,7 +417,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **az104-10-rsv1 - Proprietà** fare clic sul collegamento **Aggiorna** sotto l'etichetta **Impostazioni di sicurezza**.
 
-1. Nel pannello **Impostazioni di sicurezza** disabilitare l'**Eliminazione temporanea (per carichi di lavoro in esecuzione in Azure)** e fare clic su **Salva**.
+1. Nel pannello **Impostazioni di sicurezza** disabilitare **Eliminazione temporanea (Per i carichi di lavoro in esecuzione in Azure)** e **Funzionalità di sicurezza (Per i carichi di lavoro in esecuzione nell'ambiente locale)** e fare clic su **Salva**.
 
     >**Nota**: questo non influisce sugli elementi già in stato di eliminazione temporanea.
 
@@ -432,6 +436,8 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
     | Digitare il nome dell'elemento di backup | **az104-10-vm0** |
     | Motivo | **Altro** |
     | Commenti | **az104 10 lab** |
+
+1. Ripetere i passaggi all'inizio di questa attività per eliminare gli elementi di backup per **az104-10-vm1**.
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 

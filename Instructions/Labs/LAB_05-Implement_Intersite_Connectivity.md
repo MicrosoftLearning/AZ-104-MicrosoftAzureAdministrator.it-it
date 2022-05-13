@@ -2,12 +2,12 @@
 lab:
   title: 05 - Implementare la connettività tra siti
   module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: ed67186af743d7733e0f106aecf239fce15aa45f
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 6a150d4350a109e955e8b80e18c283c251f74128
+ms.sourcegitcommit: 7ffdffa241b0489dd1c012a36f8ba42393dd9c94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356668"
+ms.lasthandoff: 04/14/2022
+ms.locfileid: "142091967"
 ---
 # <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -48,7 +48,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
-1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in `[Azure_region_1]`. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area `[Azure_region_2]`. Sostituire i segnaposto `[Azure_region_1]` e `[Azure_region_2]` con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure:
+1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in [Azure_region_1]. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area [Azure_region_2]. Sostituire i segnaposto [Azure_region_1] e [Azure_region_2], incluse le parentesi quadre, con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure. Un esempio è $location1 = 'eastus'. È possibile usare Get-AzLocation per elencare tutte le località:
 
    ```powershell
    $location1 = '[Azure_region_1]'

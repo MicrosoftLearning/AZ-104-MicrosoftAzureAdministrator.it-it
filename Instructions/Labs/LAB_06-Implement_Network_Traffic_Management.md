@@ -2,12 +2,12 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 72ac54fe14d64d35e42b524d7d1f57ba1657335a
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 6e082988d8b86ab4548171c24d6af6e7b004d06e
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356620"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588488"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -61,10 +61,12 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
     ```powershell 
     $location = '[Azure_region]'
     ```
+    
     Ora il nome del gruppo di risorse:
     ```powershell
     $rgName = 'az104-06-rg1'
     ```
+    
     Infine, creare il gruppo di risorse nella posizione desiderata:
     ```powershell
     New-AzResourceGroup -Name $rgName -Location $location
@@ -389,7 +391,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Raggiungibile**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Non raggiungibile**, riavviare az104-06-vm0.
+1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Raggiungibile**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Non raggiungibile**, arrestare e quindi riavviare az104-06-vm0.
 
     > **Nota:** questo comportamento è previsto perché il traffico tra reti virtuali spoke viene ora instradato tramite la macchina virtuale che si trova nella rete virtuale hub, che funziona come router.
 

@@ -2,12 +2,12 @@
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: f5a00c4a985ba88fa839c308bc6bb16de72561d2
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: eefaa58ce49ba0e36628d48bcfc5981f40d1bcd8
+ms.sourcegitcommit: 45e0b1e448ecf9cbdda8c7e84384d0d4d90b277f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356662"
+ms.lasthandoff: 03/07/2022
+ms.locfileid: "139275323"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -66,7 +66,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello del gruppo di risorse fare clic su **Fare clic qui per aggiungere i tag**.
+1. Nel pannello del gruppo di risorse fare clic su **modifica** accanto a **Tag** per creare nuovi tag.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 

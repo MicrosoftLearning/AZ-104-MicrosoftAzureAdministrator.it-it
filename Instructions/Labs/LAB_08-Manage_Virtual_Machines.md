@@ -2,12 +2,12 @@
 lab:
   title: 08 - Gestire le macchine virtuali
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: ffbf2e848a5f987d09e9dd6e427ab6783e56a494
-ms.sourcegitcommit: 804bc72bbddb8b0c0259a76ee21ee46e86ff36b3
+ms.openlocfilehash: ee57d0d4dad96e694ca1315b2e0986b57698c08b
+ms.sourcegitcommit: dc0edbf407335d48b9a98636f4119b335d7426e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2022
-ms.locfileid: "139132836"
+ms.lasthandoff: 04/13/2022
+ms.locfileid: "141690892"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -63,14 +63,14 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Username | **Studente** |
     | Password | **Specificare una password sicura** |
     | Porte in ingresso pubbliche | **Nessuno** |
-    | Usare una licenza esistente di Windows Server? | **No** |
+    | Usare una licenza esistente di Windows Server? | **Non selezionato** |
 
 1. Fare clic su **Avanti: Dischi** e quindi nella scheda **Dischi** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
     | Impostazione | Valore |
     | --- | --- |
     | Tipo di disco del sistema operativo | **SSD Premium** |
-    | Abilita compatibilità disco Ultra | **No** |
+    | Abilita compatibilità disco Ultra | **Non selezionato** |
 
 1. Fare clic su **Avanti: Rete >** e quindi, nella scheda **Rete** del pannello **Crea macchina virtuale**, fare clic su **Crea nuovo** sotto la casella di testo **Rete virtuale**.
 
@@ -91,8 +91,8 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | IP pubblico | **default** |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | **basic** |
     | Porte in ingresso pubbliche | **Nessuno** |
-     | Rete accelerata | **Disattivato**
-    | Associare questa macchina virtuale a una soluzione di bilanciamento del carico esistente? | **No** |
+    | Rete accelerata | **Disattivato**
+    | Associare questa macchina virtuale a una soluzione di bilanciamento del carico esistente? | **Non selezionato** |
 
 1. Selezionare **Avanti: Gestione >** e quindi nella scheda **Gestione** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -102,7 +102,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Account di archiviazione di diagnostica | Accettare il valore predefinito |
     | Opzioni di orchestrazione patch | **Aggiornamenti manuali** |  
 
-    >**Nota**: se necessario, selezionare un account di archiviazione esistente nell'elenco a discesa. Prendere nota del nome dell'account di archiviazione. Sarà necessario nell'attività successiva.
+    >**Nota**: se necessario, selezionare un account di archiviazione esistente nell'elenco a discesa o creare un nuovo account di archiviazione. Prendere nota del nome dell'account di archiviazione. Sarà necessario nell'attività successiva.
 
 1. Fare clic su **Avanti: Avanzate >** , quindi nella scheda **Avanzate** del pannello **Crea macchina virtuale** esaminare le impostazioni disponibili senza modificarle e fare clic su **Rivedi e crea**.
 
@@ -121,7 +121,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
     | Gruppo di risorse | **az104-08-rg01** |
     | Nome interfaccia di rete | **az104-08-vm1-nic1** |
     | Nome indirizzo IP pubblico | **az104-08-vm1-ip** |
-    | Nome macchina virtuale | **az104-08-vm1** |
+    | Nome macchina virtuale, Nome macchina virtuale1, Nome computer macchina virtuale   | **az104-08-vm1** |
     | Virtual Machine RG | **az104-08-rg01** |    
     | Nome utente amministratore | **Studente** |
     | Password amministratore | **Specificare una password sicura**  |
@@ -370,7 +370,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Dimensione | **Standard D2s_v3** |
     | Username | **Studente** |
     | Password | **Specificare una password sicura**  |
-    | Si dispone già di una licenza di Windows Server? | **No** |
+    | Si dispone già di una licenza di Windows Server? | **Non selezionato** |
 
     >**Nota**: per l'elenco delle aree di Azure che supportano la distribuzione di macchine virtuali Windows nelle zone di disponibilità, vedere [Che cosa sono le zone di disponibilità in Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
 
