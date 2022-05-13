@@ -2,17 +2,17 @@
 lab:
   title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: ec35201e545c0100809124c8a0d6164c9b36b363
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 8318d90573a04b60e4b1cfd79ed2daa621e8401f
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356686"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611546"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
-## <a name="lab-requirements"></a>Requisiti del lab:
+## <a name="lab-requirements"></a>Requisiti del lab
 
 Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
@@ -51,7 +51,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si creeranno e configureranno gruppi di gestione. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
 
@@ -166,7 +166,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
 1. Non continuare con la creazione della richiesta di supporto. Al contrario, disconnettersi come utente az104-02-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+#### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
 
    >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
 
@@ -183,7 +183,8 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 1. Nel riquadro Cloud Shell eseguire il comando seguente per rimuovere l'assegnazione della definizione del ruolo personalizzato (sostituire il segnaposto `[object_ID]` con il valore dell'attributo **ID oggetto** dell'account utente di Azure Active Directory **az104-02-aaduser1** copiato in precedenza in questa attività):
 
    ```powershell
-   $scope = (Get-AzRoleAssignment -RoleDefinitionName 'Support Request Contributor (Custom)').Scope
+   
+   $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes[0]
 
    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
    ```
