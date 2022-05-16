@@ -2,12 +2,12 @@
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: eefaa58ce49ba0e36628d48bcfc5981f40d1bcd8
-ms.sourcegitcommit: 45e0b1e448ecf9cbdda8c7e84384d0d4d90b277f
+ms.openlocfilehash: 4e61ed82921b3d069646b2de131d765fed23f3d2
+ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2022
-ms.locfileid: "139275323"
+ms.lasthandoff: 05/10/2022
+ms.locfileid: "144844265"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -139,7 +139,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota**: verificare se il messaggio di errore indica che la distribuzione della risorsa non è consentita dai criteri. 
 
-    >**Nota**: facendo clic sulla scheda **Tag**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value** (Richiedi tag ruolo con valore Infra). La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
+    >**Nota:** facendo clic scheda **Errore raw**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
