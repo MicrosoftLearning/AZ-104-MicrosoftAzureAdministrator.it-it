@@ -2,12 +2,12 @@
 lab:
   title: 11 - Implementare il monitoraggio
   module: Module 11 - Monitoring
-ms.openlocfilehash: 8fca0aa5a2622740bdc7d582d9b348eb0e4167cc
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 10c3fe049aaf037892a34299c21dfd8213ce40b2
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356590"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937818"
 ---
 # <a name="lab-11---implement-monitoring"></a>Lab 11 - Implementare il monitoraggio
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -285,7 +285,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota**: potrebbe essere necessario fare clic su **Attività iniziali** se è la prima volta che si accede a Log Analytics.
 
-1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** selezionare la scheda **Recenti**, selezionare **az104-11-rg0** e fare clic su **Applica**.
+1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** selezionare la scheda **Recenti**, selezionare **az104-11-vm0** e fare clic su **Applica**.
 
 1. Nella finestra delle query incollare la query seguente, fare clic su **Esegui** ed esaminare il grafico risultante:
 
@@ -298,6 +298,9 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
    | project TimeGenerated, Name, Val
    | render timechart
    ```
+
+    > **Nota**: la query non deve includere errori (indicati da blocchi rossi sulla barra di scorrimento destra). Se non è possibile incollare la query senza errori direttamente dalle istruzioni, incollare il codice della query in un editor di testo, ad esempio il Blocco note, quindi copiarlo e incollarlo nella finestra di query da tale editor.
+
 
 1. Fare clic su **Query** nella barra degli strumenti, nel riquadro **Query** individuare **Rileva disponibilità macchina virtuale** e fare doppio clic sul riquadro per compilare la finestra della query, fare clic sul pulsante **Esegui** nel riquadro ed esaminare i risultati.
 

@@ -2,12 +2,12 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 6e082988d8b86ab4548171c24d6af6e7b004d06e
-ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
+ms.openlocfilehash: a88449e01cf33631baefb1b6ce99ce82028bbc20
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141588488"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937806"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -84,6 +84,13 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
     >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 5 minuti.
 
+    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
+    > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare il file **az104-06-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro `vmSize`.
+    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
+    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito. Se non vengono restituiti valori, potrebbe essere necessario scegliere un'area diversa in cui eseguire la distribuzione. Si potrebbe anche scegliere un nome di famiglia diverso, ad esempio "Standard_B1s".
+    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
+
 1. Nel riquadro Cloud Shell eseguire il comando seguente per installare l'estensione Network Watcher nelle macchine virtuali di Azure distribuite nel passaggio precedente:
 
    ```powershell
@@ -104,6 +111,8 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
    ```
 
     >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 5 minuti.
+
+
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -317,7 +326,8 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet2-to-vnet3** |
-    | Prefisso indirizzo | **10.63.0.0/20** |
+    | Origine prefisso indirizzo | **Indirizzi IP** |
+    | Indirizzi IP/Intervalli CIDR di origine | **10.63.0.0/20** |
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
 
@@ -359,7 +369,8 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet3-to-vnet2** |
-    | Prefisso indirizzo | **10.62.0.0/20** |
+    | Origine prefisso indirizzo | **Indirizzi IP** |
+    | Indirizzi IP/Intervalli CIDR di origine | **10.62.0.0/20** |    
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
 
@@ -553,6 +564,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazione | Valore |
     | --- | --- |
     | Nome regola | **az104-06-appgw5-rl1** |
+    | Priorità | **10** |
     | Nome listener | **az104-06-appgw5-rl1l1** |
     | IP front-end | **Pubblica** |
     | Protocollo | **HTTP** |
@@ -567,7 +579,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Tipo di destinazione | **Pool back-end** |
     | Destinazione back-end | **az104-06-appgw5-be1** |
 
-1. Fare clic su **Aggiungi nuovo** nella casella di testo **Impostazioni HTTP** e nel pannello **Aggiungi un'impostazione HTTP** specificare le impostazioni seguenti lasciando i valori predefiniti delle altre:
+1. Fare clic su **Aggiungi nuovo** nella casella di testo **Impostazioni backend** e nel pannello **Aggiungi impostazione backend** specificare le impostazioni seguenti lasciando i valori predefiniti delle altre:
 
     | Impostazione | Valore |
     | --- | --- |

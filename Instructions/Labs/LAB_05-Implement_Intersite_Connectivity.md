@@ -2,12 +2,12 @@
 lab:
   title: 05 - Implementare la connettività tra siti
   module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: 6a150d4350a109e955e8b80e18c283c251f74128
-ms.sourcegitcommit: 7ffdffa241b0489dd1c012a36f8ba42393dd9c94
+ms.openlocfilehash: 6254f1b47aacdb2b0e01f090ca182feacba5e076
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2022
-ms.locfileid: "142091967"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937836"
 ---
 # <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -51,16 +51,24 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in [Azure_region_1]. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area [Azure_region_2]. Sostituire i segnaposto [Azure_region_1] e [Azure_region_2], incluse le parentesi quadre, con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure. Un esempio è $location1 = 'eastus'. È possibile usare Get-AzLocation per elencare tutte le località:
 
    ```powershell
-   $location1 = '[Azure_region_1]'
+   $location1 = 'eastus'
 
-   $location2 = '[Azure_region_2]'
+   $location2 = 'westus'
 
    $rgName = 'az104-05-rg1'
 
    New-AzResourceGroup -Name $rgName -Location $location1
    ```
 
-   >**Nota**: per identificare le aree di Azure, in una sessione di PowerShell in Cloud Shell eseguire **(Get-AzLocation).Location**
+   >**Nota**: le aree usate in precedenza sono state testate e ne è stato verificato il funzionamento in occasione dell'ultima revisione ufficiale di questo lab. Se si preferisce usare posizioni diverse o queste posizioni non funzionano più, sarà necessario identificare due aree diverse in cui è possibile distribuire macchine virtuali D2Sv3 Standard.
+   >
+   >Per identificare le aree di Azure, in una sessione di PowerShell in Cloud Shell eseguire **(Get-AzLocation).Location**
+   >
+   >Dopo aver identificato due aree da usare, eseguire il comando seguente in Cloud Shell per ogni area per verificare che sia possibile distribuire macchine virtuali D2Sv3 Standard
+   >
+   >```az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name" ```
+   >
+   >Se il comando non restituisce risultati, è necessario scegliere un'altra area. Dopo aver identificato due aree appropriate, è possibile modificare le aree nel blocco di codice precedente.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
 

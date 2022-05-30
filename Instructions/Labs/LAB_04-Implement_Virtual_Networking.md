@@ -2,12 +2,12 @@
 lab:
   title: 04 - Implementare la rete virtuale
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: 3e021d4f7a70f7fb7607cbca2c245cfe06f2489e
-ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
+ms.openlocfilehash: 383f88f2dddb48d498efb3d868330e4bba15c92b
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2022
-ms.locfileid: "144556908"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937827"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
 
@@ -121,7 +121,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
     >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi:
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
     > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
-    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
+    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell. Se non viene elencato alcuno SKU, ovvero non vengono restituiti risultati, non è possibile distribuire macchine virtuali D2S in tale area. Sarà necessario trovare un'area che consenta la distribuzione di macchine virtuali D2S. Dopo aver scelto una posizione appropriata, eliminare il gruppo di risorse AZ104-04-rg1 e riavviare il lab.
     > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
     > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
 

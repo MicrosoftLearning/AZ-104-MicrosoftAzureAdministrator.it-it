@@ -2,12 +2,12 @@
 lab:
   title: 01 - Gestire le identità di Azure Active Directory
   module: Module 01 - Identity
-ms.openlocfilehash: e63cc3685ae15d3e72feb171b06a9a9ceda5e2ed
-ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
+ms.openlocfilehash: de59a0e8c7634ee756fc66301b90f73233a9cf8a
+ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141588482"
+ms.lasthandoff: 05/10/2022
+ms.locfileid: "144844253"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 - Gestire le identità di Azure Active Directory
 
@@ -116,6 +116,8 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 1. Fare clic su **+ Prova/Acquista** e attivare la versione di valutazione gratuita di Azure AD Premium P2.
 
 1. Aggiornare la finestra del browser per verificare che l'attivazione sia riuscita. 
+
+ >**Nota**: per l'attivazione delle licenze possono essere richiesti fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
 
 1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Azure Active Directory Premium P2** e assegnare tutte le opzioni di licenza di Azure AD Premium P2 al proprio account utente e ai due account utente appena creati.
 

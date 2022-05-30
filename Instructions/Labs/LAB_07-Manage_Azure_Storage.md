@@ -2,12 +2,12 @@
 lab:
   title: 07 - Gestire Archiviazione di Azure
   module: Module 07 - Azure Storage
-ms.openlocfilehash: c1c918fcdb20cac2adead5d0764dadeda6e1705a
-ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
+ms.openlocfilehash: 9703d6543f6b3cf7791352a4ee0ba84cda3b5934
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2022
-ms.locfileid: "144556893"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937826"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -279,13 +279,15 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 1. Nel portale di Azure tornare nel pannello dell'account di archiviazione creato nella prima attività di questo lab e quindi, nella sezione **Sicurezza e rete**, fare clic su **Rete** e poi su **Firewall e reti virtuali**.
 
-1. Fare clic sull'opzione **Reti selezionate** ed esaminare le impostazioni di configurazione che diventano disponibili una volta abilitata questa opzione.
+1. Fare clic sull'opzione **Abilitato da reti virtuali e indirizzi IP selezionati** ed esaminare le impostazioni di configurazione che diventano disponibili una volta abilitata questa opzione.
 
     > **Nota**: è possibile usare queste impostazioni per configurare la connettività diretta tra le macchine virtuali di Azure nelle subnet designate delle reti virtuali e l'account di archiviazione usando gli endpoint di servizio.
 
 1. Fare clic sulla casella di controllo **Aggiungere l'indirizzo IP client** e salvare la modifica.
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL di firma di accesso condiviso del BLOB generato nell'attività precedente.
+
+    > **Nota**: se non è stato registrato l'URL di firma di accesso condiviso dall'attività 4, è necessario generarne uno nuovo con la stessa configurazione. Usare i passaggi 4-6 dell'attività 4 come guida per generare un nuovo URL di firma di accesso condiviso BLOB. 
 
 1. Verrà visualizzato il contenuto della pagina **Licenza MIT**.
 
