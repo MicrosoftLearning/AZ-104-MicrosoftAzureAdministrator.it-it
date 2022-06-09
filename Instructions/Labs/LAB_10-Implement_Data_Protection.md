@@ -2,12 +2,12 @@
 lab:
   title: 10 - Implementare la protezione dei dati
   module: Module 10 - Data Protection
-ms.openlocfilehash: 28884df63a3efefa1d426a6fbec194e113cb203b
-ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
+ms.openlocfilehash: f4e79a18ee68068147de54a2bca65e0e879f0419
+ms.sourcegitcommit: e8161696e61bdf61f6fac5641cdf6d5ba65f4739
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141588494"
+ms.lasthandoff: 06/03/2022
+ms.locfileid: "146066373"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10 - Eseguire il backup delle macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -370,6 +370,8 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 1. Nel pannello **Elementi di backup (Azure Backup Agent)** fare clic sulla voce che rappresenta il backup di **az104-10-vm1**.
 
 1. In **C:\\ nel pannello az104-10-vm1.** selezionare **Visualizza dettagli** per **az104-10-vm1.** .
+
+1. Nel pannello Dettagli fare clic su **az104-10-vm1**.
 
 1. Nel pannello **az104-10-vm1.** Server protetti fare clic su **Elimina**.
 
