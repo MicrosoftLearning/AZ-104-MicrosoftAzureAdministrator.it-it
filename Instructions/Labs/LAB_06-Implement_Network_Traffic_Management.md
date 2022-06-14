@@ -2,12 +2,12 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: a88449e01cf33631baefb1b6ce99ce82028bbc20
-ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
+ms.openlocfilehash: 9b2a379c1c01645b0b7998d8eb463f95ab7825d2
+ms.sourcegitcommit: 4efd79c7aa4b4ba9b1f91d0b69eb64a8326b75e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2022
-ms.locfileid: "144937806"
+ms.lasthandoff: 06/01/2022
+ms.locfileid: "145985696"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -86,7 +86,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
     >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare il file **az104-06-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro `vmSize`.
-    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse 'az104-06-rg1'. È possibile eseguire `az group show -n az104-06-rg1 --query location` in CloudShell per ottenerlo.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
     > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito. Se non vengono restituiti valori, potrebbe essere necessario scegliere un'area diversa in cui eseguire la distribuzione. Si potrebbe anche scegliere un nome di famiglia diverso, ad esempio "Standard_B1s".
     > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
@@ -326,7 +326,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet2-to-vnet3** |
-    | Origine prefisso indirizzo | **Indirizzi IP** |
+    | Destinazione prefisso indirizzo | **Indirizzi IP** |
     | Indirizzi IP/Intervalli CIDR di origine | **10.63.0.0/20** |
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
@@ -369,7 +369,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet3-to-vnet2** |
-    | Origine prefisso indirizzo | **Indirizzi IP** |
+    | Destinazione prefisso indirizzo | **Indirizzi IP** |
     | Indirizzi IP/Intervalli CIDR di origine | **10.62.0.0/20** |    
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
