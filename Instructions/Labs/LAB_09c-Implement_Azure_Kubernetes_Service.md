@@ -2,12 +2,12 @@
 lab:
   title: 09c - Implementare il servizio Azure Kubernetes
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: 42e43fa916e61988df87b3188fba59ab7b57652e
-ms.sourcegitcommit: dd61587ee547d5efa09ad0a63c0b2af272ee1e55
+ms.openlocfilehash: 929e2dfa4aba9df613e8d5ac594d903ede2f9934
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2022
-ms.locfileid: "141280825"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587476"
 ---
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Lab 09c - Implementare il servizio Azure Kubernetes
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -178,11 +178,6 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 1. Nel riquadro **Cloud Shell** eseguire il comando seguente per ridimensionare la distribuzione aumentando il numero di pod a 2:
 
     ```sh
-
-    RESOURCE_GROUP='az104-09c-rg1'
-
-    AKS_CLUSTER='az104-9c-aks1'
-
     kubectl scale --replicas=2 deployment/nginx-deployment
     ```
 
@@ -197,6 +192,10 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 1. Nel riquadro **Cloud Shell** eseguire il comando seguente per ridimensionare il cluster aumentando il numero di nodi a 2:
 
     ```sh
+    RESOURCE_GROUP='az104-09c-rg1'
+
+    AKS_CLUSTER='az104-9c-aks1'
+
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
 
