@@ -2,12 +2,12 @@
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 4e61ed82921b3d069646b2de131d765fed23f3d2
-ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
+ms.openlocfilehash: fad481d30818aaea390ed1357c223f3686671383
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2022
-ms.locfileid: "144844265"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587431"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -149,7 +149,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nella sezione **Creazione** fare clic su **Assegnazioni**. 
 
-1. Nell'elenco di assegnazioni fare clic con il pulsante destro del mouse sull'icona con i puntini di sospensione nella riga che rappresenta l'assegnazione di criteri **Require Role tag with Infra value** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione. 
+1. Nell'elenco di assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta l'assegnazione di criteri **Require Role tag with Infra value** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione.
 
 1. Fare clic su **Assegna criteri** e specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
 

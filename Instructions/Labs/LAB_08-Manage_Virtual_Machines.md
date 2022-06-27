@@ -2,12 +2,12 @@
 lab:
   title: 08 - Gestire le macchine virtuali
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: ee57d0d4dad96e694ca1315b2e0986b57698c08b
-ms.sourcegitcommit: dc0edbf407335d48b9a98636f4119b335d7426e8
+ms.openlocfilehash: a710fbaf4ea888651012bad592d34667a190c68f
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2022
-ms.locfileid: "141690892"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587449"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -45,9 +45,9 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
 1. Accedere al [portale di Azure](http://portal.azure.com).
 
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **+ Crea** e poi su **+ Macchina virtuale**.
+1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **+ Crea** e poi su **+ Macchina virtuale di Azure**.
 
-1. Nella scheda **Informazioni di base** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Nella scheda **Informazioni di base** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti, mantenendo i valori predefiniti per le altre:
 
     | Impostazione | Valore |
     | --- | --- |

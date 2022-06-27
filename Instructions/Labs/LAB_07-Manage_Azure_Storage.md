@@ -2,12 +2,12 @@
 lab:
   title: 07 - Gestire Archiviazione di Azure
   module: Module 07 - Azure Storage
-ms.openlocfilehash: 9703d6543f6b3cf7791352a4ee0ba84cda3b5934
-ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
+ms.openlocfilehash: 34b6dba73d87731df935f80a1b5909e44075e871
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2022
-ms.locfileid: "144937826"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587467"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -111,7 +111,7 @@ In questa attività verrà creato e configurato un account di archiviazione di A
 
 1. Fare clic su **Avanti: Avanzate >** , esaminare le opzioni disponibili nella scheda **Avanzate** del pannello **Crea account di archiviazione**, accettare le impostazioni predefinite e fare clic su **Avanti: Rete >** .
 
-1. Nella scheda **Rete** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare l'opzione predefinita **Endpoint pubblico (tutte le reti)** e fare clic su **Avanti: Protezione dei dati >** .
+1. Nella scheda **Rete** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare l'opzione predefinita **Consenti l'accesso pubblico da tutte le reti** e fare clic su **Avanti: Protezione dei dati >** .
 
 1. Nella scheda **Protezione di dati** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare le impostazioni predefinite, fare clic su **Rivedi e crea**, attendere il completamento del processo di convalida e fare clic su **Crea**.
 

@@ -2,12 +2,12 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 9b2a379c1c01645b0b7998d8eb463f95ab7825d2
-ms.sourcegitcommit: 4efd79c7aa4b4ba9b1f91d0b69eb64a8326b75e4
+ms.openlocfilehash: 81fd0fefc28cbf9eb59935e93bb548c69d677cf5
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2022
-ms.locfileid: "145985696"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587458"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -327,7 +327,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | --- | --- |
     | Nome route | **az104-06-route-vnet2-to-vnet3** |
     | Destinazione prefisso indirizzo | **Indirizzi IP** |
-    | Indirizzi IP/Intervalli CIDR di origine | **10.63.0.0/20** |
+    | Indirizzi IP/Intervalli CIDR di destinazione | **10.63.0.0/20** |
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
 
@@ -370,7 +370,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | --- | --- |
     | Nome route | **az104-06-route-vnet3-to-vnet2** |
     | Destinazione prefisso indirizzo | **Indirizzi IP** |
-    | Indirizzi IP/Intervalli CIDR di origine | **10.62.0.0/20** |    
+    | Indirizzi IP/Intervalli CIDR di destinazione | **10.62.0.0/20** |
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
 

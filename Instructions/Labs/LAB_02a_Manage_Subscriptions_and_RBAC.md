@@ -2,12 +2,12 @@
 lab:
   title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 8318d90573a04b60e4b1cfd79ed2daa621e8401f
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
+ms.openlocfilehash: 14b37fcd923ad1b45c83c3a6c41889db3869ed40
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611546"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587440"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -205,7 +205,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
    
 1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
 
-1. Tornare nel pannello **Gruppi di gestione**, fare clic con il pulsante destro del mouse sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e scegliere **Elimina**.
+1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
 
 #### <a name="review"></a>Verifica
 
