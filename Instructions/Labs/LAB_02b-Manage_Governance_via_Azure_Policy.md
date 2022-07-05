@@ -2,12 +2,12 @@
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: fad481d30818aaea390ed1357c223f3686671383
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
+ms.openlocfilehash: 2bf92c914983a28dc2d3f85abed917a95e88c04f
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587431"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973676"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -179,7 +179,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | Impostazione | Valore |
     | --- | --- |
     | Creare un'attività di correzione | Enabled |
-    | Criterio da correggere | **Eredita un tag dal gruppo di risorse se mancante** |
+    | Criterio da correggere | **Eredita un tag dalla sottoscrizione se mancante** |
 
     >**Nota**: questa definizione dei criteri include l'effetto **Modify**.
 
