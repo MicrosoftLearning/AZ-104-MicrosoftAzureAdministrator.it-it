@@ -2,12 +2,12 @@
 lab:
   title: 01 - Gestire le identità di Azure Active Directory
   module: Module 01 - Identity
-ms.openlocfilehash: de59a0e8c7634ee756fc66301b90f73233a9cf8a
-ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
+ms.openlocfilehash: 589e423af0901c93ef685905e4a01a7246e3c791
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2022
-ms.locfileid: "144844253"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973694"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 - Gestire le identità di Azure Active Directory
 
@@ -23,8 +23,8 @@ In questo lab si eseguiranno le attività seguenti:
 
 + Attività 1: Creare e configurare gli utenti di Azure AD
 + Attività 2: Creare gruppi di Azure AD con appartenenza dinamica e assegnata
-+ Attività 3: Creare un tenant di Azure Active Directory (AD)
-+ Attività 4: Gestire gli utenti guest di Azure AD 
++ Attività 3: Creare un tenant di Azure Active Directory (AD) (facoltativo - problema dell'ambiente lab)
++ Attività 4: Gestire gli utenti guest di Azure AD (facoltativo - problema dell'ambiente lab)
 
 ## <a name="estimated-timing-30-minutes"></a>Tempo stimato: 30 minuti
 
@@ -186,9 +186,11 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
 1. Tornare nel pannello **Gruppi - Tutti i gruppi**, fare clic sulla voce che rappresenta il gruppo **IT System Administrators** e quindi visualizzare il relativo pannello **Membri**. Verificare che **az104-01a-aaduser2** sia visualizzato nell'elenco dei membri del gruppo.
 
-#### <a name="task-3-create-an-azure-active-directory-ad-tenant"></a>Attività 3: Creare un tenant di Azure Active Directory (AD)
+#### <a name="task-3-create-an-azure-active-directory-ad-tenant-optional---lab-environment-issue"></a>Attività 3: Creare un tenant di Azure Active Directory (AD) (facoltativo - problema dell'ambiente lab)
 
 In questa attività si creerà un nuovo tenant di Azure AD.
+
+   >**Nota**: si verifica un problema noto con la verifica Captcha nell'ambiente lab. Se si verifica questo problema, saltare sia questa attività che quella successiva. Stiamo lavorando a una soluzione.
 
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 

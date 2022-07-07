@@ -2,12 +2,12 @@
 lab:
   title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 14b37fcd923ad1b45c83c3a6c41889db3869ed40
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
+ms.openlocfilehash: e8b6f60a421222db74d93715ed63860e3ca3c78d
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587440"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973685"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
@@ -146,7 +146,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
 1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
 
-1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Aggiungi un'assegnazione di ruolo** e assegnare il ruolo **Collaboratore richiesta di supporto (personalizzato)** all'account utente appena creato.
+1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Aggiungi un'assegnazione di ruolo**, selezionare sotto **Membri**, immettere **Rivedi e assegna** e assegnare il ruolo **Collaboratore richiesta di supporto (personalizzato)** all'account utente appena creato.
 
 1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
 
@@ -206,6 +206,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
 
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
+  >**Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di risorse. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
 
 #### <a name="review"></a>Verifica
 
