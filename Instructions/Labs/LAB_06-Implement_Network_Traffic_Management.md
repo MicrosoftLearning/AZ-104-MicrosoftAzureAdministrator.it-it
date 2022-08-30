@@ -2,21 +2,16 @@
 lab:
   title: 06 - Implementare Gestione del traffico
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 81fd0fefc28cbf9eb59935e93bb548c69d677cf5
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587458"
 ---
+
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-Si è stati incaricati di testare la gestione del traffico di rete per le macchine virtuali di Azure nella topologia di rete hub-spoke, che Contoso considera di implementare nell'ambiente Azure (anziché creare la topologia mesh, testata nel lab precedente). Questo test deve includere l'implementazione della connettività tra spoke basandosi su route definite dall'utente che forzano il flusso del traffico tramite l'hub, nonché la distribuzione del traffico tra macchine virtuali usando i servizi di bilanciamento del carico di livello 4 e 7. A questo scopo, si prevede di usare Azure Load Balancer (livello 4) e il gateway applicazione di Azure (livello 7).
+You were tasked with testing managing network traffic targeting Azure virtual machines in the hub and spoke network topology, which Contoso considers implementing in its Azure environment (instead of creating the mesh topology, which you tested in the previous lab). This testing needs to include implementing connectivity between spokes by relying on user defined routes that force traffic to flow via the hub, as well as traffic distribution across virtual machines by using layer 4 and layer 7 load balancers. For this purpose, you intend to use Azure Load Balancer (layer 4) and Azure Application Gateway (layer 7).
 
->**Nota**: per impostazione predefinita, questo lab richiede un totale di 8 vCPU disponibili nella serie Standard_Dsv3 nell'area scelta per la distribuzione, perché prevede la distribuzione di quattro macchine virtuali di Azure di Standard_D2s_v3 SKU. Se gli studenti usano account di valutazione con un limite di 4 vCPU è possibile usare una dimensione di macchina virtuale che richieda una sola vCPU (ad esempio Standard_B1s).
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This lab, by default, requires total of 8 vCPUs available in the Standard_Dsv3 series in the region you choose for deployment, since it involves deployment of four Azure VMs of Standard_D2s_v3 SKU. If your students are using trial accounts, with the limit of 4 vCPUs, you can use a VM size that requires only one vCPU (such as Standard_B1s).
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -42,7 +37,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 #### <a name="task-1-provision-the-lab-environment"></a>Attività 1: Effettuare il provisioning dell'ambiente lab
 
-In questa attività si distribuiranno quattro macchine virtuali nella stessa area di Azure. Le prime due risiederanno in una rete virtuale hub, mentre ognuna delle due rimanenti risiederà in una rete virtuale spoke separata.
+In this task, you will deploy four virtual machines into the same Azure region. The first two will reside in a hub virtual network, while each of the remaining two will reside in a separate spoke virtual network.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -54,7 +49,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** e **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nella home directory di Cloud Shell.
 
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+1. Edit the <bpt id="p1">**</bpt>Parameters<ept id="p1">**</ept> file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il primo gruppo di risorse che ospiterà l'ambiente lab (sostituire il segnaposto "[Azure_region]" con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure). È possibile usare il cmdlet "(Get-AzLocation).Location" per ottenere l'elenco delle aree:
 
@@ -82,14 +77,14 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
       -TemplateParameterFile $HOME/az104-06-vms-loop-parameters.json
    ```
 
-    >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 5 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete before proceeding to the next step. This should take about 5 minutes.
 
     >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare il file **az104-06-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro `vmSize`.
-    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse 'az104-06-rg1'. È possibile eseguire `az group show -n az104-06-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Si è stati incaricati di testare la gestione del traffico di rete per le macchine virtuali di Azure nella topologia di rete hub-spoke, che Contoso considera di implementare nell'ambiente Azure (anziché creare la topologia mesh, testata nel lab precedente).
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
-    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito. Se non vengono restituiti valori, potrebbe essere necessario scegliere un'area diversa in cui eseguire la distribuzione. Si potrebbe anche scegliere un nome di famiglia diverso, ad esempio "Standard_B1s".
-    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
+    > 1. Questo test deve includere l'implementazione della connettività tra spoke basandosi su route definite dall'utente che forzano il flusso del traffico tramite l'hub, nonché la distribuzione del traffico tra macchine virtuali usando i servizi di bilanciamento del carico di livello 4 e 7.
+    > 1. A questo scopo, si prevede di usare Azure Load Balancer (livello 4) e il gateway applicazione di Azure (livello 7).
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per installare l'estensione Network Watcher nelle macchine virtuali di Azure distribuite nel passaggio precedente:
 
@@ -110,7 +105,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
    }
    ```
 
-    >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 5 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete before proceeding to the next step. This should take about 5 minutes.
 
 
 
@@ -186,7 +181,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Traffico inoltrato dalla rete virtuale remota | **Consenti (impostazione predefinita)** |
     | Gateway di rete virtuale | **Nessuno (valore predefinito)** |
 
-    >**Nota**: questo passaggio stabilisce due peering locali, uno da az104-06-vnet01 ad az104-06-vnet3 e l'altro da az104-06-vnet3 ad az104-06-vnet01. Questa operazione completa la configurazione della topologia hub-spoke (con due reti virtuali spoke).
+    >**Nota**: per impostazione predefinita, questo lab richiede un totale di 8 vCPU disponibili nella serie Standard_Dsv3 nell'area scelta per la distribuzione, perché prevede la distribuzione di quattro macchine virtuali di Azure di Standard_D2s_v3 SKU.
 
     >**Nota:** **Consenti traffico inoltrato** deve essere abilitato per facilitare il routing tra reti virtuali spoke, che verrà implementato più avanti in questo lab.
 
@@ -215,7 +210,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.62.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm2**
 
-1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Raggiungibile**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Se gli studenti usano account di valutazione con un limite di 4 vCPU è possibile usare una dimensione di macchina virtuale che richieda una sola vCPU (ad esempio Standard_B1s).
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla prima rete virtuale spoke.
 
@@ -234,7 +229,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.63.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm3**
 
-1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Raggiungibile**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Click <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the connection was direct, with no intermediate hops in between the VMs.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla seconda rete virtuale spoke.
 
@@ -251,7 +246,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Si noti che lo stato è **Non raggiungibile**.
+1. Click <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Note that the status is <bpt id="p1">**</bpt>Unreachable<ept id="p1">**</ept>.
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 
@@ -313,9 +308,9 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Nome | **az104-06-rt23** |
     | Propaga route del gateway | **No** |
 
-1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare clic su **Crea** per inviare la distribuzione.
+1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and click <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> to submit your deployment.
 
-   > **Nota**: attendere il completamento della creazione della tabella di route. L'operazione richiede circa 3 minuti.
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 3 minutes.
 
 1. Fare clic su **Vai alla risorsa**.
 
@@ -356,9 +351,9 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Nome | **az104-06-rt32** |
     | Propaga route del gateway | **No** |
 
-1. Fare clic su Rivedi e crea. Attendere il completamento della convalida e fare clic su Crea per inviare la distribuzione.
+1. Click Review and Create. Let validation occur, and hit Create to submit your deployment.
 
-   > **Nota**: attendere il completamento della creazione della tabella di route. L'operazione richiede circa 3 minuti.
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 3 minutes.
 
 1. Fare clic su **Vai alla risorsa**.
 
@@ -402,7 +397,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Controlla** e attendere che siano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Raggiungibile**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Non raggiungibile**, arrestare e quindi riavviare az104-06-vm0.
+1. Click <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the traffic was routed via <bpt id="p1">**</bpt>10.60.0.4<ept id="p1">**</ept>, assigned to the <bpt id="p2">**</bpt>az104-06-nic0<ept id="p2">**</ept> network adapter. If status is <bpt id="p1">**</bpt>Unreachable<ept id="p1">**</ept>, you should stop and then start az104-06-vm0.
 
     > **Nota:** questo comportamento è previsto perché il traffico tra reti virtuali spoke viene ora instradato tramite la macchina virtuale che si trova nella rete virtuale hub, che funziona come router.
 
@@ -433,13 +428,13 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Indirizzo IP pubblico | **Crea nuovo** |
     | Nome dell'indirizzo IP pubblico | **az104-06-pip4** |
 
-1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare clic su **Crea** per inviare la distribuzione.
+1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> to submit your deployment.
 
-    > **Nota**: attendere il provisioning del servizio di bilanciamento del carico di Azure. L'operazione richiede circa 2 minuti.
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Azure load balancer to be provisioned. This should take about 2 minutes.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa**.
 
-1. Nel pannello del servizio di bilanciamento del carico **az104-06-lb4**, nella sezione **Impostazioni**, fare clic su **Pool back-end** e quindi su **+ Aggiungi**.
+1. Nel pannello del servizio di bilanciamento del carico **az104-06-lb4**, nella sezione **Impostazioni**, fare clic su **Pool back-end**e quindi su **+ Aggiungi**.
 
 1. Aggiungere un pool back-end con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
@@ -519,7 +514,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Save** (Salva).
 
-    > **Nota**: questa subnet verrà usata dalle istanze del gateway applicazione di Azure, che verranno distribuite più avanti in questa attività. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This subnet will be used by the Azure Application Gateway instances, which you will deploy later in this task. The Application Gateway requires a dedicated subnet of /27 or larger size.
 
 1. Nel portale di Azure cercare e selezionare **Gateway applicazione** e nel pannello **Gateway applicazione** fare clic su **+ Crea**.
 
@@ -594,7 +589,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Avanti: Tag >** seguito da **Avanti: Revisione e creazione >** , quindi fare clic su **Crea**.
 
-    > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione potrebbe richiedere circa 8 minuti.
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Application Gateway instance to be created. This might take about 8 minutes.
 
 1. Nel portale di Azure cercare e selezionare **Gateway applicazione** e nel pannello **Gateway applicazione** fare clic su **az104-06-appgw5**.
 
@@ -612,9 +607,9 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

@@ -2,19 +2,14 @@
 lab:
   title: 07 - Gestire Archiviazione di Azure
   module: Module 07 - Azure Storage
-ms.openlocfilehash: 34b6dba73d87731df935f80a1b5909e44075e871
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587467"
 ---
+
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali. Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni. È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi. Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica. Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.
+You need to evaluate the use of Azure storage for storing files residing currently in on-premises data stores. While majority of these files are not accessed frequently, there are some exceptions. You would like to minimize cost of storage by placing less frequently accessed files in lower-priced storage tiers. You also plan to explore different protection mechanisms that Azure Storage offers, including network access, authentication, authorization, and replication. Finally, you want to determine to what extent Azure Files service might be suitable for hosting your on-premises file shares.
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -50,9 +45,9 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** e **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** nella home directory di Cloud Shell.
+1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona**Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** e **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** nella home directory di Cloud Shell.
 
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+1. Edit the <bpt id="p1">**</bpt>Parameters<ept id="p1">**</ept> file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà la macchina virtuale. Sostituire il segnaposto "[Azure-region]" con il nome di un'area di Azure in cui si intende distribuire la macchina virtuale di Azure
 
@@ -85,10 +80,10 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
     >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-07-vm-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
-    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
+    > 1. Check the location in which the 'az104-04-rg1' resource group is deployed. You can run <ph id="ph1">`az group show -n az104-04-rg1 --query location`</ph> in your CloudShell to get it.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
     > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
-    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
+    > 1. Now redeploy your templates by running the <ph id="ph1">`New-AzResourceGroupDeployment`</ph> command again. You can press the up button a few times which would bring the last executed command.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -115,7 +110,7 @@ In questa attività verrà creato e configurato un account di archiviazione di A
 
 1. Nella scheda **Protezione di dati** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare le impostazioni predefinite, fare clic su **Rivedi e crea**, attendere il completamento del processo di convalida e fare clic su **Crea**.
 
-    >**Nota**: attendere che l'account di archiviazione venga creato. L'operazione richiede circa 2 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Storage account to be created. This should take about 2 minutes.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa** per visualizzare il pannello dell'account di archiviazione di Azure.
 
@@ -166,7 +161,7 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
 
 1. Nel pannello **licenses/LICENSE** esaminare le opzioni disponibili.
 
-    > **Nota**: è possibile scaricare il BLOB, cambiarne il livello di accesso (attualmente impostato su **Accesso frequente**), acquisire un lease, il cui stato cambierebbe in **Bloccato** (attualmente impostato su **Sbloccato)** e proteggere il BLOB dalla modifica o dall'eliminazione, nonché assegnare metadati personalizzati specificando una coppia chiave-valore arbitraria. È anche possibile scegliere **Modifica** per modificare direttamente il file all'interno dell'interfaccia del portale di Azure, senza scaricarlo prima. È inoltre possibile creare snapshot, nonché generare un token di firma di accesso condiviso (questa opzione verrà esaminata nell'attività successiva).
+    > È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali.
 
 #### <a name="task-4-manage-authentication-and-authorization-for-azure-storage"></a>Attività 4: Gestire l'autenticazione e l'autorizzazione per Archiviazione di Azure
 
@@ -176,7 +171,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL copiato nel passaggio precedente.
 
-1. Verrà visualizzato il messaggio in formato XML **ResourceNotFound** o **PublicAccessNotPermitted**.
+1. Verrà visualizzato il messaggio in formato XML **ResourceNotFound**o **PublicAccessNotPermitted**.
 
     > **Nota**: questo comportamento è previsto, perché il livello di accesso pubblico del contenitore creato è impostato su **Privato (nessun accesso anonimo)** .
 
@@ -201,17 +196,17 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL copiato nel passaggio precedente.
 
-    > **Nota**: se si usa Microsoft Edge, verrà visualizzata la pagina **Licenza MIT**. Se si usa Chrome, Microsoft Edge (Chromium) o Firefox, dovrebbe essere possibile visualizzare il contenuto del file scaricandolo e aprendolo con il Blocco note.
+    > Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni.
 
     > **Nota**: questo comportamento è previsto, perché ora l'accesso è autorizzato in base al token di firma di accesso condiviso appena generato.
 
-    > **Nota**: salvare l'URL di firma di accesso condiviso del BLOB. Sarà necessario più avanti in questa attività.
+    > È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi.
 
 1. Chiudere la finestra del browser in modalità InPrivate, tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure e da qui tornare nel pannello **az104-07-container**.
 
 1. Fare clic sul collegamento **Passa all'account utente Azure AD** accanto all'etichetta **Metodo di autenticazione**.
 
-    > **Nota**: quando si cambia il metodo di autenticazione, è possibile che venga visualizzato il messaggio di errore *"Non si è autorizzati a visualizzare l'elenco dei dati con l'account utente Azure AD corrente"* . Questo comportamento è previsto.  
+    > Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica.  
 
     > **Nota**: a questo punto non si hanno le autorizzazioni per cambiare il metodo di autenticazione.
 
@@ -247,7 +242,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Fare clic sulla condivisione file appena creata e quindi su **Connetti**.
 
-1. Nel pannello **Connetti** assicurarsi che sia selezionata la scheda **Windows**. Sotto questa opzione è presente una casella di testo grigia con uno script, passare il mouse sull'icona delle pagine nell'angolo in basso a destra di tale casella e fare clic su **Copia negli Appunti**.
+1. Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali**, quindi nell'elenco di macchine virtuali fare clic su **az104-07-vm0**.
 
@@ -269,7 +264,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Verificare che lo script sia stato completato correttamente.
 
-1. Tornare nel pannello della condivisione file **az104-07-share**, fare clic su **Aggiorna** e verificare che la cartella **az104-07-folder** sia visualizzata nell'elenco delle cartelle.
+1. Tornare nel pannello della condivisione file **az104-07-share**, fare clic su **Aggiorna**e verificare che la cartella **az104-07-folder** sia visualizzata nell'elenco delle cartelle.
 
 1. Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
 
@@ -287,7 +282,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL di firma di accesso condiviso del BLOB generato nell'attività precedente.
 
-    > **Nota**: se non è stato registrato l'URL di firma di accesso condiviso dall'attività 4, è necessario generarne uno nuovo con la stessa configurazione. Usare i passaggi 4-6 dell'attività 4 come guida per generare un nuovo URL di firma di accesso condiviso BLOB. 
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you did not record the SAS URL from task 4, you should generate a new one with the same configuration. Use Task 4 steps 4-6 as a guide for generating a new blob SAS URL. 
 
 1. Verrà visualizzato il contenuto della pagina **Licenza MIT**.
 
@@ -306,15 +301,15 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
    ```
 1. Verificare che il tentativo di download non sia riuscito.
 
-    > **Nota**: verrà visualizzato un messaggio analogo a **AuthorizationFailure: Questa richiesta non è autorizzata a eseguire questa operazione**. Questo comportamento è previsto, perché ci si connette dall'indirizzo IP assegnato a una macchina virtuale di Azure che ospita l'istanza di Cloud Shell.
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You should receive the message stating <bpt id="p2">**</bpt>AuthorizationFailure: This request is not authorized to perform this operation<ept id="p2">**</ept>. This is expected, since you are connecting from the IP address assigned to an Azure VM hosting the Cloud Shell instance.
 
 1. Chiudere il riquadro Cloud Shell.
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. È anche possibile provare a eliminare il gruppo di risorse in cui si trovano le risorse. Si tratta di un collegamento rapido per l'amministratore. In caso di dubbi, parlare con l'insegnante.
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a long time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. You might also try to delete the Resource Group where the resources reside. That is a quick Administrator shortcut. If you have concerns speak to your instructor.
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

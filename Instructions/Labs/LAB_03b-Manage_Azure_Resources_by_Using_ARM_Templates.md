@@ -2,13 +2,8 @@
 lab:
   title: 03b - Gestire le risorse di Azure usando i modelli di ARM
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 602da542fdf20f6b1be637e792ec47daaa0de04b
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611552"
 ---
+
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
@@ -55,7 +50,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
 1. Nel pannello **Microsoft.ManagedDisk-* XXXXXXXXX* \| Modello** fare clic su **Input**.
 
-1. Prendere nota del valore del parametro **location**. Sarà necessario nell'attività successiva.
+1. Note the value of the <bpt id="p1">**</bpt>location<ept id="p1">**</ept> parameter. You will need it in the next task.
 
 1. Estrarre il contenuto del file scaricato nella cartella **Download** nel computer del lab.
 
@@ -96,7 +91,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
    "osType": "[parameters('osType')]",
    ```
 
-    >**Nota**: questi parametri vengono rimossi perché non sono applicabili alla distribuzione corrente. In particolare, i parametri sourceResourceId, sourceUri, osType e hyperVGeneration parameters sono applicabili alla creazione di un disco di Azure da un file VHD esistente.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: These parameters are removed since they are not applicable to the current deployment. In particular, sourceResourceId, sourceUri, osType, and hyperVGeneration parameters are applicable to creating an Azure disk from an existing VHD file.
 
 1. Fare clic su **Salva** per salvare le modifiche.
 
@@ -112,7 +107,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
     | Region | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
-    | Posizione | Il valore del parametro location annotato nell'attività precedente |
+    | Location | Il valore del parametro location annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |
@@ -135,7 +130,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
 
 #### <a name="review"></a>Verifica
 
