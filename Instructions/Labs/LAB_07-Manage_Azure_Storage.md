@@ -1,7 +1,7 @@
 ---
 lab:
   title: 07 - Gestire Archiviazione di Azure
-  module: Module 07 - Azure Storage
+  module: Administer Azure Storage
 ---
 
 # <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure

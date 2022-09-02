@@ -1,7 +1,7 @@
 ---
 lab:
   title: 03d - Gestire le risorse di Azure usando l'interfaccia della riga di comando di Azure
-  module: Module 03 - Azure Administration
+  module: Administer Azure Resources
 ---
 
 # <a name="lab-03d---manage-azure-resources-by-using-azure-cli"></a>Lab 03d - Gestire le risorse di Azure usando l'interfaccia della riga di comando di Azure

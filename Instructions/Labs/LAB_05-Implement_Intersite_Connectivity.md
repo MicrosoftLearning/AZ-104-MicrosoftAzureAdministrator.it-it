@@ -1,7 +1,7 @@
 ---
 lab:
   title: 05 - Implementare la connettività tra siti
-  module: Module 05 - Intersite Connectivity
+  module: Administer Intersite Connectivity
 ---
 
 # <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
