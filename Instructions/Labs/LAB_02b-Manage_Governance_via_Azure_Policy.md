@@ -1,7 +1,7 @@
 ---
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
-  module: Module 02 - Governance and Compliance
+  module: Administer Governance and Compliance
 ---
 
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
