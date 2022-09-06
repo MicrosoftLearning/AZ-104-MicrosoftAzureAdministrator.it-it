@@ -1,20 +1,15 @@
 ---
 lab:
   title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
-  module: Module 02 - Governance and Compliance
-ms.openlocfilehash: e8b6f60a421222db74d93715ed63860e3ca3c78d
-ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2022
-ms.locfileid: "146973685"
+  module: Administer Governance and Compliance
 ---
+
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-requirements"></a>Requisiti del lab
 
-Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
+This lab requires permissions to create Azure Active Directory (Azure AD) users, create custom Azure Role Based Access Control (RBAC) roles, and assign these roles to Azure AD users. Not all lab hosters may provide this capability. Ask your instructor for the availability of this lab.
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
@@ -22,10 +17,12 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 
 - Creazione di un gruppo di gestione che includa tutte le sottoscrizioni di Azure di Contoso
 
-- Concessione di autorizzazioni per l'invio di richieste di supporto per tutte le sottoscrizioni incluse nel gruppo di gestione a un utente di Azure Active Directory designato. Le autorizzazioni dell'utente devono essere limitate solo a: 
+- granting permissions to submit support requests for all subscriptions in the management group to a designated Azure Active Directory user. That user's permissions should be limited only to: 
 
     - Creazione dei ticket della richiesta di supporto
-    - Visualizzazione dei gruppi di risorse 
+    - Visualizzazione dei gruppi di risorse
+
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -55,7 +52,7 @@ In questa attività si creeranno e configureranno gruppi di gestione.
 
 1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
 
-1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio **Si è registrati come amministratore della directory ma non sono disponibili le autorizzazioni necessarie per accedere al gruppo di gestione radice**, eseguire questa sequenza di passaggi:
+1. Review the messages at the top of the <bpt id="p1">**</bpt>Management groups<ept id="p1">**</ept> blade. If you are seeing the message stating <bpt id="p1">**</bpt>You are registered as a directory admin but do not have the necessary permissions to access the root management group<ept id="p1">**</ept>, perfom the following sequence of steps:
 
     1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
     
@@ -82,7 +79,7 @@ In questa attività si creeranno e configureranno gruppi di gestione.
 
 1. Nel pannello **az104-02-mg1 \| Sottoscrizioni** fare clic su **+Aggiungi**, quindi nell'elenco a discesa **Sottoscrizione** del pannello **Aggiungi sottoscrizione** selezionare la sottoscrizione in uso in questo lab e fare clic su **Salva**.
 
-    >**Nota**: nel pannello **az104-02-mg1 \| Sottoscrizioni** copiare l'ID della sottoscrizione di Azure negli Appunti. Sarà necessario nell'attività successiva.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: On the <bpt id="p2">**</bpt>az104-02-mg1 <ph id="ph1">\|</ph> Subscriptions<ept id="p2">**</ept> blade, copy the ID of your Azure subscription into Clipboard. You will need it in the next task.
 
 #### <a name="task-2-create-custom-rbac-roles"></a>Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati
 
@@ -142,13 +139,17 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
     | Consenti la creazione manuale della password | Enabled |
     | Password iniziale | **Specificare una password sicura** |
 
-    >**Nota**: **copiare negli Appunti** il valore completo di **Nome utente**. Sarà necessario più avanti in questa attività.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: <bpt id="p2">**</bpt>Copy to clipboard<ept id="p2">**</ept> the full <bpt id="p3">**</bpt>User name<ept id="p3">**</ept>. You will need it later in this lab.
 
 1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
 
-1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Aggiungi un'assegnazione di ruolo**, selezionare sotto **Membri**, immettere **Rivedi e assegna** e assegnare il ruolo **Collaboratore richiesta di supporto (personalizzato)** all'account utente appena creato.
+1. Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD. 
 
-1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
+    >**Nota**: se il ruolo personalizzato non è visibile, possono essere necessari fino a 10 minuti perché il ruolo personalizzato venga visualizzato dopo la creazione.
+
+1. Non tutti i provider di servizi di hosting possono fornire questa funzionalità.
+
+1. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
     >**Nota**: invece di digitare il nome utente, è possibile incollare il contenuto degli Appunti.
 
@@ -158,19 +159,19 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
 1. Nella finestra del browser **InPrivate**, nel portale di Azure, cercare e selezionare **Guida e supporto** e quindi fare clic su **+ Crea una richiesta di supporto**. 
 
-1. Nella finestra del browser **InPrivate**, nella scheda **Descrizione del problema/Riepilogo** del pannello **Guida e supporto - Nuova richiesta di supporto**, digitare **Limiti del servizio e della sottoscrizione** nel campo Riepilogo e selezionare il tipo di problema **Limiti del servizio e della sottoscrizione (quote)** . Si noti che la sottoscrizione in uso in questo lab è elencata nell'elenco a discesa **Sottoscrizione**.
+1. In the <bpt id="p1">**</bpt>InPrivate<ept id="p1">**</ept> browser window, on the <bpt id="p2">**</bpt>Problem Desription/Summary<ept id="p2">**</ept> tab of the <bpt id="p3">**</bpt>Help + support - New support request<ept id="p3">**</ept> blade, type <bpt id="p4">**</bpt>Service and subscription limits<ept id="p4">**</ept> in the Summary field and select the <bpt id="p5">**</bpt>Service and subscription limits (quotas)<ept id="p5">**</ept> issue type. Note that the subscription you are using in this lab is listed in the <bpt id="p1">**</bpt>Subscription<ept id="p1">**</ept> drop-down list.
 
     >**Nota**: la presenza della sottoscrizione in uso in questo lab nell'elenco a discesa **Sottoscrizione** indica che l'account in uso ha le autorizzazioni necessarie per creare la richiesta di supporto specifica della sottoscrizione.
 
     >**Nota**: se l'opzione **Limiti del servizio e della sottoscrizione (quote)** non è visualizzata, disconnettersi dal portale di Azure e accedere di nuovo.
 
-1. Non continuare con la creazione della richiesta di supporto. Al contrario, disconnettersi come utente az104-02-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
+1. Do not continue with creating the support request. Instead, sign out as the az104-02-aaduser1 user from the Azure portal and close the InPrivate browser window.
 
 #### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
 
-   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going.
 
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**, quindi nel pannello Azure Active Directory fare clic su **Utenti**.
 
@@ -206,7 +207,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
 
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
-  >**Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di risorse. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
+  >Concessione di autorizzazioni per l'invio di richieste di supporto per tutte le sottoscrizioni incluse nel gruppo di gestione a un utente di Azure Active Directory designato.
 
 #### <a name="review"></a>Verifica
 

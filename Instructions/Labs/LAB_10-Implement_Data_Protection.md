@@ -1,7 +1,7 @@
 ---
 lab:
   title: 10 - Implementare la protezione dei dati
-  module: Module 10 - Data Protection
+  module: Administer Data Protection
 ---
 
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10 - Eseguire il backup delle macchine virtuali
@@ -10,6 +10,8 @@ lab:
 ## <a name="lab-scenario"></a>Scenario del lab
 
 You have been tasked with evaluating the use of Azure Recovery Services for backup and restore of files hosted on Azure virtual machines and on-premises computers. In addition, you want to identify methods of protecting data stored in the Recovery Services vault from accidental or malicious data loss.
+
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** .
 
 ## <a name="objectives"></a>Obiettivi
 

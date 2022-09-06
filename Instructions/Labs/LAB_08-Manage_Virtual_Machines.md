@@ -1,7 +1,7 @@
 ---
 lab:
   title: 08 - Gestire le macchine virtuali
-  module: Module 08 - Virtual Machines
+  module: Administer Virtual Machines
 ---
 
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
@@ -10,6 +10,8 @@ lab:
 ## <a name="lab-scenario"></a>Scenario del lab
 
 You were tasked with identifying different options for deploying and configuring Azure virtual machines. First, you need to determine different compute and storage resiliency and scalability options you can implement when using Azure virtual machines. Next, you need to investigate compute and storage resiliency and scalability options that are available when using Azure virtual machine scale sets. You also want to explore the ability to automatically configure virtual machines and virtual machine scale sets by using the Azure Virtual Machine Custom Script extension.
+
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** .
 
 ## <a name="objectives"></a>Obiettivi
 
