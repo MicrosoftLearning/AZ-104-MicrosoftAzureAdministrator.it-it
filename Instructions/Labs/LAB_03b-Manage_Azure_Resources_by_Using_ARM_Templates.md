@@ -1,7 +1,7 @@
 ---
 lab:
   title: 03b - Gestire le risorse di Azure usando i modelli di ARM
-  module: Module 03 - Azure Administration
+  module: Administer Azure Resources
 ---
 
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
@@ -9,6 +9,8 @@ lab:
 
 ## <a name="lab-scenario"></a>Scenario del lab
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, è necessario eseguire l'attività equivalente usando i modelli di Azure Resource Manager.
+
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -72,12 +74,6 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
    "sourceResourceId": {
        "type": "String"
    },
-   "sourceUri": {
-       "type": "String"
-   },
-   "osType": {
-       "type": "String"
-   },
    ```
 
    ```json
@@ -85,10 +81,6 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
        "defaultValue": "V1",
        "type": "String"
    },      
-   ```
-
-   ```json
-   "osType": "[parameters('osType')]",
    ```
 
     ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: These parameters are removed since they are not applicable to the current deployment. In particular, sourceResourceId, sourceUri, osType, and hyperVGeneration parameters are applicable to creating an Azure disk from an existing VHD file.
