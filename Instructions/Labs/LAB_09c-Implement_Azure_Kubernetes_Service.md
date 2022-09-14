@@ -11,7 +11,7 @@ lab:
 
 Contoso has a number of multi-tier applications that are not suitable to run by using Azure Container Instances. In order to determine whether they can be run as containerized workloads, you want to evaluate using Kubernetes as the container orchestrator. To further minimize management overhead, you want to test Azure Kubernetes Service, including its simplified deployment experience and scaling capabilities.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -168,7 +168,7 @@ In questa attività si distribuirà un pod nel cluster del servizio Azure Kubern
 
 1. Re-run the command until the value in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for the <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept> entry changes from <bpt id="p3">**</bpt><ph id="ph1">\&lt;pending\&gt;</ph><ept id="p3">**</ept> to a public IP address. Note the public IP address in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept>.
 
-1. Open a browser window and navigate to the IP address you obtained in the previous step. Verify that the browser page displays the <bpt id="p1">**</bpt>Welcome to nginx!<ept id="p1">**</ept> message.
+1. Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container.
 
 #### <a name="task-4-scale-containerized-workloads-in-the-azure-kubernetes-service-cluster"></a>Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
 
@@ -198,7 +198,7 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
 
-    > Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container.
+    > Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori.
 
 1. Nel riquadro **Cloud Shell** eseguire quanto segue per verificare il risultato del ridimensionamento del cluster:
 
@@ -240,9 +240,9 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori.
+>Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata.
 
->Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata. 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a long time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. Nel portale di Azure aprire la sessione shell **Bash** all'interno del riquadro **Cloud Shell**.
 

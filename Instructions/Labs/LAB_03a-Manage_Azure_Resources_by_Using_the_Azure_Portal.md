@@ -11,7 +11,7 @@ lab:
 
 You need to explore the basic Azure administration capabilities associated with provisioning resources and organizing them based on resource groups, including moving resources between resource groups. You also want to explore options for protecting disk resources from being accidentally deleted, while still allowing for modifying their performance characteristics and size.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -114,13 +114,13 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Tornare nell'elenco delle risorse del gruppo **az104-03a-rg3** e fare clic sulla voce che rappresenta la risorsa **az104-03a-disk2**. 
 
-1. On the <bpt id="p1">**</bpt>az104-03a-disk2<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Settings<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Size + performance<ept id="p3">**</ept>, set the disk type and size to <bpt id="p4">**</bpt>Premium SSD<ept id="p4">**</ept> and <bpt id="p5">**</bpt>64 GiB<ept id="p5">**</ept>, respectively, and click <bpt id="p6">**</bpt>Resize<ept id="p6">**</ept> to apply the change. Verify that the change was successful.
+1. È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi.
 
     >**Nota**: questo comportamento è previsto, perché il blocco a livello di gruppo di risorse si applica solo alle operazioni di eliminazione. 
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi.
+   >È anche consigliabile esplorare le opzioni per proteggere le risorse disco dall'eliminazione accidentale, consentendo al tempo stesso di modificarne le caratteristiche di prestazioni e le dimensioni.
 
 1. Passare al pannello del gruppo di risorse **az104-03a-rg3**, visualizzare il relativo pannello **Blocchi** e rimuovere il blocco **az104-03a-delete-lock** facendo clic sul collegamento **Elimina** a destra della voce **Elimina blocco**.
 

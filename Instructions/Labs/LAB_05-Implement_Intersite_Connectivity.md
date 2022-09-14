@@ -11,7 +11,7 @@ lab:
 
 Contoso has its datacenters in Boston, New York, and Seattle offices connected via a mesh wide-area network links, with full connectivity between them. You need to implement a lab environment that will reflect the topology of the Contoso's on-premises networks and verify its functionality.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -65,7 +65,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
    >
    >```az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name" ```
    >
-   >If the command returns no results, then you need to choose another region. Once you have identified two suitable regions, you can adjust the regions in the code block above.
+   >Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
 
@@ -78,7 +78,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
       -location2 $location2
    ```
 
-    >Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi.
+    >È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -211,7 +211,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Nel pannello **az104-05-vm0** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
-    >È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
@@ -241,7 +241,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Nel pannello **az104-05-vm1** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
+    >                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** che consente di eseguire questo lab in base ai propri tempi.
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
@@ -261,7 +261,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
 ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 

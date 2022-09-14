@@ -10,7 +10,7 @@ lab:
 ## <a name="lab-scenario"></a>Scenario del lab
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, è necessario eseguire l'attività equivalente usando i modelli di Azure Resource Manager.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -99,7 +99,7 @@ In questa attività si creerà una risorsa disco di Azure usando un modello di A
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
     | Region | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
     | Nome del disco | **az104-03b-disk1** |
-    | Location | Il valore del parametro location annotato nell'attività precedente |
+    | Posizione | Il valore del parametro location annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |

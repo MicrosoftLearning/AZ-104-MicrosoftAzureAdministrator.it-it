@@ -11,7 +11,7 @@ lab:
 
 You need to evaluate the use of Azure storage for storing files residing currently in on-premises data stores. While majority of these files are not accessed frequently, there are some exceptions. You would like to minimize cost of storage by placing less frequently accessed files in lower-priced storage tiers. You also plan to explore different protection mechanisms that Azure Storage offers, including network access, authentication, authorization, and replication. Finally, you want to determine to what extent Azure Files service might be suitable for hosting your on-premises file shares.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -111,7 +111,7 @@ In questa attività verrà creato e configurato un account di archiviazione di A
 
 1. Nella scheda **Protezione di dati** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare le impostazioni predefinite, fare clic su **Rivedi e crea**, attendere il completamento del processo di convalida e fare clic su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Storage account to be created. This should take about 2 minutes.
+    >È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa** per visualizzare il pannello dell'account di archiviazione di Azure.
 
@@ -162,7 +162,7 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
 
 1. Nel pannello **licenses/LICENSE** esaminare le opzioni disponibili.
 
-    > È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali.
+    > Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni.
 
 #### <a name="task-4-manage-authentication-and-authorization-for-azure-storage"></a>Attività 4: Gestire l'autenticazione e l'autorizzazione per Archiviazione di Azure
 
@@ -197,17 +197,17 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL copiato nel passaggio precedente.
 
-    > Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni.
+    > È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi.
 
     > **Nota**: questo comportamento è previsto, perché ora l'accesso è autorizzato in base al token di firma di accesso condiviso appena generato.
 
-    > È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi.
+    > Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica.
 
 1. Chiudere la finestra del browser in modalità InPrivate, tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure e da qui tornare nel pannello **az104-07-container**.
 
 1. Fare clic sul collegamento **Passa all'account utente Azure AD** accanto all'etichetta **Metodo di autenticazione**.
 
-    > Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica.  
+    > Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.  
 
     > **Nota**: a questo punto non si hanno le autorizzazioni per cambiare il metodo di autenticazione.
 
@@ -243,7 +243,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Fare clic sulla condivisione file appena creata e quindi su **Connetti**.
 
-1. Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.
+1. On the <bpt id="p1">**</bpt>Connect<ept id="p1">**</ept> blade, ensure that the <bpt id="p2">**</bpt>Windows<ept id="p2">**</ept> tab is selected. Below you will find a grey textbox with a script, in the bottom right corner of that box hover over the pages icon and click <bpt id="p1">**</bpt>Copy to clipboard<ept id="p1">**</ept>.
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali**, quindi nell'elenco di macchine virtuali fare clic su **az104-07-vm0**.
 
@@ -283,7 +283,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL di firma di accesso condiviso del BLOB generato nell'attività precedente.
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you did not record the SAS URL from task 4, you should generate a new one with the same configuration. Use Task 4 steps 4-6 as a guide for generating a new blob SAS URL. 
+    >                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** che consente di eseguire questo lab in base ai propri tempi. 
 
 1. Verrà visualizzato il contenuto della pagina **Licenza MIT**.
 
@@ -302,7 +302,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
    ```
 1. Verificare che il tentativo di download non sia riuscito.
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You should receive the message stating <bpt id="p2">**</bpt>AuthorizationFailure: This request is not authorized to perform this operation<ept id="p2">**</ept>. This is expected, since you are connecting from the IP address assigned to an Azure VM hosting the Cloud Shell instance.
+    > Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
 1. Chiudere il riquadro Cloud Shell.
 

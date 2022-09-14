@@ -12,7 +12,7 @@ lab:
 
 You need to explore Azure virtual networking capabilities. To start, you plan to create a virtual network in Azure that will host a couple of Azure virtual machines. Since you intend to implement network-based segmentation, you will deploy them into different subnets of the virtual network. You also want to make sure that their private and public IP addresses will not change over time. To comply with Contoso security requirements, you need to protect public endpoints of Azure virtual machines accessible from Internet. Finally, you need to implement DNS name resolution for Azure virtual machines both within the virtual network and from Internet.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -111,16 +111,16 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
       -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json
    ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This method of deploying ARM templates uses Azure PowerShell. You can perform the same task by running the equivalent Azure CLI command <bpt id="p1">**</bpt>az deployment create<ept id="p1">**</ept> (for more information, refer to <bpt id="p2">[</bpt>Deploy resources with Resource Manager templates and Azure CLI<ept id="p2">](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli)</ept>.
-
     >È necessario esplorare le funzionalità della rete virtuale di Azure.
+
+    >Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure.
 
     >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi:
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
-    > 1. Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure.
     > 1. Poiché si prevede di implementare la segmentazione basata sulla rete, sarà necessario distribuirle in subnet diverse della rete virtuale.
-    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
     > 1. È inoltre consigliabile assicurarsi che gli indirizzi IP privati e pubblici non cambino nel tempo.
+    > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
+    > 1. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -151,7 +151,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** impostare **Assegnazione** su **Statica**, lasciare il valore predefinito di **Indirizzo IP** impostato su **10.40.0.4**.
 
-1. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet.
+1. È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
 
 1. Tornare al pannello **az104-04-vnet1**
 
@@ -188,11 +188,11 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Si noti che il tentativo di connessione ha esito negativo.
 
-    >È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is expected, because public IP addresses of the Standard SKU, by default, require that the network interfaces to which they are assigned are protected by a network security group. In order to allow Remote Desktop connections, you will create a network security group explicitly allowing inbound RDP traffic from Internet and assign it to network interfaces of both virtual machines.
 
 1. Arrestare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is done for lab expediency. If the virtual machines are running when a network security group is attached to their network interface, it can can take over 30 minutes for the attachment to take effect. Once the network security group has been created and attached, the virtual machines will be restarted, and the attachment will be in effect immediately.
+    >                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** che consente di eseguire questo lab in base ai propri tempi.
 
 1. Nel portale di Azure cercare e selezionare **Gruppi di sicurezza di rete** e nel pannello **Gruppi di sicurezza di rete** fare clic su **+ Crea**.
 
@@ -205,7 +205,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
     | Nome | **az104-04-nsg01** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
 
-1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> to submit your deployment.
+1. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
     ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 2 minutes.
 
