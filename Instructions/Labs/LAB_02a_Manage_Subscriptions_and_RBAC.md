@@ -22,7 +22,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
     - Creazione dei ticket della richiesta di supporto
     - Visualizzazione dei gruppi di risorse
 
-<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same.
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -139,17 +139,17 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
     | Consenti la creazione manuale della password | Enabled |
     | Password iniziale | **Specificare una password sicura** |
 
-    >Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: <bpt id="p2">**</bpt>Copy to clipboard<ept id="p2">**</ept> the full <bpt id="p3">**</bpt>User name<ept id="p3">**</ept>. You will need it later in this lab.
 
 1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
 
-1. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. 
+1. Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD. 
 
     >**Nota**: se il ruolo personalizzato non è visibile, possono essere necessari fino a 10 minuti perché il ruolo personalizzato venga visualizzato dopo la creazione.
 
-1. Chiedere al docente informazioni sulla disponibilità di questo lab.
+1. Non tutti i provider di servizi di hosting possono fornire questa funzionalità.
 
-1. Open an <bpt id="p1">**</bpt>InPrivate<ept id="p1">**</ept> browser window and sign in to the <bpt id="p2">[</bpt>Azure portal<ept id="p2">](https://portal.azure.com)</ept> using the newly created user account. When prompted to update the password, change the password for the user.
+1. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
     >**Nota**: invece di digitare il nome utente, è possibile incollare il contenuto degli Appunti.
 
@@ -171,7 +171,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
 
-   >Concessione di autorizzazioni per l'invio di richieste di supporto per tutte le sottoscrizioni incluse nel gruppo di gestione a un utente di Azure Active Directory designato.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going.
 
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**, quindi nel pannello Azure Active Directory fare clic su **Utenti**.
 
@@ -207,7 +207,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
 
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
-  >Le autorizzazioni dell'utente devono essere limitate solo a:
+  >Concessione di autorizzazioni per l'invio di richieste di supporto per tutte le sottoscrizioni incluse nel gruppo di gestione a un utente di Azure Active Directory designato.
 
 #### <a name="review"></a>Verifica
 

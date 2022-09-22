@@ -11,7 +11,7 @@ lab:
 
 You need to evaluate Azure functionality that would provide insight into performance and configuration of Azure resources, focusing in particular on Azure virtual machines. To accomplish this, you intend to examine the capabilities of Azure Monitor, including Log Analytics.
 
-<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -115,7 +115,7 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
     >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
 
-    >È necessario valutare le funzionalità di Azure che offrono informazioni dettagliate sulle prestazioni e la configurazione delle risorse di Azure, concentrandosi in particolare sulle macchine virtuali di Azure.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. The deployment might take about 3 minutes.
 
 1. Fare clic su **Vai alla risorsa**.
 
@@ -123,13 +123,13 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
 1. Nell'elenco a discesa **Area di lavoro Log Analytics** del riquadro **Inventario** selezionare l'area di lavoro Log Analytics creata in precedenza in questa attività e fare clic su **Abilita**.
 
-    >A tale scopo, si intende esaminare le funzionalità di Monitoraggio di Azure, incluso Log Analytics.
+    >È necessario valutare le funzionalità di Azure che offrono informazioni dettagliate sulle prestazioni e la configurazione delle risorse di Azure, concentrandosi in particolare sulle macchine virtuali di Azure.
 
     >**Nota:** viene installata automaticamente anche la soluzione **Rilevamento modifiche**.
 
 1. Nel pannello Account di Automazione, nella sezione  **Gestione aggiornamenti** fare clic su **Gestione aggiornamenti**, quindi su **Abilita**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the installation to complete. This might take about 5 minutes.
+    >A tale scopo, si intende esaminare le funzionalità di Monitoraggio di Azure, incluso Log Analytics.
 
 #### <a name="task-4-review-default-monitoring-settings-of-azure-virtual-machines"></a>Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
 
@@ -141,7 +141,7 @@ In questa attività si esamineranno le impostazioni di monitoraggio predefinite 
 
 1. Nel pannello **az104-11-vm0 \| Metriche**, nel grafico predefinito, si noti che l'unico **spazio dei nomi delle metriche** disponibile è **Host macchina virtuale**.
 
-    >                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** che consente di eseguire questo lab in base ai propri tempi.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is expected, since no guest-level diagnostic settings have been configured yet. You do have, however, the option of enabling guest memory metrics directly from the <bpt id="p1">**</bpt>Metrics Namespace<ept id="p1">**</ept> drop down-list. You will enable it later in this exercise.
 
 1. Nell'elenco a discesa **Metrica** esaminare l'elenco delle metriche disponibili.
 
@@ -157,7 +157,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella scheda **Panoramica** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** fare clic su **Abilita monitoraggio a livello di guest**.
 
-    >Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the operation to take effect. This might take about 3 minutes.
 
 1. Passare alla scheda **Contatori delle prestazioni** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** ed esaminare i contatori disponibili.
 

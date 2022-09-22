@@ -11,7 +11,7 @@ lab:
 
 You need to evaluate the use of Azure Web apps for hosting Contoso's web sites, hosted currently in the company's on-premises data centers. The web sites are running on Windows servers using PHP runtime stack. You also need to determine how you can implement DevOps practices by leveraging Azure web apps deployment slots.
 
-<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -165,7 +165,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Fare clic su **Panoramica** nel pannello dello slot di produzione dell'app Web e quindi fare clic sul collegamento dell'**URL** per visualizzare la home page del sito Web in una nuova scheda del browser.
 
-1. È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società.
+1. Verify the default web page has been replaced with the <bpt id="p1">**</bpt>Hello World!<ept id="p1">**</ept> page.
 
 #### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
 
@@ -241,9 +241,9 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP.
+>È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società.
 
->È inoltre necessario determinare in che modo è possibile implementare le procedure DevOps sfruttando gli slot di distribuzione di app Web di Azure. 
+>I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

@@ -32,6 +32,8 @@ In questo lab si eseguiranno le attività seguenti:
 
 #### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
 
+In questa attività si creerà una risorsa disco di Azure usando un modello di Azure Resource Manager.
+
 1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 

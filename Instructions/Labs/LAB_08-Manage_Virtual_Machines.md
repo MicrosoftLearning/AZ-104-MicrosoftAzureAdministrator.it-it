@@ -11,7 +11,7 @@ lab:
 
 You were tasked with identifying different options for deploying and configuring Azure virtual machines. First, you need to determine different compute and storage resiliency and scalability options you can implement when using Azure virtual machines. Next, you need to investigate compute and storage resiliency and scalability options that are available when using Azure virtual machine scale sets. You also want to explore the ability to automatically configure virtual machines and virtual machine scale sets by using the Azure Virtual Machine Custom Script extension.
 
-<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** .
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -176,7 +176,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, inserire il codice seguente a partire dalla riga **20**, direttamente sotto la riga `"resources": [`:
 
-   >È necessario identificare le diverse opzioni disponibili per la distribuzione e la configurazione di macchine virtuali di Azure.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you are using a tool that pastes the code in line by line intellisense may add extra brackets causing validation errors. You may want to paste the code into notepad first and then paste it into line 20.
 
    ```json
         {
@@ -204,7 +204,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Fare clic su **Salva**, tornare nel pannello **Modello personalizzato** e fare clic su **Rivedi e crea**, quindi nel pannello **Rivedi e crea** fare clic su **Crea**
 
-    >Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure.
+    >È necessario identificare le diverse opzioni disponibili per la distribuzione e la configurazione di macchine virtuali di Azure.
 
 1. Per verificare che la configurazione basata sull'estensione per script personalizzati sia riuscita, tornare nel pannello **az104-08-vm1**, quindi nella sezione **Operazioni** fare clic su **Esegui comando** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
@@ -274,7 +274,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Modifica modello**.
 
-    >Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali.
+    >Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure.
 
 1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **30** `"vmSize": "Standard_D2s_v3"` con la riga seguente:
 
@@ -306,14 +306,14 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
                     ]
    ```
 
-    >È anche opportuno esplorare la possibilità di configurare automaticamente le macchine virtuali e i set di scalabilità di macchine virtuali usando l'estensione per script personalizzati di macchine virtuali di Azure.
+    >Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali.
 
     >**Nota**: questa sezione del modello crea due dischi gestiti e li collega a **az104-08-vm1**, in modo simile alla configurazione della risorsa di archiviazione della prima macchina virtuale tramite il portale di Azure.
 
 
 1. Fare clic su **Salva**, tornare nel pannello **Distribuzione personalizzata** e fare clic su **Rivedi e crea**, quindi nel pannello **Rivedi e crea** fare clic su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the template deployment to complete. You can monitor its progress from the <bpt id="p1">**</bpt>Disks<ept id="p1">**</ept> blade of the <bpt id="p2">**</bpt>az104-08-vm1<ept id="p2">**</ept> virtual machine. This should take no more than 3 minutes.
+    >È anche opportuno esplorare la possibilità di configurare automaticamente le macchine virtuali e i set di scalabilità di macchine virtuali usando l'estensione per script personalizzati di macchine virtuali di Azure.
 
 1. Tornare nel pannello **az104-08-vm1**, fare clic su **Esegui comando** nella sezione **Operazioni** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
@@ -449,7 +449,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Rivedi e crea** del pannello **Crea un set di scalabilità di macchine virtuali** assicurarsi che la convalida sia stata superata e fare clic su **Crea**.
 
-    >                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** che consente di eseguire questo lab in base ai propri tempi.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the virtual machine scale set deployment to complete. This should take about 5 minutes.
 
 #### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Attività 6: Configurare i set di scalabilità di macchine virtuali di Azure usando le estensioni per macchine virtuali
 
@@ -582,7 +582,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Salvare le modifiche, nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Istanze**, selezionare le caselle di controllo accanto alle due istanze del set di scalabilità di macchine virtuali, fare clic su **Aggiorna** e quindi, quando viene richiesta la conferma, fare clic su **Sì**.
 
-    >Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The disk attached in the previous step is a raw disk. Before it can be used, it is necessary to create a partition, create a filesystem, and mount it. To accomplish this, you will use Azure virtual machine Custom Script extension. First, you will need to remove the existing Custom Script Extension.
 
 1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Estensioni**, su **CustomScriptExtension** e quindi su **Disinstalla**.
 
