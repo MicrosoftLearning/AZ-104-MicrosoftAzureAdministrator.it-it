@@ -15,9 +15,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 
 - Verifica che sia possibile aggiungere solo le risorse con il tag appropriato ai gruppi di risorse dell'infrastruttura
 
-- Correzione di eventuali risorse non conformi
-
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** .
+- Correzione di eventuali risorse non conformi 
 
 ## <a name="objectives"></a>Obiettivi
 

@@ -20,9 +20,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 - granting permissions to submit support requests for all subscriptions in the management group to a designated Azure Active Directory user. That user's permissions should be limited only to: 
 
     - Creazione dei ticket della richiesta di supporto
-    - Visualizzazione dei gruppi di risorse
-
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** .
+    - Visualizzazione dei gruppi di risorse 
 
 ## <a name="objectives"></a>Obiettivi
 

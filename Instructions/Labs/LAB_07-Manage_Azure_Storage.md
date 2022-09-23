@@ -11,8 +11,6 @@ lab:
 
 You need to evaluate the use of Azure storage for storing files residing currently in on-premises data stores. While majority of these files are not accessed frequently, there are some exceptions. You would like to minimize cost of storage by placing less frequently accessed files in lower-priced storage tiers. You also plan to explore different protection mechanisms that Azure Storage offers, including network access, authentication, authorization, and replication. Finally, you want to determine to what extent Azure Files service might be suitable for hosting your on-premises file shares.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** .
-
 ## <a name="objectives"></a>Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
@@ -53,7 +51,8 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà la macchina virtuale. Sostituire il segnaposto "[Azure-region]" con il nome di un'area di Azure in cui si intende distribuire la macchina virtuale di Azure
 
-    >**Nota**: per elencare i nomi delle aree di Azure, eseguire `(Get-AzLocation).Location`**Nota**: ogni comando seguente deve essere digitato separatamente
+    >**Nota**: per elencare i nomi delle aree di Azure, eseguire `(Get-AzLocation).Location`
+    >**Nota**: ogni comando seguente deve essere digitato separatamente
 
     ```powershell
     $location = '[Azure_region]'
