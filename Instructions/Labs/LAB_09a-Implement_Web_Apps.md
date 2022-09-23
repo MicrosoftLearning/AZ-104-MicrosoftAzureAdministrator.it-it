@@ -1,20 +1,15 @@
 ---
 lab:
   title: 09a - Implementare app Web
-  module: Module 09 - Serverless Computing
-ms.openlocfilehash: af243b0cfa2b011dd419516139b5200ba349bcb4
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356614"
+  module: Administer Serverless Computing
 ---
+
 # <a name="lab-09a---implement-web-apps"></a>Lab 09a - Implementare app Web
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società. I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. È inoltre necessario determinare in che modo è possibile implementare le procedure DevOps sfruttando gli slot di distribuzione di app Web di Azure.
+You need to evaluate the use of Azure Web apps for hosting Contoso's web sites, hosted currently in the company's on-premises data centers. The web sites are running on Windows servers using PHP runtime stack. You also need to determine how you can implement DevOps practices by leveraging Azure web apps deployment slots.
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -58,9 +53,9 @@ In questa attività verrà creata un'app Web di Azure.
     | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
     | App service plan (Piano di servizio app) | Accettare la configurazione predefinita |
 
-1. Fare clic su **Rivedi e crea**. Nella scheda **Rivedi e crea** del pannello **Crea app Web** assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
+1. Click <bpt id="p1">**</bpt>Review + create<ept id="p1">**</ept>. On the <bpt id="p1">**</bpt>Review + create<ept id="p1">**</ept> tab of the <bpt id="p2">**</bpt>Create Web App<ept id="p2">**</ept> blade, ensure that the validation passed and click <bpt id="p3">**</bpt>Create<ept id="p3">**</ept>.
 
-    >**Nota**: attendere che venga creata l'app Web prima di procedere all'attività successiva. L'operazione dovrebbe richiedere circa un minuto.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the web app is created before you proceed to the next task. This should take about a minute.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa**.
 
@@ -154,7 +149,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 
 1. Nel pannello dello slot di staging fare clic su **Panoramica** e quindi sul collegamento dell'**URL** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
-1. Verificare che nella pagina del browser sia visualizzato il messaggio **Hello World!** e chiudere la nuova scheda.
+1. Verify that the browser page displays the <bpt id="p1">**</bpt>Hello World!<ept id="p1">**</ept> message and close the new tab.
 
 #### <a name="task-5-swap-the-staging-slots"></a>Attività 5: Scambiare gli slot di staging
 
@@ -162,13 +157,13 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Tornare al pannello che mostra lo slot di produzione dell'app Web.
 
-1. Nella sezione **Distribuzione** fare clic su **Slot di distribuzione** e quindi sull'icona **Scambia** della barra degli strumenti.
+1. Nella sezione**Distribuzione** fare clic su **Slot di distribuzione** e quindi sull'icona **Scambia** della barra degli strumenti.
 
 1. Nel pannello **Scambia** esaminare le impostazioni predefinite e fare clic su **Scambia**.
 
 1. Fare clic su **Panoramica** nel pannello dello slot di produzione dell'app Web e quindi fare clic sul collegamento dell'**URL** per visualizzare la home page del sito Web in una nuova scheda del browser.
 
-1. Verificare che la pagina Web predefinita sia stata sostituita con la pagina **Hello World!** .
+1. Verify the default web page has been replaced with the <bpt id="p1">**</bpt>Hello World!<ept id="p1">**</ept> page.
 
 #### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
 
@@ -244,9 +239,9 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società.
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+>I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

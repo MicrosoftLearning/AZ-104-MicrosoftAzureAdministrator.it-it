@@ -1,21 +1,16 @@
 ---
 lab:
   title: 04 - Implementare la rete virtuale
-  module: Module 04 - Virtual Networking
-ms.openlocfilehash: 8ecc8c5090c63b21a641311bde4117538cb1af7c
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356680"
+  module: Administer Virtual Networking
 ---
+
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
 
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-È necessario esplorare le funzionalità della rete virtuale di Azure. Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure. Poiché si prevede di implementare la segmentazione basata sulla rete, sarà necessario distribuirle in subnet diverse della rete virtuale. È inoltre consigliabile assicurarsi che gli indirizzi IP privati e pubblici non cambino nel tempo. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet. È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
+You need to explore Azure virtual networking capabilities. To start, you plan to create a virtual network in Azure that will host a couple of Azure virtual machines. Since you intend to implement network-based segmentation, you will deploy them into different subnets of the virtual network. You also want to make sure that their private and public IP addresses will not change over time. To comply with Contoso security requirements, you need to protect public endpoints of Azure virtual machines accessible from Internet. Finally, you need to implement DNS name resolution for Azure virtual machines both within the virtual network and from Internet.
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -68,9 +63,9 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Nome della subnet | **subnet0** |
     | Intervallo di indirizzi subnet | **10.40.0.0/24** |
 
-1. Accettare le impostazioni predefinite e fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
+1. Accept the defaults and click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> again to submit your deployment.
 
-    >**Nota:** attendere il completamento del provisioning della rete virtuale. L'operazione dovrebbe richiedere meno di un minuto.
+    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> Wait for the virtual network to be provisioned. This should take less than a minute.
 
 1. Fare clic su **Vai alla risorsa**
 
@@ -101,7 +96,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: potrebbe essere necessario caricare ogni file separatamente.
 
-1. Modificare il file dei parametri e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+1. Edit the Parameters file, and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
 
@@ -114,16 +109,16 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
       -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json
    ```
 
-    >**Nota**: questo metodo di distribuzione dei modelli di ARM usa Azure PowerShell. È possibile eseguire la stessa attività eseguendo il comando equivalente **az deployment create** dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Distribuire risorse con modelli di Resource Manager e l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli).
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This method of deploying ARM templates uses Azure PowerShell. You can perform the same task by running the equivalent Azure CLI command <bpt id="p1">**</bpt>az deployment create<ept id="p1">**</ept> (for more information, refer to <bpt id="p2">[</bpt>Deploy resources with Resource Manager templates and Azure CLI<ept id="p2">](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli)</ept>.
 
-    >**Nota**: attendere il completamento dell'operazione prima di passare all'attività successiva. L'operazione richiede circa 2 minuti.
+    >È necessario esplorare le funzionalità della rete virtuale di Azure.
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili nell'area, seguire questa procedura:
+    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi:
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
-    > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
-    > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
+    > 1. Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure.
+    > 1. Poiché si prevede di implementare la segmentazione basata sulla rete, sarà necessario distribuirle in subnet diverse della rete virtuale.
     > 1. Sostituire il valore del parametro `vmSize` con uno dei valori restituiti dal comando appena eseguito.
-    > 1. Ora ridistribuire i modelli eseguendo di nuovo il comando `New-AzResourceGroupDeployment`. È possibile premere il pulsante Su alcune volte per visualizzare l'ultimo comando eseguito.
+    > 1. È inoltre consigliabile assicurarsi che gli indirizzi IP privati e pubblici non cambino nel tempo.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -154,7 +149,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** impostare **Assegnazione** su **Statica**, lasciare il valore predefinito di **Indirizzo IP** impostato su **10.40.0.4**.
 
-1. Nel pannello **ipconfig1** salvare le modifiche. Assicurarsi di attendere il completamento dell'operazione di salvataggio prima di procedere al passaggio successivo.
+1. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet.
 
 1. Tornare al pannello **az104-04-vnet1**
 
@@ -191,7 +186,11 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Si noti che il tentativo di connessione ha esito negativo.
 
-    >**Nota**: questo comportamento è previsto perché gli indirizzi IP pubblici di Standard SKU, per impostazione predefinita, richiedono che le interfacce di rete a cui sono assegnati siano protette da un gruppo di sicurezza di rete. Per consentire le connessioni Desktop remoto, verrà creato un gruppo di sicurezza di rete che consente esplicitamente il traffico RDP in ingresso da Internet e lo assegna alle interfacce di rete di entrambe le macchine virtuali.
+    >È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
+
+1. Arrestare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
+
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is done for lab expediency. If the virtual machines are running when a network security group is attached to their network interface, it can can take over 30 minutes for the attachment to take effect. Once the network security group has been created and attached, the virtual machines will be restarted, and the attachment will be in effect immediately.
 
 1. Nel portale di Azure cercare e selezionare **Gruppi di sicurezza di rete** e nel pannello **Gruppi di sicurezza di rete** fare clic su **+ Crea**.
 
@@ -204,9 +203,9 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
     | Nome | **az104-04-nsg01** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
 
-1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare clic su **Crea** per inviare la distribuzione.
+1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> to submit your deployment.
 
-    >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 2 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 2 minutes.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa** per aprire il pannello del gruppo di sicurezza di rete **az104-04-nsg01**.
 
@@ -230,19 +229,21 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     >**Nota**: l'applicazione delle regole del gruppo di sicurezza di rete appena creato alla scheda di interfaccia di rete può richiedere fino a 5 minuti.
 
+1. Avviare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
+
 1. Tornare al pannello della macchina virtuale **az104-04-vm0**.
 
     >**Nota**: nei passaggi successivi si verificherà se è possibile connettersi correttamente alla macchina virtuale di destinazione.
 
 1. Nel pannello **az104-04-vm0** fare clic su **Connetti**, fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** usando l'indirizzo IP pubblico e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
 1. Quando richiesto, accedere con il nome utente e la password riportati nel file dei parametri.
 
-    >**Nota**: lasciare aperta la sessione di Desktop remoto. Sarà necessario nell'attività successiva.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Leave the Remote Desktop session open. You will need it in the next task.
 
 #### <a name="task-5-configure-azure-dns-for-internal-name-resolution"></a>Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
 
@@ -258,9 +259,9 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
     | Gruppo di risorse | **az104-04-rg1** |
     | Nome | **contoso.org** |
 
-1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
+1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> again to submit your deployment.
 
-    >**Nota**: attendere il completamento della creazione di zona DNS privato. L'operazione richiede circa 2 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the private DNS zone to be created. This should take about 2 minutes.
 
 1. Fare clic su **Vai alla risorsa** per aprire il pannello della zona DNS privato **contoso.org**.
 
@@ -277,7 +278,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 1. Fare clic su **OK**.
 
-    >**Note:** attendere il completamento della creazione del collegamento di rete virtuale. L'operazione dovrebbe richiedere meno di un minuto.
+    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> Wait for the virtual network link to be created. This should take less than 1 minute.
 
 1. Nella barra laterale del pannello della zona DNS privato **contoso.org** fare clic su **Panoramica**
 
@@ -300,7 +301,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 In questa attività verrà configurata la risoluzione dei nomi DNS esterni mediante le zone DNS pubblico di Azure.
 
-1. Nel Web browser nel sistema del lab **SEA-DEV** aprire una nuova scheda e passare a <https://www.godaddy.com/domains/domain-name-search>.
+1. In un Web browser aprire una nuova scheda e passare a <https://www.godaddy.com/domains/domain-name-search>.
 
 1. Usare la ricerca del nome di dominio per identificare un nome di dominio non in uso.
 
@@ -314,9 +315,9 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
     | Gruppo di risorse | **az104-04-rg1** |
     | Nome | Nome di dominio DNS identificato in precedenza in questa attività |
 
-1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
+1. Click <bpt id="p1">**</bpt>Review and Create<ept id="p1">**</ept>. Let validation occur, and hit <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> again to submit your deployment.
 
-    >**Nota**: attendere il completamento della creazione di zona DNS. L'operazione richiede circa 2 minuti.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the DNS zone to be created. This should take about 2 minutes.
 
 1. Fare clic su **Vai alla risorsa** per aprire il pannello della zona DNS appena creata.
 
@@ -372,9 +373,9 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
- > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+ > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
- > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+ > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

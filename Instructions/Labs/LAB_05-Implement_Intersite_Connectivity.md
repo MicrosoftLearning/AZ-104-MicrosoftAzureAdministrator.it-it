@@ -1,20 +1,15 @@
 ---
 lab:
   title: 05 - Implementare la connettività tra siti
-  module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: ed67186af743d7733e0f106aecf239fce15aa45f
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356668"
+  module: Administer Intersite Connectivity
 ---
+
 # <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi. È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
+Contoso has its datacenters in Boston, New York, and Seattle offices connected via a mesh wide-area network links, with full connectivity between them. You need to implement a lab environment that will reflect the topology of the Contoso's on-premises networks and verify its functionality.
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -46,21 +41,29 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** e **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** nella home directory di Cloud Shell.
 
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+1. Edit the <bpt id="p1">**</bpt>Parameters<ept id="p1">**</ept> file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
 
-1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in `[Azure_region_1]`. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area `[Azure_region_2]`. Sostituire i segnaposto `[Azure_region_1]` e `[Azure_region_2]` con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure:
+1. From the Cloud Shell pane, run the following to create the resource group that will be hosting the lab environment. The first two virtual networks and a pair of virtual machines will be deployed in [Azure_region_1]. The third virtual network and the third virtual machine will be deployed in the same resource group but another [Azure_region_2]. (replace the [Azure_region_1] and [Azure_region_2] placeholder, including the square brackets, with the names of two different Azure regions where you intend to deploy these Azure virtual machines. An example is $location1 = 'eastus'. You can use Get-AzLocation to list all locations.):
 
    ```powershell
-   $location1 = '[Azure_region_1]'
+   $location1 = 'eastus'
 
-   $location2 = '[Azure_region_2]'
+   $location2 = 'westus'
 
    $rgName = 'az104-05-rg1'
 
    New-AzResourceGroup -Name $rgName -Location $location1
    ```
 
-   >**Nota**: per identificare le aree di Azure, in una sessione di PowerShell in Cloud Shell eseguire **(Get-AzLocation).Location**
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The regions used above were tested and known to work when this lab was last officially reviewed. If you would prefer to use different locations, or they no longer work, you will need to identify two different regions that Standard D2Sv3 virtual machines can be deployed into.
+   >
+   >Per identificare le aree di Azure, in una sessione di PowerShell in Cloud Shell eseguire **(Get-AzLocation).Location**
+   >
+   >Dopo aver identificato due aree da usare, eseguire il comando seguente in Cloud Shell per ogni area per verificare che sia possibile distribuire macchine virtuali D2Sv3 Standard
+   >
+   >```az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name" ```
+   >
+   >If the command returns no results, then you need to choose another region. Once you have identified two suitable regions, you can adjust the regions in the code block above.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
 
@@ -73,7 +76,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
       -location2 $location2
    ```
 
-    >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 2 minuti.
+    >Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -89,7 +92,7 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
 
 1. Nell'elenco di reti virtuali fare clic su **az104-05-vnet0**.
 
-1. Nel pannello della rete virtuale **az104-05-vnet0**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
+1. Nel pannello della rete virtuale **az104-05-vnet0**, nella sezione **Impostazioni**, fare clic su **Peering**e quindi su **+ Aggiungi**.
 
 1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su **Aggiungi**:
 
@@ -124,7 +127,7 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
    Add-AzVirtualNetworkPeering -Name 'az104-05-vnet1_to_az104-05-vnet0' -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet0.Id
    ``` 
 
-1. Nel pannello della rete virtuale **az104-05-vnet0**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
+1. Nel pannello della rete virtuale **az104-05-vnet0**, nella sezione **Impostazioni**, fare clic su **Peering**e quindi su **+ Aggiungi**.
 
 1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su **Aggiungi**:
 
@@ -161,7 +164,7 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
 
 1. Tornare al pannello **Reti virtuali** e nell'elenco di reti virtuali fare clic su **az104-05-vnet1**.
 
-1. Nel pannello della rete virtuale **az104-05-vnet1**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
+1. Nel pannello della rete virtuale **az104-05-vnet1**, nella sezione **Impostazioni**, fare clic su **Peering**e quindi su **+ Aggiungi**.
 
 1. Aggiungere un peering con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni, quindi fare clic su **Aggiungi**:
 
@@ -206,7 +209,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Nel pannello **az104-05-vm0** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
+    >È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
@@ -236,7 +239,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Nel pannello **az104-05-vm1** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
 
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
@@ -256,9 +259,9 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 

@@ -1,14 +1,16 @@
 ---
-ms.openlocfilehash: a3c557542a076ac9923e7968b72db5f067d6478c
-ms.sourcegitcommit: 205f5635b7ac230b22e22e498d5d6c4c5ae1a0f6
+ms.openlocfilehash: a106aae9e7c3de7b5154ce5e889ee057a1b9dff3
+ms.sourcegitcommit: 69083589fed0a226499b3067222e444d3fe0bac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138153772"
+ms.lasthandoff: 06/17/2022
+ms.locfileid: "146458133"
 ---
 # <a name="az-104-microsoft-azure-administrator"></a>AZ-104: Microsoft Azure Administrator
 
 ## <a name="welcome"></a>Schermata iniziale
+
+Questo repository è pensato per i docenti dei corsi Microsoft. Se si è in classe, chiedere assistenza al docente. 
 
 - **[Collegamento ai lab (formato HTML)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
 - **Si è un Microsoft Certified Trainer?** - Esaminare la [guida per utenti di GitHub per Microsoft Certified Trainer](https://microsoftlearning.github.io/MCT-User-Guide/)
@@ -42,7 +44,7 @@ Dopo l'accesso, i computer possono essere usati per attività di crypto mining o
 
 ## <a name="what-about-changes-to-the-student-handbook"></a>Il manuale per lo studente verrà modificato?
 
-- Questo repository è destinato solo ai problemi relativi ai lab del corso. I commenti sul contenuto del corso devono essere pubblicati nel forum relativo ai materiali per il corso per Microsoft Certified Trainer. 
+- Questo repository è destinato solo ai problemi relativi ai lab del corso. È possibile inviare feedback o correzioni sul [contenuto del corso](https://docs.microsoft.com/learn/certifications/courses/az-104t00). Usare il collegamento per la _segnalazione di un problema_ nella parte inferiore di ogni pagina del contenuto.
 
 ## <a name="notes"></a>Note
 

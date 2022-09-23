@@ -1,14 +1,9 @@
 ---
 lab:
   title: 02b – Gestire la governance tramite Criteri di Azure
-  module: Module 02 - Governance and Compliance
-ms.openlocfilehash: f5a00c4a985ba88fa839c308bc6bb16de72561d2
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356662"
+  module: Administer Governance and Compliance
 ---
+
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
 # <a name="student-lab-manual"></a>Manuale del lab per studenti
 
@@ -66,7 +61,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello del gruppo di risorse fare clic su **Fare clic qui per aggiungere i tag**.
+1. Nel pannello del gruppo di risorse fare clic su **modifica** accanto a **Tag** per creare nuovi tag.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
@@ -75,7 +70,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
     | Nome | **Ruolo** |
     | Valore | **Infra** |
 
-1. Tornare nel pannello dell'account di archiviazione. Esaminare le informazioni di **Panoramica** e notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
+1. Navigate back to the storage account blade. Review the <bpt id="p1">**</bpt>Overview<ept id="p1">**</ept> information and note that the new tag was not automatically assigned to the storage account. 
 
 #### <a name="task-2-enforce-tagging-via-an-azure-policy"></a>Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 
@@ -83,7 +78,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nel portale di Azure cercare e selezionare **Criteri**. 
 
-1. Nella sezione **Creazione** fare clic su **Definizioni**. Esaminare l'elenco delle definizioni dei criteri predefiniti disponibili per l'uso. Elencare tutti i criteri predefiniti che comportano l'uso di tag selezionando la voce **Tag** (e deselezionando tutte le altre voci) nell'elenco a discesa **Categoria**. 
+1. In the <bpt id="p1">**</bpt>Authoring<ept id="p1">**</ept> section, click <bpt id="p2">**</bpt>Definitions<ept id="p2">**</ept>. Take a moment to browse through the list of built-in policy definitions that are available for you to use. List all built-in policies that involve the use of tags by selecting the <bpt id="p1">**</bpt>Tags<ept id="p1">**</ept> entry (and de-selecting all other entries) in the <bpt id="p2">**</bpt>Category<ept id="p2">**</ept> drop-down list. 
 
 1. Fare clic sulla voce che rappresenta il criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** ed esaminarne la definizione.
 
@@ -96,7 +91,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | Nome del gruppo di risorse contenente l'account Cloud Shell identificato nell'attività precedente |
 
-    >**Nota**: un ambito determina le risorse o i gruppi di risorse in cui ha effetto l'assegnazione dei criteri. È possibile assegnare criteri a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. È anche possibile specificare esclusioni, ad esempio singole sottoscrizioni, gruppi di risorse o risorse (a seconda dell'ambito di assegnazione). 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: A scope determines the resources or resource groups where the policy assignment takes effect. You could assign policies on the management group, subscription, or resource group level. You also have the option of specifying exclusions, such as individual subscriptions, resource groups, or resources (depending on the assignment scope). 
 
 1. Nella scheda **Informazioni di base** configurare le proprietà dell'assegnazione specificando le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -106,7 +101,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | Descrizione | **Require Role tag with Infra value for all resources in the Cloud Shell resource group**|
     | Imposizione dei criteri | Attivato |
 
-    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The <bpt id="p2">**</bpt>Assignment name<ept id="p2">**</ept> is automatically populated with the policy name you selected, but you can change it. You can also add an optional <bpt id="p1">**</bpt>Description<ept id="p1">**</ept>. <bpt id="p1">**</bpt>Assigned by<ept id="p1">**</ept> is automatically populated based on the user name creating the assignment. 
 
 1. Fare clic su **Avanti** e impostare **Parametri** sui valori seguenti:
 
@@ -135,11 +130,11 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | --- | --- |
     | Nome dell'account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
 
-1. Dopo aver creato la distribuzione, verrà visualizzato il messaggio **Distribuzione non riuscita** nell'elenco **Notifiche** del portale. Nell'elenco **Notifiche** passare alla panoramica della distribuzione e fare clic su l messaggio **Distribuzione non riuscita. Fare clic qui per i dettagli** per identificare il motivo dell'errore. 
+1. Once you create the deployment, you should see the <bpt id="p1">**</bpt>Deployment failed<ept id="p1">**</ept> message in the <bpt id="p2">**</bpt>Notifications<ept id="p2">**</ept> list of the portal. From the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> list, navigate to the deployment overview and click the <bpt id="p2">**</bpt>Deployment failed. Click here for details<ept id="p2">**</ept> message to identify the reason for the failure. 
 
     >**Nota**: verificare se il messaggio di errore indica che la distribuzione della risorsa non è consentita dai criteri. 
 
-    >**Nota**: facendo clic sulla scheda **Tag**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value** (Richiedi tag ruolo con valore Infra). La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: By clicking the <bpt id="p2">**</bpt>Raw Error<ept id="p2">**</ept> tab, you can find more details about the error, including the name of the role definition <bpt id="p3">**</bpt>Require Role tag with Infra value<ept id="p3">**</ept>. The deployment failed because the storage account you attempted to create did not have a tag named <bpt id="p1">**</bpt>Role<ept id="p1">**</ept> with its value set to <bpt id="p2">**</bpt>Infra<ept id="p2">**</ept>.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
@@ -149,7 +144,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nella sezione **Creazione** fare clic su **Assegnazioni**. 
 
-1. Nell'elenco di assegnazioni fare clic con il pulsante destro del mouse sull'icona con i puntini di sospensione nella riga che rappresenta l'assegnazione di criteri **Require Role tag with Infra value** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione. 
+1. Nell'elenco di assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta l'assegnazione di criteri **Require Role tag with Infra value** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione.
 
 1. Fare clic su **Assegna criteri** e specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
 
@@ -179,7 +174,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | Impostazione | Valore |
     | --- | --- |
     | Creare un'attività di correzione | Enabled |
-    | Criterio da correggere | **Eredita un tag dal gruppo di risorse se mancante** |
+    | Criterio da correggere | **Eredita un tag dalla sottoscrizione se mancante** |
 
     >**Nota**: questa definizione dei criteri include l'effetto **Modify**.
 
@@ -205,9 +200,9 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 #### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although keep in mind that Azure policies do not incur extra cost.
    
-   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 
 1. Nel portale cercare e selezionare **Criteri**.
 
@@ -215,9 +210,9 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nel portale cercare e selezionare **Account di archiviazione**.
 
-1. Nell'elenco degli account di archiviazione selezionare il gruppo di risorse corrispondente all'account di archiviazione creato nell'ultima attività del lab. Selezionare **Tag**, fare clic su **Elimina** (il cestino a destra) per il tag **Role:Infra** e premere **Applica**. 
+1. In the list of storage accounts, select the resource group corresponding to the storage account you created in the last task of this lab. Select <bpt id="p1">**</bpt>Tags<ept id="p1">**</ept> and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept> (Trash can to the right) to the <bpt id="p3">**</bpt>Role:Infra<ept id="p3">**</ept> tag and press <bpt id="p4">**</bpt>Apply<ept id="p4">**</ept>. 
 
-1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
+1. Click <bpt id="p1">**</bpt>Overview<ept id="p1">**</ept> and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept> on the top of the storage account blade. When prompted for the confirmation, in the <bpt id="p1">**</bpt>Delete storage account<ept id="p1">**</ept> blade, type the name of the storage account to confirm and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept>. 
 
 #### <a name="review"></a>Verifica
 
