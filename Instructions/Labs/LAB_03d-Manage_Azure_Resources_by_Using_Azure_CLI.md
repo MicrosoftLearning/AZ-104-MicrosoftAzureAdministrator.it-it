@@ -23,6 +23,10 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
 
+## <a name="architecture-diagram"></a>Diagramma dell'architettura
+
+![image](../media/lab03d.png)
+
 ## <a name="instructions"></a>Istruzioni
 
 ### <a name="exercise-1"></a>Esercizio 1
