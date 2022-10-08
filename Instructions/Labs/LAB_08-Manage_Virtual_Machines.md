@@ -9,9 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-You were tasked with identifying different options for deploying and configuring Azure virtual machines. First, you need to determine different compute and storage resiliency and scalability options you can implement when using Azure virtual machines. Next, you need to investigate compute and storage resiliency and scalability options that are available when using Azure virtual machine scale sets. You also want to explore the ability to automatically configure virtual machines and virtual machine scale sets by using the Azure Virtual Machine Custom Script extension.
+È necessario identificare le diverse opzioni disponibili per la distribuzione e la configurazione di macchine virtuali di Azure. Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure. Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali. È anche opportuno esplorare la possibilità di configurare automaticamente le macchine virtuali e i set di scalabilità di macchine virtuali usando l'estensione per script personalizzati di macchine virtuali di Azure.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** .
+                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -73,7 +73,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
 1. Nel pannello **Crea rete virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-08-rg01-vnet** |
     | Intervallo di indirizzi | **10.80.0.0/20** |
@@ -82,7 +82,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
 1. Fare clic su **OK** e quindi di nuovo nella scheda **Rete** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subnet | **subnet0** |
     | IP pubblico | **default** |
@@ -95,11 +95,16 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Diagnostica di avvio | **Abilita con account di archiviazione personalizzato** |
-    | Account di archiviazione di diagnostica | Accettare il valore predefinito |
     | Opzioni di orchestrazione patch | **Aggiornamenti manuali** |  
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If necessary, select an existing storage account in the dropdown list or create a new storage account. Record the name of the storage account. You will use it in the next task.
+1. Selezionare **Avanti: Monitoraggio>** e nella scheda **Monitoraggio** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | Diagnostica di avvio | **Abilita con account di archiviazione personalizzato** |
+    | Account di archiviazione di diagnostica | **Accettare il valore predefinito** |
+
+    >**Nota**: se necessario, selezionare un account di archiviazione esistente nell'elenco a discesa o creare un nuovo account di archiviazione. Prendere nota del nome dell'account di archiviazione. Sarà necessario nell'attività successiva.
 
 1. Fare clic su **Avanti: Avanzate >** , quindi nella scheda **Avanzate** del pannello **Crea macchina virtuale** esaminare le impostazioni disponibili senza modificarle e fare clic su **Rivedi e crea**.
 
@@ -129,7 +134,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
 1. Fare clic su **Rivedi e crea** e quindi nel pannello **Rivedi e crea** fare clic su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for both deployments to complete before you proceed to the next task. This might take about 5 minutes.
+    >**Nota**: attendere il completamento di entrambe le distribuzioni prima di procedere con l'attività successiva. L'operazione potrebbe richiedere circa cinque minuti.
 
 #### <a name="task-2-configure-azure-virtual-machines-by-using-virtual-machine-extensions"></a>Attività 2: Configurare le macchine virtuali di Azure usando le estensioni per macchine virtuali
 
@@ -172,11 +177,11 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Modifica modello**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Disregard the message stating <bpt id="p2">**</bpt>The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group<ept id="p2">**</ept>. This is expected and can be ignored in this case.
+    >**Nota**: ignorare il messaggio **Il gruppo di risorse si trova in una località non supportata da una o più risorse nel modello. Scegliere un altro gruppo di risorse**. Questo errore è previsto e può essere ignorato in questo caso.
 
 1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, inserire il codice seguente a partire dalla riga **20**, direttamente sotto la riga `"resources": [`:
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you are using a tool that pastes the code in line by line intellisense may add extra brackets causing validation errors. You may want to paste the code into notepad first and then paste it into line 20.
+   >**Nota**: se si usa uno strumento che incolla il codice riga per riga, la funzionalità IntelliSense può aggiungere parentesi quadre aggiuntive che generano errori di convalida. È consigliabile incollare il codice prima nel Blocco appunti e poi nella riga 20.
 
    ```json
         {
@@ -204,7 +209,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Fare clic su **Salva**, tornare nel pannello **Modello personalizzato** e fare clic su **Rivedi e crea**, quindi nel pannello **Rivedi e crea** fare clic su **Crea**
 
-    >È necessario identificare le diverse opzioni disponibili per la distribuzione e la configurazione di macchine virtuali di Azure.
+    >**Nota**: attendere il completamento della distribuzione del modello. È possibile monitorarne lo stato di avanzamento nel pannello **Estensioni** delle macchine virtuali **az104-08-vm0** e **az104-08-vm1**. Questa operazione non dovrebbe richiedere più di 3 minuti.
 
 1. Per verificare che la configurazione basata sull'estensione per script personalizzati sia riuscita, tornare nel pannello **az104-08-vm1**, quindi nella sezione **Operazioni** fare clic su **Esegui comando** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
@@ -274,7 +279,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Modifica modello**.
 
-    >Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure.
+    >**Nota**: ignorare il messaggio **Il gruppo di risorse si trova in una località non supportata da una o più risorse nel modello. Scegliere un altro gruppo di risorse**. Questo errore è previsto e può essere ignorato in questo caso.
 
 1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **30** `"vmSize": "Standard_D2s_v3"` con la riga seguente:
 
@@ -306,14 +311,14 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
                     ]
    ```
 
-    >Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali.
+    >**Nota**: se si usa uno strumento che incolla il codice riga per riga, la funzionalità IntelliSense può aggiungere parentesi quadre aggiuntive che generano errori di convalida. È consigliabile incollare il codice prima nel Blocco appunti e poi nella riga 49.
 
     >**Nota**: questa sezione del modello crea due dischi gestiti e li collega a **az104-08-vm1**, in modo simile alla configurazione della risorsa di archiviazione della prima macchina virtuale tramite il portale di Azure.
 
 
 1. Fare clic su **Salva**, tornare nel pannello **Distribuzione personalizzata** e fare clic su **Rivedi e crea**, quindi nel pannello **Rivedi e crea** fare clic su **Crea**.
 
-    >È anche opportuno esplorare la possibilità di configurare automaticamente le macchine virtuali e i set di scalabilità di macchine virtuali usando l'estensione per script personalizzati di macchine virtuali di Azure.
+    >**Nota**: attendere il completamento della distribuzione del modello. È possibile monitorarne lo stato di avanzamento nel pannello **Dischi** della macchina virtuale **az104-08-vm1**. Questa operazione non dovrebbe richiedere più di 3 minuti.
 
 1. Tornare nel pannello **az104-08-vm1**, fare clic su **Esegui comando** nella sezione **Operazioni** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
@@ -375,7 +380,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Rete** del pannello **Crea un set di scalabilità di macchine virtuali** fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo **Rete virtuale** e creare una nuova rete virtuale con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-08-rg02-vnet** |
     | Intervallo di indirizzi | **10.82.0.0/20** |
@@ -390,13 +395,13 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nel pannello **Crea gruppo di sicurezza di rete** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az10408vmss0-nsg** |
 
 1. Fare clic su **Aggiungi una regola in ingresso** e aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Source (Sorgente) | **qualsiasi** |
     | Intervalli di porte di origine | **\*** |
@@ -449,7 +454,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Rivedi e crea** del pannello **Crea un set di scalabilità di macchine virtuali** assicurarsi che la convalida sia stata superata e fare clic su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the virtual machine scale set deployment to complete. This should take about 5 minutes.
+    >**Nota**: attendere il completamento della distribuzione del set di scalabilità di macchine virtuali. L'operazione richiede circa 5 minuti.
 
 #### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Attività 6: Configurare i set di scalabilità di macchine virtuali di Azure usando le estensioni per macchine virtuali
 
@@ -582,7 +587,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Salvare le modifiche, nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Istanze**, selezionare le caselle di controllo accanto alle due istanze del set di scalabilità di macchine virtuali, fare clic su **Aggiorna** e quindi, quando viene richiesta la conferma, fare clic su **Sì**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The disk attached in the previous step is a raw disk. Before it can be used, it is necessary to create a partition, create a filesystem, and mount it. To accomplish this, you will use Azure virtual machine Custom Script extension. First, you will need to remove the existing Custom Script Extension.
+    >**Nota**: il disco collegato nel passaggio precedente è un disco non formattato. Prima di poterlo usare, è necessario creare una partizione, creare un file system e montarlo. A tale scopo, si userà l'estensione per script personalizzati di macchine virtuali di Azure. Prima di tutto, è necessario rimuovere l'estensione per script personalizzati esistente.
 
 1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Estensioni**, su **CustomScriptExtension** e quindi su **Disinstalla**.
 
@@ -616,9 +621,9 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
 1. Rimuovere az104-08-configure_VMSS_disks.ps1 eseguendo il comando seguente:

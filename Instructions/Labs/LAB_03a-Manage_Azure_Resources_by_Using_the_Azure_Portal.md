@@ -9,9 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-You need to explore the basic Azure administration capabilities associated with provisioning resources and organizing them based on resource groups, including moving resources between resource groups. You also want to explore options for protecting disk resources from being accidentally deleted, while still allowing for modifying their performance characteristics and size.
+È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi. È anche consigliabile esplorare le opzioni per proteggere le risorse disco dall'eliminazione accidentale, consentendo al tempo stesso di modificarne le caratteristiche di prestazioni e le dimensioni.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** .
+                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -39,7 +39,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Subscription| Nome della sottoscrizione di Azure in cui è stato creato il gruppo di risorse |
     |Gruppo di risorse| Il nome di un nuovo gruppo di risorse **az104-03a-rg1** |
@@ -54,7 +54,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the disk is created. This should take less than a minute.
+    >**Nota**: attendere che il disco venga creato. L'operazione dovrebbe richiedere meno di un minuto.
 
 #### <a name="task-2-move-resources-between-resource-groups"></a>Attività 2: Spostare le risorse tra gruppi di risorse 
 
@@ -68,9 +68,9 @@ In questa attività la risorsa disco creata nell'attività precedente verrà spo
 
     >**Nota**: questo metodo consente di spostare più risorse contemporaneamente. 
 
-1. Below the <bpt id="p1">**</bpt>Resource group<ept id="p1">**</ept> text box, click <bpt id="p2">**</bpt>Create new<ept id="p2">**</ept> then type <bpt id="p3">**</bpt>az104-03a-rg2<ept id="p3">**</ept> in the text box. On the Review tab, select the checkbox <bpt id="p1">**</bpt>I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs<ept id="p1">**</ept>, and click <bpt id="p2">**</bpt>Move<ept id="p2">**</ept>.
+1. Sotto la casella di testo **Gruppo di risorse** fare clic su **Crea nuovo** e quindi digitare **az104-03a-rg2** nella casella di testo. Nella scheda Revisione selezionare la casella di controllo **Dichiaro di aver compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiornerò con i nuovi ID di risorsa**, quindi fare clic su **Sposta**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the move to complete but instead proceed to the next task. The move might take about 10 minutes. You can determine that the operation was completed by monitoring activity log entries of the source or target resource group. Revisit this step once you complete the next task.
+    >**Nota**: non attendere il completamento dello spostamento, ma procedere con l'attività successiva. Lo spostamento potrebbe richiedere circa 10 minuti. Per determinare se l'operazione è stata completata, è possibile monitorare le voci del log attività del gruppo di risorse di origine o di destinazione. Rivedere questo passaggio dopo aver completato l'attività successiva.
 
 #### <a name="task-3-implement-resource-locks"></a>Attività 3: Implementare blocchi delle risorse
 
@@ -114,13 +114,13 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Tornare nell'elenco delle risorse del gruppo **az104-03a-rg3** e fare clic sulla voce che rappresenta la risorsa **az104-03a-disk2**. 
 
-1. On the <bpt id="p1">**</bpt>az104-03a-disk2<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Settings<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Size + performance<ept id="p3">**</ept>, set the disk type and size to <bpt id="p4">**</bpt>Premium SSD<ept id="p4">**</ept> and <bpt id="p5">**</bpt>64 GiB<ept id="p5">**</ept>, respectively, and click <bpt id="p6">**</bpt>Resize<ept id="p6">**</ept> to apply the change. Verify that the change was successful.
+1. Nel pannello **az104-03a-disk2**, nella sezione **Impostazioni**, fare clic su **Dimensioni e prestazioni**, impostare il tipo e le dimensioni rispettivamente su **Premium SSD** e **64 GiB**, quindi fare clic su **Ridimensiona** per applicare la modifica. Verificare che la modifica sia stata applicata correttamente.
 
     >**Nota**: questo comportamento è previsto, perché il blocco a livello di gruppo di risorse si applica solo alle operazioni di eliminazione. 
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
-   >È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi.
+   >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo. Rimuovere solo il blocco delle risorse creato in questo lab.
 
 1. Passare al pannello del gruppo di risorse **az104-03a-rg3**, visualizzare il relativo pannello **Blocchi** e rimuovere il blocco **az104-03a-delete-lock** facendo clic sul collegamento **Elimina** a destra della voce **Elimina blocco**.
 

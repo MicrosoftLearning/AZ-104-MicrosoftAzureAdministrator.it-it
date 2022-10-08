@@ -9,9 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Scenario del lab
 
-Contoso has a number of multi-tier applications that are not suitable to run by using Azure Container Instances. In order to determine whether they can be run as containerized workloads, you want to evaluate using Kubernetes as the container orchestrator. To further minimize management overhead, you want to test Azure Kubernetes Service, including its simplified deployment experience and scaling capabilities.
+Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container. Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori. Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata.
 
-Per visualizzare l'anteprima di questo lab in formato di guida interattiva, **[fare clic qui](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** .
+                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## <a name="objectives"></a>Obiettivi
 
@@ -82,12 +82,12 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | ---- | ---- |
     | Abilitare i nodi virtuali | **Disabilitato** (impostazione predefinita) |
 
-1. Fare clic su **Avanti: Accesso >** e nella scheda **Accesso** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti, mantenendo i valori predefiniti per le altre:
+1. Fare clic su **Avanti: Accesso >** e nella scheda **Accesso** del pannello **Crea cluster Kubernetes** mantenere i valori predefiniti per le impostazioni:
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Metodo di autenticazione | **Identità gestita assegnata dal sistema** (impostazione predefinita, nessuna modifica) | 
-    | Controllo degli accessi in base al ruolo | **Enabled** |
+    | Identità della risorsa | **Identità gestita assegnata dal sistema** |
+    | Metodo di autenticazione | **Account locali con controllo degli accessi in base al ruolo di Kubernetes** |
 
 1. Fare clic su **Avanti: Rete >** e nella scheda **Rete** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti, lasciando i valori predefiniti per le altre:
 
@@ -98,9 +98,9 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
 
 1. Fare clic su **Avanti: Integrazioni >** , nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** impostare **Monitoraggio contenitori** su **Disabilitato**, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab.
+    >**Nota:** negli scenari di produzione è necessario abilitare il monitoraggio. Il monitoraggio è disabilitato in questo caso perché non è trattato nel lab.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 10 minutes.
+    >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 10 minuti.
 
 #### <a name="task-3-deploy-pods-into-the-azure-kubernetes-service-cluster"></a>Attività 3: Distribuire pod nel cluster del servizio Azure Kubernetes
 
@@ -166,9 +166,9 @@ In questa attività si distribuirà un pod nel cluster del servizio Azure Kubern
     kubectl get service
     ```
 
-1. Re-run the command until the value in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for the <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept> entry changes from <bpt id="p3">**</bpt><ph id="ph1">\&lt;pending\&gt;</ph><ept id="p3">**</ept> to a public IP address. Note the public IP address in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept>.
+1. Eseguire nuovamente il comando finché il valore nella colonna **EXTERNAL-IP** per la **voce nginx-deployment** non passa da **\<pending\>** a un indirizzo IP pubblico. Prendere nota dell'indirizzo IP pubblico nella colonna **EXTERNAL-IP** per **nginx-deployment**.
 
-1. Open a browser window and navigate to the IP address you obtained in the previous step. Verify that the browser page displays the <bpt id="p1">**</bpt>Welcome to nginx!<ept id="p1">**</ept> message.
+1. Aprire una finestra del browser e passare all'indirizzo IP ottenuto nel passaggio precedente. Verificare che nella pagina del browser sia visualizzato il messaggio **Welcome to nginx!** il messaggio "Hello World!".
 
 #### <a name="task-4-scale-containerized-workloads-in-the-azure-kubernetes-service-cluster"></a>Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
 
@@ -198,7 +198,7 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
 
-    > Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container.
+    > **Nota:** attendere il completamento del provisioning del nodo aggiuntivo. L'operazione potrebbe richiedere circa 3 minuti. Se l'operazione non riesce, eseguire di nuovo il comando `az aks scale`.
 
 1. Nel riquadro **Cloud Shell** eseguire quanto segue per verificare il risultato del ridimensionamento del cluster:
 
@@ -240,9 +240,9 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
 #### <a name="clean-up-resources"></a>Pulire le risorse
 
->Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori.
+>**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
->Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata. 
+>**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione shell **Bash** all'interno del riquadro **Cloud Shell**.
 
