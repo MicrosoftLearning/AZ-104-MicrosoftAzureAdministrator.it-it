@@ -27,6 +27,10 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="estimated-timing-50-minutes"></a>Tempo stimato: 50 minuti
 
+## <a name="architecture-diagram"></a>Diagramma dell'architettura
+
+![image](../media/lab10.png)
+
 ## <a name="instructions"></a>Istruzioni
 
 ### <a name="exercise-1"></a>Esercizio 1
@@ -83,7 +87,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | Nome di un nuovo gruppo di risorse **az104-10-rg1** |
