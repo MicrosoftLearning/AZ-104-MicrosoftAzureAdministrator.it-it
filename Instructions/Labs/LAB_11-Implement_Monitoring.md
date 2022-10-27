@@ -27,6 +27,10 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="estimated-timing-45-minutes"></a>Tempo stimato: 45 minuti
 
+## <a name="architecture-diagram"></a>Diagramma dell'architettura
+
+![image](../media/lab11.png)
+
 ## <a name="instructions"></a>Istruzioni
 
 ### <a name="exercise-1"></a>Esercizio 1
