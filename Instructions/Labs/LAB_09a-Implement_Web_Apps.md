@@ -44,7 +44,7 @@ In questa attività verrà creata un'app Web di Azure.
 
 1. Nella scheda **Informazioni di base** del pannello **Crea app Web** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | ---|
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
@@ -104,8 +104,6 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
     | --- | ---|
     | Nome utente | Qualsiasi nome univoco a livello globale (non deve contenere il carattere `@`) |
     | Password | Qualsiasi password che soddisfi i requisiti di complessità|
-
-    >**Nota:** la password deve contenere almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e caratteri non alfanumerici.
 
     >**Nota:** queste credenziali saranno necessarie nell'attività successiva di questo lab.
 
@@ -177,7 +175,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
     >**Nota**: è anche possibile dimensionare manualmente l'app Web.
 
-1. Lasciare selezionata l'opzione predefinita **Ridimensiona in base a una metrica** e fare clic su **+ Aggiungi una regola**
+1. Selezionare **Ridimensiona in base a una metrica** e fare clic su **+ Aggiungi una regola**.
 
 1. Nel pannello **Regola scalabilità** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
