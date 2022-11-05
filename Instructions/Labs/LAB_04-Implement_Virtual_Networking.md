@@ -52,11 +52,12 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Nome | **az104-04-vnet1** |
     | Region | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
 
-1. Fare clic su **Avanti : Indirizzi IP** e immettere i valori seguenti
+1. Fare clic su **Avanti : Indirizzi IP** e quindi su **Aggiungi un indirizzo IP**. Fare clic su **Aggiungi** al termine. 
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
-    | Spazio indirizzi IPv4 | **10.40.0.0/20** |
+    | Indirizzo iniziale | **10.40.0.0** |
+    | Dimensioni dello spazio degli indirizzi | **/20 (4096 indirizzi)** |
 
 1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti, quindi fare clic su **Aggiungi**
 
@@ -163,7 +164,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-pip1** |
     | SKU | **Standard** |
@@ -327,7 +328,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-vm0** |
     | Tipo | **A** |
@@ -342,7 +343,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-vm1** |
     | Tipo | **A** |
