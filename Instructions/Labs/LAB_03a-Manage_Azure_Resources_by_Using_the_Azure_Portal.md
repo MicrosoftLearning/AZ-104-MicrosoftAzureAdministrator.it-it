@@ -78,7 +78,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Subscription| Il nome della sottoscrizione usata in questo lab |
     |Gruppo di risorse| Fare clic su **Crea nuovo gruppo di risorse** e assegnare il nome **az104-03a-rg3** |
@@ -114,7 +114,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Tornare nell'elenco delle risorse del gruppo **az104-03a-rg3** e fare clic sulla voce che rappresenta la risorsa **az104-03a-disk2**. 
 
-1. Nel pannello **az104-03a-disk2**, nella sezione **Impostazioni**, fare clic su **Dimensioni e prestazioni**, impostare il tipo e le dimensioni rispettivamente su **Premium SSD** e **64 GiB**, quindi fare clic su **Ridimensiona** per applicare la modifica. Verificare che la modifica sia stata applicata correttamente.
+1. Nel pannello **az104-03a-disk2**, nella sezione **Impostazioni**, fare clic su **Dimensioni e prestazioni**, impostare il tipo e le dimensioni del disco rispettivamente su **SSD Premium** e **64 GiB**, quindi fare clic su **Salva** per applicare la modifica. Verificare che la modifica sia stata applicata correttamente.
 
     >**Nota**: questo comportamento è previsto, perché il blocco a livello di gruppo di risorse si applica solo alle operazioni di eliminazione. 
 
