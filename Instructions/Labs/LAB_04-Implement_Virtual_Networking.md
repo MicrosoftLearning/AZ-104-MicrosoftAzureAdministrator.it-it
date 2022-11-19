@@ -45,21 +45,16 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Creare una rete virtuale con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure che verrà usata nel lab |
     | Gruppo di risorse | Nome di un **nuovo** gruppo di risorse **az104-04-rg1** |
     | Nome | **az104-04-vnet1** |
     | Region | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
 
-1. Fare clic su **Avanti : Indirizzi IP** e quindi su **Aggiungi un indirizzo IP**. Fare clic su **Aggiungi** al termine. 
+1. Fare clic su **Avanti: Indirizzi IP** ed eliminare lo **Spazio indirizzi IPv4** esistente. Nella casella di testo **Spazio indirizzi IPv4** digitare **10.40.0.0/20**.
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Indirizzo iniziale | **10.40.0.0** |
-    | Dimensioni dello spazio degli indirizzi | **/20 (4096 indirizzi)** |
-
-1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti, quindi fare clic su **Aggiungi**
+1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti e quindi fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -76,7 +71,7 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Creare una subnet con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **subnet1** |
     | Intervallo di indirizzi (blocco CIDR) | **10.40.1.0/24** |
@@ -145,7 +140,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-pip0** |
     | SKU | **Standard** |
@@ -164,7 +159,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-pip1** |
     | SKU | **Standard** |
@@ -199,7 +194,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Creare un gruppo di sicurezza di rete con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -216,7 +211,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Aggiungere una regola in ingresso con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Source (Sorgente) | **qualsiasi** |
     | Intervalli di porte di origine | * |
@@ -256,7 +251,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 1. Creare un zona DNS privato con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -312,7 +307,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Creare un zona DNS con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -328,7 +323,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm0** |
     | Tipo | **A** |
@@ -343,7 +338,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm1** |
     | Tipo | **A** |
