@@ -242,7 +242,9 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Fare clic sulla condivisione file appena creata e quindi su **Connetti**.
 
-1. Nel pannello **Connetti** assicurarsi che sia selezionata la scheda **Windows**. Di seguito è riportato un pulsante con l'etichetta **Mostra script**. Fare clic sul pulsante e verrà visualizzata una casella di testo grigia con uno script. Passare il mouse sull'icona delle pagine nell'angolo in basso a destra di tale casella e fare clic su **Copia negli Appunti**.
+1. Nel pannello **Connetti** assicurarsi che sia selezionata la scheda **Windows**. Di seguito è riportato un pulsante con l'etichetta **Mostra script**.
+
+1. Fare clic sul pulsante e verrà visualizzata una casella di testo grigia con uno script. Passare il mouse sull'icona delle pagine nell'angolo in basso a destra di tale casella e fare clic su **Copia negli Appunti**.
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali**, quindi nell'elenco di macchine virtuali fare clic su **az104-07-vm0**.
 
@@ -254,39 +256,39 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Verificare che lo script sia stato completato correttamente.
 
-1. Sostituire il contenuto del riquadro **Script di PowerShell** con lo script seguente e fare clic su **Esegui**:
-
    ```powershell
    New-Item -Type Directory -Path 'Z:\az104-07-folder'
 
    New-Item -Type File -Path 'Z:\az104-07-folder\az-104-07-file.txt'
    ```
 
+1. Sostituire il contenuto del riquadro **Script di PowerShell** con lo script seguente e fare clic su **Esegui**:
+
 1. Verificare che lo script sia stato completato correttamente.
 
 1. Tornare nel pannello della condivisione file **az104-07-share**, fare clic su **Aggiorna**e verificare che la cartella **az104-07-folder** sia visualizzata nell'elenco delle cartelle.
 
-1. Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
+#### <a name="task-6-manage-network-access-for-azure-storage"></a>Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
 
-#### <a name="task-6-manage-network-access-for-azure-storage"></a>Attività 6: Gestire l'accesso alla rete per Archiviazione di Azure
+Attività 6: Gestire l'accesso alla rete per Archiviazione di Azure
 
-In questa attività si configurerà l'accesso alla rete per Archiviazione di Azure.
+1. In questa attività si configurerà l'accesso alla rete per Archiviazione di Azure.
 
 1. Nel portale di Azure tornare nel pannello dell'account di archiviazione creato nella prima attività di questo lab e quindi, nella sezione **Sicurezza e rete**, fare clic su **Rete** e poi su **Firewall e reti virtuali**.
 
-1. Fare clic sull'opzione **Abilitato da reti virtuali e indirizzi IP selezionati** ed esaminare le impostazioni di configurazione che diventano disponibili una volta abilitata questa opzione.
+    > Fare clic sull'opzione **Abilitato da reti virtuali e indirizzi IP selezionati** ed esaminare le impostazioni di configurazione che diventano disponibili una volta abilitata questa opzione.
 
-    > **Nota**: è possibile usare queste impostazioni per configurare la connettività diretta tra le macchine virtuali di Azure nelle subnet designate delle reti virtuali e l'account di archiviazione usando gli endpoint di servizio.
+1. **Nota**: è possibile usare queste impostazioni per configurare la connettività diretta tra le macchine virtuali di Azure nelle subnet designate delle reti virtuali e l'account di archiviazione usando gli endpoint di servizio.
 
 1. Fare clic sulla casella di controllo **Aggiungere l'indirizzo IP client** e salvare la modifica.
 
-1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL di firma di accesso condiviso del BLOB generato nell'attività precedente.
+    > Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL di firma di accesso condiviso del BLOB generato nell'attività precedente. **Nota**: se non è stato registrato l'URL di firma di accesso condiviso dall'attività 4, è necessario generarne uno nuovo con la stessa configurazione. 
 
-    > **Nota**: se non è stato registrato l'URL di firma di accesso condiviso dall'attività 4, è necessario generarne uno nuovo con la stessa configurazione. Usare i passaggi 4-6 dell'attività 4 come guida per generare un nuovo URL di firma di accesso condiviso BLOB. 
+1. Usare i passaggi 4-6 dell'attività 4 come guida per generare un nuovo URL di firma di accesso condiviso BLOB.
 
-1. Verrà visualizzato il contenuto della pagina **Licenza MIT**.
+    > Verrà visualizzato il contenuto della pagina **Licenza MIT**.
 
-    > **Nota**: questo comportamento è previsto, perché ci si connette dal proprio indirizzo IP client.
+1. **Nota**: questo comportamento è previsto, perché ci si connette dal proprio indirizzo IP client.
 
 1. Chiudere la finestra del browser in modalità InPrivate e tornare nella finestra del browser in cui è visualizzato il pannello **Rete** dell'account di archiviazione di Azure.
 
@@ -294,46 +296,44 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per provare a scaricare il BLOB LICENSE dal contenitore **az104-07-container** dell'account di archiviazione. Sostituire il segnaposto `[blob SAS URL]` con l'URL di firma di accesso condiviso del BLOB generato nell'attività precedente:
-
    ```powershell
    Invoke-WebRequest -URI '[blob SAS URL]'
    ```
-1. Verificare che il tentativo di download non sia riuscito.
+1. Nel riquadro Cloud Shell eseguire il comando seguente per provare a scaricare il BLOB LICENSE dal contenitore **az104-07-container** dell'account di archiviazione. Sostituire il segnaposto `[blob SAS URL]` con l'URL di firma di accesso condiviso del BLOB generato nell'attività precedente:
 
-    > **Nota**: verrà visualizzato un messaggio analogo a **AuthorizationFailure: Questa richiesta non è autorizzata a eseguire questa operazione**. Questo comportamento è previsto, perché ci si connette dall'indirizzo IP assegnato a una macchina virtuale di Azure che ospita l'istanza di Cloud Shell.
+    > Verificare che il tentativo di download non sia riuscito. **Nota**: verrà visualizzato un messaggio analogo a **AuthorizationFailure: Questa richiesta non è autorizzata a eseguire questa operazione**.
 
-1. Chiudere il riquadro Cloud Shell.
+1. Questo comportamento è previsto, perché ci si connette dall'indirizzo IP assegnato a una macchina virtuale di Azure che ospita l'istanza di Cloud Shell.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+#### <a name="clean-up-resources"></a>Chiudere il riquadro Cloud Shell.
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+>Pulire le risorse **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate.
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. È anche possibile provare a eliminare il gruppo di risorse in cui si trovano le risorse. Si tratta di un collegamento rapido per l'amministratore. In caso di dubbi, parlare con l'insegnante.
+>La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti. **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. È anche possibile provare a eliminare il gruppo di risorse in cui si trovano le risorse. Si tratta di un collegamento rapido per l'amministratore.
+
+1. In caso di dubbi, parlare con l'insegnante.
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
-
-1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-07*'
    ```
 
-1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-07*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
+    >Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
-#### <a name="review"></a>Verifica
+#### <a name="review"></a>**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-In questo lab sono state eseguite le attività seguenti:
+Verifica
 
+- In questo lab sono state eseguite le attività seguenti:
 - Provisioning dell'ambiente lab
 - Creazione e configurazione di account di archiviazione di Azure
 - Gestione di Archiviazione BLOB
 - Gestione di autenticazione e autorizzazione per Archiviazione di Azure
 - Creazione e configurazione di condivisioni di File di Azure
-- Gestione dell'accesso alla rete per Archiviazione di Azure

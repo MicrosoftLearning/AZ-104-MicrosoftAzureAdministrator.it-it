@@ -86,7 +86,7 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Identità della risorsa | **Identità gestita assegnata dal sistema** |
+    | Identità della risorsa | **Identità gestita assegnata dal sistema** | 
     | Metodo di autenticazione | **Account locali con controllo degli accessi in base al ruolo di Kubernetes** |
 
 1. Fare clic su **Avanti: Rete >** e nella scheda **Rete** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti, lasciando i valori predefiniti per le altre:
