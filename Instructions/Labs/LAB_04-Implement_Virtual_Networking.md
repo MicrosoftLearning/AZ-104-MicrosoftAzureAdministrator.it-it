@@ -45,7 +45,7 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Creare una rete virtuale con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure che verrà usata nel lab |
     | Gruppo di risorse | Nome di un **nuovo** gruppo di risorse **az104-04-rg1** |
@@ -71,7 +71,7 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Creare una subnet con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **subnet1** |
     | Intervallo di indirizzi (blocco CIDR) | **10.40.1.0/24** |
@@ -90,9 +90,9 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\04\\az104-04-vms-loop-template.json** e **\\Allfiles\\Labs\\04\\az104-04-vms-loop-parameters.json** nella home directory di Cloud Shell.
+1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica**. Caricare i file **\\Allfiles\\Labs\\04\\az104-04-vms-loop-template.json** e **\\Allfiles\\Labs\\04\\az104-04-vms-loop-parameters.json** nella home directory di Cloud Shell.
 
-    >**Nota**: potrebbe essere necessario caricare ogni file separatamente.
+    >**Nota**: è necessario caricare ogni file separatamente. Al termine dell’operazione, usare **dir** per assicurarsi che entrambi i file siano stati caricati correttamente.
 
 1. Modificare il file dei parametri e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
@@ -140,7 +140,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-pip0** |
     | SKU | **Standard** |
@@ -159,7 +159,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-pip1** |
     | SKU | **Standard** |
@@ -194,7 +194,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Creare un gruppo di sicurezza di rete con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -211,7 +211,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Aggiungere una regola in ingresso con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Source (Sorgente) | **qualsiasi** |
     | Intervalli di porte di origine | * |
@@ -251,7 +251,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 1. Creare un zona DNS privato con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -307,7 +307,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Creare un zona DNS con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
@@ -323,7 +323,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-vm0** |
     | Tipo | **A** |
@@ -338,7 +338,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-04-vm1** |
     | Tipo | **A** |
