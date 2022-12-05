@@ -50,8 +50,8 @@ In questa attività verrà creata un'app Web di Azure.
     | Resource group | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
-    | Stack di runtime | **PHP 7.4** |
-    | Sistema operativo | **Windows** |
+    | Stack di runtime | **PHP 8.0** |
+    | Sistema operativo | **Linux** |
     | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
     | App service plan (Piano di servizio app) | Accettare la configurazione predefinita |
 
@@ -182,18 +182,18 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
     | Impostazione | Valore |
     | --- |--- |
     | Origine della metrica | **Risorsa corrente** |
-    | Aggregazione temporale | **Massimo** |
-    | Spazio dei nomi delle metriche | **Metriche standard dei piani di servizio app** |
+    | Spazio dei nomi delle metriche | **metriche standard** |
     | Nome metrica | **Percentuale CPU** |
     | Operatore | **Maggiore di** |
     | Soglia della metrica per l'attivazione dell'azione di dimensionamento | **10** |
     | Durata (in minuti) | **1** |
     | Statistica intervallo di tempo | **Massimo** |
+    | Aggregazione temporale | **Massimo** |
     | Operazione | **Aumenta numero di** |
     | Numero di istanze | **1** |
     | Disattiva regole dopo (minuti) | **5** |
 
-    >**Nota**: ovviamente questi valori non rappresentano una configurazione realistica, perché lo scopo è quello di attivare la scalabilità automatica il prima possibile, senza un periodo di attesa prolungato.
+    >**Nota**: questi valori non rappresentano una configurazione realistica, perché lo scopo è quello di attivare la scalabilità automatica il prima possibile, senza un periodo di attesa prolungato.
 
 1. Fare clic su **Aggiungi** e di nuovo nel pannello di dimensionamento del piano di servizio app specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
@@ -225,11 +225,11 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
    while ($true) { Invoke-WebRequest -Uri $webapp.DefaultHostName }
    ```
 
-1. Ridurre a icona il pannello Cloud Shell senza chiuderlo e nella sezione **Monitoraggio** del pannello dell'app Web fare clic su **Esplora processi**.
+1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)** .
 
-    >**Nota**: esplora processi facilita il monitoraggio del numero di istanze e del relativo utilizzo delle risorse.
+1. Selezionare la scheda **Cronologia di esecuzione** e controllare il **numero di istanze delle risorse osservato**.
 
-1. Monitorare l'utilizzo e il numero di istanze per qualche minuto.
+1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 
     >**Nota**: potrebbe essere necessario selezionare **Aggiorna** per la pagina.
 
