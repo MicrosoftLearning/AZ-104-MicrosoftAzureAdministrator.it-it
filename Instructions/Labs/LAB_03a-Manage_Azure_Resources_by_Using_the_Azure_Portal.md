@@ -39,7 +39,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Subscription| Nome della sottoscrizione di Azure in cui è stato creato il gruppo di risorse |
     |Gruppo di risorse| Il nome di un nuovo gruppo di risorse **az104-03a-rg1** |
@@ -78,7 +78,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Subscription| Il nome della sottoscrizione usata in questo lab |
     |Gruppo di risorse| Fare clic su **Crea nuovo gruppo di risorse** e assegnare il nome **az104-03a-rg3** |

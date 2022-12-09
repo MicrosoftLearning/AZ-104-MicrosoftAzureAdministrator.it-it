@@ -199,7 +199,9 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
 1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** avviare un controllo con le impostazioni seguenti, lasciando i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    > **Nota**: la visualizzazione del gruppo di risorse può richiedere alcuni minuti. Se non si vuole attendere, provare a eseguire questa operazione: eliminare Network Watcher, creare una nuova istanza di Network Watcher e quindi riprovare Risoluzione dei problemi di connessione. 
+
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -218,7 +220,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
 1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** avviare un controllo con le impostazioni seguenti, lasciando i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -237,7 +239,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
 1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** avviare un controllo con le impostazioni seguenti, lasciando i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -302,7 +304,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Creare una tabella di route con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -345,7 +347,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Creare una tabella di route con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -388,7 +390,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** avviare un controllo con le impostazioni seguenti, lasciando i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg1** |
@@ -413,7 +415,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti (lasciare le altre con i valori predefiniti) quindi fare clic su **Avanti: Configurazione IP front-end**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg4** |
@@ -425,7 +427,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     
 1. Nella scheda **Configurazione IP front-end** fare clic su **Aggiungi una configurazione IP front-end** e usare l'impostazione seguente prima di fare clic su **OK** e infine su **Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
      
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | qualsiasi nome univoco |
     | Versione IP | IPv4 |
@@ -436,7 +438,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte) e quindi su **Avanti: Regole in ingresso**. 
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-06-lb4-be1** |
     | Rete virtuale | **az104-06-vnet01** |
@@ -449,7 +451,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Nella scheda **Regole in ingresso** fare clic su **Aggiungi una regola di bilanciamento del carico**. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-06-lb4-lbrule1** |
     | Versione indirizzo IP | **IPv4** |
@@ -495,7 +497,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Aggiungere una subnet con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **subnet-appgw** |
     | Intervallo di indirizzi subnet | **10.60.3.224/27** |
@@ -508,7 +510,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Nella scheda **Generale** specificare ora le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | **az104-06-rg6** |
@@ -533,7 +535,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Avanti: Back-end >** e quindi su **Aggiungi un pool back-end**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **az104-06-appgw5-be1** |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
@@ -544,7 +546,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Avanti: Configurazione >** e quindi su **+ Aggiungi una regola di routing**. Specificare le seguenti impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome regola | **az104-06-appgw5-rl1** |
     | Priorità | **10** |
