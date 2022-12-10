@@ -23,29 +23,33 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
 
-## <a name="instructions"></a>Diagramma dell'architettura
+## <a name="architecture-diagram"></a>Diagramma dell'architettura
 
-### <a name="exercise-1"></a>image
+![image](../media/lab03d.png)
 
-#### <a name="task-1-start-a-bash-session-in-azure-cloud-shell"></a>Istruzioni
+## <a name="instructions"></a>Istruzioni
 
-Esercizio 1 
+### <a name="exercise-1"></a>Esercizio 1
 
-1. Attività 1: Avviare una sessione Bash in Azure Cloud Shell
+#### <a name="task-1-start-a-bash-session-in-azure-cloud-shell"></a>Attività 1: Avviare una sessione Bash in Azure Cloud Shell
 
-1. In questa attività si aprirà una sessione Bash in Cloud Shell. 
+In questa attività si aprirà una sessione Bash in Cloud Shell. 
 
-    >Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra. 
+1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
 1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **Bash**. 
 
-1. **Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
+    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**. 
 
-#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-cli"></a>Quando richiesto, fare clic su **Crea archivio** e attendere che venga visualizzato il riquadro Azure Cloud Shell.
+1. Quando richiesto, fare clic su **Crea archivio** e attendere che venga visualizzato il riquadro Azure Cloud Shell. 
 
-Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cloud Shell sia visualizzato **Bash**.
+1. Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cloud Shell sia visualizzato **Bash**.
 
-1. Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
+#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-cli"></a>Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
+
+In questa attività si creeranno un gruppo di risorse e un disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell.
+
+1. Per creare un gruppo di risorse nella stessa area di Azure del gruppo di risorse **az104-03c-rg1** creato nel lab precedente, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
 
    ```sh
    LOCATION=$(az group show --name 'az104-03c-rg1' --query location --out tsv)
@@ -54,12 +58,12 @@ Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cl
 
    az group create --name $RGNAME --location $LOCATION
    ```
-1. In questa attività si creeranno un gruppo di risorse e un disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell.
+1. Per recuperare le proprietà del gruppo di risorse appena creato, eseguire quanto segue:
 
    ```sh
    az group show --name $RGNAME
    ```
-1. Per creare un gruppo di risorse nella stessa area di Azure del gruppo di risorse **az104-03c-rg1** creato nel lab precedente, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
+1. Per creare un nuovo disco gestito con le stesse caratteristiche di quello creato nei lab precedenti di questo modulo, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
 
    ```sh
    DISKNAME='az104-03d-disk1'
@@ -70,31 +74,31 @@ Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cl
    --sku 'Standard_LRS' \
    --size-gb 32
    ```
-    >Per recuperare le proprietà del gruppo di risorse appena creato, eseguire quanto segue:
+    >**Nota**: se si usa la sintassi su più righe, assicurarsi che ogni riga termini con la barra rovesciata (`\`) senza spazi finali e che non siano presenti spazi iniziali all'inizio di ogni riga.
 
-1. Per creare un nuovo disco gestito con le stesse caratteristiche di quello creato nei lab precedenti di questo modulo, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
+1. Per recuperare le proprietà del disco appena creato, eseguire quanto segue:
 
    ```sh
    az disk show --resource-group $RGNAME --name $DISKNAME
    ```
 
-#### <a name="task-3-configure-the-managed-disk-by-using-azure-cli"></a>**Nota**: se si usa la sintassi su più righe, assicurarsi che ogni riga termini con la barra rovesciata (`\`) senza spazi finali e che non siano presenti spazi iniziali all'inizio di ogni riga.
+#### <a name="task-3-configure-the-managed-disk-by-using-azure-cli"></a>Attività 3: Configurare il disco gestito usando l'interfaccia della riga di comando di Azure
 
-Per recuperare le proprietà del disco appena creato, eseguire quanto segue: 
+In questa attività si gestirà la configurazione del disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell. 
 
-1. Attività 3: Configurare il disco gestito usando l'interfaccia della riga di comando di Azure
+1. Per aumentare le dimensioni del disco gestito di Azure a **64 GB**, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
 
    ```sh
    az disk update --resource-group $RGNAME --name $DISKNAME --size-gb 64
    ```
 
-1. In questa attività si gestirà la configurazione del disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell.
+1. Per verificare che la modifica abbia avuto effetto, eseguire quanto segue:
 
    ```sh
    az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGb
    ```
 
-1. Per aumentare le dimensioni del disco gestito di Azure a **64 GB**, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
+1. Per impostare lo SKU delle prestazioni del disco su **Premium_LRS**, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
 
    ```sh
    az disk update --resource-group $RGNAME --name $DISKNAME --sku 'Premium_LRS'
@@ -106,32 +110,32 @@ Per recuperare le proprietà del disco appena creato, eseguire quanto segue:
    az disk show --resource-group $RGNAME --name $DISKNAME --query sku
    ```
 
-#### <a name="clean-up-resources"></a>Per impostare lo SKU delle prestazioni del disco su **Premium_LRS**, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:
+#### <a name="clean-up-resources"></a>Pulire le risorse
 
- > Per verificare che la modifica abbia avuto effetto, eseguire quanto segue: Pulire le risorse
+ > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
- > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti. **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. 
+ > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
-1. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo.
+1. Nel portale di Azure aprire la sessione shell **Bash** all'interno del riquadro **Cloud Shell**.
 
-1. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia.
+1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
    ```sh
    az group list --query "[?starts_with(name,'az104-03')].name" --output tsv
    ```
 
-1. Nel portale di Azure aprire la sessione shell **Bash** all'interno del riquadro **Cloud Shell**.
+1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
    ```sh
    az group list --query "[?starts_with(name,'az104-03')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
 
-    >Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro --nowait, quindi, sebbene sia possibile eseguire un altro comando dell'interfaccia della riga di comando di Azure immediatamente dopo nella stessa sessione Bash, il gruppo di risorse verrà rimosso dopo alcuni minuti.
 
-#### <a name="review"></a>Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+#### <a name="review"></a>Verifica
 
-**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro --nowait, quindi, sebbene sia possibile eseguire un altro comando dell'interfaccia della riga di comando di Azure immediatamente dopo nella stessa sessione Bash, il gruppo di risorse verrà rimosso dopo alcuni minuti.
+In questo lab sono state eseguite le attività seguenti:
 
-- Verifica
-- In questo lab sono state eseguite le attività seguenti:
 - Avvio di una sessione Bash in Azure Cloud Shell
+- Creazione di un gruppo di risorse e di un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
+- Configurazione del disco gestito usando l'interfaccia della riga di comando di Azure
