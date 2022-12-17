@@ -67,7 +67,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **Ruolo** |
     | Valore | **Infra** |

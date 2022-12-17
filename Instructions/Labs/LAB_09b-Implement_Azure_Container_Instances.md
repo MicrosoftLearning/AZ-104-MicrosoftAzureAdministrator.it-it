@@ -40,7 +40,7 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
 1. Nella scheda **Dati principali** del pannello **Crea istanza di Container** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ---- | ---- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Resource group | Nome di un nuovo gruppo di risorse **az104-09b-rg1** |
