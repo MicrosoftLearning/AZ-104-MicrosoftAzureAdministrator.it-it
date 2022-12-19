@@ -429,11 +429,10 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
      
     | Impostazione | Valore |
     | --- | --- |
-    | Nome | qualsiasi nome univoco |
+    | Nome | **az104-06-pip4** |
     | Versione IP | IPv4 |
     | Tipo di indirizzo IP | Indirizzo IP |
     | Indirizzo IP pubblico | **Crea nuovo** |
-    | Nome | **az104-06-pip4** |
     | Zona di disponibilità | **Nessuna zona** | 
 
 1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte) e quindi su **Avanti: Regole in ingresso**. 
@@ -513,7 +512,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg6** |
+    | Resource group | **az104-06-rg5** |
     | Nome del gateway applicazione | **az104-06-appgw5** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | Livello | **Standard V2** |
