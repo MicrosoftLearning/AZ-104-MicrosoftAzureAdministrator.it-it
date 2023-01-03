@@ -512,7 +512,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg5** |
+    | Resource group | **az104-06-rg5** (Crea nuovo) |
     | Nome del gateway applicazione | **az104-06-appgw5** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | Livello | **Standard V2** |
