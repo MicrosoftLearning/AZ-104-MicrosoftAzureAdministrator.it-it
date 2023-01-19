@@ -290,7 +290,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     >**Nota**: questa sezione del modello definisce le stesse dimensioni della macchina virtuale di Azure specificate per la prima macchina virtuale tramite il portale di Azure.
 
-1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **51** (riga `"dataDisks": [ ]`) con il codice seguente:
+1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga (riga `"dataDisks": [ ]`) con il codice seguente:
 
    ```json
                     "dataDisks": [
@@ -479,7 +479,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Nel portale di Azure tornare nel pannello **Set di scalabilità di macchine virtuali** e fare clic su **az10408vmss0**.
 
-1. Nel pannello **az10408vmss0**, nella sezione **Impostazioni**, fare clic su **Estensioni** e quindi su **+ Aggiungi**.
+1. Nel pannello **az10408vmss0**, nella sezione **Impostazioni**, fare clic su **Estensioni e applicazioni** e quindi su **+ Aggiungi**.
 
 1. Nel pannello **Nuova risorsa** fare clic su **Estensione per script personalizzati** e quindi su **Avanti**.
 
@@ -589,7 +589,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
     >**Nota**: il disco collegato nel passaggio precedente è un disco non formattato. Prima di poterlo usare, è necessario creare una partizione, creare un file system e montarlo. A tale scopo, si userà l'estensione per script personalizzati di macchine virtuali di Azure. Prima di tutto, è necessario rimuovere l'estensione per script personalizzati esistente.
 
-1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Estensioni**, su **CustomScriptExtension** e quindi su **Disinstalla**.
+1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Estensioni e applicazioni**, su **CustomScriptExtension** e quindi su **Disinstalla**.
 
     >**Nota**: attendere il completamento della disinstallazione.
 
