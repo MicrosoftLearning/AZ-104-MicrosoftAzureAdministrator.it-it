@@ -330,7 +330,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Tipo hop successivo | **Appliance virtuale** |
     | Indirizzo hop successivo | **10.60.0.4** |
 
-1. Fare clic su **OK**.
+1. Fare clic su **Aggiungi**
 
 1. Nella sezione **Impostazioni** della tabella di route **az104-06-rt23** fare clic su **Subnet** e quindi su **+ Associa**.
 
@@ -341,7 +341,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Rete virtuale | **az104-06-vnet2** |
     | Subnet | **subnet0** |
 
-1. Fare clic su **OK**.
+1. Fare clic su **Aggiungi**
 
 1. Tornare al pannello **Tabelle di route** e fare clic su **+ Crea**.
 
