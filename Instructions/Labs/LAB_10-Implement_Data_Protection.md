@@ -4,16 +4,16 @@ lab:
   module: Administer Data Protection
 ---
 
-# <a name="lab-10---backup-virtual-machines"></a>Lab 10 - Eseguire il backup delle macchine virtuali
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 10 - Eseguire il backup delle macchine virtuali
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 L'attività da eseguire consiste nel valutare l'uso di Servizi di ripristino di Azure per il backup e il ripristino di file ospitati in macchine virtuali di Azure e in computer locali. Si vogliono inoltre identificare i metodi di protezione dei dati archiviati nell'insieme di credenziali di Servizi di ripristino da perdita dei dati accidentale o dannosa.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -25,17 +25,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 6: Eseguire il ripristino dei file usando gli snapshot macchina virtuale di Azure (facoltativo)
 + Attività 7: Esaminare la funzionalità di eliminazione temporanea di Servizi di ripristino di Azure (facoltativo)
 
-## <a name="estimated-timing-50-minutes"></a>Tempo stimato: 50 minuti
+## Tempo stimato: 50 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab10.png)
 
-## <a name="instructions"></a>Istruzioni
+## Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+### Esercizio 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Attività 1: Effettuare il provisioning dell'ambiente lab
+#### Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività verranno distribuite due macchine virtuali che verranno usate per testare scenari di backup diversi.
 
@@ -48,8 +48,6 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** nella home directory di Cloud Shell.
-
-1. Modificare il file dei parametri appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà le macchine virtuali. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure. Digitare ogni riga di comando separatamente ed eseguirle separatamente:
 
@@ -66,7 +64,8 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
    ```
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
-
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    
    ```powershell
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -79,7 +78,7 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
 
     >**Nota**: non attendere il completamento della distribuzione, ma procedere con l'attività successiva. La distribuzione dovrebbe richiedere 5 minuti circa.
 
-#### <a name="task-2-create-a-recovery-services-vault"></a>Attività 2: Creare un insieme di credenziali di Servizi di ripristino
+#### Attività 2: Creare un insieme di credenziali di Servizi di ripristino
 
 In questa attività verrà creato un insieme di credenziali di Servizi di ripristino.
 
@@ -116,7 +115,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Chiudere il pannello **Impostazioni di sicurezza** e nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** visualizzato di nuovo fare clic su **Panoramica**.
 
-#### <a name="task-3-implement-azure-virtual-machine-level-backup"></a>Attività 3: Implementare il backup a livello di macchina virtuale di Azure
+#### Attività 3: Implementare il backup a livello di macchina virtuale di Azure
 
 In questa attività verrà implementato il backup a livello di macchina virtuale di Azure.
 
@@ -159,7 +158,7 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
     >**Nota**: non attendere il completamento del backup, ma procedere con l'attività successiva.
 
-#### <a name="task-4-implement-file-and-folder-backup"></a>Attività 4: Implementare il backup di file e cartelle
+#### Attività 4: Implementare il backup di file e cartelle
 
 In questa attività verrà implementato il backup di file e cartelle mediante Servizi di ripristino di Azure.
 
@@ -258,7 +257,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nel pannello **Elementi di backup (Azure Backup Agent)** verificare se è presente una voce che fa riferimento all'unità **C:\\** di **az104-10-vm1.** .
 
-#### <a name="task-5-perform-file-recovery-by-using-azure-recovery-services-agent-optional"></a>Attività 5: Eseguire il ripristino dei file usando l'Agente di Servizi di ripristino di Azure (facoltativo)
+#### Attività 5: Eseguire il ripristino dei file usando l'Agente di Servizi di ripristino di Azure (facoltativo)
 
 In questa attività verrà eseguito il ripristino dei file mediante l'Agente di Servizi di ripristino di Azure.
 
@@ -288,7 +287,7 @@ In questa attività verrà eseguito il ripristino dei file mediante l'Agente di 
 
 1. Chiudere la sessione di Desktop remoto.
 
-#### <a name="task-6-perform-file-recovery-by-using-azure-virtual-machine-snapshots-optional"></a>Attività 6: Eseguire il ripristino dei file usando gli snapshot macchina virtuale di Azure (facoltativo)
+#### Attività 6: Eseguire il ripristino dei file usando gli snapshot macchina virtuale di Azure (facoltativo)
 
 In questa attività verrà eseguito il ripristino di un file dal backup basato su snapshot a livello di macchina virtuale di Azure.
 
@@ -360,7 +359,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Chiudere la sessione di Desktop remoto.
 
-#### <a name="task-7-review-the-azure-recovery-services-soft-delete-functionality"></a>Attività 7: Esaminare la funzionalità di eliminazione temporanea di Servizi di ripristino di Azure
+#### Attività 7: Esaminare la funzionalità di eliminazione temporanea di Servizi di ripristino di Azure
 
 1. Nel portale di Azure nel computer del lab cercare e selezionare **Insiemi di credenziali di Servizi di ripristino** e in **Insiemi di credenziali di Servizi di ripristino** fare clic su **az104-10-rsv1**.
 
@@ -442,7 +441,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Ripetere i passaggi all'inizio di questa attività per eliminare gli elementi di backup per **az104-10-vm1**.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+#### Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -466,7 +465,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+#### Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

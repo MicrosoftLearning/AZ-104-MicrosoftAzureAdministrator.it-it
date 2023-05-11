@@ -4,10 +4,10 @@ lab:
   module: Administer Governance and Compliance
 ---
 
-# <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Gestire la governance tramite Criteri di Azure
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 02b – Gestire la governance tramite Criteri di Azure
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
 
@@ -19,7 +19,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -27,17 +27,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 + Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
-## <a name="estimated-timing-30-minutes"></a>Tempo stimato: 30 minuti
+## Tempo stimato: 30 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab02b.png)
 
-## <a name="instructions"></a>Istruzioni
+## Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+### Esercizio 1
 
-#### <a name="task-1-assign-tags-via-the-azure-portal"></a>Attività 1: Assegnare tag tramite il portale di Azure
+#### Attività 1: Assegnare tag tramite il portale di Azure
 
 In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure.
 
@@ -63,7 +63,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello del gruppo di risorse fare clic su **modifica** accanto a **Tag** per creare nuovi tag.
+1. Nel pannello del gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
@@ -72,9 +72,9 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
     | Nome | **Ruolo** |
     | Valore | **Infra** |
 
-1. Tornare nel pannello dell'account di archiviazione. Esaminare le informazioni di **Panoramica** e notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
+1. Fare clic su **Applica** e chiudere la finestra dell'edizione tag per tornare al pannello dell'account di archiviazione. Fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
 
-#### <a name="task-2-enforce-tagging-via-an-azure-policy"></a>Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
+#### Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 
 In questa attività si assegnerà il criterio predefinito *Richiedi un tag con il relativo valore sulle risorse* al gruppo di risorse e si valuterà il risultato. 
 
@@ -105,7 +105,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
 
-1. Fare clic su **Avanti** e impostare **Parametri** sui valori seguenti:
+1. Fare clic due volte su **Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -126,11 +126,13 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), fare clic su **Rivedi e crea** e quindi su **Crea**:
+1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato Il criterio e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti), fare clic su **Rivedi** e quindi su **Crea**:
 
     | Impostazione | Valore |
     | --- | --- |
     | Nome dell'account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
+
+    >**Nota**: è possibile che venga visualizzato un errore **di convalida. Fare clic qui per informazioni dettagliate** sull'errore; In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
 
 1. Dopo aver creato la distribuzione, verrà visualizzato il messaggio **Distribuzione non riuscita** nell'elenco **Notifiche** del portale. Nell'elenco **Notifiche** passare alla panoramica della distribuzione e fare clic su l messaggio **Distribuzione non riuscita. Fare clic qui per i dettagli** per identificare il motivo dell'errore. 
 
@@ -138,7 +140,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota:** facendo clic scheda **Errore raw**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
 
-#### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
+#### Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
 In questa attività verrà usata una definizione di criteri diversa per correggere eventuali risorse non conformi. 
 
@@ -165,7 +167,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | Descrizione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
     | Imposizione dei criteri | Attivato |
 
-1. Fare clic su **Avanti** e impostare **Parametri** sui valori seguenti:
+1. Fare clic su **Avanti** due volte e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -190,7 +192,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi fare clic su **Rivedi e crea**:
+1. Nella scheda **Nozioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare gli altri con le impostazioni predefinite) e fare clic su **Rivedi**:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -200,7 +202,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic sul pulsante **Vai alla risorsa**, quindi nel pannello **Panoramica** dell'account di archiviazione appena creato si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
 
-#### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
+#### Attività 4: Eseguire la pulizia delle risorse
 
    >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
    
@@ -216,7 +218,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
 
-#### <a name="review"></a>Verifica
+#### Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

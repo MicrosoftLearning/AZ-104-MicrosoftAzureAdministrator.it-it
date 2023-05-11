@@ -4,10 +4,10 @@ lab:
   module: Administer Network Traffic Management
 ---
 
-# <a name="lab-06---implement-traffic-management"></a>Lab 06 - Implementare Gestione del traffico
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 06 - Implementare Gestione del traffico
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Si è stati incaricati di testare la gestione del traffico di rete per le macchine virtuali di Azure nella topologia di rete hub-spoke, che Contoso considera di implementare nell'ambiente Azure (anziché creare la topologia mesh, testata nel lab precedente). Questo test deve includere l'implementazione della connettività tra spoke basandosi su route definite dall'utente che forzano il flusso del traffico tramite l'hub, nonché la distribuzione del traffico tra macchine virtuali usando i servizi di bilanciamento del carico di livello 4 e 7. A questo scopo, si prevede di usare Azure Load Balancer (livello 4) e il gateway applicazione di Azure (livello 7).
 
@@ -15,7 +15,7 @@ Si è stati incaricati di testare la gestione del traffico di rete per le macchi
 
 >**Nota**: per impostazione predefinita, questo lab richiede un totale di 8 vCPU disponibili nella serie Standard_Dsv3 nell'area scelta per la distribuzione, perché prevede la distribuzione di quattro macchine virtuali di Azure di Standard_D2s_v3 SKU. Se gli studenti usano account di valutazione con un limite di 4 vCPU è possibile usare una dimensione di macchina virtuale che richieda una sola vCPU (ad esempio Standard_B1s).
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -26,18 +26,18 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 5: Implementare Azure Load Balancer
 + Attività 6: Implementare il gateway applicazione di Azure
 
-## <a name="estimated-timing-60-minutes"></a>Tempo stimato: 60 minuti
+## Tempo stimato: 60 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab06.png)
 
 
-## <a name="instructions"></a>Istruzioni
+## Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+### Esercizio 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Attività 1: Effettuare il provisioning dell'ambiente lab
+#### Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività si distribuiranno quattro macchine virtuali nella stessa area di Azure. Le prime due risiederanno in una rete virtuale hub, mentre ognuna delle due rimanenti risiederà in una rete virtuale spoke separata.
 
@@ -50,8 +50,6 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** e **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nella home directory di Cloud Shell.
-
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il primo gruppo di risorse che ospiterà l'ambiente lab (sostituire il segnaposto "[Azure_region]" con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure). È possibile usare il cmdlet "(Get-AzLocation).Location" per ottenere l'elenco delle aree:
 
@@ -71,6 +69,8 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
+
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -113,7 +113,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>Attività 2: Configurare la topologia di rete hub-spoke
+#### Attività 2: Configurare la topologia di rete hub-spoke
 
 In questa attività verrà configurato il peering locale tra le reti virtuali distribuite nelle attività precedenti per creare una topologia di rete hub-spoke.
 
@@ -187,7 +187,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
 
     >**Nota:** **Consenti traffico inoltrato** deve essere abilitato per facilitare il routing tra reti virtuali spoke, che verrà implementato più avanti in questo lab.
 
-#### <a name="task-3-test-transitivity-of-virtual-network-peering"></a>Attività 3: Testare la transitività del peering di reti virtuali
+#### Attività 3: Testare la transitività del peering di reti virtuali
 
 In questa attività si testerà la transitività del peering di reti virtuali usando Network Watcher.
 
@@ -254,7 +254,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 
-#### <a name="task-4-configure-routing-in-the-hub-and-spoke-topology"></a>Attività 4: Configurare il routing nella topologia hub-spoke
+#### Attività 4: Configurare il routing nella topologia hub-spoke
 
 In questa attività verrà configurato e testato il routing tra le due reti virtuali spoke abilitando l'inoltro IP nell'interfaccia di rete della macchina virtuale **az104-06-vm0** abilitando il routing all'interno del sistema operativo e configurando route definite dall'utente nella rete virtuale spoke.
 
@@ -407,7 +407,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
     > **Nota:** è possibile usare **Network Watcher** per visualizzare la topologia della rete.
 
-#### <a name="task-5-implement-azure-load-balancer"></a>Attività 5: Implementare Azure Load Balancer
+#### Attività 5: Implementare Azure Load Balancer
 
 In questa attività verrà implementata un'istanza di Azure Load Balancer davanti alle due macchine virtuali di Azure nella rete virtuale hub.
 
@@ -418,7 +418,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg4** |
+    | Resource group | **az104-06-rg4** (se necessario create) |
     | Nome | **az104-06-lb4** |
     | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | SKU  | **Standard** |
@@ -431,9 +431,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | --- | --- |
     | Nome | **az104-06-pip4** |
     | Versione IP | IPv4 |
-    | Tipo di indirizzo IP | Indirizzo IP |
     | Indirizzo IP pubblico | **Crea nuovo** |
-    | Zona di disponibilità | **Nessuna zona** | 
 
 1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte) e quindi su **Avanti: Regole in ingresso**. 
 
@@ -484,7 +482,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
     > **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
 
-#### <a name="task-6-implement-azure-application-gateway"></a>Attività 6: Implementare il gateway applicazione di Azure
+#### Attività 6: Implementare il gateway applicazione di Azure
 
 In questa attività verrà implementato un gateway applicazione di Azure davanti alle due macchine virtuali di Azure nelle reti virtuale spoke.
 
@@ -587,7 +585,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     > **Nota**: la destinazione delle macchine virtuali in più reti virtuali non è una configurazione comune, ma è concepita per illustrare il punto in cui il gateway applicazione è in grado di impostare come destinazione macchine virtuali in più reti virtuali (nonché endpoint in altre aree di Azure o anche all'esterno di Azure), a differenza di Azure Load Balancer, che bilancia il carico tra le macchine virtuali nella stessa rete virtuale.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+#### Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -609,7 +607,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+#### Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 
