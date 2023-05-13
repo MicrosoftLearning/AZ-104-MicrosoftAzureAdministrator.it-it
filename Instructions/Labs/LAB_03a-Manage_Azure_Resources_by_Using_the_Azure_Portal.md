@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi. È anche consigliabile esplorare le opzioni per proteggere le risorse disco dall'eliminazione accidentale, consentendo al tempo stesso di modificarne le caratteristiche di prestazioni e le dimensioni.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -21,17 +21,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Spostare le risorse tra gruppi di risorse
 + Attività 3: Implementare e testare i blocchi delle risorse
 
-## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
+## Tempo stimato: 20 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab03a.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-create-resource-groups-and-deploy-resources-to-resource-groups"></a>Attività 1: Creare gruppi di risorse e distribuire risorse al loro interno
+## Attività 1: Creare gruppi di risorse e distribuire risorse al loro interno
 
 In questa attività si userà il portale di Azure per creare gruppi di risorse e un disco al loro interno.
 
@@ -56,7 +56,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
     >**Nota**: attendere che il disco venga creato. L'operazione dovrebbe richiedere meno di un minuto.
 
-#### <a name="task-2-move-resources-between-resource-groups"></a>Attività 2: Spostare le risorse tra gruppi di risorse 
+## Attività 2: Spostare le risorse tra gruppi di risorse 
 
 In questa attività la risorsa disco creata nell'attività precedente verrà spostata in un nuovo gruppo di risorse. 
 
@@ -72,7 +72,7 @@ In questa attività la risorsa disco creata nell'attività precedente verrà spo
 
     >**Nota**: non attendere il completamento dello spostamento, ma procedere con l'attività successiva. Lo spostamento potrebbe richiedere circa 10 minuti. Per determinare se l'operazione è stata completata, è possibile monitorare le voci del log attività del gruppo di risorse di origine o di destinazione. Rivedere questo passaggio dopo aver completato l'attività successiva.
 
-#### <a name="task-3-implement-resource-locks"></a>Attività 3: Implementare blocchi delle risorse
+## Attività 3: Implementare blocchi delle risorse
 
 In questa attività si applicherà un blocco a un gruppo di risorse di Azure contenente una risorsa disco.
 
@@ -118,13 +118,13 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
     >**Nota**: questo comportamento è previsto, perché il blocco a livello di gruppo di risorse si applica solo alle operazioni di eliminazione. 
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
    >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo. Rimuovere solo il blocco delle risorse creato in questo lab.
 
 1. Passare al pannello del gruppo di risorse **az104-03a-rg3**, visualizzare il relativo pannello **Blocchi** e rimuovere il blocco **az104-03a-delete-lock** facendo clic sul collegamento **Elimina** a destra della voce **Elimina blocco**.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

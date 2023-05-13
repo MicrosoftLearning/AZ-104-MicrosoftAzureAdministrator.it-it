@@ -31,11 +31,11 @@ In questo lab si eseguiranno le attività seguenti:
 
 ![image](../media/lab11.png)
 
-## Istruzioni
+### Istruzioni
 
-### Esercizio 1
+## Esercizio 1
 
-#### Attività 1: Effettuare il provisioning dell'ambiente lab
+## Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
@@ -75,7 +75,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
     >**Nota**: non attendere il completamento della distribuzione, ma procedere con l'attività successiva. La distribuzione dovrebbe richiedere 3 minuti circa.
 
-#### Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement.
+## Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement.
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement.
 
@@ -87,7 +87,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Ridurre a icona il riquadro Cloud Shell, ma non chiuderlo.
 
-#### Attività 3: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
+## Attività 3: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
 
 In questa attività verranno create e configurate un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
 
@@ -135,7 +135,7 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
     >**Nota**: attendere il completamento dell'installazione. L'operazione potrebbe richiedere circa cinque minuti.
 
-#### Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
+## Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
 
 In questa attività si esamineranno le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
 
@@ -153,7 +153,7 @@ In questa attività si esamineranno le impostazioni di monitoraggio predefinite 
 
 1. Nell'elenco a discesa **Metrica** selezionare **Percentuale CPU**, nell'elenco a discesa **Aggregazione** selezionare **Media** ed esaminare il grafico risultante.
 
-#### Attività 5: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
+## Attività 5: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
 
 In questa attività si configureranno le impostazioni di diagnostica delle macchine virtuali di Azure.
 
@@ -191,7 +191,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nell'elenco a discesa **Metrica** selezionare **Memoria\\Byte disponibili**, nell'elenco a discesa **Aggregazione** selezionare **Max** ed esaminare il grafico risultante.
 
-#### Attività 6: Esaminare la funzionalità di Monitoraggio di Azure
+## Attività 6: Esaminare la funzionalità di Monitoraggio di Azure
 
 1. Nel portale di Azure cercare e selezionare **Monitoraggio** e nel pannello **Monitoraggio \| Panoramica** fare clic su **Metriche**.
 
@@ -280,7 +280,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nel pannello **Tutti gli avvisi** esaminare gli avvisi generati.
 
-#### Attività 7: Esaminare la funzionalità di Azure Log Analytics
+## Attività 7: Esaminare la funzionalità di Azure Log Analytics
 
 1. Nel portale di Azure tornare al pannello **Monitoraggio** e fare clic su **Log**.
 
@@ -315,7 +315,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota:** potrebbe essere necessario attendere alcuni minuti prima che i dati aggiornati diventino disponibili.
 
-#### Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -337,7 +337,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

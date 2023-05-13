@@ -33,11 +33,11 @@ In questo lab si eseguiranno le attività seguenti:
 ![image](../media/lab06.png)
 
 
-## Istruzioni
+### Istruzioni
 
-### Esercizio 1
+## Esercizio 1
 
-#### Attività 1: Effettuare il provisioning dell'ambiente lab
+## Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività si distribuiranno quattro macchine virtuali nella stessa area di Azure. Le prime due risiederanno in una rete virtuale hub, mentre ognuna delle due rimanenti risiederà in una rete virtuale spoke separata.
 
@@ -113,7 +113,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### Attività 2: Configurare la topologia di rete hub-spoke
+## Attività 2: Configurare la topologia di rete hub-spoke
 
 In questa attività verrà configurato il peering locale tra le reti virtuali distribuite nelle attività precedenti per creare una topologia di rete hub-spoke.
 
@@ -187,7 +187,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
 
     >**Nota:** **Consenti traffico inoltrato** deve essere abilitato per facilitare il routing tra reti virtuali spoke, che verrà implementato più avanti in questo lab.
 
-#### Attività 3: Testare la transitività del peering di reti virtuali
+## Attività 3: Testare la transitività del peering di reti virtuali
 
 In questa attività si testerà la transitività del peering di reti virtuali usando Network Watcher.
 
@@ -254,7 +254,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 
-#### Attività 4: Configurare il routing nella topologia hub-spoke
+## Attività 4: Configurare il routing nella topologia hub-spoke
 
 In questa attività verrà configurato e testato il routing tra le due reti virtuali spoke abilitando l'inoltro IP nell'interfaccia di rete della macchina virtuale **az104-06-vm0** abilitando il routing all'interno del sistema operativo e configurando route definite dall'utente nella rete virtuale spoke.
 
@@ -407,7 +407,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
     > **Nota:** è possibile usare **Network Watcher** per visualizzare la topologia della rete.
 
-#### Attività 5: Implementare Azure Load Balancer
+## Attività 5: Implementare Azure Load Balancer
 
 In questa attività verrà implementata un'istanza di Azure Load Balancer davanti alle due macchine virtuali di Azure nella rete virtuale hub.
 
@@ -482,7 +482,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
     > **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
 
-#### Attività 6: Implementare il gateway applicazione di Azure
+## Attività 6: Implementare il gateway applicazione di Azure
 
 In questa attività verrà implementato un gateway applicazione di Azure davanti alle due macchine virtuali di Azure nelle reti virtuale spoke.
 
@@ -585,7 +585,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     > **Nota**: la destinazione delle macchine virtuali in più reti virtuali non è una configurazione comune, ma è concepita per illustrare il punto in cui il gateway applicazione è in grado di impostare come destinazione macchine virtuali in più reti virtuali (nonché endpoint in altre aree di Azure o anche all'esterno di Azure), a differenza di Azure Load Balancer, che bilancia il carico tra le macchine virtuali nella stessa rete virtuale.
 
-#### Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -607,7 +607,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -33,11 +33,11 @@ In questo lab si eseguiranno le attività seguenti:
 
 ![image](../media/lab02b.png)
 
-## Istruzioni
+### Istruzioni
 
-### Esercizio 1
+## Esercizio 1
 
-#### Attività 1: Assegnare tag tramite il portale di Azure
+## Attività 1: Assegnare tag tramite il portale di Azure
 
 In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure.
 
@@ -74,7 +74,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 1. Fare clic su **Applica** e chiudere la finestra dell'edizione tag per tornare al pannello dell'account di archiviazione. Fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
 
-#### Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
+## Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 
 In questa attività si assegnerà il criterio predefinito *Richiedi un tag con il relativo valore sulle risorse* al gruppo di risorse e si valuterà il risultato. 
 
@@ -140,7 +140,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota:** facendo clic scheda **Errore raw**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
 
-#### Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
+## Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
 In questa attività verrà usata una definizione di criteri diversa per correggere eventuali risorse non conformi. 
 
@@ -202,7 +202,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic sul pulsante **Vai alla risorsa**, quindi nel pannello **Panoramica** dell'account di archiviazione appena creato si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
 
-#### Attività 4: Eseguire la pulizia delle risorse
+## Attività 4: Eseguire la pulizia delle risorse
 
    >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
    
@@ -218,7 +218,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
 
-#### Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

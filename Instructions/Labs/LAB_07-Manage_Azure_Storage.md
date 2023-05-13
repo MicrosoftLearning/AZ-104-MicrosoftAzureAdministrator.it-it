@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Storage
 ---
 
-# <a name="lab-07---manage-azure-storage"></a>Lab 07 - Gestire Archiviazione di Azure
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 07 - Gestire Archiviazione di Azure
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali. Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni. È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi. Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica. Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -24,18 +24,18 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 5: Creare e configurare condivisioni di File di Azure
 + Attività 6: Gestire l'accesso alla rete per Archiviazione di Azure
 
-## <a name="estimated-timing-40-minutes"></a>Tempo stimato: 40 minuti
+## Tempo stimato: 40 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab07.png)
 
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Attività 1: Effettuare il provisioning dell'ambiente lab
+## Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività si distribuirà una macchina virtuale di Azure che verrà usata più avanti in questo lab.
 
@@ -48,8 +48,6 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
 1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona**Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** e **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** nella home directory di Cloud Shell.
-
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà la macchina virtuale. Sostituire il segnaposto "[Azure-region]" con il nome di un'area di Azure in cui si intende distribuire la macchina virtuale di Azure
 
@@ -70,6 +68,8 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
     
 1. Nel riquadro Cloud Shell eseguire quanto segue per distribuire la macchina virtuale usando i file di modello e parametri caricati:
 
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+
    ```powershell
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -89,7 +89,7 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-2-create-and-configure-azure-storage-accounts"></a>Attività 2: Creare e configurare gli account di archiviazione di Azure
+## Attività 2: Creare e configurare gli account di archiviazione di Azure
 
 In questa attività verrà creato e configurato un account di archiviazione di Azure.
 
@@ -124,7 +124,7 @@ In questa attività verrà creato e configurato un account di archiviazione di A
 
     > **Nota**: il livello di accesso sporadico è ottimale per i dati a cui non si accede di frequente.
 
-#### <a name="task-3-manage-blob-storage"></a>Attività 3: Gestire Archiviazione BLOB
+## Attività 3: Gestire Archiviazione BLOB
 
 In questa attività verrà creato un contenitore BLOB in cui verrà caricato un file BLOB.
 
@@ -145,7 +145,6 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
 
     | Impostazione | Valore |
     | --- | --- |
-    | Tipo di autenticazione | **Chiave dell'account**  |
     | Tipo di BLOB | **BLOB in blocchi** |
     | Dimensioni blocco | **4 MB** |
     | Livello di accesso | **Livello di archiviazione ad accesso frequente** |
@@ -163,7 +162,7 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
 
     > **Nota**: è possibile scaricare il BLOB, cambiarne il livello di accesso (attualmente impostato su **Accesso frequente**), acquisire un lease, il cui stato cambierebbe in **Bloccato** (attualmente impostato su **Sbloccato)** e proteggere il BLOB dalla modifica o dall'eliminazione, nonché assegnare metadati personalizzati specificando una coppia chiave-valore arbitraria. È anche possibile scegliere **Modifica** per modificare direttamente il file all'interno dell'interfaccia del portale di Azure, senza scaricarlo prima. È inoltre possibile creare snapshot, nonché generare un token di firma di accesso condiviso (questa opzione verrà esaminata nell'attività successiva).
 
-#### <a name="task-4-manage-authentication-and-authorization-for-azure-storage"></a>Attività 4: Gestire l'autenticazione e l'autorizzazione per Archiviazione di Azure
+## Attività 4: Gestire l'autenticazione e l'autorizzazione per Archiviazione di Azure
 
 In questa attività verranno configurate l'autenticazione e l'autorizzazione per Archiviazione di Azure.
 
@@ -226,7 +225,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
     > **Nota**: possono essere necessari circa 5 minuti prima che la modifica diventi effettiva.
 
-#### <a name="task-5-create-and-configure-an-azure-files-shares"></a>Attività 5: Creare e configurare condivisioni di File di Azure
+## Attività 5: Creare e configurare condivisioni di File di Azure
 
 In questa attività verranno create e configurate le condivisioni di File di Azure.
 
@@ -268,7 +267,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
 
-#### <a name="task-6-manage-network-access-for-azure-storage"></a>Attività 6: Gestire l'accesso alla rete per Archiviazione di Azure
+## Attività 6: Gestire l'accesso alla rete per Archiviazione di Azure
 
 In questa attività si configurerà l'accesso alla rete per Archiviazione di Azure.
 
@@ -305,7 +304,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -327,7 +326,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

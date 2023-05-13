@@ -4,16 +4,16 @@ lab:
   module: Administer Virtual Machines
 ---
 
-# <a name="lab-08---manage-virtual-machines"></a>Lab 08 - Gestire le macchine virtuali
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 08 - Gestire le macchine virtuali
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 È necessario identificare le diverse opzioni disponibili per la distribuzione e la configurazione di macchine virtuali di Azure. Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure. Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali. È anche opportuno esplorare la possibilità di configurare automaticamente le macchine virtuali e i set di scalabilità di macchine virtuali usando l'estensione per script personalizzati di macchine virtuali di Azure.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -25,18 +25,18 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 6: Configurare i set di scalabilità di macchine virtuali di Azure usando le estensioni per macchine virtuali
 + Attività 7: Dimensionare le risorse di calcolo e archiviazione i set di scalabilità di macchine virtuali (facoltativo)
 
-## <a name="estimated-timing-50-minutes"></a>Tempo stimato: 50 minuti
+## Tempo stimato: 50 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab08.png)
 
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-deploy-zone-resilient-azure-virtual-machines-by-using-the-azure-portal-and-an-azure-resource-manager-template"></a>Attività 1: Distribuire macchine virtuali di Azure con resilienza della zona usando il portale di Azure e un modello di Azure Resource Manager
+## Attività 1: Distribuire macchine virtuali di Azure con resilienza della zona usando il portale di Azure e un modello di Azure Resource Manager
 
 In questa attività si distribuiranno macchine virtuali di Azure in diverse zone di disponibilità usando il portale di Azure e un modello di Azure Resource Manager.
 
@@ -136,7 +136,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     >**Nota**: attendere il completamento di entrambe le distribuzioni prima di procedere con l'attività successiva. L'operazione potrebbe richiedere circa cinque minuti.
 
-#### <a name="task-2-configure-azure-virtual-machines-by-using-virtual-machine-extensions"></a>Attività 2: Configurare le macchine virtuali di Azure usando le estensioni per macchine virtuali
+## Attività 2: Configurare le macchine virtuali di Azure usando le estensioni per macchine virtuali
 
 In questa attività si installerà il ruolo server Web di Windows Server nelle due macchine virtuali di Azure distribuite nell'attività precedente usando l'estensione per script personalizzati di macchine virtuali.
 
@@ -223,7 +223,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
     >**Nota**: è anche possibile connettersi a **az104-08-vm0** ed eseguire `Invoke-WebRequest -URI http://10.80.0.5 -UseBasicParsing` per accedere al sito Web ospitato in **az104-08-vm1**.
 
-#### <a name="task-3-scale-compute-and-storage-for-azure-virtual-machines"></a>Attività 3: Dimensionare le risorse di calcolo e archiviazione per le macchine virtuali di Azure
+## Attività 3: Dimensionare le risorse di calcolo e archiviazione per le macchine virtuali di Azure
 
 In questa attività la risorsa di calcolo per le macchine virtuali di Azure verrà dimensionata cambiando le dimensioni e la scala della relativa risorsa di storage tramite collegamento e configurazione dei dischi dati.
 
@@ -262,7 +262,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
    ```powershell
    New-StoragePool -FriendlyName storagepool1 -StorageSubsystemFriendlyName "Windows Storage*" -PhysicalDisks (Get-PhysicalDisk -CanPool $true)
 
-   New-VirtualDisk -StoragePoolFriendlyName storagepool1 -FriendlyName virtualdisk1 -Size 2046GB -ResiliencySettingName Simple -ProvisioningType Fixed
+   New-VirtualDisk -StoragePoolFriendlyName storagepool1 -FriendlyName virtualdisk1 -Size 64GB -ResiliencySettingName Simple -ProvisioningType Fixed
 
    Initialize-Disk -VirtualDisk (Get-VirtualDisk -FriendlyName virtualdisk1)
 
@@ -336,7 +336,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     > **Nota**: attendere la conferma del completamento corretto del comando.
 
-#### <a name="task-4-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>Attività 4: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement
+## Attività 4: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -352,7 +352,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
    Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
    ```
 
-#### <a name="task-5-deploy-zone-resilient-azure-virtual-machine-scale-sets-by-using-the-azure-portal"></a>Attività 5: Distribuire set di scalabilità di macchine virtuali di Azure con resilienza della zona usando il portale di Azure
+## Attività 5: Distribuire set di scalabilità di macchine virtuali di Azure con resilienza della zona usando il portale di Azure
 
 In questa attività si distribuirà il set di scalabilità di macchine virtuali di Azure tra zone di disponibilità usando il portale di Azure.
 
@@ -456,7 +456,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
     >**Nota**: attendere il completamento della distribuzione del set di scalabilità di macchine virtuali. L'operazione richiede circa 5 minuti.
 
-#### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Attività 6: Configurare i set di scalabilità di macchine virtuali di Azure usando le estensioni per macchine virtuali
+## Attività 6: Configurare i set di scalabilità di macchine virtuali di Azure usando le estensioni per macchine virtuali
 
 In questa attività si installerà il ruolo server Web di Windows Server nelle due istanze del set di scalabilità di macchine virtuali di Azure distribuite nell'attività precedente usando l'estensione per script personalizzati di macchine virtuali.
 
@@ -497,7 +497,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
     >**Nota**: verificare che nella pagina del browser sia visualizzato il nome di una delle istanze del set di scalabilità di macchine virtuali di Azure **az10408vmss0**.
 
-#### <a name="task-7-scale-compute-and-storage-for-azure-virtual-machine-scale-sets"></a>Attività 7: Dimensionare le risorse di calcolo e archiviazione i set di scalabilità di macchine virtuali
+## Attività 7: Dimensionare le risorse di calcolo e archiviazione i set di scalabilità di macchine virtuali
 
 In questa attività verranno cambiate le dimensioni delle istanze del set di scalabilità di macchine virtuali, verranno configurate le relative impostazioni di scalabilità automatica e verranno collegati i dischi.
 
@@ -619,7 +619,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Istanze**, selezionare le caselle di controllo accanto alle istanze del set di scalabilità di macchine virtuali, fare clic su **Aggiorna** e quindi, quando viene richiesta la conferma, fare clic su **Sì**.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -646,7 +646,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

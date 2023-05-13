@@ -4,17 +4,17 @@ lab:
   module: Administer Virtual Networking
 ---
 
-# <a name="lab-04---implement-virtual-networking"></a>Lab 04 - Implementare la rete virtuale
+# Lab 04 - Implementare la rete virtuale
 
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 È necessario esplorare le funzionalità della rete virtuale di Azure. Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure. Poiché si prevede di implementare la segmentazione basata sulla rete, sarà necessario distribuirle in subnet diverse della rete virtuale. È inoltre consigliabile assicurarsi che gli indirizzi IP privati e pubblici non cambino nel tempo. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet. È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -25,17 +25,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
 + Attività 6: Configurare DNS di Azure per la risoluzione dei nomi esterni
 
-## <a name="estimated-timing-40-minutes"></a>Tempo stimato: 40 minuti
+## Tempo stimato: 40 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab04.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-create-and-configure-a-virtual-network"></a>Attività 1: Creare e configurare una rete virtuale
+## Attività 1: Creare e configurare una rete virtuale
 
 In questa attività verrà creata una rete virtuale con più subnet mediante il portale di Azure
 
@@ -52,14 +52,15 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Nome | **az104-04-vnet1** |
     | Region | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
 
-1. Fare clic su **Avanti: Indirizzi IP** ed eliminare lo **Spazio indirizzi IPv4** esistente. Nella casella di testo **Spazio indirizzi IPv4** digitare **10.40.0.0/20**.
+1. Fare clic su **Avanti: Indirizzi IP**. **L'indirizzo iniziale** è **10.40.0.0**. La **dimensione dello spazio degli indirizzi** è **/20**. Assicurarsi di fare clic su **Aggiungi**. 
 
 1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti e quindi fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
     | Nome della subnet | **subnet0** |
-    | Intervallo di indirizzi subnet | **10.40.0.0/24** |
+    | Indirizzo iniziale | **10.40.0.0/24** |
+    | Indirizzo iniziale | **/24 (256 indirizzi)** |
 
 1. Accettare le impostazioni predefinite e fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
 
@@ -80,7 +81,7 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Fare clic su **Save** (Salva).
 
-#### <a name="task-2-deploy-virtual-machines-into-the-virtual-network"></a>Attività 2: Distribuire macchine virtuali nella rete virtuale
+## Attività 2: Distribuire macchine virtuali nella rete virtuale
 
 In questa attività verranno distribuite macchine virtuali di Azure in diverse subnet della rete virtuale mediante un modello di ARM
 
@@ -94,10 +95,9 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: è necessario caricare ogni file separatamente. Al termine dell’operazione, usare **dir** per assicurarsi che entrambi i file siano stati caricati correttamente.
 
-1. Modificare il file dei parametri e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
-
 1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
-
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    
    ```powershell
    $rgName = 'az104-04-rg1'
 
@@ -106,7 +106,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
       -TemplateFile $HOME/az104-04-vms-loop-template.json `
       -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json
    ```
-
+   
     >**Nota**: questo metodo di distribuzione dei modelli di ARM usa Azure PowerShell. È possibile eseguire la stessa attività eseguendo il comando equivalente **az deployment create** dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Distribuire risorse con modelli di Resource Manager e l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli).
 
     >**Nota**: attendere il completamento dell'operazione prima di passare all'attività successiva. L'operazione richiede circa 2 minuti.
@@ -120,7 +120,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-3-configure-private-and-public-ip-addresses-of-azure-vms"></a>Attività 3: Configurare gli indirizzi IP privati e pubblici delle macchine virtuali di Azure
+#### Attività 3: Configurare gli indirizzi IP privati e pubblici delle macchine virtuali di Azure
 
 In questa attività verrà configurata un'assegnazione statica di indirizzi IP pubblici e privati assegnati a interfacce di rete di macchine virtuali di Azure.
 
@@ -174,7 +174,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
     >**Nota**: entrambi gli indirizzi IP saranno necessari nell'ultima attività di questo lab.
 
-#### <a name="task-4-configure-network-security-groups"></a>Attività 4: Configurare i gruppi di sicurezza di rete
+## Attività 4: Configurare i gruppi di sicurezza di rete
 
 In questa attività verranno configurati gruppi di sicurezza di rete per consentire la connettività con restrizioni alle macchine virtuali di Azure.
 
@@ -243,7 +243,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     >**Nota**: lasciare aperta la sessione di Desktop remoto. Sarà necessario nell'attività successiva.
 
-#### <a name="task-5-configure-azure-dns-for-internal-name-resolution"></a>Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
+#### Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
 
 In questa attività verrà configurata la risoluzione dei nomi DNS in una rete virtuale mediante le zone DNS privato di Azure.
 
@@ -295,7 +295,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
 1. Verificare che l'output del comando includa l'indirizzo IP privato **az104-04-vm1** (**10.40.1.4**).
 
-#### <a name="task-6-configure-azure-dns-for-external-name-resolution"></a>Attività 6: Configurare DNS di Azure per la risoluzione dei nomi esterni
+## Attività 6: Configurare DNS di Azure per la risoluzione dei nomi esterni
 
 In questa attività verrà configurata la risoluzione dei nomi DNS esterni mediante le zone DNS pubblico di Azure.
 
@@ -369,7 +369,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Verificare che l'output del comando includa l'indirizzo IP privato **az104-04-vm1**.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
  > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -391,7 +391,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 
