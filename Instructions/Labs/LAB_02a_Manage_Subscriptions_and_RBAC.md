@@ -4,14 +4,14 @@ lab:
   module: Administer Governance and Compliance
 ---
 
-# <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
+# Manuale del lab per studenti
 
-## <a name="lab-requirements"></a>Requisiti del lab
+## Requisiti del lab
 
 Per questo lab sono necessarie le autorizzazioni per creare utenti di Azure Active Directory (Azure AD), creare ruoli Controllo degli accessi in base al ruolo di Azure personalizzati e assegnarli a utenti di Azure AD. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
 
@@ -24,7 +24,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -33,18 +33,18 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
 
 
-## <a name="estimated-timing-30-minutes"></a>Tempo stimato: 30 minuti
+## Tempo stimato: 30 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab02a.png)
 
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-implement-management-groups"></a>Attività 1: Implementare i gruppi di gestione
+## Attività 1: Implementare i gruppi di gestione
 
 In questa attività si creeranno e configureranno gruppi di gestione. 
 
@@ -81,7 +81,7 @@ In questa attività si creeranno e configureranno gruppi di gestione.
 
     >**Nota**: nel pannello **az104-02-mg1 \| Sottoscrizioni** copiare l'ID della sottoscrizione di Azure negli Appunti. Sarà necessario nell'attività successiva.
 
-#### <a name="task-2-create-custom-rbac-roles"></a>Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati
+## Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati
 
 In questa attività si creerà una definizione di un ruolo Controllo degli accessi in base al ruolo personalizzato.
 
@@ -124,7 +124,7 @@ In questa attività si creerà una definizione di un ruolo Controllo degli acces
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-3-assign-rbac-roles"></a>Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
+## Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
 
 In questa attività si creerà un utente di Azure Active Directory a cui si assegnerà il ruolo Controllo degli accessi in base al ruolo creato nell'attività precedente, quindi si verificherà che l'utente possa eseguire l'attività specificata nella definizione del ruolo.
 
@@ -167,7 +167,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 
 1. Non continuare con la creazione della richiesta di supporto. Al contrario, disconnettersi come utente az104-02-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
 
-#### <a name="task-4-clean-up-resources"></a>Attività 4: Eseguire la pulizia delle risorse
+## Attività 4: Eseguire la pulizia delle risorse
 
    >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
 
@@ -209,7 +209,7 @@ In questa attività si creerà un utente di Azure Active Directory a cui si asse
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
   >                **Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di gestione. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

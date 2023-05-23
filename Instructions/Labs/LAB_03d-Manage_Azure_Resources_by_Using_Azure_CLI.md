@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03d---manage-azure-resources-by-using-azure-cli"></a>Lab 03d - Gestire le risorse di Azure usando l'interfaccia della riga di comando di Azure
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 03d - Gestire le risorse di Azure usando l'interfaccia della riga di comando di Azure
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, i modelli di Azure Resource Manager e Azure PowerShell, è necessario eseguire l'attività equivalente usando l'interfaccia della riga di comando di Azure. Per evitare di installare l'interfaccia della riga di comando di Azure, si sfrutta l'ambiente Bash disponibile in Azure Cloud Shell.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -21,17 +21,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
 + Attività 3: Configurare il disco gestito usando l'interfaccia della riga di comando di Azure
 
-## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
+## Tempo stimato: 20 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab03d.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-start-a-bash-session-in-azure-cloud-shell"></a>Attività 1: Avviare una sessione Bash in Azure Cloud Shell
+## Attività 1: Avviare una sessione Bash in Azure Cloud Shell
 
 In questa attività si aprirà una sessione Bash in Cloud Shell. 
 
@@ -45,7 +45,7 @@ In questa attività si aprirà una sessione Bash in Cloud Shell.
 
 1. Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cloud Shell sia visualizzato **Bash**.
 
-#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-cli"></a>Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
+## Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando l'interfaccia della riga di comando di Azure
 
 In questa attività si creeranno un gruppo di risorse e un disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell.
 
@@ -82,7 +82,7 @@ In questa attività si creeranno un gruppo di risorse e un disco gestito di Azur
    az disk show --resource-group $RGNAME --name $DISKNAME
    ```
 
-#### <a name="task-3-configure-the-managed-disk-by-using-azure-cli"></a>Attività 3: Configurare il disco gestito usando l'interfaccia della riga di comando di Azure
+## Attività 3: Configurare il disco gestito usando l'interfaccia della riga di comando di Azure
 
 In questa attività si gestirà la configurazione del disco gestito di Azure usando la sessione dell'interfaccia della riga di comando di Azure all'interno di Cloud Shell. 
 
@@ -110,7 +110,7 @@ In questa attività si gestirà la configurazione del disco gestito di Azure usa
    az disk show --resource-group $RGNAME --name $DISKNAME --query sku
    ```
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
  > **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -132,7 +132,7 @@ In questa attività si gestirà la configurazione del disco gestito di Azure usa
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro --nowait, quindi, sebbene sia possibile eseguire un altro comando dell'interfaccia della riga di comando di Azure immediatamente dopo nella stessa sessione Bash, il gruppo di risorse verrà rimosso dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

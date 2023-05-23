@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03c---manage-azure-resources-by-using-azure-powershell"></a>Lab 03c - Gestire le risorse di Azure usando Azure PowerShell
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 03c - Gestire le risorse di Azure usando Azure PowerShell
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure e i modelli di Azure Resource Manager, è necessario eseguire l'attività equivalente usando Azure PowerShell. Per evitare di installare moduli di Azure PowerShell, si userà l'ambiente PowerShell disponibile in Azure Cloud Shell.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%206)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -21,19 +21,19 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando Azure PowerShell
 + Attività 3: Configurare il disco gestito usando Azure PowerShell
 
-## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
+## Tempo stimato: 20 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab03c.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
 > **Nota**:  creare sempre la propria password sicura per qualsiasi macchina virtuale o account utente creato. Se la macchina virtuale viene creata automaticamente, usare **Reimposta password** nel portale per aggiornare la password. 
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-start-a-powershell-session-in-azure-cloud-shell"></a>Attività 1: Avviare una sessione di PowerShell in Azure Cloud Shell
+## Attività 1: Avviare una sessione di PowerShell in Azure Cloud Shell
 
 In questa attività si aprirà una sessione di PowerShell in Cloud Shell. 
 
@@ -47,7 +47,7 @@ In questa attività si aprirà una sessione di PowerShell in Cloud Shell.
 
 1. Accertarsi che nel menu a discesa nell'angolo in alto a sinistra del riquadro Cloud Shell sia visualizzato **PowerShell**.
 
-#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-powershell"></a>Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando Azure PowerShell
+## Attività 2: Creare un gruppo di risorse e un disco gestito di Azure usando Azure PowerShell
 
 In questa attività si creeranno un gruppo di risorse e un disco gestito di Azure usando la sessione di Azure PowerShell all'interno di Cloud Shell
 
@@ -88,7 +88,7 @@ In questa attività si creeranno un gruppo di risorse e un disco gestito di Azur
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
-#### <a name="task-3-configure-the-managed-disk-by-using-azure-powershell"></a>Attività 3: Configurare il disco gestito usando Azure PowerShell
+## Attività 3: Configurare il disco gestito usando Azure PowerShell
 
 In questa attività si gestirà la configurazione del disco gestito di Azure usando la sessione di Azure PowerShell all'interno di Cloud Shell. 
 
@@ -122,11 +122,11 @@ In questa attività si gestirà la configurazione del disco gestito di Azure usa
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
    >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -4,15 +4,15 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, è necessario eseguire l'attività equivalente usando i modelli di Azure Resource Manager.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -20,17 +20,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Creare un disco gestito di Azure usando un modello di ARM
 + Attività 3: Esaminare la distribuzione del disco gestito basata sul modello di ARM
 
-## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
+## Tempo stimato: 20 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab03b.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
+## Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
 
 1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
@@ -58,7 +58,7 @@ In questo lab si eseguiranno le attività seguenti:
     
 1. Chiudere tutte le finestre di **Esplora file**.
 
-#### <a name="task-2-create-an-azure-managed-disk-by-using-an-arm-template"></a>Attività 2: Creare un disco gestito di Azure usando un modello di ARM
+## Attività 2: Creare un disco gestito di Azure usando un modello di ARM
 
 1. Nel portale di Azure cercare e selezionare **Distribuisci un modello personalizzato**.
 
@@ -108,7 +108,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 1. Verificare che la distribuzione sia stata completata correttamente.
 
-#### <a name="task-3-review-the-arm-template-based-deployment-of-the-managed-disk"></a>Attività 3: Esaminare la distribuzione del disco gestito basata sul modello di ARM
+## Attività 3: Esaminare la distribuzione del disco gestito basata sul modello di ARM
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 
 
@@ -118,11 +118,11 @@ In questo lab si eseguiranno le attività seguenti:
 
 1. Nel **pannello az104-03b-rg1 - Distribuzioni** fare clic sulla prima voce nell'elenco delle distribuzioni ed esaminare il contenuto dei pannelli **Input** e **Modello**.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
    >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

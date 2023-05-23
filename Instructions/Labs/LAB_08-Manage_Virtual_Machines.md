@@ -367,8 +367,9 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Nome del set di scalabilità di macchine virtuali | **az10408vmss0** |
     | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning di macchine virtuali di Azure diversa da quella usata in precedenza per distribuire le macchine virtuali in questo lab |
     | Zona di disponibilità | **Zone 1, 2, 3** |
+    | Modalità di orchestrazione | **Uniforme** |
     | Immagine | **Windows Server 2019 Datacenter - Gen2** |
-    | Istanza Spot di Azure | **No** |
+    | Esecuzione con sconto spot di Azure | **No** |
     | Dimensione | **Standard D2s_v3** |
     | Username | **Studente** |
     | Password | **Specificare una password sicura**  |
@@ -378,7 +379,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Dischi** del pannello **Crea un set di scalabilità di macchine virtuali** accettare i valori predefiniti e fare clic su **Avanti: Rete >** .
 
-1. Nella scheda **Rete** del pannello **Crea un set di scalabilità di macchine virtuali** fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo **Rete virtuale** e creare una nuova rete virtuale con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Nella scheda **Rete** del pannello **Crea un set** di scalabilità di macchine virtuali fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo **Rete** virtuale e creare una nuova rete virtuale con le impostazioni seguenti ( lasciare altri con i valori predefiniti). 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -416,13 +417,18 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Tornare nel pannello **Modifica interfaccia di rete**, quindi nella sezione **Indirizzo IP pubblico** fare clic su **Abilitato** e poi su **OK.**
 
-1. Tornare nella scheda **Rete** del pannello **Crea un set di scalabilità di macchine virtuali** e nella sezione **Bilanciamento del carico** verificare che sia selezionata la voce **Usa un servizio di bilanciamento del carico**, quindi specificare quanto segue per **Impostazioni di bilanciamento del carico** (lasciare i valori predefiniti per le altre impostazioni) e fare clic su **Avanti: Dimensionamento >** :
+1. Tornare alla scheda **Rete** del pannello **Crea un set** di scalabilità di macchine virtuali, nella sezione **Bilanciamento del carico** specificare quanto segue (lasciare altri valori predefiniti).
 
     | Impostazione | Valore |
     | --- | --- |
     | Opzioni di bilanciamento del carico | **Azure Load Balancer** |
-    | Selezionare un servizio di bilanciamento del carico | **(nuovo) az10408vmss0-lb** |
-    | Selezionare un pool back-end | **(nuovo) bepool** |
+    | Selezionare un servizio di bilanciamento del carico | **Creare un servizio di bilanciamento del carico** |
+    
+1.  Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su **Crea** e quindi **su Avanti: ridimensionamento >**.
+    
+    | Impostazione | Valore |
+    | --- | --- |
+    | Nome del servizio di bilanciamento del carico | **az10408vmss0-lb** |
 
 1. Nella scheda **Dimensionamento** del pannello **Crea un set di scalabilità di macchine virtuali** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni) e fare clic su **Avanti: Gestione >** :
 
