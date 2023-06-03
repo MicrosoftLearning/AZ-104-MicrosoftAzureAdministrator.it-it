@@ -4,16 +4,16 @@ lab:
   module: Administer Intersite Connectivity
 ---
 
-# <a name="lab-05---implement-intersite-connectivity"></a>Lab 05 - Implementare la connettività tra siti
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 05 - Implementare la connettività tra siti
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi. È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -21,15 +21,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Configurare il peering di rete virtuale locale e globale
 + Attività 3: Testare la connettività tra siti
 
-## <a name="estimated-timing-30-minutes"></a>Tempo stimato: 30 minuti
+## Tempo stimato: 30 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab05.png)
 
-### <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-#### <a name="task-1-provision-the-lab-environment"></a>Attività 1: Effettuare il provisioning dell'ambiente lab
+## Esercizio 1
+
+## Attività 1: Effettuare il provisioning dell'ambiente lab
 
 In questa attività verranno distribuite tre macchine virtuali, ognuna in una rete virtuale separata, con due macchine virtuali nella stessa area di Azure e la terza in un'altra area di Azure.
 
@@ -41,9 +43,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
     >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** e **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** nella home directory di Cloud Shell.
-
-1. Modificare il file dei **parametri** appena caricato e modificare la password. Per le indicazioni relative alla modifica del file nella shell, chiedere assistenza all'insegnante. Come procedura consigliata, i segreti, ad esempio le password, devono essere archiviati in modo più sicuro in Key Vault. 
+1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** e **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** nella home directory di Cloud Shell. 
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare il gruppo di risorse che ospiterà l'ambiente lab. Le prime due reti virtuali e una coppia di macchine virtuali verranno distribuite in [Azure_region_1]. La terza rete virtuale e la terza macchina virtuale verranno distribuite nello stesso gruppo di risorse, ma in un'altra area [Azure_region_2]. Sostituire i segnaposto [Azure_region_1] e [Azure_region_2], incluse le parentesi quadre, con i nomi di due aree di Azure diverse in cui si vogliono distribuire queste macchine virtuali di Azure. Un esempio è $location1 = 'eastus'. È possibile usare Get-AzLocation per elencare tutte le località:
 
@@ -68,6 +68,8 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
    >Se il comando non restituisce risultati, è necessario scegliere un'altra area. Dopo aver identificato due aree appropriate, è possibile modificare le aree nel blocco di codice precedente.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
+    
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -82,7 +84,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-2-configure-local-and-global-virtual-network-peering"></a>Attività 2: Configurare il peering di rete virtuale locale e globale
+## Attività 2: Configurare il peering di rete virtuale locale e globale
 
 In questa attività verrà configurato il peering locale e globale tra le reti virtuali distribuite nelle attività precedenti.
 
@@ -201,7 +203,7 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
    Add-AzVirtualNetworkPeering -Name 'az104-05-vnet2_to_az104-05-vnet1' -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    ``` 
 
-#### <a name="task-3-test-intersite-connectivity"></a>Attività 3: Testare la connettività tra siti
+## Attività 3: Testare la connettività tra siti
 
 In questa attività verrà testata la connettività tra le macchine virtuali nelle tre reti virtuali connesse tramite peering locale e globale nell'attività precedente.
 
@@ -259,7 +261,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Esaminare l'output del comando e verificare che la connessione abbia avuto esito positivo.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -281,7 +283,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -4,16 +4,16 @@ lab:
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09a---implement-web-apps"></a>Lab 09a - Implementare app Web
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 09a - Implementare app Web
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società. I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. È inoltre necessario determinare in che modo è possibile implementare le procedure DevOps sfruttando gli slot di distribuzione di app Web di Azure.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -24,17 +24,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 5: Scambiare gli slot di staging
 + Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
 
-## <a name="estimated-timing-30-minutes"></a>Tempo stimato: 30 minuti
+## Tempo stimato: 30 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab09a.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-create-an-azure-web-app"></a>Attività 1: Creare un'app Web di Azure
+## Attività 1: Creare un'app Web di Azure
 
 In questa attività verrà creata un'app Web di Azure.
 
@@ -61,7 +61,7 @@ In questa attività verrà creata un'app Web di Azure.
 
 1. Nel pannello della distribuzione fare clic su **Vai alla risorsa**.
 
-#### <a name="task-2-create-a-staging-deployment-slot"></a>Attività 2: Creare uno slot di distribuzione di staging
+## Attività 2: Creare uno slot di distribuzione di staging
 
 In questa attività verrà creato uno slot di distribuzione di staging.
 
@@ -84,7 +84,7 @@ In questa attività verrà creato uno slot di distribuzione di staging.
 
 1. Esaminare il pannello dello slot di staging e notare che l'URL è diverso da quello assegnato allo slot di produzione.
 
-#### <a name="task-3-configure-web-app-deployment-settings"></a>Attività 3: Configurare le impostazioni di distribuzione delle app Web
+## Attività 3: Configurare le impostazioni di distribuzione delle app Web
 
 In questa attività verranno configurate le impostazioni della distribuzione Web.
 
@@ -107,7 +107,7 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
     >**Nota:** queste credenziali saranno necessarie nell'attività successiva di questo lab.
 
-#### <a name="task-4-deploy-code-to-the-staging-deployment-slot"></a>Attività 4: Distribuire codice nello slot di distribuzione di staging
+## Attività 4: Distribuire codice nello slot di distribuzione di staging
 
 In questa attività verrà distribuito codice nello slot di distribuzione.
 
@@ -151,7 +151,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 
 1. Verificare che nella pagina del browser sia visualizzato il messaggio **Hello World!** e chiudere la nuova scheda.
 
-#### <a name="task-5-swap-the-staging-slots"></a>Attività 5: Scambiare gli slot di staging
+## Attività 5: Scambiare gli slot di staging
 
 In questa attività lo slot di staging verrà scambiato con lo slot di produzione
 
@@ -165,7 +165,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Verificare che la pagina Web predefinita sia stata sostituita con la pagina **Hello World!** .
 
-#### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
+## Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
 
 In questa attività verrà configurata l'app di Azure e ne verrà testata la scalabilità automatica.
 
@@ -237,7 +237,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -259,7 +259,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -4,33 +4,33 @@ lab:
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09b---implement-azure-container-instances"></a>Lab 09b - Implementare Istanze di Azure Container
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 09b - Implementare Istanze di Azure Container
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Contoso vuole trovare una nuova piattaforma per i carichi di lavoro virtualizzati. Sono state identificate diverse immagini del contenitore che possono essere sfruttate per raggiungere questo obiettivo. Poiché si vuole ridurre al minimo la gestione dei contenitori, si prevede di valutare l'uso di Istanze di Azure Container per la distribuzione di immagini Docker.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
 - Attività 1: Distribuire un'immagine Docker usando Istanza di Azure Container
 - Attività 2: Esaminare la funzionalità di Istanza di Azure Container
 
-## <a name="estimated-timing-20-minutes"></a>Tempo stimato: 20 minuti
+## Tempo stimato: 20 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab09b.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-deploy-a-docker-image-by-using-the-azure-container-instance"></a>Attività 1: Distribuire un'immagine Docker usando Istanza di Azure Container
+## Attività 1: Distribuire un'immagine Docker usando Istanza di Azure Container
 
 In questa attività verrà creata una nuova istanza di contenitore per l'applicazione Web.
 
@@ -63,7 +63,7 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
     >**Nota**: durante l'attesa può essere interessante visualizzare il [codice alla base di questa applicazione di esempio](https://github.com/Azure-Samples/aci-helloworld). Per visualizzarlo, passare alla cartella \\app.
 
-#### <a name="task-2-review-the-functionality-of-the-azure-container-instance"></a>Attività 2: Esaminare la funzionalità di Istanza di Azure Container
+## Attività 2: Esaminare la funzionalità di Istanza di Azure Container
 
 In questa attività verrà esaminata la distribuzione dell'istanza di contenitore.
 
@@ -79,13 +79,15 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
 1. Verificare che siano visualizzate le voci di log che rappresentano la richiesta HTTP GET generata visualizzando l'applicazione nel browser.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
 >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
+
+    >**Nota**: Cloud Shell spazio di archiviazione deve essere creato per consentire il funzionamento di questi comandi. 
 
 1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
@@ -101,7 +103,7 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 
