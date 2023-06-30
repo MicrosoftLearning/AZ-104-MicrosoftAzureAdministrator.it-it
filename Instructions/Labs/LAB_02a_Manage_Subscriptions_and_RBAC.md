@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
+  title: 'Lab 02a: Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo'
   module: Administer Governance and Compliance
 ---
 

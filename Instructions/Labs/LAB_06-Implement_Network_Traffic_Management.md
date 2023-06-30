@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 06 - Implementare Gestione del traffico
+  title: 'Lab 06: Implementare la gestione del traffico'
   module: Administer Network Traffic Management
 ---
 
@@ -388,7 +388,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Nel portale di Azure tornare al pannello **Network Watcher - Risoluzione dei problemi di connessione**.
 
-1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** usare le impostazioni seguenti (lasciare altri con i relativi valori predefiniti):
+1. Nel **pannello Network Watcher - Risoluzione dei problemi di connessione** usare le impostazioni seguenti (lasciare i valori predefiniti per altri utenti):
 
     | Impostazione | Valore |
     | --- | --- |
@@ -401,7 +401,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Fail**, è necessario arrestare e quindi avviare az104-06-vm0.
+1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Esito negativo**, è necessario arrestare e avviare az104-06-vm0.
 
     > **Nota:** questo comportamento è previsto perché il traffico tra reti virtuali spoke viene ora instradato tramite la macchina virtuale che si trova nella rete virtuale hub, che funziona come router.
 
@@ -434,7 +434,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** |
     | Load Balancer gateway | Nessuno |
     
-1. Nel popup **Aggiungi un indirizzo IP pubblico** usare le impostazioni seguenti prima di fare clic su **OK** e quindi **su Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
+1. Nella finestra popup **Aggiungi un indirizzo IP pubblico** usare le impostazioni seguenti prima di fare clic su **OK** e quindi **su Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
      
     | Impostazione | Valore |
     | --- | --- |
@@ -463,7 +463,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | --- | --- |
     | Nome | **az104-06-lb4-lbrule1** |
     | Versione indirizzo IP | **IPv4** |
-    | Indirizzo IP front-end | **az104-06-pip4** |
+    | Indirizzo IP front-end | **az104-06-fe4** |
     | Pool back-end | **az104-06-lb4-be1** |    
     | Protocollo | **TCP** |
     | Porta | **80** |
