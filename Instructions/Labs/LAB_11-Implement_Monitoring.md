@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 11 - Implementare il monitoraggio
+  title: 'Lab 11: Implementare il monitoraggio'
   module: Administer Monitoring
 ---
 
@@ -63,7 +63,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
     
    ```powershell
    New-AzResourceGroupDeployment `
@@ -159,7 +159,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Impostazioni di diagnostica**.
 
-1. Nella scheda **Panoramica** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** selezionare un **account di archiviazione diagnostica** e quindi fare clic su **Abilita monitoraggio a livello di guest**.
+1. Nella scheda **Panoramica** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** selezionare un **account di archiviazione di diagnostica** e quindi fare clic su **Abilita monitoraggio a livello di guest**.
 
     >**Nota**: attendere l'installazione dell'estensione delle impostazioni di diagnostica. L'operazione potrebbe richiedere circa 3 minuti.
 
@@ -173,9 +173,9 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Log** e quindi su **Abilita**.
 
-1. Nel pannello **az104-11-vm0 - Log** verificare che **l'agente di Monitoraggio di Azure (consigliato)** sia selezionato e quindi fare clic su **Configura**.  
+1. Nel pannello **az104-11-vm0 - Log** verificare che **sia selezionato l'agente di Monitoraggio di Azure (scelta consigliata)** e quindi fare clic su **Configura**.  
 
-    >**Nota**: non attendere il completamento dell'operazione, ma procedere al passaggio successivo. L'operazione potrebbe richiedere circa 5 minuti.
+    >**Nota**: non attendere il completamento dell'operazione, ma procedere con il passaggio successivo. L'operazione potrebbe richiedere circa 5 minuti.
 
 1. Nel pannello **az104-11-vm0 \| Log**, sezione **Monitoraggio**, fare clic su **Metriche**.
 

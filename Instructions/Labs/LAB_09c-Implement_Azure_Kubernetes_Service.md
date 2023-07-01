@@ -1,19 +1,19 @@
 ---
 lab:
-  title: 09c - Implementare il servizio Azure Kubernetes
+  title: 'Lab 09c: Implementare servizio Azure Kubernetes'
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09c---implement-azure-kubernetes-service"></a>Lab 09c - Implementare il servizio Azure Kubernetes
-# <a name="student-lab-manual"></a>Manuale del lab per studenti
+# Lab 09c - Implementare il servizio Azure Kubernetes
+# Manuale del lab per studenti
 
-## <a name="lab-scenario"></a>Scenario del lab
+## Scenario del lab
 
 Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container. Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori. Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
-## <a name="objectives"></a>Obiettivi
+## Obiettivi
 
 In questo lab si eseguiranno le attività seguenti:
 
@@ -22,17 +22,17 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 3: Distribuire pod nel cluster del servizio Azure Kubernetes
 + Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
 
-## <a name="estimated-timing-40-minutes"></a>Tempo stimato: 40 minuti
+## Tempo stimato: 40 minuti
 
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
+## Diagramma dell'architettura
 
 ![image](../media/lab09c.png)
 
-## <a name="instructions"></a>Istruzioni
+### Istruzioni
 
-### <a name="exercise-1"></a>Esercizio 1
+## Esercizio 1
 
-#### <a name="task-1-register-the-microsoftkubernetes-and-microsoftkubernetesconfiguration-resource-providers"></a>Attività 1: Registrare i provider di risorse Microsoft.Kubernetes e Microsoft.KubernetesConfiguration.
+## Attività 1: Registrare i provider di risorse Microsoft.Kubernetes e Microsoft.KubernetesConfiguration.
 
 In questa attività verranno registrati i provider di risorse necessari per distribuire un cluster del servizio Azure Kubernetes.
 
@@ -54,7 +54,7 @@ In questa attività verranno registrati i provider di risorse necessari per dist
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### <a name="task-2-deploy-an-azure-kubernetes-service-cluster"></a>Attività 2: Distribuire un cluster del servizio Azure Kubernetes
+## Attività 2: Distribuire un cluster del servizio Azure Kubernetes
 
 In questa attività si distribuirà un cluster del servizio Azure Kubernetes usando il portale di Azure.
 
@@ -94,15 +94,22 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Impostazione | Valore |
     | ---- | ---- |
     | Configurazione di rete | **kubenet** |
-    | Prefisso nome DNS | Qualsiasi prefisso DNS valido e univoco a livello globale|
+    | Prefisso nome DNS | **Qualsiasi prefisso DNS valido e univoco a livello globale** |
 
-1. Fare clic su **Avanti: Integrazioni >** , nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** impostare **Monitoraggio contenitori** su **Disabilitato**, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
+1. Fare clic su **Avanti: Integrazioni >**, nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti (lasciare altri con i relativi valori predefiniti):
+
+    | Impostazione | Valore |
+    | ---- | ---- |
+    | Monitoraggio contenitori | **Disabilita** |
+    | Abilitare le regole di avviso consigliate | **Deselezionare** |
+    
+1.  Fare clic su **Rivedi e crea**, assicurarsi che la convalida sia passata e fare clic su **Crea**.
 
     >**Nota:** negli scenari di produzione è necessario abilitare il monitoraggio. Il monitoraggio è disabilitato in questo caso perché non è trattato nel lab.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 10 minuti.
 
-#### <a name="task-3-deploy-pods-into-the-azure-kubernetes-service-cluster"></a>Attività 3: Distribuire pod nel cluster del servizio Azure Kubernetes
+## Attività 3: Distribuire pod nel cluster del servizio Azure Kubernetes
 
 In questa attività si distribuirà un pod nel cluster del servizio Azure Kubernetes.
 
@@ -170,7 +177,7 @@ In questa attività si distribuirà un pod nel cluster del servizio Azure Kubern
 
 1. Aprire una finestra del browser e passare all'indirizzo IP ottenuto nel passaggio precedente. Verificare che nella pagina del browser sia visualizzato il messaggio **Welcome to nginx!** il messaggio "Hello World!".
 
-#### <a name="task-4-scale-containerized-workloads-in-the-azure-kubernetes-service-cluster"></a>Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
+## Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
 
 In questa attività si aumenterà il numero di pod e quindi il numero di nodi del cluster.
 
@@ -238,7 +245,7 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
 1. Chiudere il riquadro **Cloud Shell**.
 
-#### <a name="clean-up-resources"></a>Pulire le risorse
+## Pulire le risorse
 
 >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
 
@@ -260,7 +267,7 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro --nowait, quindi, sebbene sia possibile eseguire un altro comando dell'interfaccia della riga di comando di Azure immediatamente dopo nella stessa sessione Bash, il gruppo di risorse verrà rimosso dopo alcuni minuti.
 
-#### <a name="review"></a>Verifica
+## Verifica
 
 In questo lab sono state eseguite le attività seguenti:
 
