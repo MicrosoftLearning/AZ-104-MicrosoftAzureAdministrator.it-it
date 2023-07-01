@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 04 - Implementare la rete virtuale
+  title: 'Lab 04: Implementare la rete virtuale'
   module: Administer Virtual Networking
 ---
 
@@ -96,7 +96,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
     >**Nota**: è necessario caricare ogni file separatamente. Al termine dell’operazione, usare **dir** per assicurarsi che entrambi i file siano stati caricati correttamente.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
     
    ```powershell
    $rgName = 'az104-04-rg1'
@@ -126,6 +126,24 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
    >**Nota**: gli indirizzi IP privati e pubblici vengono effettivamente assegnati alle interfacce di rete, che a loro volta sono collegate a macchine virtuali di Azure, ma è piuttosto comune fare riferimento agli indirizzi IP assegnati invece alle macchine virtuali di Azure.
 
+   >**Nota**: per completare questo lab sono necessari **due** indirizzi IP pubblici. 
+
+1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici**, quindi selezionare **+ Crea**.
+
+1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
+
+1. In **Dettagli configurazione** verificare che il **nome** sia **az104-04-pip0**.
+
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici**, quindi selezionare **+ Crea**.
+
+1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
+
+1. In **Dettagli configurazione** assicurarsi che il **nome** sia **az104-04-pip1**.
+
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
 1. Nel portale di Azure cercare e selezionare **Gruppi di risorse** e nel pannello **Gruppi di risorse** fare clic su **az104-04-rg1**.
 
 1. Nel pannello del gruppo di risorse **az104-04-rg1** fare clic su **az104-04-vnet1** nell'elenco delle rispettive risorse.
@@ -138,18 +156,13 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nell'elenco di configurazioni IP fare clic su **ipconfig1**.
 
-1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
+1. Assicurarsi che **l'allocazione** sia **statica**.
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Nome | **az104-04-pip0** |
-    | SKU | **Standard** |
+1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa **Indirizzo IP pubblico** selezionare **az104-04-pip0**.
 
-1. Nel pannello **ipconfig1** impostare **Assegnazione** su **Statica**, lasciare il valore predefinito di **Indirizzo IP** impostato su **10.40.0.4**.
+1. Selezionare **Salva**.
 
-1. Nel pannello **ipconfig1** salvare le modifiche. Assicurarsi di attendere il completamento dell'operazione di salvataggio prima di procedere al passaggio successivo.
-
-1. Tornare al pannello **az104-04-vnet1**
+1. Tornare al pannello **az104-04-vnet1** .
 
 1. Fare clic su **az104-04-nic1** e nel pannello **az104-04-nic1** fare clic su **Configurazioni IP**.
 
@@ -157,17 +170,12 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nell'elenco di configurazioni IP fare clic su **ipconfig1**.
 
-1. Nel pannello **ipconfig1** nella sezione **Impostazioni dell'indirizzo IP pubblico** selezionare **Associa**, fare clic su **+ Crea nuovo**, specificare le impostazioni seguenti e fare clic su **OK**:
+1. Assicurarsi che **l'allocazione** sia **statica**.
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Nome | **az104-04-pip1** |
-    | SKU | **Standard** |
+1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa **Indirizzo IP pubblico** selezionare **az104-04-pip1**.
 
-1. Nel pannello **ipconfig1** impostare **Assegnazione** su **Statica**, lasciare il valore predefinito di **Indirizzo IP** impostato su **10.40.1.4**.
-
-1. Nel pannello **ipconfig1** salvare le modifiche.
-
+1. Selezionare **Salva**.
+   
 1. Tornare nel pannello del gruppo di risorse **az104-04-rg1**, nell'elenco delle rispettive risorse fare clic su **az104-04-vm0** e nel pannello della macchina virtuale **az104-04-vm0** prendere nota della voce relativa all'indirizzo IP.
 
 1. Tornare nel pannello del gruppo di risorse **az104-04-rg1**, nell'elenco delle rispettive risorse fare clic su **az104-04-vm1** e nel pannello della macchina virtuale **az104-04-vm1** prendere nota della voce relativa all'indirizzo IP.
@@ -353,7 +361,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** in **Cloud Shell** facendo clic sull'icona in alto a destra nel portale di Azure.
 
-1. Dal riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm0** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome di **Nome del server 1** annotato in precedenza in questa attività e il segnaposto `[domain name]` con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm0** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm0.[domain name] [Name server 1]
@@ -361,7 +369,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Verificare che l'output del comando includa l'indirizzo IP privato **az104-04-vm0**.
 
-1. Dal riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome di **Nome del server 1** annotato in precedenza in questa attività e il segnaposto `[domain name]` con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm1.[domain name] [Name server 1]

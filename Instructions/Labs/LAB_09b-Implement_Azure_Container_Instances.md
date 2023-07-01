@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 09b - Implementare Istanze di Azure Container
+  title: 'Lab 09b: Implementare Istanze di Azure Container'
   module: Administer Serverless Computing
 ---
 
@@ -17,7 +17,7 @@ Contoso vuole trovare una nuova piattaforma per i carichi di lavoro virtualizzat
 
 In questo lab si eseguiranno le attività seguenti:
 
-- Attività 1: Distribuire un'immagine Docker usando Istanza di Azure Container
+- Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
 - Attività 2: Esaminare la funzionalità di Istanza di Azure Container
 
 ## Tempo stimato: 20 minuti
@@ -30,7 +30,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## Esercizio 1
 
-## Attività 1: Distribuire un'immagine Docker usando Istanza di Azure Container
+## Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
 
 In questa attività verrà creata una nuova istanza di contenitore per l'applicazione Web.
 
@@ -87,7 +87,7 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
-    >**Nota**: Cloud Shell spazio di archiviazione deve essere creato per consentire il funzionamento di questi comandi. 
+    >**Nota**: Cloud Shell archiviazione deve essere creata per il funzionamento di questi comandi. 
 
 1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 

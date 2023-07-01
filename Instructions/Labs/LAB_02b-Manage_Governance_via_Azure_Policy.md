@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 02b – Gestire la governance tramite Criteri di Azure
+  title: 'Lab 02b: Gestire la governance tramite Criteri di Azure'
   module: Administer Governance and Compliance
 ---
 
@@ -63,7 +63,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello del gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
+1. Nel pannello gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
@@ -72,7 +72,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
     | Nome | **Ruolo** |
     | Valore | **Infra** |
 
-1. Fare clic su **Applica** e chiudere la finestra dell'edizione tag per tornare al pannello dell'account di archiviazione. Fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
+1. Fare clic su **Applica** e chiudere la finestra dell'edizione tag per tornare al pannello dell'account di archiviazione. fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
 
 ## Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 
@@ -105,7 +105,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
 
-1. Fare clic due volte su **Avanti** e impostare **Parametri** sui valori seguenti:
+1. Fare clic su **Avanti** due volte e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -126,13 +126,13 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato Il criterio e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti), fare clic su **Rivedi** e quindi su **Crea**:
+1. Nella scheda **Nozioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare altri con le impostazioni predefinite), fare clic su **Rivedi** e quindi fare clic su **Crea**:
 
     | Impostazione | Valore |
     | --- | --- |
     | Nome dell'account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
 
-    >**Nota**: è possibile che venga visualizzato un errore **di convalida. Fare clic qui per informazioni dettagliate** sull'errore; In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
+    >**Nota**: è possibile che venga visualizzato un **errore di convalida. Fare clic qui per informazioni dettagliate** sull'errore; In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
 
 1. Dopo aver creato la distribuzione, verrà visualizzato il messaggio **Distribuzione non riuscita** nell'elenco **Notifiche** del portale. Nell'elenco **Notifiche** passare alla panoramica della distribuzione e fare clic su l messaggio **Distribuzione non riuscita. Fare clic qui per i dettagli** per identificare il motivo dell'errore. 
 
@@ -167,7 +167,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | Descrizione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
     | Imposizione dei criteri | Attivato |
 
-1. Fare clic su **Avanti** due volte e impostare **Parametri** sui valori seguenti:
+1. Fare clic due volte su **Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -192,7 +192,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Nozioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare gli altri con le impostazioni predefinite) e fare clic su **Rivedi**:
+1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato Il criterio e specificare le impostazioni seguenti (lasciare le impostazioni predefinite di altri utenti) e fare clic su **Rivedi**:
 
     | Impostazione | Valore |
     | --- | --- |

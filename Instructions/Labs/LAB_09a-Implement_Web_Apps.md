@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 09a - Implementare app Web
+  title: 'Lab 09a: Implementare App Web'
   module: Administer Serverless Computing
 ---
 
@@ -170,6 +170,8 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 In questa attività verrà configurata l'app di Azure e ne verrà testata la scalabilità automatica.
 
 1. Nel pannello che mostra lo slot di produzione dell'app Web, nella sezione **Impostazioni**, fare clic su **Aumenta istanze (piano di servizio app)** .
+
+1. Nella **sezione Ridimensionamento** selezionare l'opzione **Basata su regole** , quindi fare clic sul collegamento **Gestisci regole basate sul ridimensionamento** .
 
 1. Fare clic su **Scalabilità automatica personalizzata**.
 

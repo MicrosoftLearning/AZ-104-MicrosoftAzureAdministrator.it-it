@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 05 - Implementare la connettività tra siti
+  title: 'Lab 05: Implementare la connettività tra siti'
   module: Administer Intersite Connectivity
 ---
 
@@ -69,7 +69,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
     
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
