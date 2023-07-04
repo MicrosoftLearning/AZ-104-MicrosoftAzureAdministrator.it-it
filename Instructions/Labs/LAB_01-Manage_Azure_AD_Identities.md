@@ -46,7 +46,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
 
 1. Nel pannello Azure Active Directory, nella sezione **Gestisci**, fare clic su **Utenti** e quindi sul proprio account utente per visualizzarne le impostazioni di **Profilo**. 
 
-1. Fare clic su **Modifica proprietà** e quindi nella scheda **Impostazioni** impostare **Percorso utilizzo** su **Stati Uniti** e fare clic su **Salva** per applicare la modifica.
+1. Fare clic su **Modifica proprietà**, quindi nella scheda **Impostazioni** impostare **Percorso utilizzo** **su Stati Uniti** e fare clic su **Salva** per applicare la modifica.
 
     >**Nota**: questa operazione è necessaria per assegnare una licenza di Azure AD Premium P2 all'account utente più avanti in questo lab.
 
@@ -58,11 +58,11 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser1** |
     | Nome visualizzato | **az104-01a-aaduser1** |
-    | Generazione automatica della password | de-select |
+    | Generare automaticamente la password | de-select |
     | Password iniziale | **Specificare una password sicura** |
-    | Posizione | **Amministratore cloud** |
-    | department | **IT** |
-    | Località di utilizzo | **Stati Uniti** |
+    | Titolo processo (scheda Proprietà) | **Amministratore cloud** |
+    | Reparto (scheda Proprietà) | **IT** |
+    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
@@ -92,7 +92,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser2** |
     | Nome visualizzato | **az104-01a-aaduser2** |
-    | Generazione automatica della password | de-select  |
+    | Generare automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore sistema** |
     | department | **IT** |
@@ -246,10 +246,10 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | Impostazione | Valore |
     | --- | --- |
     | E-mail | Il nome dell'entità utente copiato in precedenza in questa attività |
-    | Nome visualizzato | **az104-01b-aaduser1** |
-    | Posizione | **Lab Administrator** |
-    | department | **IT** |
-    | Località di utilizzo | **Stati Uniti** |
+    | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
+    | Titolo processo (scheda Proprietà) | **Lab Administrator** |
+    | Reparto (scheda Proprietà) | **IT** |
+    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
 
 1. Fare clic su **Invita**. 
 
