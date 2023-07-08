@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 03b - Gestire le risorse di Azure usando i modelli di ARM
+  title: 'Lab 03b: Gestire le risorse di Azure usando i modelli di Resource Manager'
   module: Administer Azure Resources
 ---
 
@@ -102,7 +102,9 @@ In questo lab si eseguiranno le attività seguenti:
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |
     | Set di crittografia dischi | **EncryptionAtRestWithPlatformKey** |
+    | Modalità di autenticazione di accesso ai dati | Nessuno |
     | Criteri di accesso alla rete | **AllowAll** |
+    | Accesso alla rete pubblica | Disabled |
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 

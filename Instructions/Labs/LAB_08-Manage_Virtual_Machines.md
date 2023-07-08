@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 08 - Gestire le macchine virtuali
+  title: 'Lab 08: Gestire Macchine virtuali'
   module: Administer Virtual Machines
 ---
 
