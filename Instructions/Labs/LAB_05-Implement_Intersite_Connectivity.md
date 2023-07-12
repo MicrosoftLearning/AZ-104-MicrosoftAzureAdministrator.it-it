@@ -69,7 +69,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
     
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -217,7 +217,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri. 
+1. Quando richiesto, accedere usando il nome utente **Student** e la password configurati durante la distribuzione delle macchine virtuali tramite CloudShell. 
 
 1. Nella sessione di Desktop remoto in **az104-05-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
 
