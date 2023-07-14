@@ -10,13 +10,13 @@ demo:
 
 In questa dimostrazione verranno create reti virtuali.
 
-**Riferimento**: [Guida introduttiva: Creare una rete virtuale - Portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+**Riferimento**[: Guida introduttiva: Creare una rete virtuale - portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## Creare una rete virtuale nel portale
 
-1.  Accedere al portale di Azure e cercare **Reti virtuali**.
+1.  Accedere alla portale di Azure e cercare **reti virtuali**.
 
-1.  Creare una rete virtuale, spiegando le impostazioni di base man mano che si procede. Assicurarsi che venga creata almeno una subnet. 
+1.  Creare una rete virtuale, spiegando le impostazioni di base quando si passa. Assicurarsi che venga creata almeno una subnet. 
 
 1.  Verificare che la rete virtuale sia stata creata.
 
@@ -32,7 +32,7 @@ In questa dimostrazione verranno esaminati i gruppi di sicurezza di rete e gli e
 
 1. Cercare e selezionare i **gruppi di sicurezza di rete**.
 
-1. Creare un gruppo di sicurezza di rete che spiega le impostazioni man mano che si procede. 
+1. Creare un gruppo di sicurezza di rete che spiega le impostazioni durante il passaggio. 
  
 1. Attendere che il gruppo di sicurezza di rete venga distribuito.
 
@@ -42,17 +42,17 @@ In questa dimostrazione verranno esaminati i gruppi di sicurezza di rete e gli e
 
 1. Informazioni su come il gruppo di sicurezza di rete può essere associato a subnet o interfacce di rete.
 
-1. Illustrare lo scopo delle regole in ingresso e in uscita.  
+1. Discutere le regole in ingresso e in uscita.  
 
 1. Esaminare le regole predefinite in ingresso e in uscita. 
 
-1. Creare una nuova regola, spiegando le impostazioni man mano che si procede. In particolare, discutere la selezione del servizio (ad esempio HTTPS) e le impostazioni di priorità. 
+1. Creare una nuova regola, spiegando le impostazioni quando si passa. In particolare, discutere la selezione del servizio (ad esempio HTTPS) e le impostazioni di priorità. 
 
 ## Configurare DNS di Azure
 
 In questa dimostrazione verrà esaminato DNS di Azure.
 
-**Riferimento**: [Esercitazione: Ospitare il dominio e il sottodominio - DNS di Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
+**Riferimento**[: Esercitazione: Ospitare il dominio e il sottodominio - DNS di Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
 
 
 **Creare una zona DNS**
@@ -67,11 +67,11 @@ In questa dimostrazione verrà esaminato DNS di Azure.
 
 **Aggiungere un set di record DNS**
 
-**Riferimento**: [Esercitazione: Creare un record alias per fare riferimento a un record di risorse della zona](https://learn.microsoft.com/azure/dns/tutorial-alias-rr)
+**Riferimento**[: Esercitazione: Creare un record alias per fare riferimento a un record di risorse della zona](https://learn.microsoft.com/azure/dns/tutorial-alias-rr)
 
 1. Dopo aver creato la zona, selezionare **+Set di record**.
 
-1. Utilizzare l'elenco a discesa **Tipo** per visualizzare i diversi tipi di record. Esaminare il modo in cui vengono usati i diversi tipi di record. Si noti che le informazioni sui record cambiano quando si selezionano tipi di record diversi.
+1. Usare l'elenco a discesa **Tipo** per visualizzare i diversi tipi di record. Esaminare il modo in cui vengono usati i diversi tipi di record. Si noti come cambiano le informazioni sui record quando si selezionano tipi di record diversi.
 
 1. Creare un record **A** come esempio. 
 
