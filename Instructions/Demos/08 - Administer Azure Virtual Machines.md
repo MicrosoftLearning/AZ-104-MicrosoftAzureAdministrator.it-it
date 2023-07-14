@@ -37,11 +37,11 @@ In questa dimostrazione si creerà e si accederà a una macchina virtuale di Azu
 
 1. Esistono diversi modi per **connettersi** alla macchina virtuale. 
 
-1. Per un server Windows è possibile usare **RDP**, come illustrato nell'esercitazione. È possibile procedere ulteriormente installando il server Web e visualizzando la pagina iniziale di IIS. 
+1. Per un server Windows è possibile usare **RDP**, come illustrato nella guida introduttiva. 
 
-1. Per un server Linux è possibile **usare SSH**, come illustrato nell'esercitazione. È possibile procedere ulteriormente installando il server Web e visualizzando il server Web in azione.
+1. Per un server Linux è possibile **usare SSH**, come illustrato nella guida introduttiva. 
 
-1. Per entrambi i server è possibile connettersi al servizio **Bastion** (esercitazione). Esaminare il motivo per cui Bastion è preferibile a RDP o SSH. 
+1. Per entrambi i server è possibile connettersi al servizio **Bastion** (Avvio rapido). Esaminare il motivo per cui Bastion è preferibile a RDP o SSH. 
 
 ## Configurare la disponibilità delle macchine virtuali
 
