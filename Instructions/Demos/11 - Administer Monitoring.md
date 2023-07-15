@@ -32,8 +32,6 @@ In questa dimostrazione verrà creata una regola di avviso.
 
 In questa dimostrazione verrà utilizzato il linguaggio di query di Log Analytics.
 
-**Informazioni di riferimento**: [Esercitazione su Log Analytics - Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
-
 1. Usare il portale di Azure.
 
 1. Cercare e selezionare **Monitoraggio** e quindi **Log**.

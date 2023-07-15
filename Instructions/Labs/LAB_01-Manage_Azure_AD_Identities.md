@@ -237,7 +237,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
-1. Tornare nel tenant predefinito di Azure AD usando il pulsante **Directory e sottoscrizione** immediatamente a destra del pulsante Cloud Shell sulla barra degli strumenti del portale di Azure.
+1. Tornare al tenant predefinito (primo) di Azure AD usando il pulsante **Directory + Subscription** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
 
@@ -249,7 +249,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
     | Titolo processo (scheda Proprietà) | **Lab Administrator** |
     | Reparto (scheda Proprietà) | **IT** |
-    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
+    | Posizione di utilizzo (scheda Proprietà) | **Stati Uniti** |
 
 1. Fare clic su **Invita**. 
 
