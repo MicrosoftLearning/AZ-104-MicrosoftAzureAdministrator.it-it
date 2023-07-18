@@ -189,10 +189,10 @@ In questa attività si creerà un nuovo tenant di Azure AD.
     
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
-    >**Nota**: si verifica un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più avanti**, eseguire le operazioni seguenti:<br>
-    - Provare la creazione qualche volta.<br>
+    >**Nota**: si verifica un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:<br>
+    - Provare a creare alcune volte.<br>
     - Controllare la sezione **Gestisci tenant** per assicurarsi che il tenant non sia stato creato in background. <br>
-    - Aprire una nuova finestra **InPrivate** e usare il portale di Azure e provare a creare il tenant da qui.<br>
+    - Aprire una nuova finestra **InPrivate** e usare il portale di Azure e provare a creare il tenant da questa finestra.<br>
      Generare il problema con il formatore, quindi usare la **[simulazione interattiva del lab per visualizzare](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** i passaggi. <br>
     - È possibile provare questa attività in un secondo momento, ma la creazione di un tenant non è necessaria in altri lab. 
 
@@ -228,7 +228,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | --- | --- |
     | Nome dell'entità utente | **az104-01b-aaduser1** |
     | Nome visualizzato | **az104-01b-aaduser1** |
-    | Generazione automatica della password | de-select  |
+    | Generare automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore sistema** |
     | department | **IT** |
@@ -237,7 +237,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
-1. Tornare al tenant predefinito (primo) di Azure AD usando il pulsante **Directory + Subscription** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
+1. Tornare al primo tenant creato in precedenza. Eseguire questa operazione usando il pulsante **Directory + Sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti di portale di Azure.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
 
