@@ -1,18 +1,27 @@
 ---
 lab:
-  title: 'Lab 09c: Distribuire un''app contenitore nel portale'
+  title: 'Lab 09c: Implementare app Azure Container'
   module: Administer PaaS Compute Options
 ---
 
-# Lab 09c: Distribuire un'app contenitore nel portale
+# Lab 09c: Implementare app Azure Container
+# Manuale del lab per gli studenti
 
+## Scenario del lab
 App Contenitore di Azure consente di eseguire microservizi e applicazioni in contenitori in una piattaforma serverless. Con Le app per i contenitori si ottengono i vantaggi dell'esecuzione dei contenitori, lasciandosi alle spalle le preoccupazioni di configurare manualmente l'infrastruttura cloud e gli agenti di orchestrazione contenitori complessi.
 
-In questo lab viene creato un ambiente app contenitore sicuro e si distribuisce la prima app contenitore usando il portale di Azure.
+## Obiettivi
+
+In questo lab si eseguiranno le attività seguenti:
+- Attività 1: Creare un'app e un ambiente contenitore
+- Attività 2: Distribuire l'app contenitore
+- Attività 3: Testare e verificare la distribuzione dell'app contenitore
 
 Iniziare accedendo alla [portale di Azure](https://portal.azure.com).
 
-## Creare un'app contenitore
+## Tempo stimato: 20 minuti
+
+## Attività 1: Creare un'app e un ambiente contenitore
 
 Per creare l'app contenitore, iniziare nella home page portale di Azure.
 
@@ -62,7 +71,7 @@ Creare quindi un ambiente per l'app contenitore.
 1. Selezionare **OK**.
 
 
-### Distribuire l'app contenitore
+## Attività 2: Distribuire l'app contenitore
 
 1. Selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina.  
 
@@ -74,7 +83,7 @@ Creare quindi un ambiente per l'app contenitore.
 
     Viene visualizzata una pagina con il messaggio *Distribuzione in corso* .  Al termine della distribuzione, verrà visualizzato il messaggio: *la distribuzione è stata completata*.
    
-### Verificare la distribuzione
+## Attività 3: Testare e verificare la distribuzione dell'app contenitore
 
 Selezionare **Vai alla risorsa** per visualizzare la nuova app contenitore.  Selezionare il collegamento accanto *all'URL applicazione* per visualizzare l'applicazione. Verificare di avere un messaggio *Di benvenuto in App Azure Container* .
 

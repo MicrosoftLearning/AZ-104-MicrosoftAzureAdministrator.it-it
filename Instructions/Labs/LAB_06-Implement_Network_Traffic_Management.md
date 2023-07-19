@@ -70,7 +70,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -214,7 +214,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.62.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm2**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla prima rete virtuale spoke.
 
@@ -233,7 +233,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.63.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm3**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla seconda rete virtuale spoke.
 
@@ -250,7 +250,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Si noti che lo stato è **Fail**.
+1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Si noti che lo stato è **Fail**.
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 
@@ -388,7 +388,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Nel portale di Azure tornare al pannello **Network Watcher - Risoluzione dei problemi di connessione**.
 
-1. Nel **pannello Network Watcher - Risoluzione dei problemi di connessione** usare le impostazioni seguenti (lasciare i valori predefiniti per altri utenti):
+1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** usare le impostazioni seguenti (lasciare altri con i relativi valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
@@ -401,7 +401,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Esito negativo**, è necessario arrestare e avviare az104-06-vm0.
+1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Fail**, è necessario arrestare e quindi avviare az104-06-vm0.
 
     > **Nota:** questo comportamento è previsto perché il traffico tra reti virtuali spoke viene ora instradato tramite la macchina virtuale che si trova nella rete virtuale hub, che funziona come router.
 
@@ -434,7 +434,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** |
     | Load Balancer gateway | Nessuno |
     
-1. Nella finestra popup **Aggiungi un indirizzo IP pubblico** usare le impostazioni seguenti prima di fare clic su **OK** e quindi **su Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
+1. Nel popup **Aggiungi un indirizzo IP pubblico** usare le impostazioni seguenti prima di fare clic su **OK** e quindi **su Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
      
     | Impostazione | Valore |
     | --- | --- |
@@ -473,7 +473,6 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Protocollo | **TCP** |
     | Porta | **80** |
     | Intervallo | **5** |
-    | Soglia non integra | **2** |
     | Chiudere la finestra di creazione di un probe di integrità | **OK** | 
     | Persistenza della sessione | **Nessuno** |
     | Timeout di inattività (minuti) | **4** |
