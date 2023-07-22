@@ -233,11 +233,11 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Nel portale di Azure tornare nel pannello dell'account di archiviazione creato nella prima attività di questo lab e quindi, nella sezione **Archiviazione dati**, fare clic su **Condivisioni file**.
 
-1. Fare clic su **+ Condivisione file** e creare una condivisione file con le impostazioni seguenti:
+1. Fare clic su **+ Condivisione file** e nella scheda **Informazioni di base** assegnare alla condivisione file un nome **, az104-07-share**. Esaminare le altre impostazioni in questa scheda. 
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Nome | **az104-07-share** |
+1. Passare alla scheda **Backup** e verificare che **l'opzione Abilita backup** **non** sia selezionata.
+
+1. Fare clic su **Rivedi e crea** e quindi **su Crea**. Attendere la distribuzione della condivisione file. 
 
 1. Fare clic sulla condivisione file appena creata e quindi su **Connetti**.
 
