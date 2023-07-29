@@ -59,8 +59,8 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Impostazione | valore |
     | --- | --- |
     | Nome della subnet | **subnet0** |
-    | Indirizzo iniziale | **10.40.0.0/24** |
-    | Indirizzo iniziale | **/24 (256 indirizzi)** |
+    | Indirizzo iniziale | **10.40.0.0** |
+    | Dimensioni della subnet | **/24 (256 indirizzi)** |
 
 1. Accettare le impostazioni predefinite e fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare di nuovo clic su **Crea** per inviare la distribuzione.
 

@@ -1,7 +1,7 @@
 ---
 lab:
   title: 'Lab 09a: Implementare App Web'
-  module: Administer Serverless Computing
+  module: Administer PaaS Compute Options
 ---
 
 # Lab 09a - Implementare app Web
@@ -229,7 +229,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)** .
 
-1. Selezionare la scheda **Cronologia di esecuzione** e controllare il **numero di istanze delle risorse osservato**.
+1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia esecuzione** e controllare il **numero di istanze di risorse osservate**.
 
 1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 
