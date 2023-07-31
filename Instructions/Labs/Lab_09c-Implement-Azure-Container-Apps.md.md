@@ -68,14 +68,15 @@ Creare quindi un ambiente per l'app contenitore.
   
     Il campo *Località* è precompilato con l'area.
 
-1. Selezionare **OK**.
+1. Selezionare **OK**, quindi **Crea**. 
 
+1. Fare clic su **Avanti: contenitore**.
 
-## Attività 2: Distribuire l'app contenitore
+1. Selezionare la casella accanto a **Usa immagine di avvio rapido**.
 
-1. Selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina.  
+1. Selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina. Questo passaggio può richiedere alcuni minuti. 
 
-    Le impostazioni nell'app contenitore vengono quindi verificate. Se non vengono trovati errori, il pulsante *Crea* è abilitato.  
+    Le impostazioni nell'app contenitore vengono verificate. Se non vengono trovati errori, il pulsante *Crea* è abilitato.  
 
     Se si verificano errori, qualsiasi scheda contenente errori è contrassegnata con un punto rosso.  Passare alla scheda appropriata.  I campi contenenti un errore verranno evidenziati in rosso.  Dopo aver corretto tutti gli errori, selezionare **Rivedi e crea** di nuovo.
 
@@ -83,9 +84,13 @@ Creare quindi un ambiente per l'app contenitore.
 
     Viene visualizzata una pagina con il messaggio *Distribuzione in corso* .  Al termine della distribuzione, verrà visualizzato il messaggio: *la distribuzione è stata completata*.
    
-## Attività 3: Testare e verificare la distribuzione dell'app contenitore
+## Attività 2: Testare e verificare la distribuzione dell'app contenitore
 
-Selezionare **Vai alla risorsa** per visualizzare la nuova app contenitore.  Selezionare il collegamento accanto *all'URL applicazione* per visualizzare l'applicazione. Verificare di avere un messaggio *Di benvenuto in App Azure Container* .
+1. Selezionare **Vai alla risorsa** per visualizzare la nuova app contenitore.
+
+1. Selezionare il collegamento accanto *all'URL applicazione* per visualizzare l'applicazione.
+
+1. Verificare che *l'app App Azure Container sia attiva** .
 
 ## Pulire le risorse
 
