@@ -114,7 +114,7 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
 1. Aggiornare la finestra del browser per verificare che l'attivazione sia riuscita. 
 
- >**Nota**: per l'attivazione delle licenze possono essere richiesti fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
+    >**Nota**: per l'attivazione delle licenze possono essere richiesti fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
 
 1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Azure Active Directory Premium P2** e assegnare tutte le opzioni di licenza di Azure AD Premium P2 al proprio account utente e ai due account utente appena creati.
 
