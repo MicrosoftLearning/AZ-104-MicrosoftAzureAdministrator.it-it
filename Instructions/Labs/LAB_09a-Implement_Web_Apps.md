@@ -102,11 +102,13 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
     | Impostazione | Valore |
     | --- | ---|
-    | Nome utente | Qualsiasi nome univoco a livello globale (non deve contenere il carattere `@`) |
-    | Password | Qualsiasi password che soddisfi i requisiti di complessità|
+    | Nome utente | qualsiasi nome univoco globale (vedere nota)  |
+    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere nota) |
 
-    >**Nota:** queste credenziali saranno necessarie nell'attività successiva di questo lab.
-
+    >**Nota:** Copiare queste credenziali nel Blocco note. saranno necessarie più avanti.
+    
+    >**Nota:** Queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o plus (nella parte centrale della stringa) funzionerebbe.
+    
 ## Attività 4: Distribuire codice nello slot di distribuzione di staging
 
 In questa attività verrà distribuito codice nello slot di distribuzione.
@@ -140,10 +142,8 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 1. Dal riquadro Cloud Shell eseguire il codice seguente per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure. Assicurarsi di sostituire il segnaposto `[deployment_user_name]` con il valore del nome utente di **Credenziali distribuzione**, identificato nell'attività precedente:
 
    ```powershell
-   git push [deployment_user_name] master
+    git push https://<deployment-username>:<deployment-password>@<app-name>.scm.azurewebsites.net/<app-name>.git master
    ```
-
-1. Se viene richiesta l'autenticazione, digitare `[deployment_user_name]` e la password corrispondente, impostata nell'attività precedente.
 
 1. Chiudere il riquadro Cloud Shell.
 
@@ -229,7 +229,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)** .
 
-1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia esecuzione** e controllare il **numero di istanze di risorse osservate**.
+1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia di esecuzione** e controllare il **conteggio delle istanze delle risorse osservate**.
 
 1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 

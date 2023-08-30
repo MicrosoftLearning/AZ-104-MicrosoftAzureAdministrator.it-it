@@ -96,7 +96,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
     >**Nota**: è necessario caricare ogni file separatamente. Al termine dell’operazione, usare **dir** per assicurarsi che entrambi i file siano stati caricati correttamente.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
     
    ```powershell
    $rgName = 'az104-04-rg1'
@@ -120,29 +120,29 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
 1. Chiudere il riquadro Cloud Shell.
 
-#### Attività 3: Configurare gli indirizzi IP privati e pubblici delle macchine virtuali di Azure
+## Attività 3: Configurare gli indirizzi IP privati e pubblici delle macchine virtuali di Azure
 
 In questa attività verrà configurata un'assegnazione statica di indirizzi IP pubblici e privati assegnati a interfacce di rete di macchine virtuali di Azure.
 
    >**Nota**: gli indirizzi IP privati e pubblici vengono effettivamente assegnati alle interfacce di rete, che a loro volta sono collegate a macchine virtuali di Azure, ma è piuttosto comune fare riferimento agli indirizzi IP assegnati invece alle macchine virtuali di Azure.
 
-   >**Nota**: per completare questo lab sono necessari **due** indirizzi IP pubblici. 
+   >**Nota**: per completare questo lab saranno necessari **due** indirizzi IP pubblici. 
 
-1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici**, quindi selezionare **+ Crea**.
-
-1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
-
-1. In **Dettagli configurazione** verificare che il **nome** sia **az104-04-pip0**.
-
-1. Selezionare **Rivedi e crea** e quindi **Crea**.
-
-1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici**, quindi selezionare **+ Crea**.
+1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici** e quindi selezionare **+ Crea**.
 
 1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
 
-1. In **Dettagli configurazione** assicurarsi che il **nome** sia **az104-04-pip1**.
+1. Nei **dettagli di configurazione** assicurarsi che il **nome** sia **az104-04-pip0**.
 
-1. Selezionare **Rivedi e crea** e quindi **Crea**.
+1. Selezionare **Rivedi e crea e** quindi **Crea**.
+
+1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici** e quindi selezionare **+ Crea**.
+
+1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
+
+1. Nei **dettagli di configurazione** assicurarsi che il **nome** sia **az104-04-pip1**.
+
+1. Selezionare **Rivedi e crea e** quindi **Crea**.
 
 1. Nel portale di Azure cercare e selezionare **Gruppi di risorse** e nel pannello **Gruppi di risorse** fare clic su **az104-04-rg1**.
 
@@ -158,7 +158,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Assicurarsi che **l'allocazione** sia **statica**.
 
-1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa **Indirizzo IP pubblico** selezionare **az104-04-pip0**.
+1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa Indirizzo **IP pubblico** selezionare **az104-04-pip0**.
 
 1. Selezionare **Salva**.
 
@@ -172,7 +172,7 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Assicurarsi che **l'allocazione** sia **statica**.
 
-1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa **Indirizzo IP pubblico** selezionare **az104-04-pip1**.
+1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa Indirizzo **IP pubblico** selezionare **az104-04-pip1**.
 
 1. Selezionare **Salva**.
    
@@ -247,11 +247,11 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, accedere con il nome utente e la password riportati nel file dei parametri.
+1. Quando richiesto, accedere con l'utente e la password.
 
     >**Nota**: lasciare aperta la sessione di Desktop remoto. Sarà necessario nell'attività successiva.
 
-#### Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
+## Attività 5: Configurare DNS di Azure per la risoluzione dei nomi interni
 
 In questa attività verrà configurata la risoluzione dei nomi DNS in una rete virtuale mediante le zone DNS privato di Azure.
 
@@ -361,7 +361,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** in **Cloud Shell** facendo clic sull'icona in alto a destra nel portale di Azure.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm0** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire le operazioni seguenti per testare la risoluzione dei nomi esterni del record DNS **az104-04-vm0** nel set di record DNS appena creato (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm0.[domain name] [Name server 1]
@@ -369,7 +369,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Verificare che l'output del comando includa l'indirizzo IP privato **az104-04-vm0**.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del set di record DNS **az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire le operazioni seguenti per testare la risoluzione dei nomi esterni del record DNS **az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm1.[domain name] [Name server 1]
