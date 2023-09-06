@@ -209,6 +209,8 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nella pagina **Identificazione insieme di credenziali** visualizzata di nuovo fare clic su **Avanti**.
 
+1. Assicurarsi che **l'opzione Salva passphrase in modo sicuro in Azure Key Vault** non sia selezionata. 
+
 1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic su **Genera passphrase**.
 
 1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic sul pulsante **Esplora** accanto a **Immetti un percorso in cui salvare la passphrase**.
