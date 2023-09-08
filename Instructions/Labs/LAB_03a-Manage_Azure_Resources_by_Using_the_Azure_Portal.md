@@ -45,7 +45,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
     |Gruppo di risorse| Il nome di un nuovo gruppo di risorse **az104-03a-rg1** |
     |Nome del disco| **az104-03a-disk1** |
     |Region| **(Stati Uniti) Stati Uniti orientali** |
-    |Zona di disponibilità| **Nessuno** |
+    |Zona di disponibilità| **La ridondanza dell'infrastruttura non è richiesta** |
     |Tipo di origine| **Nessuno** |
 
     >**Nota**: quando si crea una risorsa, è possibile creare un nuovo gruppo di risorse oppure usarne uno esistente.
@@ -84,7 +84,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
     |Gruppo di risorse| Fare clic su **Crea nuovo gruppo di risorse** e assegnare il nome **az104-03a-rg3** |
     |Nome del disco| **az104-03a-disk2** |
     |Region| Il nome dell'area di Azure in cui sono stati creati gli altri gruppi di risorse di questo lab |
-    |Zona di disponibilità| **Nessuno** |
+    |Zona di disponibilità| **La ridondanza dell'infrastruttura non è richiesta** |
     |Tipo di origine| **Nessuno** |
 
 1. Impostare il tipo e le dimensioni del disco rispettivamente su **HDD Standard** e su **32 GiB**.
