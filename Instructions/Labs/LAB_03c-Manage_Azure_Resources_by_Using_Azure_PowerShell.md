@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 03c: Gestire le risorse di Azure usando Azure PowerShell'
+  title: 'Lab 03c: Gestire le risorse di Azure usando Azure PowerShell (facoltativo)'
   module: Administer Azure Resources
 ---
 
@@ -12,6 +12,8 @@ lab:
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure e i modelli di Azure Resource Manager, è necessario eseguire l'attività equivalente usando Azure PowerShell. Per evitare di installare moduli di Azure PowerShell, si userà l'ambiente PowerShell disponibile in Azure Cloud Shell.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%206)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+
+>**Nota:** Questo lab richiede il completamento del lab 03b. 
 
 ## Obiettivi
 
@@ -72,7 +74,7 @@ In questa attività si creeranno un gruppo di risorse e un disco gestito di Azur
     -Location $location `
     -CreateOption Empty `
     -DiskSizeGB 32 `
-    -Sku Standard_LRS
+    -SkuName Standard_LRS
 
    $diskName = 'az104-03c-disk1'
 
@@ -113,7 +115,7 @@ In questa attività si gestirà la configurazione del disco gestito di Azure usa
 1. Per impostare lo SKU delle prestazioni del disco su **Premium_LRS**, nella sessione di PowerShell all'interno di Cloud Shell eseguire quanto segue:
 
    ```powershell
-   New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+   New-AzDiskUpdateConfig -SkuName Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
    ```
 
 1. Per verificare che la modifica abbia avuto effetto, eseguire quanto segue:

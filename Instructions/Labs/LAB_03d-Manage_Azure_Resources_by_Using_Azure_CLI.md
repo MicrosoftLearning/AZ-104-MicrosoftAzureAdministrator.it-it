@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 03d: Gestire le risorse di Azure tramite l''interfaccia della riga di comando di Azure'
+  title: 'Lab 03d: Gestire le risorse di Azure usando l''interfaccia della riga di comando di Azure (facoltativo)'
   module: Administer Azure Resources
 ---
 
@@ -12,6 +12,8 @@ lab:
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, i modelli di Azure Resource Manager e Azure PowerShell, è necessario eseguire l'attività equivalente usando l'interfaccia della riga di comando di Azure. Per evitare di installare l'interfaccia della riga di comando di Azure, si sfrutta l'ambiente Bash disponibile in Azure Cloud Shell.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+
+>**Nota:** Questo lab richiede il completamento di Lab 03b.
 
 ## Obiettivi
 
@@ -95,7 +97,7 @@ In questa attività si gestirà la configurazione del disco gestito di Azure usa
 1. Per verificare che la modifica abbia avuto effetto, eseguire quanto segue:
 
    ```sh
-   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGb
+   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGB
    ```
 
 1. Per impostare lo SKU delle prestazioni del disco su **Premium_LRS**, nella sessione Bash all'interno di Cloud Shell eseguire quanto segue:

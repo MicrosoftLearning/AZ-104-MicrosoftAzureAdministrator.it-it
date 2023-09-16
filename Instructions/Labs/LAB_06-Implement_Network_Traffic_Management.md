@@ -70,7 +70,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -148,22 +148,18 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Traffico verso la rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Traffico inoltrato dalla rete virtuale remota | **Blocca il traffico originato dall'esterno di questa rete virtuale** |
-    | Gateway di rete virtuale | **Nessuno (valore predefinito)** |
+    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet2_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
-    | ID risorsa | Valore del parametro resourceID di **az104-06-vnet2** registrato in precedenza in questa attività |
-    | Traffico verso la rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Traffico inoltrato dalla rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Gateway di rete virtuale | **Nessuno (valore predefinito)** |
+    | ID risorsa | Valore del parametro resourceID di **az104-06-vnet2** registrato in precedenza in questa attività. |
+    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    
 
     >**Nota**: attendere il completamento dell'operazione.
 
     >**Nota**: questo passaggio stabilisce due peering locali, uno da az104-06-vnet01 ad az104-06-vnet2 e l'altro da az104-06-vnet2 ad az104-06-vnet01.
-
-    >**Nota:** **Consenti traffico inoltrato** deve essere abilitato per facilitare il routing tra reti virtuali spoke, che verrà implementato più avanti in questo lab.
 
 1. Nel pannello della rete virtuale **az104-06-vnet01**, nella sezione **Impostazioni**, fare clic su **Peering** e quindi su **+ Aggiungi**.
 
@@ -172,20 +168,17 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Traffico verso la rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Traffico inoltrato dalla rete virtuale remota | **Blocca il traffico originato dall'esterno di questa rete virtuale** |
-    | Gateway di rete virtuale | **Nessuno (valore predefinito)** |
+    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** | 
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet3_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet3** registrato in precedenza in questa attività |
-    | Traffico verso la rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Traffico inoltrato dalla rete virtuale remota | **Consenti (impostazione predefinita)** |
-    | Gateway di rete virtuale | **Nessuno (valore predefinito)** |
+    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
 
+    >**Nota**: attendere il completamento dell'operazione.
+    
     >**Nota**: questo passaggio stabilisce due peering locali, uno da az104-06-vnet01 ad az104-06-vnet3 e l'altro da az104-06-vnet3 ad az104-06-vnet01. Questa operazione completa la configurazione della topologia hub-spoke (con due reti virtuali spoke).
-
-    >**Nota:** **Consenti traffico inoltrato** deve essere abilitato per facilitare il routing tra reti virtuali spoke, che verrà implementato più avanti in questo lab.
 
 ## Attività 3: Testare la transitività del peering di reti virtuali
 
@@ -440,7 +433,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | --- | --- |
     | Nome | **az104-06-pip4** |
     | SKU | Standard |
-    | Livello | Regionale |
+    | Livello | A livello di area |
     | Assegnazione | Statico |
     | Preferenza di routing | **Rete Microsoft** |
 

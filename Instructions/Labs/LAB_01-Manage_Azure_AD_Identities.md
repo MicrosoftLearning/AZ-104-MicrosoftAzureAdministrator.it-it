@@ -116,7 +116,7 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
     >**Nota**: per l'attivazione delle licenze possono essere richiesti fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
 
-1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Azure Active Directory Premium P2** e assegnare tutte le opzioni di licenza di Azure AD Premium P2 al proprio account utente e ai due account utente appena creati.
+1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Microsoft Entra ID P2** e assegnare tutte le opzioni di licenza all'account utente e ai due account utente appena creati.
 
 1. Nel portale di Azure tornare nel pannello del tenant di Azure AD e fare clic su **Gruppi**.
 
@@ -237,7 +237,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
-1. Tornare al primo tenant creato in precedenza. Eseguire questa operazione usando il pulsante **Directory + Sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti di portale di Azure.
+1. Tornare al primo tenant creato in precedenza. A tale scopo, usare il pulsante **Directory e sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
 
@@ -249,7 +249,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
     | Titolo processo (scheda Proprietà) | **Lab Administrator** |
     | Reparto (scheda Proprietà) | **IT** |
-    | Posizione di utilizzo (scheda Proprietà) | **Stati Uniti** |
+    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
 
 1. Fare clic su **Invita**. 
 
