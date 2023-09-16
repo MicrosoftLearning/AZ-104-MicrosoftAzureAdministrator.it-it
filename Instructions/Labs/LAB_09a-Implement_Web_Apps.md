@@ -50,7 +50,7 @@ In questa attività verrà creata un'app Web di Azure.
     | Resource group | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
-    | Stack di runtime | **PHP 8.0** |
+    | Stack di runtime | **PHP 8.2** |
     | Sistema operativo | **Linux** |
     | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
     | App service plan (Piano di servizio app) | Accettare la configurazione predefinita |
@@ -94,9 +94,9 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
     
 1. Nella scheda **Impostazioni** nell'elenco a discesa **Origine** selezionare **Archivio Git locale** e fare clic sul pulsante **Salva**
 
-1. Nel pannello **Centro distribuzione** copiare la voce **URL di git clone** in Blocco note.
+1. Nel pannello **Centro distribuzione** copiare la voce **Git Clone Uri** nel Blocco note.
 
-    >**Nota:** il valore URL di git clone sarà necessario nell'attività successiva di questo lab.
+    >**Nota:** È necessario il valore URI clone Git nell'attività successiva di questo lab.
 
 1. Nel pannello **Centro distribuzione** selezionare la scheda **Credenziali GIT locale/FTPS**, nella sezione **Ambito utente** specificare le impostazioni seguenti e fare clic su **Salva**.
 
@@ -131,10 +131,10 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
    Set-Location -Path $HOME/php-docs-hello-world/
    ```
 
-1. Dal riquadro Cloud Shell eseguire il codice seguente per aggiungere il repository Git remoto. Assicurarsi di sostituire i segnaposto `[deployment_user_name]` e `[git_clone_url]` con il valore del nome utente di **Credenziali distribuzione** e **URL di git clone**, rispettivamente, identificati nell'attività precedente:
+1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e con il valore del nome utente delle **credenziali di distribuzione** e `[git_clone_uri]` **dell'URI di clonazione Git**, rispettivamente identificato nell'attività precedente):
 
    ```powershell
-   git remote add [deployment_user_name] [git_clone_url]
+   git remote add [deployment_user_name] [git_clone_uri]
    ```
 
     >**Nota**: non è necessario che il valore successivo a `git remote add` corrisponda al nome utente di **Credenziali distribuzione**, ma deve essere univoco
