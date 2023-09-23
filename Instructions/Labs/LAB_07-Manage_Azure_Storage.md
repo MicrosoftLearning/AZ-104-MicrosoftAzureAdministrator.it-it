@@ -39,7 +39,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si distribuirà una macchina virtuale di Azure che verrà usata più avanti in questo lab.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al **[portale di Azure](https://portal.azure.com)**.
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -68,7 +68,7 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
     
 1. Nel riquadro Cloud Shell eseguire quanto segue per distribuire la macchina virtuale usando i file di modello e parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -239,7 +239,9 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Fare clic su **Rivedi e crea** e quindi **su Crea**. Attendere la distribuzione della condivisione file. 
 
-1. Fare clic sulla condivisione file appena creata e quindi su **Connetti**.
+1. Fare clic sulla condivisione file appena creata e prendere nota delle informazioni disponibili nel pannello **az104-07-share** .
+
+1. Fare clic su **Sfoglia** e notare che nella nuova condivisione file non sono presenti file o cartelle. Fare clic su **Connetti**.
 
 1. Nel pannello **Connetti** assicurarsi che sia selezionata la scheda **Windows**. Di seguito è riportato un pulsante con l'etichetta **Mostra script**. Fare clic sul pulsante e verrà visualizzata una casella di testo grigia con uno script. Passare il mouse sull'icona delle pagine nell'angolo in basso a destra di tale casella e fare clic su **Copia negli Appunti**.
 
@@ -263,7 +265,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Verificare che lo script sia stato completato correttamente.
 
-1. Tornare nel pannello della condivisione file **az104-07-share**, fare clic su **Aggiorna**e verificare che la cartella **az104-07-folder** sia visualizzata nell'elenco delle cartelle.
+1. Tornare al pannello **az104-07-share \| Sfoglia** condivisione file, fare clic su **Aggiorna** e verificare che **az104-07-folder** venga visualizzato nell'elenco delle cartelle.
 
 1. Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
 
