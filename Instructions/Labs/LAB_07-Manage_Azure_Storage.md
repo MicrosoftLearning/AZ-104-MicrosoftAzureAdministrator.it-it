@@ -195,7 +195,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL copiato nel passaggio precedente.
 
-    > **Nota**: se si usa Microsoft Edge, verrà visualizzata la pagina **Licenza MIT**. Se si usa Chrome, Microsoft Edge (Chromium) o Firefox, dovrebbe essere possibile visualizzare il contenuto del file scaricandolo e aprendolo con il Blocco note.
+    > **Nota**: dovrebbe essere possibile visualizzare il contenuto del file scaricandolo e aprendolo con blocco note.
 
     > **Nota**: questo comportamento è previsto, perché ora l'accesso è autorizzato in base al token di firma di accesso condiviso appena generato.
 

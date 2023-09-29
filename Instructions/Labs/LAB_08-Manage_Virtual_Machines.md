@@ -75,7 +75,7 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome | **az104-08-rg01-vnet** |
+    | Nome | **az104-08-vnet01** |
     | Intervallo di indirizzi | **10.80.0.0/20** |
     | Nome della subnet | **subnet0** |
     | Intervallo di subnet | **10.80.0.0/24** |
@@ -290,7 +290,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     >**Nota**: questa sezione del modello definisce le stesse dimensioni della macchina virtuale di Azure specificate per la prima macchina virtuale tramite il portale di Azure.
 
-1. Nel pannello **Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga (riga `"dataDisks": [ ]`) con il codice seguente:
+1. Nel pannello **Modifica modello** , nella sezione che visualizza il contenuto del modello, sostituire la riga **51** (`"dataDisks": [ ],`) con il codice seguente:
 
    ```json
                     "dataDisks": [
@@ -308,7 +308,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
                         "caching": "ReadOnly",
                         "createOption": "Empty"
                       }
-                    ]
+                    ],
    ```
 
     >**Nota**: se si usa uno strumento che incolla il codice riga per riga, la funzionalità IntelliSense può aggiungere parentesi quadre aggiuntive che generano errori di convalida. È consigliabile incollare il codice prima nel Blocco appunti e poi nella riga 49.
@@ -369,7 +369,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Modalità di orchestrazione | **Uniforme** |
     | Immagine | **Windows Server 2019 Datacenter - Gen2** |
-    | Esecuzione con sconto spot di Azure | **No** |
+    | Eseguire con sconto di Spot Azure | **No** |
     | Dimensione | **Standard D2s_v3** |
     | Username | **Studente** |
     | Password | **Specificare una password sicura**  |
@@ -424,7 +424,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Opzioni di bilanciamento del carico | **Azure Load Balancer** |
     | Selezionare un servizio di bilanciamento del carico | **Creare un servizio di bilanciamento del carico** |
     
-1.  Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su **Crea** e quindi **su Avanti: ridimensionamento >**.
+1.  Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e prendere le impostazioni predefinite. Fare clic su **Crea** al termine, **avanti: ridimensionamento >**.
     
     | Impostazione | Valore |
     | --- | --- |

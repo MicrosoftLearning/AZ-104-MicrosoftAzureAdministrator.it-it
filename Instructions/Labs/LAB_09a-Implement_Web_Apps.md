@@ -65,7 +65,7 @@ In questa attività verrà creata un'app Web di Azure.
 
 In questa attività verrà creato uno slot di distribuzione di staging.
 
-1. Nel pannello dell'app Web appena distribuita fare clic sul collegamento dell'**URL** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
+1. Nel pannello dell'app Web appena distribuita fare clic sul collegamento **Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
 1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Slot di distribuzione**.
 
@@ -96,18 +96,18 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
 1. Nel pannello **Centro distribuzione** copiare la voce **Git Clone Uri** nel Blocco note.
 
-    >**Nota:** È necessario il valore URI clone Git nell'attività successiva di questo lab.
+    >**Nota:** Nell'attività successiva di questo lab sarà necessario il valore URI di Clonazione Git.
 
 1. Nel pannello **Centro distribuzione** selezionare la scheda **Credenziali GIT locale/FTPS**, nella sezione **Ambito utente** specificare le impostazioni seguenti e fare clic su **Salva**.
 
     | Impostazione | Valore |
     | --- | ---|
-    | Nome utente | qualsiasi nome univoco globale (vedere nota)  |
-    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere nota) |
+    | Nome utente | qualsiasi nome univoco globale (vedere la nota)  |
+    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere la nota) |
 
     >**Nota:** Copiare queste credenziali nel Blocco note. saranno necessarie più avanti.
     
-    >**Nota:** Queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o plus (nella parte centrale della stringa) funzionerebbe.
+    >**Nota:** Queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o più (al centro della stringa) funzionerà.
     
 ## Attività 4: Distribuire codice nello slot di distribuzione di staging
 
@@ -131,7 +131,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
    Set-Location -Path $HOME/php-docs-hello-world/
    ```
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e con il valore del nome utente delle **credenziali di distribuzione** e `[git_clone_uri]` **dell'URI di clonazione Git**, rispettivamente identificato nell'attività precedente):
+1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e `[git_clone_uri]` con il valore del nome utente **delle credenziali di distribuzione** e dell'URI **clone Git**, rispettivamente, identificato nell'attività precedente):
 
    ```powershell
    git remote add [deployment_user_name] [git_clone_uri]
@@ -139,15 +139,15 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 
     >**Nota**: non è necessario che il valore successivo a `git remote add` corrisponda al nome utente di **Credenziali distribuzione**, ma deve essere univoco
 
-1. Dal riquadro Cloud Shell eseguire quanto segue per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure (assicurarsi di sostituire i valori segnaposto con il valore del nome utente e della password delle **credenziali di distribuzione** e il nome dell'app, identificato nell'attività precedente):
+1. Dal riquadro Cloud Shell eseguire il comando seguente per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure ( assicurarsi di sostituire i valori segnaposto con il valore del nome utente e della password **delle credenziali** di distribuzione e del nome dell'app, identificato nell'attività precedente):
 
    ```powershell
-    git push https://<deployment-username>:<deployment-password>@<app-name>.scm.azurewebsites.net/<app-name>.git master
+    git push https://<deployment-username>:<deployment-password>@<app-name>-staging.scm.azurewebsites.net/<app-name>.git master
    ```
 
 1. Chiudere il riquadro Cloud Shell.
 
-1. Nel pannello dello slot di staging fare clic su **Panoramica** e quindi sul collegamento dell'**URL** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
+1. Nel pannello dello slot di staging fare clic su **Panoramica** e quindi sul collegamento **Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
 1. Verificare che nella pagina del browser sia visualizzato il messaggio **Hello World!** e chiudere la nuova scheda.
 
@@ -161,7 +161,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Nel pannello **Scambia** esaminare le impostazioni predefinite e fare clic su **Scambia**.
 
-1. Fare clic su **Panoramica** nel pannello dello slot di produzione dell'app Web e quindi fare clic sul collegamento dell'**URL** per visualizzare la home page del sito Web in una nuova scheda del browser.
+1. Fare clic su **Panoramica** nel pannello slot di produzione dell'app Web e quindi fare clic sul collegamento **Dominio predefinito** per visualizzare la home page del sito Web in una nuova scheda del browser.
 
 1. Verificare che la pagina Web predefinita sia stata sostituita con la pagina **Hello World!** .
 
@@ -229,7 +229,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)** .
 
-1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia di esecuzione** e controllare il **conteggio delle istanze delle risorse osservate**.
+1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia esecuzione** . In **Mostra dati per l'ultima** ora selezionare **1 ora** e controllare il **numero di istanze delle risorse osservate**.
 
 1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 
