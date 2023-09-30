@@ -64,7 +64,7 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
    ```
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
     
    ```powershell
    New-AzResourceGroupDeployment `
@@ -105,7 +105,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **az104-10-rsv1 - Proprietà** fare clic sul collegamento **Aggiorna** sotto l'etichetta **Configurazione di backup**.
 
-1. Nel pannello **Configurazione di backup** si noti che è possibile impostare l'opzione **Tipo di replica di archiviazione** su **Con ridondanza locale** o **Con ridondanza geografica**. Lasciare selezionata l'impostazione predefinita **Con ridondanza geografica** e chiudere il pannello.
+1. Nel pannello **Configurazione backup** esaminare le opzioni per **il tipo di replica di archiviazione**. Lasciare selezionata l'impostazione predefinita **Con ridondanza geografica** e chiudere il pannello.
 
     >**Nota**: questa impostazione può essere configurata solo se non sono presenti elementi di backup esistenti.
 
@@ -209,7 +209,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nella pagina **Identificazione insieme di credenziali** visualizzata di nuovo fare clic su **Avanti**.
 
-1. Assicurarsi che **l'opzione Salva passphrase in modo sicuro in Azure Key Vault** non sia selezionata. 
+1. Assicurarsi che **La passphrase salva in modo sicuro in Azure Key Vault** non sia selezionata. 
 
 1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic su **Genera passphrase**.
 
