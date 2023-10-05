@@ -70,7 +70,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -148,13 +148,12 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet2_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet2** registrato in precedenza in questa attività. |
-    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
     
 
     >**Nota**: attendere il completamento dell'operazione.
@@ -168,13 +167,12 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** | 
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet3_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet3** registrato in precedenza in questa attività |
-    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano selezionate** |
 
     >**Nota**: attendere il completamento dell'operazione.
     
