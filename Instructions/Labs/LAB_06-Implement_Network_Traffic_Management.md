@@ -70,7 +70,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -148,14 +148,14 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** |
+    | Consenti 'az104-06-vnet01' di accedere alla rete virtuale peered | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire al gateway in 'az104-06-vnet01' di inoltrare il traffico alla rete virtuale con peering | **Verificare che la casella sia selezionata** 
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet2_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet2** registrato in precedenza in questa attività. |
-    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    
+    | Consenti az104-06-vnet2 di accedere a az104-06-vnet01 | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consenti az104-06-vnet2 di ricevere il traffico inoltrato da az104-06-vnet01 | **Verificare che la casella sia selezionata** |
 
     >**Nota**: attendere il completamento dell'operazione.
 
@@ -168,13 +168,12 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Impostazione | Valore |
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire il traffico verso la rete virtuale remota | **Verificare che la casella sia selezionata** | 
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-06-vnet3_to_az104-06-vnet01** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet3** registrato in precedenza in questa attività |
-    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
 
     >**Nota**: attendere il completamento dell'operazione.
     
@@ -207,7 +206,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.62.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm2**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla prima rete virtuale spoke.
 
@@ -226,7 +225,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.63.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm3**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla seconda rete virtuale spoke.
 
@@ -243,7 +242,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Si noti che lo stato è **Fail**.
+1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Si noti che lo stato è **Fail**.
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 

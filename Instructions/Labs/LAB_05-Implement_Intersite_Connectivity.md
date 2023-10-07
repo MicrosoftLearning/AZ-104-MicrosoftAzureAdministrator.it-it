@@ -69,7 +69,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
     
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -103,14 +103,14 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet0_to_az104-05-vnet1** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet1_to_az104-05-vnet0** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-05-vnet1** |
-    | Consentire l'accesso alla rete virtuale corrente |  **Verificare che la casella sia selezionata (impostazione predefinita)** |
-
+    | Consenti l'accesso alla rete virtuale corrente |  **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
 
     >**Nota**: questo passaggio stabilisce due peering locali, uno da az104-05-vnet0 ad az104-05-vnet1 e l'altro da az104-05-vnet1 ad az104-05-vnet0.
 
@@ -135,13 +135,13 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet0_to_az104-05-vnet2** |
-    | Consentire l'accesso alla rete virtuale remota |**Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consenti l'accesso alla rete virtuale remota |**Verificare che la casella sia selezionata (impostazione predefinita)** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet2_to_az104-05-vnet0** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-05-vnet2** |
-    | Consentire l'accesso alla rete virtuale corrente |**Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consenti l'accesso alla rete virtuale corrente |**Verificare che la casella sia selezionata (impostazione predefinita)** |
 
     >**Nota**: questo passaggio stabilisce due peering globali, uno da az104-05-vnet0 ad az104-05-vnet2 e l'altro da az104-05-vnet2 ad az104-05-vnet0.
 
@@ -168,7 +168,7 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet1_to_az104-05-vnet2** |
-    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consenti l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet2_to_az104-05-vnet1** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |

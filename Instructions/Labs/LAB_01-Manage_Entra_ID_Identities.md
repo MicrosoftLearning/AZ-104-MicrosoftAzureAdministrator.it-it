@@ -1,16 +1,16 @@
 ---
 lab:
-  title: 'Lab 01: Gestire identità ID Microsoft Entra (test di rebranding)'
+  title: 'Lab 01: Gestire identità ID Microsoft Entra'
   module: Administer Identity
 ---
 
-# Lab 01 - Gestire identità ID Microsoft Entra (test di rebranding)
+# Lab 01 - Gestire identità ID Microsoft Entra
 
 # Manuale del lab per gli studenti
 
 ## Scenario del lab
 
-Per consentire agli utenti contoso di eseguire l'autenticazione usando Microsoft Entra ID, è stata eseguita l'attività di provisioning di utenti e account di gruppo. L'appartenenza ai gruppi dovrà essere aggiornata automaticamente in base alle mansioni degli utenti. È anche necessario creare un tenant di test con un account utente di test e concedere all'account autorizzazioni limitate alle risorse nella sottoscrizione di Contoso Azure.
+Per consentire agli utenti di Contoso di eseguire l'autenticazione usando Microsoft Entra ID, è stata eseguita l'attività di provisioning di utenti e account di gruppo. L'appartenenza ai gruppi dovrà essere aggiornata automaticamente in base alle mansioni degli utenti. È anche necessario creare un tenant di test con un account utente di test e concedere all'account autorizzazioni limitate per le risorse nella sottoscrizione di Contoso Azure.
 
                 **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
@@ -18,10 +18,10 @@ Per consentire agli utenti contoso di eseguire l'autenticazione usando Microsoft
 
 In questo lab si eseguiranno le attività seguenti:
 
-+ Attività 1: Creare e configurare gli utenti
++ Attività 1: Creare e configurare utenti
 + Attività 2: Creare gruppi con appartenenza assegnata e dinamica
-+ Attività 3: Creare un tenant (problema facoltativo - ambiente lab)
-+ Attività 4: Gestire gli utenti guest (problema facoltativo - ambiente lab)
++ Attività 3: Creare un tenant (facoltativo - problema dell'ambiente lab)
++ Attività 4: Gestire gli utenti guest (facoltativo - problema dell'ambiente lab)
 
 ## Tempo stimato: 30 minuti
 
@@ -32,23 +32,23 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## Esercizio 1
 
-## Attività 1: Creare e configurare gli utenti
+## Attività 1: Creare e configurare utenti
 
 In questa attività verranno creati e configurati gli utenti.
 
->**Nota**: se in precedenza è stata usata la licenza di valutazione per Microsoft Entra ID nel tenant, sarà necessario un nuovo tenant ed eseguire l'attività 2 dopo l'attività 3 nel nuovo tenant.
+>**Nota**: se in precedenza è stata usata la licenza di valutazione per Microsoft Entra ID in questo tenant, sarà necessario un nuovo tenant ed eseguire l'attività 2 dopo l'attività 3 nel nuovo tenant.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
 
-1. Nel pannello Microsoft Entra ID scorrere verso il basso fino alla sezione **Gestisci**, fare clic su **Impostazioni utente** e esaminare le opzioni di configurazione disponibili.
+1. Nel pannello Microsoft Entra ID scorrere verso il basso fino alla sezione **Gestisci**, fare clic su **Impostazioni utente** ed esaminare le opzioni di configurazione disponibili.
 
-1. Nel pannello Microsoft Entra ID fare clic su **Utenti** nella sezione **Gestisci** e quindi fare clic sull'account utente per visualizzare le impostazioni **del profilo**. 
+1. Nel pannello Microsoft Entra ID fare clic su **Utenti** nella sezione **Gestisci** e quindi fare clic sull'account utente per visualizzarne le impostazioni **del profilo**. 
 
-1. Fare clic su **Modifica proprietà** e quindi nella scheda **Impostazioni** impostare **Percorso utilizzo** su **Stati Uniti** e fare clic su **Salva** per applicare la modifica.
+1. Fare clic su **Modifica proprietà**, quindi nella scheda **Impostazioni** impostare **Percorso utilizzo** **su Stati Uniti** e fare clic su **Salva** per applicare la modifica.
 
-    >**Nota**: questo è necessario per assegnare una licenza ID P2 Microsoft Entra all'account utente più avanti in questo lab.
+    >**Nota**: questa operazione è necessaria per assegnare una licenza id Microsoft Entra P2 all'account utente più avanti in questo lab.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Nuovo utente**.
 
@@ -58,17 +58,17 @@ In questa attività verranno creati e configurati gli utenti.
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser1** |
     | Nome visualizzato | **az104-01a-aaduser1** |
-    | Generazione automatica della password | de-select |
+    | Generare automaticamente la password | de-select |
     | Password iniziale | **Specificare una password sicura** |
     | Titolo processo (scheda Proprietà) | **Amministratore cloud** |
     | Reparto (scheda Proprietà) | **IT** |
-    | Posizione di utilizzo (scheda Proprietà) | **Stati Uniti** |
+    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
 1. Nell'elenco di utenti fare clic sull'account utente appena creato per visualizzare il relativo pannello.
 
-1. Esaminare le opzioni disponibili nella sezione **Gestisci** e notare che è possibile identificare i ruoli assegnati all'account utente e le autorizzazioni dell'account utente per le risorse di Azure.
+1. Esaminare le opzioni disponibili nella sezione **Gestisci** e notare che è possibile identificare i ruoli assegnati all'account utente, nonché le autorizzazioni dell'account utente per le risorse di Azure.
 
 1. Nella sezione **Gestisci** fare clic su **Ruoli assegnati**, quindi fare clic sul pulsante **+ Aggiungi assegnazione** e assegnare il ruolo **Amministratore utenti** a **az104-01a-aaduser1**.
 
@@ -78,21 +78,21 @@ In questa attività verranno creati e configurati gli utenti.
 
     >**Nota**: invece di digitare il nome utente (incluso il nome di dominio), è possibile incollare il contenuto degli Appunti.
 
-1. Nella finestra **Del browser InPrivate** cercare e selezionare **Microsoft Entra ID** nella portale di Azure.
+1. Nella finestra del browser **InPrivate**, nella portale di Azure, cercare e selezionare **Microsoft Entra ID**.
 
     >**Nota**: anche se questo account utente può accedere al tenant, non ha accesso alle risorse di Azure. Questo comportamento è previsto, poiché tale accesso deve essere concesso esplicitamente tramite Controllo degli accessi in base al ruolo. 
 
-1. Nella finestra **Del browser InPrivate**, nel pannello Microsoft Entra ID scorrere verso il basso fino alla sezione **Gestisci**, fare clic su **Impostazioni utente** e notare che non si dispone delle autorizzazioni per modificare le opzioni di configurazione.
+1. Nella finestra del browser **InPrivate**, nel pannello Microsoft Entra ID scorrere verso il basso fino alla sezione **Gestisci**, fare clic su **Impostazioni utente** e notare che non si dispone delle autorizzazioni necessarie per modificare le opzioni di configurazione.
 
-1. Nella finestra **Del browser InPrivate** fare clic su + Nuovo utente nel pannello Microsoft Entra ID nella sezione **Gestisci**, fare clic su **Utenti** e quindi su **+ Nuovo utente**.
+1. Nella finestra del browser **InPrivate**, nel pannello Microsoft Entra ID, nella sezione **Gestisci** fare clic su **Utenti** e quindi su **+ Nuovo utente**.
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser2** |
     | Nome visualizzato | **az104-01a-aaduser2** |
-    | Generazione automatica della password | de-select  |
+    | Generare automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore sistema** |
     | department | **IT** |
@@ -104,9 +104,9 @@ In questa attività verranno creati e configurati gli utenti.
 
 In questa attività verranno creati gruppi con appartenenza assegnata e dinamica.
 
-1. Tornare al portale di Azure pannello **Panoramica** del tenant e, nella sezione **Gestisci****, fare** clic su **Licenze**.
+1. Tornare al portale di Azure in cui si è connessi con **l'account utente**, tornare al pannello **Panoramica** del tenant e, nella sezione **Gestisci**, fare clic su **Licenze**.
 
-    >**Nota**: è necessario Microsoft Entra licenze ID Premium P1 o P2 per implementare gruppi dinamici.
+    >**Nota**: Microsoft Entra licenze PREMIUM P1 o P2 ID sono necessarie per implementare gruppi dinamici.
 
 1. Nella sezione **Gestisci** fare clic su **Tutti i prodotti**.
 
@@ -118,7 +118,7 @@ In questa attività verranno creati gruppi con appartenenza assegnata e dinamica
 
 1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Microsoft Entra ID P2** e assegnare tutte le opzioni di licenza all'account utente e ai due account utente appena creati.
 
-1. Nella portale di Azure tornare al pannello Microsoft Entra tenant ID e fare clic su **Gruppi**.
+1. Nella portale di Azure tornare al pannello tenant id Microsoft Entra e fare clic su **Gruppi**.
 
 1. Usare il pulsante **+ Nuovo gruppo** per creare un nuovo gruppo con le impostazioni seguenti:
 
@@ -224,7 +224,7 @@ In questa attività si creeranno utenti guest e si concederà loro l'accesso all
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome dell'entità utente | **az104-01b-aaduser1** |
     | Nome visualizzato | **az104-01b-aaduser1** |
@@ -243,7 +243,7 @@ In questa attività si creeranno utenti guest e si concederà loro l'accesso all
 
 1. Invitare un nuovo utente guest con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | E-mail | Il nome dell'entità utente copiato in precedenza in questa attività |
     | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
