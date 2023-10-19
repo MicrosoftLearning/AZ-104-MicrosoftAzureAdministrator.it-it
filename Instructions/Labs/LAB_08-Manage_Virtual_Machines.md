@@ -213,13 +213,15 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
 1. Per verificare che la configurazione basata sull'estensione per script personalizzati sia riuscita, tornare nel pannello **az104-08-vm1**, quindi nella sezione **Operazioni** fare clic su **Esegui comando** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
-1. Nel pannello **Esegui script di comandi** digitare quanto segue e fare clic su **Esegui** per accedere al sito Web ospitato in **az104-08-vm0**:
+1. Nel pannello **Esegui script comando** digitare quanto segue e fare clic su **Esegui** per accedere al sito Web ospitato in **az104-08-vm1**:
 
    ```powershell
    Invoke-WebRequest -URI http://10.80.0.4 -UseBasicParsing
    ```
 
     >**Nota**: il parametro **-UseBasicParsing** è necessario per eliminare la dipendenza da Internet Explorer e completare l'esecuzione del cmdlet
+
+    >**Nota**: il parametro **-URI** è l'indirizzo **IP privato** della macchina virtuale. Passare al pannello **az104-08-vm1** , nella sezione **Rete** e fare clic su **Impostazioni di rete**
 
     >**Nota**: è anche possibile connettersi a **az104-08-vm0** ed eseguire `Invoke-WebRequest -URI http://10.80.0.5 -UseBasicParsing` per accedere al sito Web ospitato in **az104-08-vm1**.
 
@@ -290,7 +292,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     >**Nota**: questa sezione del modello definisce le stesse dimensioni della macchina virtuale di Azure specificate per la prima macchina virtuale tramite il portale di Azure.
 
-1. Nel pannello **Modifica modello** , nella sezione che visualizza il contenuto del modello, sostituire la riga **51** (`"dataDisks": [ ],`) con il codice seguente:
+1. Nel pannello **Modifica modello** nella sezione che visualizza il contenuto del modello sostituire la riga **51** (`"dataDisks": [ ],`) con il codice seguente:
 
    ```json
                     "dataDisks": [
@@ -379,7 +381,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Dischi** del pannello **Crea un set di scalabilità di macchine virtuali** accettare i valori predefiniti e fare clic su **Avanti: Rete >** .
 
-1. Nella scheda **Rete** del pannello **Crea un set** di scalabilità di macchine virtuali fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo **Rete** virtuale e creare una nuova rete virtuale con le impostazioni seguenti ( lasciare altri con i valori predefiniti). 
+1. Nella scheda **Rete** del pannello **Crea set di scalabilità di macchine virtuali** fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo Rete virtuale e creare una nuova **rete** virtuale con le impostazioni seguenti (lasciare altri con i valori predefiniti). 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -417,7 +419,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Tornare nel pannello **Modifica interfaccia di rete**, quindi nella sezione **Indirizzo IP pubblico** fare clic su **Abilitato** e poi su **OK.**
 
-1. Tornare alla scheda **Rete** del pannello **Crea un set** di scalabilità di macchine virtuali, nella sezione **Bilanciamento del carico** specificare quanto segue (lasciare altri valori predefiniti).
+1. Nella scheda **Rete** del pannello **Crea un set di scalabilità di macchine virtuali** , nella sezione **Bilanciamento del carico** specificare quanto segue (lasciare altri con i valori predefiniti).
 
     | Impostazione | Valore |
     | --- | --- |
