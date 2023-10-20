@@ -419,14 +419,14 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Tornare nel pannello **Modifica interfaccia di rete**, quindi nella sezione **Indirizzo IP pubblico** fare clic su **Abilitato** e poi su **OK.**
 
-1. Nella scheda **Rete** del pannello **Crea un set di scalabilità di macchine virtuali** , nella sezione **Bilanciamento del carico** specificare quanto segue (lasciare altri con i valori predefiniti).
+1. Tornare alla scheda **Rete** del pannello **Crea un set** di scalabilità di macchine virtuali, nella sezione **Bilanciamento del carico** specificare quanto segue (lasciare altri valori predefiniti).
 
     | Impostazione | Valore |
     | --- | --- |
     | Opzioni di bilanciamento del carico | **Azure Load Balancer** |
     | Selezionare un servizio di bilanciamento del carico | **Creare un servizio di bilanciamento del carico** |
     
-1.  Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e prendere le impostazioni predefinite. Fare clic su **Crea** al termine, **avanti: ridimensionamento >**.
+1.  Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su **Crea** e quindi **su Avanti: ridimensionamento >**.
     
     | Impostazione | Valore |
     | --- | --- |
