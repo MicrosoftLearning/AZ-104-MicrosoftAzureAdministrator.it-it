@@ -102,7 +102,7 @@ In questa dimostrazione verranno trattate le assegnazioni di ruolo.
 
 1.  Creare un utente o selezionare un utente esistente.
 
-1.  Selezionare **Aggiungi assegnazione di ruolo** e selezionare un ruolo. Per exmaple, *proprietario*.
+1.  Selezionare **Aggiungi assegnazione di ruolo** e selezionare un ruolo. Ad esempio, *proprietario*.
 
 1.  Selezionare **Controlla l'accesso**.
 

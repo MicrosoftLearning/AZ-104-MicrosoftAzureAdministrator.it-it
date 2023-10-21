@@ -9,7 +9,7 @@ lab:
 
 ## Requisiti del lab
 
-Questo lab richiede autorizzazioni per creare utenti, creare ruoli personalizzati basati sul ruolo di Azure Controllo di accesso (RBAC) e assegnare questi ruoli agli utenti. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
+Questo lab richiede le autorizzazioni per creare utenti, creare ruoli personalizzati del Controllo di accesso controllo degli accessi in base al ruolo di Azure e assegnare questi ruoli agli utenti. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
 ## Scenario del lab
 
@@ -52,13 +52,13 @@ In questa attività si creeranno e configureranno gruppi di gestione.
 
 1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
 
-1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio **Si è registrati come amministratore della directory ma non sono disponibili le autorizzazioni necessarie per accedere al gruppo di gestione radice**, eseguire questa sequenza di passaggi:
+1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio **Che indica che l'utente è registrato come amministratore della directory ma non dispone delle autorizzazioni necessarie per accedere al gruppo di gestione radice**, seguire questa sequenza di passaggi:
 
     1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
     
-    1.  Nel pannello che visualizza le proprietà del tenant, nel menu verticale sul lato sinistro selezionare **Proprietà**.****
+    1.  Nel pannello che visualizza le proprietà del tenant, nel menu verticale a sinistra selezionare **Proprietà** nella sezione **Gestisci**.
     
-    1.  Nel pannello **Proprietà** del tenant selezionare **Sì** nella sezione **Gestione di accesso per le risorse di Azure** e quindi selezionare **Salva**.
+    1.  Nel pannello **Proprietà** del tenant selezionare **Sì** nella sezione **Gestione degli accessi per le risorse di Azure** e quindi selezionare **Salva**.
     
     1.  Tornare nel pannello **Gruppi di gestione** e selezionare **Aggiorna**.
 
@@ -126,9 +126,9 @@ In questa attività si creerà una definizione di un ruolo Controllo degli acces
 
 ## Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
 
-In questa attività si creerà un utente, si assegna il ruolo controllo degli accessi in base al ruolo creato nell'attività precedente a tale utente e si verificherà che l'utente possa eseguire l'attività specificata nella definizione del ruolo RBAC.
+In questa attività si creerà un utente, si assegnerà il ruolo controllo degli accessi in base al ruolo creato nell'attività precedente a tale utente e si verificherà che l'utente possa eseguire l'attività specificata nella definizione del ruolo controllo degli accessi in base al ruolo.
 
-1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**, fare clic su **Utenti** e quindi fare clic su **+ Nuovo utente**.
+1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**, fare clic su **Utenti** e quindi su **+ Nuovo utente**.
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
