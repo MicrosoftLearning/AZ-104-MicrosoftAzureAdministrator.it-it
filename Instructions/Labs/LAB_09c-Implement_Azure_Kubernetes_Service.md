@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 09c - Implementare il servizio Azure Kubernetes
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Contoso ha una serie di applicazioni multilivello che non sono idonee per l'esecuzione tramite Istanze di Azure Container. Per determinare se possono essere eseguite come carichi di lavoro in contenitori, è necessario valutare l'uso di Kubernetes come agente di orchestrazione dei contenitori. Per ridurre ulteriormente il sovraccarico di gestione, è necessario testare il servizio Azure Kubernetes, incluse le funzionalità di scalabilità e l'esperienza di distribuzione semplificata.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Registrare i provider di risorse Microsoft.Kubernetes e Microsoft.KubernetesConfiguration.
 + Attività 2: Distribuire un cluster del servizio Azure Kubernetes
@@ -36,7 +36,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verranno registrati i provider di risorse necessari per distribuire un cluster del servizio Azure Kubernetes.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -65,10 +65,10 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Impostazione | Valore |
     | ---- | ---- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-09c-rg1** |
+    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09c-rg1** |
     | Configurazione predefinita del cluster | **Sviluppo/test ($)** |
     | Nome del cluster Kubernetes | **az104-9c-aks1** |
-    | Region | Nome di un'area in cui è possibile effettuare il provisioning di un cluster Kubernetes |
+    | Area | Nome di un'area in cui è possibile effettuare il provisioning di un cluster Kubernetes |
     | Zone di disponibilità | **Nessuna** (deselezionare tutte le caselle) |
     | Versione di Kubernetes | Accettare l'impostazione predefinita |
     | Disponibilità server API | Accettare l'impostazione predefinita |
@@ -76,7 +76,7 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Metodo di scalabilità | **Manuale** |
     | Numero di nodi | **1** |
 
-1. Fare clic su **Avanti: Pool di nodi >** e, nella scheda **Pool di nodi** del pannello **Crea cluster Kubernetes**, specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
+1. Fare clic su **Avanti: Pool di nodi >** e, nella scheda **Pool di nodi** del pannello **Crea cluster Kubernetes**, specificare le impostazioni seguenti, mantenendo i valori predefiniti per le altre:
 
     | Impostazione | Valore |
     | ---- | ---- |
@@ -94,18 +94,18 @@ In questa attività si distribuirà un cluster del servizio Azure Kubernetes usa
     | Impostazione | Valore |
     | ---- | ---- |
     | Configurazione di rete | **kubenet** |
-    | Prefisso nome DNS | **Qualsiasi prefisso DNS valido e univoco a livello globale** |
+    | Prefisso nome DNS | **qualsiasi prefisso DNS valido e univoco a livello globale** |
 
-1. Fare clic su **Avanti: Integrazioni >**, nella scheda **Integrazioni** del pannello **Crea cluster Kubernetes** specificare le impostazioni seguenti (lasciare altri con i relativi valori predefiniti):
+1. Fare clic su **Avanti: Integrazioni >**, nella **scheda Integrazioni** del **pannello Crea cluster** Kubernetes specificare le impostazioni seguenti (lasciare altri valori predefiniti):
 
     | Impostazione | Valore |
     | ---- | ---- |
     | Monitoraggio contenitori | **Disabilita** |
     | Abilitare le regole di avviso consigliate | **Deselezionare** |
     
-1.  Fare clic su **Rivedi e crea**, assicurarsi che la convalida sia passata e fare clic su **Crea**.
+1.  Fare clic su **Rivedi e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
 
-    >**Nota:** negli scenari di produzione è necessario abilitare il monitoraggio. Il monitoraggio è disabilitato in questo caso perché non è trattato nel lab.
+    >**Nota**: negli scenari di produzione è necessario abilitare il monitoraggio. Il monitoraggio è disabilitato in questo caso perché non è trattato nel lab.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 10 minuti.
 
@@ -175,7 +175,7 @@ In questa attività si distribuirà un pod nel cluster del servizio Azure Kubern
 
 1. Eseguire nuovamente il comando finché il valore nella colonna **EXTERNAL-IP** per la **voce nginx-deployment** non passa da **\<pending\>** a un indirizzo IP pubblico. Prendere nota dell'indirizzo IP pubblico nella colonna **EXTERNAL-IP** per **nginx-deployment**.
 
-1. Aprire una finestra del browser e passare all'indirizzo IP ottenuto nel passaggio precedente. Verificare che nella pagina del browser sia visualizzato il messaggio **Welcome to nginx!** il messaggio "Hello World!".
+1. Aprire una finestra del browser e passare all'indirizzo IP ottenuto nel passaggio precedente. Verificare che nella pagina del browser sia visualizzato il messaggio **Welcome to nginx!** da gestire".
 
 ## Attività 4: Ridimensionare i carichi di lavoro in contenitori nel cluster del servizio Azure Kubernetes
 
@@ -267,7 +267,7 @@ In questa attività si aumenterà il numero di pod e quindi il numero di nodi de
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro --nowait, quindi, sebbene sia possibile eseguire un altro comando dell'interfaccia della riga di comando di Azure immediatamente dopo nella stessa sessione Bash, il gruppo di risorse verrà rimosso dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 
