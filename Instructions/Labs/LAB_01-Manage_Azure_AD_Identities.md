@@ -6,22 +6,22 @@ lab:
 
 # Lab 01 - Gestire le identità di Azure Active Directory
 
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Per consentire agli utenti di Contoso di eseguire l'autenticazione usando Azure AD, è stato necessario eseguire il provisioning di account di utenti e gruppi. L'appartenenza ai gruppi dovrà essere aggiornata automaticamente in base alle mansioni degli utenti. È anche necessario creare un tenant di Azure AD di con un account utente di test e concedere a tale account autorizzazioni limitate per le risorse della sottoscrizione di Azure Contoso.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Creare e configurare gli utenti di Azure AD
 + Attività 2: Creare gruppi di Azure AD con appartenenza dinamica e assegnata
 + Attività 3: Creare un tenant di Azure Active Directory (AD) (facoltativo - problema dell'ambiente lab)
-+ Attività 4: Gestire gli utenti guest di Azure AD (facoltativo - problema dell'ambiente lab)
++ Attività 4: Gestire gli utenti guest di Azure AD (facoltativo - Problema dell'ambiente lab)
 
 ## Tempo stimato: 30 minuti
 
@@ -38,7 +38,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
 
 >**Nota**: se in precedenza è stata usata la licenza di valutazione per Azure AD Premium in questo tenant di Azure AD, sarà necessario un nuovo tenant di Azure in cui eseguire l'attività 2 dopo l'attività 3.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
@@ -46,7 +46,7 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
 
 1. Nel pannello Azure Active Directory, nella sezione **Gestisci**, fare clic su **Utenti** e quindi sul proprio account utente per visualizzarne le impostazioni di **Profilo**. 
 
-1. Fare clic su **Modifica proprietà**, quindi nella scheda **Impostazioni** impostare **Percorso utilizzo** **su Stati Uniti** e fare clic su **Salva** per applicare la modifica.
+1. Fare clic su **Modifica proprietà**, quindi nella **scheda Impostazioni** impostare **Percorso** utilizzo su **Stati Uniti** e fare clic su **Salva** per applicare la modifica.
 
     >**Nota**: questa operazione è necessaria per assegnare una licenza di Azure AD Premium P2 all'account utente più avanti in questo lab.
 
@@ -58,11 +58,11 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser1** |
     | Nome visualizzato | **az104-01a-aaduser1** |
-    | Generare automaticamente la password | de-select |
+    | Genera automaticamente la password | de-select |
     | Password iniziale | **Specificare una password sicura** |
     | Titolo processo (scheda Proprietà) | **Amministratore cloud** |
-    | Reparto (scheda Proprietà) | **IT** |
-    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
+    | Reparto (scheda Proprietà) | **ESSO** |
+    | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
@@ -92,10 +92,10 @@ In questa attività verranno creati e configurati gli utenti di Azure AD.
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser2** |
     | Nome visualizzato | **az104-01a-aaduser2** |
-    | Generare automaticamente la password | de-select  |
+    | Genera automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
-    | Posizione | **Amministratore sistema** |
-    | department | **IT** |
+    | Posizione | **Amministratore di sistema** |
+    | Reparto | **ESSO** |
     | Località di utilizzo | **Stati Uniti** |
     
 1. Disconnettersi come utente az104-01a-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
@@ -114,9 +114,9 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
 1. Aggiornare la finestra del browser per verificare che l'attivazione sia riuscita. 
 
-    >**Nota**: per l'attivazione delle licenze possono essere richiesti fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
+    >**Nota**: l'attivazione delle licenze può richiedere fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
 
-1. Nel pannello **Licenze - Tutti i prodotti** selezionare la voce **Microsoft Entra ID P2** e assegnare tutte le opzioni di licenza all'account utente e ai due account utente appena creati.
+1. Nel pannello **Licenze - Tutti i prodotti** selezionare la **voce Microsoft Entra ID P2** e assegnare tutte le opzioni di licenza all'account utente e i due account utente appena creati.
 
 1. Nel portale di Azure tornare nel pannello del tenant di Azure AD e fare clic su **Gruppi**.
 
@@ -124,8 +124,8 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
     | Impostazione | Valore |
     | --- | --- |
-    | Tipo gruppo | **Sicurezza** |
-    | Nome gruppo | **IT Cloud Administrators** |
+    | Tipo di gruppo | **Sicurezza** |
+    | Nome del gruppo | **IT Cloud Administrators** |
     | Descrizione gruppo | **Contoso IT cloud administrators** |
     | Tipo di appartenenza | **Utente dinamico** |
 
@@ -138,7 +138,7 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
     | Impostazione | Valore |
     | --- | --- |
     | Proprietà | **jobTitle** |
-    | Operatore | **È uguale a** |
+    | Operatore | **Equals** |
     | Valore | **Amministratore cloud** |
 
 1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
@@ -147,8 +147,8 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
     | Impostazione | Valore |
     | --- | --- |
-    | Tipo gruppo | **Sicurezza** |
-    | Nome gruppo | **IT System Administrators** |
+    | Tipo di gruppo | **Sicurezza** |
+    | Nome del gruppo | **IT System Administrators** |
     | Descrizione gruppo | **Contoso IT system administrators** |
     | Tipo di appartenenza | **Utente dinamico** |
 
@@ -159,8 +159,8 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
     | Impostazione | Valore |
     | --- | --- |
     | Proprietà | **jobTitle** |
-    | Operatore | **È uguale a** |
-    | Valore | **Amministratore sistema** |
+    | Operatore | **Equals** |
+    | Valore | **Amministratore di sistema** |
 
 1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
 
@@ -168,10 +168,10 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
     | Impostazione | Valore |
     | --- | --- |
-    | Tipo gruppo | **Sicurezza** |
-    | Nome gruppo | **IT Lab Administrators** |
+    | Tipo di gruppo | **Sicurezza** |
+    | Nome del gruppo | **IT Lab Administrators** |
     | Descrizione gruppo | **Contoso IT Lab administrators** |
-    | Tipo di appartenenza | **Assegnato** |
+    | Tipo di appartenenza | **Assegnate** |
     
 1. Fare clic su **Nessun membro selezionato**.
 
@@ -183,17 +183,17 @@ In questa attività verranno creati gruppi di Azure Active Directory con apparte
 
 1. Tornare nel pannello **Gruppi - Tutti i gruppi**, fare clic sulla voce che rappresenta il gruppo **IT System Administrators** e quindi visualizzare il relativo pannello **Membri**. Verificare che **az104-01a-aaduser2** sia visualizzato nell'elenco dei membri del gruppo.
 
-## Attività 3: Creare un tenant di Azure Active Directory (AD) (facoltativo - problema dell'ambiente lab)
+## Attività 3: Creare un tenant di Azure Active Directory (AD) (facoltativo - Problema dell'ambiente lab)
 
 In questa attività si creerà un nuovo tenant di Azure AD.
     
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 
-    >**Nota**: si verifica un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:<br>
+    >**Nota**: si è verificato un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:<br>
     - Provare a creare alcune volte.<br>
-    - Controllare la sezione **Gestisci tenant** per assicurarsi che il tenant non sia stato creato in background. <br>
-    - Aprire una nuova finestra **InPrivate** e usare il portale di Azure e provare a creare il tenant da questa finestra.<br>
-     Generare il problema con il formatore, quindi usare la **[simulazione interattiva del lab per visualizzare](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** i passaggi. <br>
+    - Controllare la **sezione Gestisci tenant** per assicurarsi che il tenant non sia stato creato in background. <br>
+    - Aprire una nuova **finestra InPrivate** e usare il portale di Azure e provare a creare il tenant da questa posizione.<br>
+     Generare il problema con il formatore, quindi usare la simulazione interattiva del **[lab per visualizzare](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** i passaggi. <br>
     - È possibile provare questa attività in un secondo momento, ma la creazione di un tenant non è necessaria in altri lab. 
 
 1. Fare clic su **Gestisci i tenant**, quindi nella schermata successiva fare clic su **+ Crea** e specificare l'impostazione seguente:
@@ -208,7 +208,7 @@ In questa attività si creerà un nuovo tenant di Azure AD.
     | --- | --- |
     | Nome organizzazione | **Contoso Lab** |
     | Nome di dominio iniziale | Qualsiasi nome DNS valido costituito da lettere minuscole e cifre e che inizia con una lettera | 
-    | Paese/Area geografica | **Stati Uniti** |
+    | Paese/area geografica | **Stati Uniti** |
 
    > **Nota**: il valore di **Nome di dominio iniziale** non deve essere un nome legittimo che potrebbe corrispondere alla propria organizzazione o a un'altra. Il segno di spunta verde nella casella di testo **Nome di dominio iniziale** indicherà che il nome di dominio immesso è valido e univoco.
 
@@ -216,7 +216,7 @@ In questa attività si creerà un nuovo tenant di Azure AD.
 
 1. Visualizzare il pannello del tenant di Azure AD appena creato usando il collegamento **Fare clic qui per passare al nuovo tenant: Contoso Lab** oppure il pulsante **Directory e sottoscrizione** immediatamente a destra del pulsante Cloud Shell sulla barra degli strumenti del portale di Azure.
 
-## Attività 4: Gestire gli utenti guest di Azure AD.
+## Attività 4: Gestire gli utenti guest di Azure AD
 
 In questa attività verranno creati utenti guest di Azure AD a cui verrà concesso l'accesso alle risorse di una sottoscrizione di Azure.
 
@@ -228,16 +228,16 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | --- | --- |
     | Nome dell'entità utente | **az104-01b-aaduser1** |
     | Nome visualizzato | **az104-01b-aaduser1** |
-    | Generare automaticamente la password | de-select  |
+    | Genera automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
-    | Posizione | **Amministratore sistema** |
-    | department | **IT** |
+    | Posizione | **Amministratore di sistema** |
+    | Reparto | **ESSO** |
 
 1. Fare clic sul profilo appena creato.
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
-1. Tornare al primo tenant creato in precedenza. A tale scopo, usare il pulsante **Directory e sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
+1. Tornare al primo tenant creato in precedenza. A tale scopo, usare il **pulsante Directory e sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
 
@@ -248,8 +248,8 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
     | E-mail | Il nome dell'entità utente copiato in precedenza in questa attività |
     | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
     | Titolo processo (scheda Proprietà) | **Lab Administrator** |
-    | Reparto (scheda Proprietà) | **IT** |
-    | Percorso di utilizzo (scheda Proprietà) | **Stati Uniti** |
+    | Reparto (scheda Proprietà) | **ESSO** |
+    | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
 1. Fare clic su **Invita**. 
 
@@ -262,7 +262,7 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
 ## Attività 5: Pulire le risorse
 
-> **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti. Anche se, in questo caso, non sono presenti costi aggiuntivi associati ai tenant di Azure Active Directory e ai relativi oggetti, è consigliabile rimuovere gli account utente, gli account di gruppo e il tenant di Azure Active Directory creati in questo lab.
+> **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate evita l'addebito di costi imprevisti. Anche se, in questo caso, non sono presenti costi aggiuntivi associati ai tenant di Azure Active Directory e ai relativi oggetti, è consigliabile rimuovere gli account utente, gli account di gruppo e il tenant di Azure Active Directory creati in questo lab.
 
  > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
@@ -278,13 +278,13 @@ In questa attività verranno creati utenti guest di Azure AD a cui verrà conces
 
 1. Passare al pannello **Utenti - Tutti gli utenti**, fare clic sulla voce che rappresenta l'account utente **az104-01b-aaduser1**, quindi nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
 
-1. Passare al pannello **Contoso Lab - Panoramica** del tenant di Azure AD Contoso Lab, fare clic su **Gestisci tenant** e quindi nella schermata successiva selezionare la casella accanto a **Contoso Lab**, fare clic su **Elimina** nel pannello **Eliminare tenant "Contoso Labs"?** , fare clic sul collegamento **Ottieni l'autorizzazione per eliminare le risorse di Azure**, nel pannello **Proprietà** di Azure Active Directory impostare **Gestione degli accessi per le risorse di Azure** su **Sì** e fare clic su **Salva**.
+1. Passare al pannello **Contoso Lab - Panoramica** del tenant di Azure AD Contoso Lab, fare clic su **Gestisci tenant** e quindi nella schermata successiva selezionare la casella accanto a **Contoso Lab**, fare clic su **Elimina** nel pannello **Eliminare tenant "Contoso Labs"?**, fare clic sul collegamento **Ottieni l'autorizzazione per eliminare le risorse di Azure**, nel pannello **Proprietà** di Azure Active Directory impostare **Gestione degli accessi per le risorse di Azure** su **Sì** e fare clic su **Salva**.
 
-1. Tornare nel pannello **Elimina tenant "Contoso Lab"** , fare clic su **Aggiorna** e su **Elimina**.
+1. Tornare nel pannello **Elimina tenant "Contoso Lab"**, fare clic su **Aggiorna** e su **Elimina**.
 
-> **Nota**: se un tenant ha una licenza di valutazione, è necessario attendere la scadenza di tale licenza prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
+> **Nota**: se un tenant ha una licenza di valutazione, è necessario attendere la scadenza della licenza di valutazione prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
 
-#### Verifica
+#### Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

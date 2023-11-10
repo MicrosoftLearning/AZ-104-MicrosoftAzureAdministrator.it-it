@@ -5,13 +5,13 @@ lab:
 ---
 
 # Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
 ## Requisiti del lab
 
-Questo lab richiede le autorizzazioni per creare utenti, creare ruoli personalizzati del Controllo di accesso controllo degli accessi in base al ruolo di Azure e assegnare questi ruoli agli utenti. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
+Questo lab richiede autorizzazioni per creare utenti, creare ruoli personalizzati basati su ruoli di Azure Controllo di accesso (RBAC) e assegnare questi ruoli agli utenti. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
 
-## Scenario del lab
+## Scenario laboratorio
 
 Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
 
@@ -22,11 +22,11 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
     - Creazione dei ticket della richiesta di supporto
     - Visualizzazione dei gruppi di risorse
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Implementare i gruppi di gestione
 + Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati 
@@ -48,17 +48,17 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si creeranno e configureranno gruppi di gestione. 
 
-1. Accedere al [**portale di Azure**](http://portal.azure.com).
+1. Accedi al [**portale di Azure**](http://portal.azure.com).
 
 1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
 
-1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio **Che indica che l'utente è registrato come amministratore della directory ma non dispone delle autorizzazioni necessarie per accedere al gruppo di gestione radice**, seguire questa sequenza di passaggi:
+1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio Che indica **che l'utente è registrato come amministratore della directory ma non dispone delle autorizzazioni necessarie per accedere al gruppo** di gestione radice, seguire questa sequenza di passaggi:
 
     1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
     
-    1.  Nel pannello che visualizza le proprietà del tenant, nel menu verticale a sinistra selezionare **Proprietà** nella sezione **Gestisci**.
+    1.  Nel pannello che visualizza le proprietà del tenant, nel menu verticale a sinistra selezionare Proprietà nella **sezione Gestisci**.****
     
-    1.  Nel pannello **Proprietà** del tenant selezionare **Sì** nella sezione **Gestione degli accessi per le risorse di Azure** e quindi selezionare **Salva**.
+    1.  Nel pannello **Proprietà** del tenant, nella **sezione Gestione degli accessi per le risorse** di Azure selezionare **Sì** e quindi selezionare **Salva**.
     
     1.  Tornare nel pannello **Gruppi di gestione** e selezionare **Aggiorna**.
 
@@ -139,11 +139,11 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
     | Consenti la creazione manuale della password | Enabled |
     | Password iniziale | **Specificare una password sicura** |
 
-    >**Nota**: **copiare negli Appunti** il valore completo di **Nome utente**. Sarà necessario più avanti in questa attività.
+    >**Nota**: **copiare negli Appunti** il valore completo di **Nome utente**. Sarà necessario più avanti in questo lab.
 
 1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
 
-1. Fare clic su **Controllo di accesso (IAM)** , fare clic su **+ Aggiungi** e quindi su **Aggiungi assegnazione di ruolo**. Nella scheda **Ruolo** cercare **Collaboratore richiesta di supporto (personalizzato)** . 
+1. Fare clic su **Controllo di accesso (IAM)**, fare clic su **+ Aggiungi** e quindi su **Aggiungi assegnazione di ruolo**. Nella scheda **Ruolo** cercare **Collaboratore richiesta di supporto (personalizzato)**. 
 
     >**Nota**: se il ruolo personalizzato non è visibile, possono essere necessari fino a 10 minuti perché il ruolo personalizzato venga visualizzato dopo la creazione.
 
@@ -159,7 +159,7 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
 
 1. Nella finestra del browser **InPrivate**, nel portale di Azure, cercare e selezionare **Guida e supporto** e quindi fare clic su **+ Crea una richiesta di supporto**. 
 
-1. Nella finestra del browser **InPrivate**, nella scheda **Descrizione del problema/Riepilogo** del pannello **Guida e supporto - Nuova richiesta di supporto**, digitare **Limiti del servizio e della sottoscrizione** nel campo Riepilogo e selezionare il tipo di problema **Limiti del servizio e della sottoscrizione (quote)** . Si noti che la sottoscrizione in uso in questo lab è elencata nell'elenco a discesa **Sottoscrizione**.
+1. Nella finestra del browser **InPrivate**, nella scheda **Descrizione del problema/Riepilogo** del pannello **Guida e supporto - Nuova richiesta di supporto**, digitare **Limiti del servizio e della sottoscrizione** nel campo Riepilogo e selezionare il tipo di problema **Limiti del servizio e della sottoscrizione (quote)**. Si noti che la sottoscrizione in uso in questo lab è elencata nell'elenco a discesa **Sottoscrizione**.
 
     >**Nota**: la presenza della sottoscrizione in uso in questo lab nell'elenco a discesa **Sottoscrizione** indica che l'account in uso ha le autorizzazioni necessarie per creare la richiesta di supporto specifica della sottoscrizione.
 
@@ -181,7 +181,7 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
 
 1. Nel portale di Azure avviare una sessione di **PowerShell** all'interno di **Cloud Shell**.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per rimuovere l'assegnazione della definizione di ruolo personalizzata (sostituire il `[object_ID]` segnaposto con il valore dell'attributo **ID oggetto** dell'account utente **az104-02-aaduser1** copiato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire quanto segue per rimuovere l'assegnazione della definizione di ruolo personalizzata (sostituire il `[object_ID]` segnaposto con il valore dell'attributo ID** oggetto dell'account ****utente az104-02-aaduser1** copiato in precedenza in questa attività):
 
    ```powershell
    
@@ -196,7 +196,7 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
    Remove-AzRoleDefinition -Name 'Support Request Contributor (Custom)' -Force
    ```
 
-1. Nel portale di Azure tornare al pannello **Utenti - Tutti gli utenti** del **Microsoft Entra ID** ed eliminare l'account utente **az104-02-aaduser1**.
+1. Nella portale di Azure tornare al **pannello Utenti - Tutti gli utenti** dell'ID **** Di Microsoft Entra ed eliminare l'account **utente az104-02-aaduser1**.
 
 1. Nel portale di Azure tornare nel pannello **Gruppi di gestione**. 
 
@@ -207,9 +207,9 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
 1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
 
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
-  >                **Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di gestione. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
+  >**Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di gestione. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

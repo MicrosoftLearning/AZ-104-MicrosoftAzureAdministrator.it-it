@@ -1,47 +1,47 @@
 ---
 demo:
-  title: 'Dimostrazione 08: Amministrare Azure Macchine virtuali'
+  title: 'Dimostrazione 08: Amministrazione ister azure Macchine virtuali'
   module: Administer Azure Virtual Machines
 ---
 
 
-# 08 - Amministrare Azure Macchine virtuali
+# 08 - Amministrazione ister Azure Macchine virtuali
 
-## Dimostrazione: creare Macchine virtuali nel portale
+## Dimostrazione- Creare Macchine virtuali nel portale
 
 In questa dimostrazione si creerà e si accederà a una macchina virtuale di Azure nel portale.
 
 **Riferimenti**
 
-[Avvio rapido - Creare una macchina virtuale Windows nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+[Guida introduttiva: Creare una macchina virtuale Windows nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-[Avvio rapido - Creare una macchina virtuale Linux con il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+[Avvio rapido: Creare una macchina virtuale Linux nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 
-[Connettersi a una macchina virtuale con Bastion](https://learn.microsoft.com/azure/bastion/tutorial-create-host-portal#connect)
+[Connessione a una macchina virtuale con Bastion](https://learn.microsoft.com/azure/bastion/tutorial-create-host-portal#connect)
 
 **Creare la macchina virtuale**
 
-**Nota:** Questi passaggi illustrano solo alcuni parametri della macchina virtuale. È possibile esplorare e coprire altre aree.  È possibile creare una macchina virtuale Windows o Linux, a seconda del pubblico.
+**Nota: **questi passaggi riguardano solo alcuni parametri della macchina virtuale. È possibile esplorare e coprire altre aree. È possibile creare una macchina virtuale Windows o Linux, a seconda del gruppo di destinatari.
 
 1. Usare il portale di Azure.
 
-1. Cercare **Macchine virtuali**. 
+1. **Cercare Macchine virtuali**. 
 
 1. Creare una macchina virtuale di base. Esaminare le opzioni di disponibilità, le immagini e le regole in ingresso.
 
-1. Illustrare l'importanza della creazione di un account amministratore sicuro.
+1. Discutere l'importanza della creazione di un account amministratore sicuro.
 
 1. Creare la macchina virtuale e attendere la distribuzione della risorsa.  
 
 **Connettersi alla macchina virtuale**
 
-1. Esistono diversi modi per **connettersi** alla macchina virtuale. 
+1. Esistono diversi modi per **Connessione** alla macchina virtuale. 
 
 1. Per un server Windows è possibile usare **RDP**, come illustrato nella guida introduttiva. 
 
 1. Per un server Linux è possibile **usare SSH**, come illustrato nella guida introduttiva. 
 
-1. Per entrambi i server è possibile connettersi al servizio **Bastion** (Avvio rapido). Esaminare il motivo per cui Bastion è preferibile a RDP o SSH. 
+1. Per entrambi i server è possibile connettersi al **servizio Bastion** (Avvio rapido). Esaminare il motivo per cui Bastion è preferibile a RDP o SSH. 
 
 ## Configurare la disponibilità delle macchine virtuali
 
@@ -55,13 +55,13 @@ In questa dimostrazione verranno esaminate le opzioni relative alle macchine vir
 
 1. Cercare e selezionare **set di scalabilità di macchine virtuali**. 
 
-1. Creare un **set di scalabilità di macchine virtuali**. Esaminare lo scopo dei set di scalabilità di macchine virtuali. Esaminare la differenza tra le modalità di orchestrazione **Uniforme** e **Flessibile** . Spiegare la selezione può influire sulle opzioni di ridimensionamento. 
+1. Creare un **set di scalabilità di macchine virtuali**. Esaminare lo scopo dei set di scalabilità di macchine virtuali. Esaminare la differenza tra le **modalità di orchestrazione Uniform** e **Flessibile** . Spiegare la selezione può influire sulle opzioni di ridimensionamento. 
 
-1. Passare alla scheda **Ridimensionamento** . 
+1. Passare alla **scheda Ridimensionamento** . 
 
-1. Esaminare l'uso **dei criteri di scalabilità** e **scalabilità** manuale. 
+1. Esaminare il modo in cui **vengono usati i criteri di scalabilità** e **scalabilità** manuale. 
 
-1. Passare a criteri **di** ridimensionamento personalizzati. 
+1. Passare a criteri **di ridimensionamento personalizzati** . 
 
-1. Esaminare il modo in cui viene usata **la soglia della CPU (%)** per aumentare e aumentare il numero di istanze delle macchine virtuali. 
+1. Esaminare il modo in cui **viene usata la soglia della CPU (%)** per aumentare e ridimensionare le istanze delle macchine virtuali. 
 

@@ -5,9 +5,9 @@ lab:
 ---
 
 # Lab 02b – Gestire la governance tramite Criteri di Azure
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
 
@@ -17,7 +17,7 @@ Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto d
 
 - Correzione di eventuali risorse non conformi
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
@@ -63,16 +63,16 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
 
-1. Nel pannello gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
+1. Nel pannello del gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
 
 1. Creare un tag con le impostazioni seguenti e applicare la modifica:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **Ruolo** |
     | Valore | **Infra** |
 
-1. Fare clic su **Applica** e chiudere la finestra dell'edizione tag per tornare al pannello dell'account di archiviazione. fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
+1. Fare clic su **Applica** e chiudere la finestra dell'edizione dei tag per tornare al pannello dell'account di archiviazione. Fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
 
 ## Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 
@@ -101,11 +101,11 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | --- | --- |
     | Nome dell'assegnazione | **Require Role tag with Infra value**|
     | Descrizione | **Require Role tag with Infra value for all resources in the Cloud Shell resource group**|
-    | Imposizione dei criteri | Attivato |
+    | Applicazione dei criteri | Attivato |
 
     >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
 
-1. Fare clic su **Avanti** due volte e impostare **Parametri** sui valori seguenti:
+1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -126,11 +126,11 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Nozioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare altri con le impostazioni predefinite), fare clic su **Rivedi** e quindi fare clic su **Crea**:
+1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti), fare clic su Rivedi** e quindi fare clic **su **Crea**:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
+    | Nome account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
 
     >**Nota**: è possibile che venga visualizzato un **errore di convalida. Fare clic qui per informazioni dettagliate** sull'errore; In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
 
@@ -165,9 +165,9 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | --- | --- |
     | Nome dell'assegnazione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
     | Descrizione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
-    | Imposizione dei criteri | Attivato |
+    | Applicazione dei criteri | Attivato |
 
-1. Fare clic due volte su **Avanti** e impostare **Parametri** sui valori seguenti:
+1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -192,11 +192,11 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
 
-1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato Il criterio e specificare le impostazioni seguenti (lasciare le impostazioni predefinite di altri utenti) e fare clic su **Rivedi**:
+1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti) e fare clic su **Rivedi**:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
+    | Nome account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
 
 1. Verificare che questa volta la convalida sia stata superata e fare clic su **Crea**.
 
@@ -218,7 +218,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

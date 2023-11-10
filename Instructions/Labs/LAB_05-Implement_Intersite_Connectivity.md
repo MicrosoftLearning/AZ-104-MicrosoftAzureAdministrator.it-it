@@ -1,21 +1,21 @@
 ---
 lab:
-  title: 'Lab 05: Implementare la connettività tra siti'
+  title: 'Lab 05: Implementare Connessione ivity tra siti'
   module: Administer Intersite Connectivity
 ---
 
 # Lab 05 - Implementare la connettività tra siti
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Le sedi di Boston, New York e Seattle dei data center di Contoso sono connesse tramite collegamenti WAN (Wide Area Network) mesh con connettività completa tra le sedi. È necessario implementare un ambiente lab che rispecchierà la topologia delle reti locali di Contoso e ne verificherà la funzionalità.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Configurare il peering di rete virtuale locale e globale
@@ -35,7 +35,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verranno distribuite tre macchine virtuali, ognuna in una rete virtuale separata, con due macchine virtuali nella stessa area di Azure e la terza in un'altra area di Azure.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -57,7 +57,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
    New-AzResourceGroup -Name $rgName -Location $location1
    ```
 
-   >**Nota**: le aree usate in precedenza sono state testate e ne è stato verificato il funzionamento in occasione dell'ultima revisione ufficiale di questo lab. Se si preferisce usare posizioni diverse o queste posizioni non funzionano più, sarà necessario identificare due aree diverse in cui è possibile distribuire macchine virtuali D2Sv3 Standard.
+   >**Nota**: le aree usate in precedenza sono state testate e note per funzionare quando il lab è stato esaminato ufficialmente. Se si preferisce usare posizioni diverse o queste posizioni non funzionano più, sarà necessario identificare due aree diverse in cui è possibile distribuire macchine virtuali D2Sv3 Standard.
    >
    >Per identificare le aree di Azure, in una sessione di PowerShell in Cloud Shell eseguire **(Get-AzLocation).Location**
    >
@@ -69,7 +69,7 @@ In questa attività verranno distribuite tre macchine virtuali, ognuna in una re
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare tre reti virtuali e distribuire macchine virtuali in tali reti usando il modello e i file di parametri caricati:
     
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -103,14 +103,14 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet0_to_az104-05-vnet1** |
-    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
+    | Impostazioni consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano selezionate** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet1_to_az104-05-vnet0** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-05-vnet1** |
-    | Consenti l'accesso alla rete virtuale corrente |  **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Impostazioni per consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano controllate** |
+    | Consentire l'accesso alla rete virtuale corrente |  **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Impostazioni consentire l'accesso, il traffico inoltrato e il gateway | **Verificare che tutte le caselle siano selezionate** |
 
     >**Nota**: questo passaggio stabilisce due peering locali, uno da az104-05-vnet0 ad az104-05-vnet1 e l'altro da az104-05-vnet1 ad az104-05-vnet0.
 
@@ -135,13 +135,13 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet0_to_az104-05-vnet2** |
-    | Consenti l'accesso alla rete virtuale remota |**Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire l'accesso alla rete virtuale remota |**Verificare che la casella sia selezionata (impostazione predefinita)** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet2_to_az104-05-vnet0** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-05-vnet2** |
-    | Consenti l'accesso alla rete virtuale corrente |**Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire l'accesso alla rete virtuale corrente |**Verificare che la casella sia selezionata (impostazione predefinita)** |
 
     >**Nota**: questo passaggio stabilisce due peering globali, uno da az104-05-vnet0 ad az104-05-vnet2 e l'altro da az104-05-vnet2 ad az104-05-vnet0.
 
@@ -168,13 +168,13 @@ In questa attività verrà configurato il peering locale e globale tra le reti v
     | Impostazione | Valore|
     | --- | --- |
     | Questa rete virtuale: Nome del collegamento di peering | **az104-05-vnet1_to_az104-05-vnet2** |
-    | Consenti l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire l'accesso alla rete virtuale remota | **Verificare che la casella sia selezionata (impostazione predefinita)** |
     | Rete virtuale remota: Nome del collegamento di peering | **az104-05-vnet2_to_az104-05-vnet1** |
     | Modello di distribuzione della rete virtuale | **Resource Manager** |
     | Conosco l'ID della risorsa | non selezionata |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-05-vnet2** |
-    | Consenti l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
+    | Consentire l'accesso alla rete virtuale corrente | **Verificare che la casella sia selezionata (impostazione predefinita)** |
 
     >**Nota**: questo passaggio stabilisce due peering globali, uno da az104-05-vnet1 ad az104-05-vnet2 e l'altro da az104-05-vnet2 ad az104-05-vnet1.
 
@@ -206,9 +206,9 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
 
-1. Quando richiesto, accedere usando il nome utente **Student** e la password configurata durante la distribuzione delle macchine virtuali tramite CloudShell. 
+1. Quando richiesto, accedere usando il **nome utente student** e la password configurati durante la distribuzione delle macchine virtuali tramite CloudShell. 
 
-1. Nella sessione di Desktop remoto in **az104-05-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
+1. Nella sessione di Desktop remoto in **az104-05-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)**.
 
 1. Nella finestra della console di Windows PowerShell eseguire il codice seguente per testare la connettività ad **az104-05-vm1**, con indirizzo IP privato **10.51.0.4**, sulla porta TCP 3389:
 
@@ -238,7 +238,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
 1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri. 
 
-1. Nella sessione di Desktop remoto in **az104-05-vm1**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
+1. Nella sessione di Desktop remoto in **az104-05-vm1**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)**.
 
 1. Nella finestra della console di Windows PowerShell eseguire il codice seguente per testare la connettività ad **az104-05-vm2**, con indirizzo IP privato **10.52.0.4**, sulla porta TCP 3389:
 
@@ -272,7 +272,7 @@ In questa attività verrà testata la connettività tra le macchine virtuali nel
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

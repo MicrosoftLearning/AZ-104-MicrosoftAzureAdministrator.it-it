@@ -4,14 +4,14 @@ lab:
   module: Administer Azure Resources
 ---
 
-# Lab 03a - Gestire le risorse di Azure tramite il portale di Azure
-# Manuale del lab per studenti
+# Lab 03a - Gestire le risorse di Azure usando il portale di Azure
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 È necessario esplorare le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e organizzarle in base ai gruppi di risorse, incluso lo spostamento di risorse tra gruppi. È anche consigliabile esplorare le opzioni per proteggere le risorse disco dall'eliminazione accidentale, consentendo al tempo stesso di modificarne le caratteristiche di prestazioni e le dimensioni.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%204)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
@@ -35,7 +35,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si userà il portale di Azure per creare gruppi di risorse e un disco al loro interno.
 
-1. Accedere al [**portale di Azure**](http://portal.azure.com).
+1. Accedi al [**portale di Azure**](http://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Dischi**, fare clic su **+ Crea** e specificare le impostazioni seguenti:
 
@@ -43,10 +43,10 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
     |---|---|
     |Subscription| Nome della sottoscrizione di Azure in cui è stato creato il gruppo di risorse |
     |Gruppo di risorse| Il nome di un nuovo gruppo di risorse **az104-03a-rg1** |
-    |Nome del disco| **az104-03a-disk1** |
-    |Region| **(Stati Uniti) Stati Uniti orientali** |
+    |Disk name| **az104-03a-disk1** |
+    |Area| **(Stati Uniti) Stati Uniti orientali** |
     |Zona di disponibilità| **La ridondanza dell'infrastruttura non è richiesta** |
-    |Tipo di origine| **Nessuno** |
+    |Source type| **Nessuno** |
 
     >**Nota**: quando si crea una risorsa, è possibile creare un nuovo gruppo di risorse oppure usarne uno esistente.
 
@@ -60,7 +60,7 @@ In questa attività si userà il portale di Azure per creare gruppi di risorse e
 
 In questa attività la risorsa disco creata nell'attività precedente verrà spostata in un nuovo gruppo di risorse. 
 
-1. Cercare e selezionare **Gruppi di risorse**. 
+1. Cerca e seleziona **Gruppi di risorse**. 
 
 1. Nel pannello **Gruppi di risorse** fare clic sulla voce che rappresenta il gruppo di risorse **az104-03a-rg1** creato nell'attività precedente.
 
@@ -82,10 +82,10 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
     |---|---|
     |Subscription| Il nome della sottoscrizione usata in questo lab |
     |Gruppo di risorse| Fare clic su **Crea nuovo gruppo di risorse** e assegnare il nome **az104-03a-rg3** |
-    |Nome del disco| **az104-03a-disk2** |
-    |Region| Il nome dell'area di Azure in cui sono stati creati gli altri gruppi di risorse di questo lab |
+    |Disk name| **az104-03a-disk2** |
+    |Area| Il nome dell'area di Azure in cui sono stati creati gli altri gruppi di risorse di questo lab |
     |Zona di disponibilità| **La ridondanza dell'infrastruttura non è richiesta** |
-    |Tipo di origine| **Nessuno** |
+    |Source type| **Nessuno** |
 
 1. Impostare il tipo e le dimensioni del disco rispettivamente su **HDD Standard** e su **32 GiB**.
 
@@ -100,13 +100,13 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
     |Impostazione|Valore|
     |---|---|
     |Nome del blocco| **az104-03a-delete-lock** |
-    |Tipo di blocco| **Elimina** |
+    |Tipo di blocco| **CANC** |
     
 1. Fare clic su **OK**.    
 
 1. Nel pannello del gruppo di risorse **az104-03a-rg3** fare clic su **Panoramica** e selezionare nell'elenco delle risorse la voce che rappresenta il disco creato in precedenza in questa attività, quindi fare clic su **Elimina** sulla barra degli strumenti. 
 
-1. Quando viene visualizzato il messaggio **Eliminare le risorse selezionate?** , digitare **Sì** nella casella di testo **Conferma eliminazione** e quindi fare clic su **Elimina**.
+1. Quando viene visualizzato il messaggio **Eliminare le risorse selezionate?**, digitare **Sì** nella casella di testo **Conferma eliminazione** e quindi fare clic su **Elimina**.
 
 1. Verrà visualizzato un messaggio di errore che avvisa che l'operazione di eliminazione non è riuscita. 
 
@@ -124,7 +124,7 @@ In questa attività si applicherà un blocco a un gruppo di risorse di Azure con
 
 1. Passare al pannello del gruppo di risorse **az104-03a-rg3**, visualizzare il relativo pannello **Blocchi** e rimuovere il blocco **az104-03a-delete-lock** facendo clic sul collegamento **Elimina** a destra della voce **Elimina blocco**.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

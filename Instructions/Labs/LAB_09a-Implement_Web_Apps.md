@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 09a - Implementare app Web
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società. I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. È inoltre necessario determinare in che modo è possibile implementare le procedure DevOps sfruttando gli slot di distribuzione di app Web di Azure.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Creare un'app Web di Azure
 + Attività 2: Creare uno slot di distribuzione di staging
@@ -38,7 +38,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verrà creata un'app Web di Azure.
 
-1. Accedere al [**portale di Azure**](http://portal.azure.com).
+1. Accedi al [**portale di Azure**](http://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Servizi app** e nel pannello **Servizi app** fare clic su **+ Crea**.
 
@@ -47,13 +47,13 @@ In questa attività verrà creata un'app Web di Azure.
     | Impostazione | Valore |
     | --- | ---|
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
+    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
     | Stack di runtime | **PHP 8.2** |
     | Sistema operativo | **Linux** |
-    | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
-    | Piani tariffari | Accettare la configurazione predefinita |
+    | Area | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
+    | Piani dei prezzi | Accettare la configurazione predefinita |
 
 1. Fare clic su **Rivedi e crea**. Nella scheda **Rivedi e crea** del pannello **Crea app Web** assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
 
@@ -65,7 +65,7 @@ In questa attività verrà creata un'app Web di Azure.
 
 In questa attività verrà creato uno slot di distribuzione di staging.
 
-1. Nel pannello dell'app Web appena distribuita fare clic sul collegamento **Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
+1. Nel pannello dell'app Web appena distribuita fare clic sul **collegamento Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
 1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Slot di distribuzione**.
 
@@ -73,7 +73,7 @@ In questa attività verrà creato uno slot di distribuzione di staging.
 
 1. Fare clic su **+ Add slot** (Aggiungi slot) e aggiungere un nuovo slot con le impostazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | ---|
     | Nome | **staging** |
     | Clona le impostazioni da | **Non clonare le impostazioni**|
@@ -94,20 +94,20 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
     
 1. Nella scheda **Impostazioni** nell'elenco a discesa **Origine** selezionare **Archivio Git locale** e fare clic sul pulsante **Salva**
 
-1. Nel pannello **Centro distribuzione** copiare la voce **Git Clone Uri** nel Blocco note.
+1. Nel pannello **Centro** distribuzione copiare la **voce Git Clone Uri** in Blocco note.
 
-    >**Nota:** È necessario il valore URI clone Git nell'attività successiva di questo lab.
+    >**Nota:** sarà necessario il valore Uri clone Git nell'attività successiva di questo lab.
 
 1. Nel pannello **Centro distribuzione** selezionare la scheda **Credenziali GIT locale/FTPS**, nella sezione **Ambito utente** specificare le impostazioni seguenti e fare clic su **Salva**.
 
     | Impostazione | Valore |
     | --- | ---|
-    | Nome utente | qualsiasi nome univoco globale (vedere nota)  |
-    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere nota) |
+    | Nome utente | qualsiasi nome univoco globale (vedere la nota)  |
+    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere la nota) |
 
-    >**Nota:** Copiare queste credenziali nel Blocco note. saranno necessarie più avanti.
+    >**Nota:** copiare queste credenziali in Blocco note. saranno necessarie più avanti.
     
-    >**Nota:** Queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o plus (nella parte centrale della stringa) funzionerebbe.
+    >**Nota:** queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o più (al centro della stringa) funzionerà.
     
 ## Attività 4: Distribuire codice nello slot di distribuzione di staging
 
@@ -131,7 +131,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
    Set-Location -Path $HOME/php-docs-hello-world/
    ```
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e con il valore del nome utente delle **credenziali di distribuzione** e `[git_clone_uri]` **dell'URI di clonazione Git**, rispettivamente identificato nell'attività precedente):
+1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere il file Git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e `[git_clone_uri]` con il valore rispettivamente del **nome utente delle credenziali** di distribuzione e **dell'URI** clone Git identificato nell'attività precedente):
 
    ```powershell
    git remote add [deployment_user_name] [git_clone_uri]
@@ -139,7 +139,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 
     >**Nota**: non è necessario che il valore successivo a `git remote add` corrisponda al nome utente di **Credenziali distribuzione**, ma deve essere univoco
 
-1. Dal riquadro Cloud Shell eseguire quanto segue per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure (assicurarsi di sostituire i valori segnaposto con il valore del nome utente e della password delle **credenziali di distribuzione** e il nome dell'app, identificato nell'attività precedente):
+1. Dal riquadro Cloud Shell eseguire il comando seguente per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure (assicurarsi di sostituire i valori segnaposto con il valore di **nome utente e password delle credenziali** di distribuzione e il nome dell'app, identificato nell'attività precedente):
 
    ```powershell
     git push https://<deployment-username>:<deployment-password>@<app-name>-staging.scm.azurewebsites.net/<app-name>.git master
@@ -147,7 +147,7 @@ In questa attività verrà distribuito codice nello slot di distribuzione.
 
 1. Chiudere il riquadro Cloud Shell.
 
-1. Nel pannello slot di gestione temporanea fare clic su **Panoramica** e quindi fare clic sul collegamento **Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
+1. Nel pannello dello slot di staging fare clic su **Panoramica** e quindi sul **collegamento Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
 1. Verificare che nella pagina del browser sia visualizzato il messaggio **Hello World!** e chiudere la nuova scheda.
 
@@ -161,7 +161,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Nel pannello **Scambia** esaminare le impostazioni predefinite e fare clic su **Scambia**.
 
-1. Fare clic su **Panoramica** nel pannello slot di produzione dell'app Web e quindi sul collegamento **Dominio predefinito** per visualizzare la home page del sito Web in una nuova scheda del browser.
+1. Fare clic su **Panoramica** nel pannello slot di produzione dell'app Web e quindi sul **collegamento Dominio predefinito** per visualizzare la home page del sito Web in una nuova scheda del browser.
 
 1. Verificare che la pagina Web predefinita sia stata sostituita con la pagina **Hello World!** .
 
@@ -169,9 +169,9 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 In questa attività verrà configurata l'app di Azure e ne verrà testata la scalabilità automatica.
 
-1. Nel pannello che mostra lo slot di produzione dell'app Web, nella sezione **Impostazioni**, fare clic su **Aumenta istanze (piano di servizio app)** .
+1. Nel pannello che mostra lo slot di produzione dell'app Web, nella sezione **Impostazioni**, fare clic su **Aumenta istanze (piano di servizio app)**.
 
-1. Nella **sezione Ridimensionamento** selezionare l'opzione **Basata su regole** , quindi fare clic sul collegamento **Gestisci regole basate sul ridimensionamento** .
+1. Nella sezione** Ridimensionamento selezionare l'opzione **Basata su** regole, quindi fare clic sul **collegamento Gestisci regole basate sul ridimensionamento**.**
 
 1. Fare clic su **Scalabilità automatica personalizzata**.
 
@@ -205,7 +205,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
     | Limiti per le istanze Massimo | **2** |
     | Limiti per le istanze Valore predefinito | **1** |
 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**.
 
     >**Nota**: se si verifica un errore che indica che il provider di risorse "microsoft.insights" non è registrato, eseguire `az provider register --namespace 'Microsoft.Insights'` in Cloud Shell e riprovare a salvare le regole di scalabilità automatica.
 
@@ -227,9 +227,9 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
    while ($true) { Invoke-WebRequest -Uri $webapp.DefaultHostName }
    ```
 
-1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)** .
+1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)**.
 
-1. Selezionare **Impostazioni di scalabilità automatica**, selezionare la scheda **Cronologia esecuzioni** . In **Mostra i dati per l'ultima** ora selezionare **1 ora** e controllare il **conteggio delle istanze delle risorse osservate**.
+1. Selezionare **Scalabilità** automatica Impostazioni, selezionare la **scheda Cronologia di esecuzione**. In **Mostra i dati per l'ultima** ora selezionare **1 ora** e controllare il **numero** di istanze delle risorse osservate.
 
 1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 
@@ -261,7 +261,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

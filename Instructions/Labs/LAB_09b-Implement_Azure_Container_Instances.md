@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 09b - Implementare Istanze di Azure Container
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Contoso vuole trovare una nuova piattaforma per i carichi di lavoro virtualizzati. Sono state identificate diverse immagini del contenitore che possono essere sfruttate per raggiungere questo obiettivo. Poiché si vuole ridurre al minimo la gestione dei contenitori, si prevede di valutare l'uso di Istanze di Azure Container per la distribuzione di immagini Docker.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 - Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
 - Attività 2: Esaminare la funzionalità di Istanza di Azure Container
@@ -34,7 +34,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verrà creata una nuova istanza di contenitore per l'applicazione Web.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure trovare **Istanze di Container** e nel pannello **Istanze di Container** fare clic su **+ Crea**.
 
@@ -43,9 +43,9 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
     | Impostazione | Valore |
     | ---- | ---- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-09b-rg1** |
+    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09b-rg1** |
     | Nome contenitore | **az104-9b-c1** |
-    | Region | Nome di un'area in cui è possibile effettuare il provisioning delle istanze di Azure Container |
+    | Area | Nome di un'area in cui è possibile effettuare il provisioning delle istanze di Azure Container |
     | Origine immagine | **Immagini di avvio rapido** |
     | Immagine | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
@@ -57,7 +57,7 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
     >**Nota**: il contenitore sarà raggiungibile pubblicamente all'indirizzo dns-name-label.region.azurecontainer.io. Se viene visualizzato un messaggio di errore **L'etichetta del nome DNS non è disponibile**, specificare un valore diverso.
 
-1. Fare clic su **Avanti: Avanzate >** , esaminare le impostazioni nella scheda **Avanzate** del pannello **Crea istanza di Container** senza apportare modifiche, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
+1. Fare clic su **Avanti: Avanzate >**, esaminare le impostazioni nella scheda **Avanzate** del pannello **Crea istanza di Container** senza apportare modifiche, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 3 minuti.
 
@@ -87,7 +87,7 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
-    >**Nota**: Cloud Shell archiviazione deve essere creata per il funzionamento di questi comandi. 
+    >**Nota**: per il corretto funzionamento di questi comandi, è necessario creare l'archiviazione di Cloud Shell. 
 
 1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
@@ -103,7 +103,7 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

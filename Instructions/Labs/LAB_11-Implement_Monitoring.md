@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 11 - Implementare il monitoraggio
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 È necessario valutare le funzionalità di Azure che offrono informazioni dettagliate sulle prestazioni e la configurazione delle risorse di Azure, concentrandosi in particolare sulle macchine virtuali di Azure. A tale scopo, si intende esaminare le funzionalità di Monitoraggio di Azure, incluso Log Analytics.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement
@@ -39,7 +39,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -63,7 +63,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
     
    ```powershell
    New-AzResourceGroupDeployment `
@@ -98,9 +98,9 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
     | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | nome di un nuovo gruppo di risorse **az104-11-rg1** |
+    | Gruppo di risorse | nome di un nuovo gruppo di risorse **az104-11-rg1** |
     | Area di lavoro Log Analytics | qualsiasi nome univoco |
-    | Region | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
+    | Area | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
 
     >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
 
@@ -114,8 +114,8 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
     | --- | --- |
     | Nome dell'account di Automazione | qualsiasi nome univoco |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-11-rg1** |
-    | Region | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
+    | Gruppo di risorse | **az104-11-rg1** |
+    | Area | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
 
     >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
 
@@ -131,7 +131,7 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
     >**Nota:** viene installata automaticamente anche la soluzione **Rilevamento modifiche**.
 
-1. Nel pannello Account di Automazione, nella sezione  **Gestione aggiornamenti** fare clic su **Gestione aggiornamenti**, quindi su **Abilita**.
+1. Nel pannello Account di Automazione, nella sezione ** Gestione aggiornamenti** fare clic su **Gestione aggiornamenti**, quindi su **Abilita**.
 
     >**Nota**: attendere il completamento dell'installazione. L'operazione potrebbe richiedere circa cinque minuti.
 
@@ -159,7 +159,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Impostazioni di diagnostica**.
 
-1. Nella scheda **Panoramica** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** selezionare un **account di archiviazione di diagnostica** e quindi fare clic su **Abilita monitoraggio a livello di guest**.
+1. Nella **scheda Panoramica** del **pannello az104-11-vm0 \| Diagnostic settings (Impostazioni** di diagnostica) selezionare un **account** di archiviazione di diagnostica e quindi fare clic su **Abilita monitoraggio** a livello di guest.
 
     >**Nota**: attendere l'installazione dell'estensione delle impostazioni di diagnostica. L'operazione potrebbe richiedere circa 3 minuti.
 
@@ -173,17 +173,17 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Log** e quindi su **Abilita**.
 
-1. Nel pannello **az104-11-vm0 - Log** verificare che **sia selezionato l'agente di Monitoraggio di Azure (scelta consigliata)** e quindi fare clic su **Configura**.  
+1. **Nel pannello az104-11-vm0 - Log** verificare che **sia selezionato l'agente di Monitoraggio di Azure (scelta consigliata)** e quindi fare clic su **Configura**.  
 
     >**Nota**: non attendere il completamento dell'operazione, ma procedere con il passaggio successivo. L'operazione potrebbe richiedere circa 5 minuti.
 
 1. Nel pannello **az104-11-vm0 \| Log**, sezione **Monitoraggio**, fare clic su **Metriche**.
 
-1. Nel pannello **az104-11-vm0 \| Metriche**, nel grafico predefinito, si noti che a questo punto l'elenco a discesa **Spazio dei nomi delle metriche** oltre alla voce **Host macchina virtuale** include anche la voce **Guest (versione classica)** .
+1. Nel pannello **az104-11-vm0 \| Metriche**, nel grafico predefinito, si noti che a questo punto l'elenco a discesa **Spazio dei nomi delle metriche** oltre alla voce **Host macchina virtuale** include anche la voce **Guest (versione classica)**.
 
     >**Nota:** questo comportamento è previsto, perché sono stati abilitate le impostazioni di diagnostica a livello di guest. È anche possibile scegliere **Abilita le nuove metriche di memoria guest**.
 
-1. Nell'elenco a discesa  **Spazio dei nomi delle metriche** selezionare la voce **Guest (versione classica)** .
+1. Nell'elenco a discesa ** Spazio dei nomi delle metriche** selezionare la voce **Guest (versione classica)**.
 
 1. Nell'elenco a discesa **Metrica** esaminare l'elenco delle metriche disponibili.
 
@@ -211,33 +211,33 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Soglia | **Statico** |
-    | Operatore | **Maggiore di** |
+    | Threshold | **Statico** |
     | Tipo di aggregazione | **Media** |
+    | Operatore | **Maggiore di** |
     | Valore soglia | **2** |
-    | Granularità aggregazione (periodo) | **1 minuto** |
-    | Frequenza della valutazione | **Ogni minuto** |
+    | Controllare ogni | **1 minuto** |
+    | Periodo di ricerca posticipata| **1 minuto** |
 
-1. Fare clic su **Avanti: Azioni >** , nella sezione **Gruppo di azioni** del pannello **Crea regola di avviso** fare clic sul pulsante **+ Crea gruppo di azioni**.
+1. Fare clic su **Avanti: Azioni > **, nella sezione **Gruppo di azioni** del pannello **Crea regola di avviso** fare clic sul pulsante **+ Crea gruppo di azioni**.
 
-1. Nella scheda **Dati principali** del pannello **Crea gruppo di azioni** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi selezionare **Avanti: Notifiche >** :
+1. Nella scheda **Dati principali** del pannello **Crea gruppo di azioni** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi selezionare **Avanti: Notifiche >**:
 
     | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-11-rg1** |
+    | Gruppo di risorse | **az104-11-rg1** |
     | Nome gruppo di azioni | **az104-11-ag1** |
     | Nome visualizzato | **az104-11-ag1** |
 
 1. Nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Posta elettronica/SMS/Push/Voce** nell'elenco a discesa **Tipo di notifica**. Nella casella di testo **Nome** digitare **admin email**. Fare clic sul pulsante **Modifica dettagli** (icona a forma di matita).
 
-1. Nel pannello **Posta elettronica/Messaggio SMS/Push/Voce** selezionare la casella di controllo **Posta elettronica**, digitare l'indirizzo di posta elettronica nella casella di testo **Posta elettronica**, lasciare i valori predefiniti per le altre impostazioni, fare clic su **OK** e nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Avanti: Azioni >** .
+1. Nel pannello **Posta elettronica/Messaggio SMS/Push/Voce** selezionare la casella di controllo **Posta elettronica**, digitare l'indirizzo di posta elettronica nella casella di testo **Posta elettronica**, lasciare i valori predefiniti per le altre impostazioni, fare clic su **OK** e nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Avanti: Azioni >**.
 
 1. Nella scheda **Azioni** del pannello **Crea gruppo di azioni** esaminare gli elementi disponibili nell'elenco a discesa **Tipo di azione** senza apportare modifiche e selezionare **Revisione e creazione**.
 
 1. Nella scheda **Revisione e creazione** del pannello **Crea gruppo di azioni** selezionare **Crea**.
 
-1. Nel pannello **Crea regola di avviso** fare clic su **Avanti: Dettagli >**  e nella sezione **Dettagli regola di avviso** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
+1. Nel pannello **Crea regola di avviso** fare clic su **Avanti: Dettagli > ** e nella sezione **Dettagli regola di avviso** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
 
     | Impostazioni | Valore |
     | --- | --- |
@@ -300,7 +300,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
    | render timechart
    ```
 
-    > **Nota**: la query non deve includere errori (indicati da blocchi rossi sulla barra di scorrimento destra). Se non è possibile incollare la query senza errori direttamente dalle istruzioni, incollare il codice della query in un editor di testo, ad esempio il Blocco note, quindi copiarlo e incollarlo nella finestra di query da tale editor.
+    > **Nota**: la query non deve contenere errori (indicati da blocchi rossi sulla barra di scorrimento destra). Se non è possibile incollare la query senza errori direttamente dalle istruzioni, incollare il codice della query in un editor di testo, ad esempio il Blocco note, quindi copiarlo e incollarlo nella finestra di query da tale editor.
 
 
 1. Fare clic su **Query** nella barra degli strumenti, nel riquadro **Query** individuare **Rileva disponibilità macchina virtuale** e fare doppio clic sul riquadro per compilare la finestra della query, fare clic sul pulsante **Esegui** nel riquadro ed esaminare i risultati.
@@ -337,7 +337,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -1,14 +1,14 @@
 ---
 demo:
-  title: 'Dimostrazione 02: Amministrare governance e conformità'
+  title: 'Dimostrazione 02: governance e conformità Amministrazione ister'
   module: Administer Governance and Compliance
 ---
 
-# 02 - Amministrare governance e conformità
+# 02 - Governance e conformità Amministrazione ster
 
 ## Configurare le sottoscrizioni
 
-Per questa area non è disponibile una dimostrazione formale.  
+Per questa area non è disponibile una dimostrazione formale. 
 
 **Riferimento**: [Creare una sottoscrizione di Azure aggiuntiva](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
 
@@ -16,37 +16,37 @@ Per questa area non è disponibile una dimostrazione formale.
 
 In questa dimostrazione verranno applicati i criteri di Azure.
 
-**Riferimento**: [Esercitazione: Creare criteri per applicare la conformità - Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Riferimento**: Esercitazione: [Creare criteri per applicare la conformità - Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Assegnare i criteri**
+**Assegnare un criterio**
 
 1.  Accedere al portale di Azure.
 
 2.  Cercare e selezionare **Criteri**.
 
-3.  Selezionare **Assegnazioni** e quindi **Assegna criterio**.
+3.  Selezionare **Assegnazioni **e quindi **Assegna criterio**.
 
-5.  Illustrare **l'ambito** che determina le risorse o il raggruppamento delle risorse a cui viene applicata l'assegnazione dei criteri.
+5.  Discutere l'ambito **** che determina le risorse o il raggruppamento delle risorse a cui viene applicata l'assegnazione dei criteri.
 
-6.  Selezionare i puntini di sospensione **definizione dei** criteri per aprire l'elenco delle definizioni disponibili. Esaminare le definizioni di criteri predefinite.
+6.  Selezionare i **puntini di sospensione per la definizione** dei criteri per aprire l'elenco delle definizioni disponibili. Esaminare le definizioni di criteri predefinite.
 
-7.  Cercare e selezionare il criterio **Località consentite** . Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse.
+7.  Cercare e selezionare il **criterio Percorsi** consentiti. Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse.
 
-8.  Spostare la scheda **Parametri** e selezionare una o più posizioni consentite nell'elenco a discesa.
+8.  Spostare la **scheda Parametri** e selezionare una o più posizioni consentite nell'elenco a discesa.
 
-9.  Fare clic su **Rivedi e crea** e quindi **su Crea** per creare il criterio.
+9.  Fare clic su Rivedi e crea ** e quindi **su**Crea** per creare i criteri.
 
 **Creare e assegnare una definizione di iniziativa**
 
 1.  Tornare alla pagina Criteri di Azure e selezionare **Definizioni** in Creazione.
 
-2.  Selezionare **Definizione iniziativa** nella parte superiore della pagina.
+2.  Selezionare **Definizione** iniziativa nella parte superiore della pagina.
 
-3.  Specificare un **nome** e una **descrizione**.
+3.  Specificare un nome ** e **una**descrizione**.
 
-4.  **Crea nuovo** Categoria.
+4.  **Crea nuova** categoria.
 
-5.  Nel pannello destro **Aggiungi** il criterio **Località** consentite.
+5.  Nel pannello **destro Aggiungere** i **criteri Percorsi** consentiti.
 
 6.  Aggiungere un criterio aggiuntivo di propria scelta.
 
@@ -64,47 +64,47 @@ In questa dimostrazione verranno applicati i criteri di Azure.
 
 1.  Tornare alla pagina di servizio Criteri di Azure.
 
-2.  Selezionare **Correzione**.
+2.  Selezionare Correzione ****.
 
 3.  Esaminare tutte le attività di correzione elencate.
 
-4. Quando si ha tempo, rimuovere il criterio e l'iniziativa. 
+4. Quando si ha tempo, rimuovere i criteri e l'iniziativa. 
 
 ## Configurare il controllo degli accessi in base al ruolo
 
 In questa dimostrazione verranno trattate le assegnazioni di ruolo.
 
-**Riferimento**: [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+**Riferimento**: Esercitazione: [Concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-**Riferimento**: [Guida introduttiva - Controllare l'accesso per un utente alle risorse di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+**Riferimento**: Guida introduttiva - [Controllare l'accesso per un utente alle risorse di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
 **Individuare il riquadro Controllo di accesso**
 
-1.  Accedere al portale di Azure e selezionare un gruppo di risorse.  Prendere nota del gruppo di risorse in uso.
+1.  Accedere al portale di Azure e selezionare un gruppo di risorse. Prendere nota del gruppo di risorse in uso.
 
-2.  Selezionare il  **pannello Controllo di accesso (IAM).** 
+2.  Selezionare il pannello ** Controllo di accesso (IAM).** 
 
-3.  Questo pannello sarà disponibile per molte risorse diverse in modo da poter controllare le autorizzazioni.
+3.  Questo pannello sarà disponibile per molte risorse diverse, in modo da poter controllare le autorizzazioni.
 
 **Esaminare le autorizzazioni dei ruoli**
 
-1.  Selezionare la scheda **Ruoli** (in alto).
+1.  Selezionare la **scheda Ruoli** (in alto).
 
 1.  Esaminare il numero elevato di ruoli predefiniti disponibili.
 
 1.  Fare doppio clic su un ruolo e quindi selezionare **Autorizzazioni**  (in alto).
 
-1.  Continuare a eseguire il drill-in del ruolo fino a quando non è possibile visualizzare le azioni **Lettura, Scrittura ed Eliminazione** per tale ruolo.
+1.  Continuare a eseguire il drill-in del ruolo fino a quando non è possibile visualizzare le **azioni Lettura, Scrittura ed Eliminazione** per tale ruolo.
 
-1.  Tornare al  **pannello Controllo di accesso (IAM).** 
+1.  Tornare al ** pannello Controllo di accesso (IAM).** 
 
-**Aggiungi un'assegnazione di ruolo**
+**Aggiungere un'assegnazione di ruolo**
 
 1.  Creare un utente o selezionare un utente esistente.
 
-1.  Selezionare **Aggiungi assegnazione di ruolo** e selezionare un ruolo. Ad esempio, *proprietario*.
+1.  Selezionare **Aggiungi assegnazione di** ruolo e selezionare un ruolo. Ad esempio, *proprietario*.
 
-1.  Selezionare **Controlla l'accesso**.
+1.  Selezionare **Controlla accesso**.
 
 1.  Esaminare le autorizzazioni utente.
 

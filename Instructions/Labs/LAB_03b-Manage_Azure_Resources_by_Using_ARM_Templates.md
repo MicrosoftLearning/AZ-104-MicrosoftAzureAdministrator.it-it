@@ -5,16 +5,16 @@ lab:
 ---
 
 # Lab 03b - Gestire le risorse di Azure usando i modelli di ARM
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 Dopo aver esplorato le funzionalità di amministrazione di base di Azure associate al provisioning delle risorse e averle organizzate in base ai gruppi di risorse usando portale di Azure, è necessario eseguire l'attività equivalente usando i modelli di Azure Resource Manager.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
 + Attività 2: Creare un disco gestito di Azure usando un modello di ARM
@@ -32,7 +32,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 ## Attività 1: Esaminare un modello di ARM per la distribuzione di un disco gestito di Azure
 
-1. Accedere al [**portale di Azure**](http://portal.azure.com).
+1. Accedi al [**portale di Azure**](http://portal.azure.com).
 
 1. Accedere al portale di Azure e selezionare **Gruppi di risorse**. 
 
@@ -64,7 +64,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 1. Nel pannello **Distribuzione personalizzata** fare clic su **Creare un modello personalizzato nell'editor**.
 
-1. Nel pannello **Modifica del modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
+1. Nel pannello **Modifica modello** fare clic su **Carica file** e caricare il file **template.json** scaricato nell'attività precedente.
 
 1. Nel riquadro dell'editor rimuovere le righe seguenti:
 
@@ -95,14 +95,14 @@ In questo lab si eseguiranno le attività seguenti:
     | --- |--- |
     | Subscription | *Nome della sottoscrizione di Azure usata in questo lab* |
     | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-03b-rg1** |
-    | Region | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
-    | Nome del disco | **az104-03b-disk1** |
-    | Posizione | Il valore del parametro location annotato nell'attività precedente |
+    | Area | Il nome di qualsiasi area di Azure disponibile nella sottoscrizione usata in questo lab |
+    | Nome disco | **az104-03b-disk1** |
+    | Titolo | Il valore del parametro location annotato nell'attività precedente |
     | Sku | **Standard_LRS** |
     | Dimensioni disco (GB) | **32** |
     | Opzione Crea | **empty** |
     | Set di crittografia dischi | **EncryptionAtRestWithPlatformKey** |
-    | Modalità di autenticazione di accesso ai dati | Nessuno |
+    | Modalità autenticazione accesso ai dati | None |
     | Criteri di accesso alla rete | **AllowAll** |
     | Accesso alla rete pubblica | Disabled |
 
@@ -124,7 +124,7 @@ In questo lab si eseguiranno le attività seguenti:
 
    >**Nota**: non eliminare le risorse distribuite in questo lab. Verranno usate nel lab successivo di questo modulo.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 
