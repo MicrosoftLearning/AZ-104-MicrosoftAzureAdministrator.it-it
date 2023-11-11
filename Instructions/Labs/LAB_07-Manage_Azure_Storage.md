@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 07 - Gestire Archiviazione di Azure
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 È necessario valutare l'uso di Archiviazione di Azure per archiviare i file che risiedono attualmente negli archivi dati locali. Anche se alla maggior parte dei file non si accede di frequente, esistono alcune eccezioni. È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede meno di frequente in livelli di archiviazione a prezzi più bassi. Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica. Infine, è possibile determinare in quale misura il servizio File di Azure servizio potrebbe essere adatto per ospitare le condivisioni file locali.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Creare e configurare gli account di archiviazione di Azure
@@ -39,7 +39,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si distribuirà una macchina virtuale di Azure che verrà usata più avanti in questo lab.
 
-1. Accedere al **[portale di Azure](https://portal.azure.com)**.
+1. Accedi al **[portale di Azure](https://portal.azure.com)**.
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -68,7 +68,7 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
     
 1. Nel riquadro Cloud Shell eseguire quanto segue per distribuire la macchina virtuale usando i file di modello e parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -80,7 +80,7 @@ In questa attività si distribuirà una macchina virtuale di Azure che verrà us
 
     >**Nota**: non attendere il completamento delle distribuzioni, ma procedere con l'attività successiva.
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
+    >**Nota**: se si riceve un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere all'insegnante assistenza e provare questi passaggi.
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-07-vm-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
     > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
@@ -100,15 +100,15 @@ In questa attività verrà creato e configurato un account di archiviazione di A
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Il nome di un **nuovo** gruppo di risorse **az104-07-rg1** |
+    | Gruppo di risorse | Il nome di un **nuovo** gruppo di risorse **az104-07-rg1** |
     | Nome account di archiviazione | Qualsiasi nome univoco globale composto da 3-24 lettere e numeri |
-    | Region | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
+    | Area | Il nome di un'area di Azure in cui è possibile creare un account di archiviazione di Azure  |
     | Prestazioni | **Standard** |
     | Ridondanza | **Archiviazione con ridondanza geografica (GRS)** |
 
-1. Fare clic su **Avanti: Avanzate >** , esaminare le opzioni disponibili nella scheda **Avanzate** del pannello **Crea account di archiviazione**, accettare le impostazioni predefinite e fare clic su **Avanti: Rete >** .
+1. Fare clic su **Avanti: Avanzate >**, esaminare le opzioni disponibili nella scheda **Avanzate** del pannello **Crea account di archiviazione**, accettare le impostazioni predefinite e fare clic su **Avanti: Rete >**.
 
-1. Nella scheda **Rete** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare l'opzione predefinita **Consenti l'accesso pubblico da tutte le reti** e fare clic su **Avanti: Protezione dei dati >** .
+1. Nella **scheda Rete** del **pannello Crea account** di archiviazione esaminare le opzioni disponibili, accettare l'opzione **predefinita Abilita accesso pubblico da tutte le reti** e fare clic su **Avanti: Protezione dati >**.
 
 1. Nella scheda **Protezione di dati** del pannello **Crea account di archiviazione** esaminare le opzioni disponibili, accettare le impostazioni predefinite, fare clic su **Rivedi e crea**, attendere il completamento del processo di convalida e fare clic su **Crea**.
 
@@ -132,10 +132,10 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
 
 1. Fare clic su **+ Contenitore** e creare un contenitore con le impostazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-07-container**  |
-    | Livello di accesso pubblico | **Private (no anonymous access) (Privato - nessun accesso anonimo)** |
+    | Livello di accesso pubblico | **Privato (nessun accesso anonimo)** |
 
 1. Nell'elenco dei contenitori fare clic su **az104-07-container** e quindi su **Carica**.
 
@@ -147,8 +147,8 @@ In questa attività verrà creato un contenitore BLOB in cui verrà caricato un 
     | --- | --- |
     | Tipo di BLOB | **BLOB in blocchi** |
     | Dimensioni blocco | **4 MB** |
-    | Livello di accesso | **Livello di archiviazione ad accesso frequente** |
-    | Carica nella cartella | **licenze** |
+    | Livello di accesso | **Accesso frequente** |
+    | Carica nella cartella | **Licenze** |
 
     > **Nota**: il livello di accesso può essere impostato per singoli BLOB.
 
@@ -172,7 +172,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Verrà visualizzato il messaggio in formato XML **ResourceNotFound**o **PublicAccessNotPermitted**.
 
-    > **Nota**: questo comportamento è previsto, perché il livello di accesso pubblico del contenitore creato è impostato su **Privato (nessun accesso anonimo)** .
+    > **Nota**: questo comportamento è previsto, perché il livello di accesso pubblico del contenitore creato è impostato su **Privato (nessun accesso anonimo)**.
 
 1. Chiudere la finestra del browser in modalità InPrivate, tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure e passare alla scheda **Genera firma di accesso condiviso**.
 
@@ -183,9 +183,9 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
     | Chiave di firma | **Chiave 1** |
     | Autorizzazioni | **Lettura** |
     | Data di inizio | La data di ieri |
-    | Ora di inizio | ora corrente |
+    | Ora di avvio | ora corrente |
     | Data di scadenza | La data di domani |
-    | Scadenza | ora corrente |
+    | Ora di scadenza | ora corrente |
     | Indirizzi IP consentiti | lasciare vuoto |
     
 
@@ -195,27 +195,27 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Aprire un'altra finestra del browser usando la modalità InPrivate e passare all'URL copiato nel passaggio precedente.
 
-    > **Nota**: dovrebbe essere possibile visualizzare il contenuto del file scaricandolo e aprendolo con blocco note.
+    > **Nota**: dovrebbe essere possibile visualizzare il contenuto del file scaricandolo e aprendolo con Blocco note.
 
     > **Nota**: questo comportamento è previsto, perché ora l'accesso è autorizzato in base al token di firma di accesso condiviso appena generato.
 
-    > **Nota**: salvare l'URL di firma di accesso condiviso del BLOB. Sarà necessario più avanti in questa attività.
+    > **Nota**: salvare l'URL di firma di accesso condiviso del BLOB. Sarà necessario più avanti in questo lab.
 
 1. Chiudere la finestra del browser in modalità InPrivate, tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure e da qui tornare nel pannello **az104-07-container**.
 
 1. Fare clic sul collegamento **Passa all'account utente Azure AD** accanto all'etichetta **Metodo di autenticazione**.
 
-    > **Nota**: quando si cambia il metodo di autenticazione, è possibile che venga visualizzato il messaggio di errore *"Non si è autorizzati a visualizzare l'elenco dei dati con l'account utente Azure AD corrente"* . Questo comportamento è previsto.  
+    > **Nota**: quando si cambia il metodo di autenticazione, è possibile che venga visualizzato il messaggio di errore *"Non si è autorizzati a visualizzare l'elenco dei dati con l'account utente Azure AD corrente"*. Questo comportamento è previsto.  
 
     > **Nota**: a questo punto non si hanno le autorizzazioni per cambiare il metodo di autenticazione.
 
-1. Nel pannello **az104-07-container** fare clic su **Controllo di accesso (IAM)** .
+1. Nel pannello **az104-07-container** fare clic su **Controllo di accesso (IAM)**.
 
 1. Nella scheda **Verifica l'accesso** fare clic su **Aggiungi un'assegnazione di ruolo**.
 
 1. Nel pannello **Aggiungi un'assegnazione di ruolo** specificare le impostazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Ruolo | **Proprietario dei dati del BLOB di archiviazione** |
     | Assegna accesso a | **Utente, gruppo o entità servizio** |
@@ -233,13 +233,13 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Nel portale di Azure tornare nel pannello dell'account di archiviazione creato nella prima attività di questo lab e quindi, nella sezione **Archiviazione dati**, fare clic su **Condivisioni file**.
 
-1. Fare clic su **+ Condivisione file** e nella scheda **Informazioni di base** assegnare alla condivisione file un nome **, az104-07-share**. Esaminare le altre impostazioni in questa scheda. 
+1. Fare clic su **+ Condivisione** file e nella **scheda Informazioni di base** assegnare alla condivisione file un nome, **az104-07-share**. Esaminare le altre impostazioni in questa scheda. 
 
-1. Passare alla scheda **Backup** e verificare che **l'opzione Abilita backup** **non** sia selezionata.
+1. Passare alla scheda Backup** e assicurarsi che **l'opzione **Abilita backup** non** sia **selezionata.
 
-1. Fare clic su **Rivedi e crea** e quindi **su Crea**. Attendere la distribuzione della condivisione file. 
+1. Fare clic su **Rivedi e crea** e quindi su **Crea**. Attendere la distribuzione della condivisione file. 
 
-1. Fare clic sulla condivisione file appena creata e prendere nota delle informazioni disponibili nel pannello **az104-07-share** .
+1. Fare clic sulla condivisione file appena creata e prendere nota delle informazioni disponibili nel **pannello az104-07-share** .
 
 1. Fare clic su **Sfoglia** e notare che nella nuova condivisione file non sono presenti file o cartelle. Fare clic su **Connetti**.
 
@@ -265,7 +265,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Verificare che lo script sia stato completato correttamente.
 
-1. Tornare al pannello **az104-07-share \| Sfoglia** condivisione file, fare clic su **Aggiorna** e verificare che **az104-07-folder** venga visualizzato nell'elenco delle cartelle.
+1. Tornare al pannello az104-07-share \| Sfoglia** condivisione file, fare clic su **Aggiorna** e verificare che az104-07-folder** **venga visualizzato nell'elenco delle **cartelle.
 
 1. Fare clic su **az104-07-folder** e verificare che il file **az104-07-file.txt** sia visualizzato nell'elenco dei file.
 
@@ -328,7 +328,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

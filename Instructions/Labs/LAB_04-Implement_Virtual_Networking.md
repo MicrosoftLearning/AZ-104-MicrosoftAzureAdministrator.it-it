@@ -1,22 +1,22 @@
 ---
 lab:
-  title: 'Lab 04: Implementare la rete virtuale'
+  title: 'Lab 04: Implementare Rete virtuale ing'
   module: Administer Virtual Networking
 ---
 
 # Lab 04 - Implementare la rete virtuale
 
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 È necessario esplorare le funzionalità della rete virtuale di Azure. Per iniziare, si pianifica la creazione di una rete virtuale in Azure che ospiterà un paio di macchine virtuali di Azure. Poiché si prevede di implementare la segmentazione basata sulla rete, sarà necessario distribuirle in subnet diverse della rete virtuale. È inoltre consigliabile assicurarsi che gli indirizzi IP privati e pubblici non cambino nel tempo. Per soddisfare i requisiti per la sicurezza di Contoso, è necessario proteggere gli endpoint pubblici delle macchine virtuali di Azure accessibili da Internet. È infine necessario implementare la risoluzione dei nomi DNS per le macchine virtuali di Azure nella rete virtuale e da Internet.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Creare e configurare una rete virtuale
 + Attività 2: Distribuire macchine virtuali nella rete virtuale
@@ -39,7 +39,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verrà creata una rete virtuale con più subnet mediante il portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Reti virtuali** fare clic su **+ Crea**.
 
@@ -50,15 +50,15 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Subscription | Nome della sottoscrizione di Azure che verrà usata nel lab |
     | Gruppo di risorse | Nome di un **nuovo** gruppo di risorse **az104-04-rg1** |
     | Nome | **az104-04-vnet1** |
-    | Region | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
+    | Area | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
 
-1. Fare clic su **Avanti: Indirizzi IP**. **L'indirizzo iniziale** è **10.40.0.0**. La **dimensione dello spazio degli indirizzi** è **/20**. Assicurarsi di fare clic su **Aggiungi**. 
+1. Fare clic su **Avanti: Indirizzi IP**. L'indirizzo** **iniziale è **10.40.0.0**. La **dimensione** dello spazio degli indirizzi è **/20**. Assicurarsi di fare clic su **Aggiungi**. 
 
 1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti e quindi fare clic su **Aggiungi**.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
-    | Nome della subnet | **subnet0** |
+    | Nome subnet | **subnet0** |
     | Indirizzo iniziale | **10.40.0.0** |
     | Dimensioni della subnet | **/24 (256 indirizzi)** |
 
@@ -72,14 +72,14 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
 
 1. Creare una subnet con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **subnet1** |
     | Intervallo di indirizzi (blocco CIDR) | **10.40.1.0/24** |
     | Gruppo di sicurezza di rete | **Nessuno** |
     | Tabella di route | **Nessuno** |
 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**
 
 ## Attività 2: Distribuire macchine virtuali nella rete virtuale
 
@@ -96,7 +96,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
     >**Nota**: è necessario caricare ogni file separatamente. Al termine dell’operazione, usare **dir** per assicurarsi che entrambi i file siano stati caricati correttamente.
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per distribuire due macchine virtuali usando il modello e i file di parametri:
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
     
    ```powershell
    $rgName = 'az104-04-rg1'
@@ -111,7 +111,7 @@ In questa attività verranno distribuite macchine virtuali di Azure in diverse s
 
     >**Nota**: attendere il completamento dell'operazione prima di passare all'attività successiva. L'operazione richiede circa 2 minuti.
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi:
+    >**Nota**: se si riceve un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere all'insegnante assistenza e provare questi passaggi:
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare **az104-04-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro`vmSize`.
     > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse "az104-04-rg1". È possibile eseguire `az group show -n az104-04-rg1 --query location` in CloudShell per ottenerlo.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell. Se non viene elencato alcuno SKU, ovvero non vengono restituiti risultati, non è possibile distribuire macchine virtuali D2S in tale area. Sarà necessario trovare un'area che consenta la distribuzione di macchine virtuali D2S. Dopo aver scelto una posizione appropriata, eliminare il gruppo di risorse AZ104-04-rg1 e riavviare il lab.
@@ -126,23 +126,23 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
    >**Nota**: gli indirizzi IP privati e pubblici vengono effettivamente assegnati alle interfacce di rete, che a loro volta sono collegate a macchine virtuali di Azure, ma è piuttosto comune fare riferimento agli indirizzi IP assegnati invece alle macchine virtuali di Azure.
 
-   >**Nota**: per completare questo lab saranno necessari **due** indirizzi IP pubblici. 
+   >**Nota**: per completare questo lab sono necessari **due** indirizzi IP pubblici. 
 
-1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici** e quindi selezionare **+ Crea**.
+1. Nella portale di Azure cercare e selezionare **Indirizzi** IP pubblici, quindi selezionare **+ Crea**.
 
-1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
+1. Verificare che il **gruppo** di risorse sia **az104-04-rg1**,
 
-1. Nei **dettagli di configurazione** assicurarsi che il **nome** sia **az104-04-pip0**.
+1. **In Dettagli** configurazione assicurarsi che il **nome** sia **az104-04-pip0**.
 
-1. Selezionare **Rivedi e crea e** quindi **Crea**.
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-1. Nella portale di Azure cercare e selezionare **Indirizzi IP pubblici** e quindi selezionare **+ Crea**.
+1. Nella portale di Azure cercare e selezionare **Indirizzi** IP pubblici, quindi selezionare **+ Crea**.
 
-1. Verificare che il **gruppo di risorse** sia **az104-04-rg1**,
+1. Verificare che il **gruppo** di risorse sia **az104-04-rg1**,
 
-1. Nei **dettagli di configurazione** assicurarsi che il **nome** sia **az104-04-pip1**.
+1. **In Dettagli** configurazione assicurarsi che il **nome** sia **az104-04-pip1**.
 
-1. Selezionare **Rivedi e crea e** quindi **Crea**.
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
 1. Nel portale di Azure cercare e selezionare **Gruppi di risorse** e nel pannello **Gruppi di risorse** fare clic su **az104-04-rg1**.
 
@@ -156,11 +156,11 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nell'elenco di configurazioni IP fare clic su **ipconfig1**.
 
-1. Assicurarsi che **l'allocazione** sia **statica**.
+1. Verificare che l'allocazione **** sia **statica**.
 
-1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa Indirizzo **IP pubblico** selezionare **az104-04-pip0**.
+1. Selezionare **Associa indirizzo** IP pubblico e nell'elenco **a discesa Indirizzo IP** pubblico selezionare **az104-04-pip0**.
 
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
 
 1. Tornare al pannello **az104-04-vnet1** .
 
@@ -170,11 +170,11 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Nell'elenco di configurazioni IP fare clic su **ipconfig1**.
 
-1. Assicurarsi che **l'allocazione** sia **statica**.
+1. Verificare che l'allocazione **** sia **statica**.
 
-1. Selezionare **Associa indirizzo IP pubblico** e nell'elenco a discesa Indirizzo **IP pubblico** selezionare **az104-04-pip1**.
+1. Selezionare **Associa indirizzo** IP pubblico e nell'elenco **a discesa Indirizzo IP** pubblico selezionare **az104-04-pip1**.
 
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
    
 1. Tornare nel pannello del gruppo di risorse **az104-04-rg1**, nell'elenco delle rispettive risorse fare clic su **az104-04-vm0** e nel pannello della macchina virtuale **az104-04-vm0** prendere nota della voce relativa all'indirizzo IP.
 
@@ -196,7 +196,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
 1. Arrestare le macchine virtuali **az104-04-vm0** e **az104-04-vm1**.
 
-    >**Nota**: questa operazione viene eseguita per comodità per il lab. Se le macchine virtuali sono in esecuzione quando un gruppo di sicurezza di rete viene collegato all'interfaccia di rete, per rendere effettivo il collegamento possono essere richiesti più di 30 minuti. Dopo aver creato e collegato il gruppo di sicurezza di rete, le macchine virtuali verranno riavviate e il collegamento diventerà effettivo immediatamente.
+    >**Nota**: questa operazione viene eseguita per l'esperienza del lab. Se le macchine virtuali sono in esecuzione quando un gruppo di sicurezza di rete viene collegato all'interfaccia di rete, per rendere effettivo il collegamento possono essere richiesti più di 30 minuti. Dopo aver creato e collegato il gruppo di sicurezza di rete, le macchine virtuali verranno riavviate e il collegamento diventerà effettivo immediatamente.
 
 1. Nel portale di Azure cercare e selezionare **Gruppi di sicurezza di rete** e nel pannello **Gruppi di sicurezza di rete** fare clic su **+ Crea**.
 
@@ -207,7 +207,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-04-rg1** |
     | Nome | **az104-04-nsg01** |
-    | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
+    | Area | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
 
 1. Fare clic su **Rivedi e crea**. Attendere il completamento della convalida e fare clic su **Crea** per inviare la distribuzione.
 
@@ -221,11 +221,11 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
 
     | Impostazione | Valore |
     | --- | --- |
-    | Source (Sorgente) | **qualsiasi** |
-    | Intervalli di porte di origine | * |
-    | Destination | **qualsiasi** |
-    | Servizio | **RDP** |
-    | Azione | **Consentito** |
+    | Origine | **Any** |
+    | Intervalli porte di origine | * |
+    | Destinazione | **Any** |
+    | Servizioo | **RDP** |
+    | Azione | **Consenti** |
     | Priorità | **300** |
     | Nome | **AllowRDPInBound** |
 
@@ -292,7 +292,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
 
     >**Nota:** potrebbe essere necessario attendere alcuni minuti e aggiornare la pagina se i set di record non sono elencati.
 
-1. Passare alla sessione di Desktop remoto in **az104-04-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)** .
+1. Passare alla sessione di Desktop remoto in **az104-04-vm0**, fare clic con il pulsante destro del mouse sul pulsante **Avvia** e nel menu di scelta rapida fare clic su **Windows PowerShell (amministratore)**.
 
 1. Nella finestra della console di Windows PowerShell eseguire il codice seguente per testare la risoluzione dei nomi interni nella zona DNS privato appena creata:
 
@@ -331,7 +331,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm0** |
     | Tipo | **A** |
@@ -346,7 +346,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Aggiungere un set di record con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm1** |
     | Tipo | **A** |
@@ -361,7 +361,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Nel portale di Azure aprire la sessione di **PowerShell** in **Cloud Shell** facendo clic sull'icona in alto a destra nel portale di Azure.
 
-1. Nel riquadro Cloud Shell eseguire le operazioni seguenti per testare la risoluzione dei nomi esterni del record DNS **az104-04-vm0** nel set di record DNS appena creato (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire il comando seguente per testare la risoluzione dei nomi esterni del **set di record DNS az104-04-vm0** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei **nomi 1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm0.[domain name] [Name server 1]
@@ -369,7 +369,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
 1. Verificare che l'output del comando includa l'indirizzo IP privato **az104-04-vm0**.
 
-1. Nel riquadro Cloud Shell eseguire le operazioni seguenti per testare la risoluzione dei nomi esterni del record DNS **az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei nomi **1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
+1. Nel riquadro Cloud Shell eseguire quanto segue per testare la risoluzione dei nomi esterni del **set di record DNS az104-04-vm1** nella zona DNS appena creata (sostituire il segnaposto `[Name server 1]` con il nome del server dei **nomi 1** annotato in precedenza in questa attività e il `[domain name]` segnaposto con il nome del dominio DNS creato in precedenza in questa attività):
 
    ```powershell
    nslookup az104-04-vm1.[domain name] [Name server 1]
@@ -399,7 +399,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

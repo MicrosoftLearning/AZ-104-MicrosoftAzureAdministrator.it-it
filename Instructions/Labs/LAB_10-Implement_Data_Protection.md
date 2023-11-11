@@ -5,17 +5,17 @@ lab:
 ---
 
 # Lab 10 - Eseguire il backup delle macchine virtuali
-# Manuale del lab per studenti
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 L'attività da eseguire consiste nel valutare l'uso di Servizi di ripristino di Azure per il backup e il ripristino di file ospitati in macchine virtuali di Azure e in computer locali. Si vogliono inoltre identificare i metodi di protezione dei dati archiviati nell'insieme di credenziali di Servizi di ripristino da perdita dei dati accidentale o dannosa.
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Creare un insieme di credenziali di Servizi di ripristino
@@ -39,7 +39,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività verranno distribuite due macchine virtuali che verranno usate per testare scenari di backup diversi.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -64,7 +64,7 @@ In questa attività verranno distribuite due macchine virtuali che verranno usat
    ```
 
 1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
-    >**Nota**: verrà richiesto di specificare una password di Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
     
    ```powershell
    New-AzResourceGroupDeployment `
@@ -89,9 +89,9 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
     | Impostazioni | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | Nome di un nuovo gruppo di risorse **az104-10-rg1** |
+    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-10-rg1** |
     | Nome dell'insieme di credenziali | **az104-10-rsv1** |
-    | Region | Nome dell'area in cui sono state distribuite le due macchine virtuali nell'attività precedente |
+    | Area | Nome dell'area in cui sono state distribuite le due macchine virtuali nell'attività precedente |
 
     >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
 
@@ -105,7 +105,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **az104-10-rsv1 - Proprietà** fare clic sul collegamento **Aggiorna** sotto l'etichetta **Configurazione di backup**.
 
-1. Nel pannello **Configurazione backup** esaminare le opzioni per **il tipo di replica di archiviazione**. Lasciare selezionata l'impostazione predefinita **Con ridondanza geografica** e chiudere il pannello.
+1. Nel pannello **Configurazione** backup esaminare le opzioni disponibili per **Archiviazione tipo di** replica. Lasciare selezionata l'impostazione predefinita **Con ridondanza geografica** e chiudere il pannello.
 
     >**Nota**: questa impostazione può essere configurata solo se non sono presenti elementi di backup esistenti.
 
@@ -125,7 +125,7 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
 1. Nel pannello **Obiettivo del backup** specificare le impostazioni seguenti:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Dove viene eseguito il carico di lavoro? | **Azure** |
     | Di quali elementi si vuole eseguire il backup? | **Macchina virtuale** |
@@ -138,8 +138,8 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Nome criteri | **az104-10-backup-policy** |
-    | Frequenza | **Ogni giorno** |
+    | Nome del criterio | **az104-10-backup-policy** |
+    | Frequenza | **Giornaliero** |
     | Ora | **12:00** |
     | Fuso orario | Nome del fuso orario locale |
     | Conservare gli snapshot del ripristino istantaneo per | **2** giorni |
@@ -182,9 +182,9 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nel pannello **Obiettivo del backup** specificare le impostazioni seguenti:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
-    | Dove viene eseguito il carico di lavoro? | **Configurazione locale** |
+    | Dove viene eseguito il carico di lavoro? | **Locale** |
     | Di quali elementi si vuole eseguire il backup? | **File e cartelle** |
 
     >**Nota**: anche se la macchina virtuale in uso in questa attività è in esecuzione in Azure, è possibile sfruttarla per valutare le funzionalità di backup applicabili a qualsiasi computer locale che esegue Windows Server.
@@ -209,7 +209,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nella pagina **Identificazione insieme di credenziali** visualizzata di nuovo fare clic su **Avanti**.
 
-1. Assicurarsi che **La passphrase salva in modo sicuro in Azure Key Vault** non sia selezionata. 
+1. Assicurarsi che **la passphrase salva in modo sicuro in Azure Key Vault** non sia selezionata. 
 
 1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic su **Genera passphrase**.
 
@@ -229,7 +229,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nella pagina **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
 
-1. Nella finestra di dialogo **Seleziona elementi** espandere **C:\\Windows\\System32\\drivers\\etc\\** , selezionare **hosts** e quindi fare clic su**OK**:
+1. Nella finestra di dialogo **Seleziona elementi** espandere **C:\\Windows\\System32\\drivers\\etc\\**, selezionare **hosts** e quindi fare clic su**OK**:
 
 1. Nella pagina **Seleziona elementi per backup** fare clic su **Avanti**.
 
@@ -257,7 +257,7 @@ In questa attività verrà implementato il backup di file e cartelle mediante Se
 
 1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Azure Backup Agent**.
 
-1. Nel pannello **Elementi di backup (Azure Backup Agent)** verificare se è presente una voce che fa riferimento all'unità **C:\\** di **az104-10-vm1.** .
+1. Nel pannello **Elementi di backup (Azure Backup Agent)** verificare se è presente una voce che fa riferimento all'unità **C:\\** di **az104-10-vm1.**.
 
 ## Attività 5: Eseguire il ripristino dei file usando l'Agente di Servizi di ripristino di Azure (facoltativo)
 
@@ -271,7 +271,7 @@ In questa attività verrà eseguito il ripristino dei file mediante l'Agente di 
 
 1. Nella pagina **Seleziona modalità di ripristino** assicurarsi che l'opzione **Singoli file e cartelle** sia selezionata e fare clic su **Avanti**.
 
-1. Nella pagina **Seleziona volume e data** nell'elenco a discesa **Seleziona il volume** selezionare **C:\\** , accettare la selezione predefinita del backup disponibile e fare clic su **Monta**.
+1. Nella pagina **Seleziona volume e data** nell'elenco a discesa **Seleziona il volume** selezionare **C:\\**, accettare la selezione predefinita del backup disponibile e fare clic su **Monta**.
 
     >**Nota**: attendere il completamento dell'operazione di montaggio. L'operazione potrebbe richiedere circa due minuti.
 
@@ -379,7 +379,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **Elimina** specificare le impostazioni seguenti.
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | DIGITARE IL NOME DEL SERVER | **az104-10-vm1.** |
     | Motivo | **Riciclo del server di sviluppo/test** |
@@ -389,7 +389,7 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Abilitare la casella di controllo accanto all'etichetta **Sono presenti dati di backup di 1 elemento di backup associati a questo server. Si è consapevoli che facendo clic su "Conferma" verranno eliminati definitivamente tutti i dati di backup cloud. Questa azione non può essere annullata. È possibile inviare un avviso agli amministratori di questa sottoscrizione per notificare l'eliminazione** e fare clic su **Elimina**.
 
-    >**Nota**: Questa operazione avrà esito negativo perché la funzionalità **Eliminazione temporanea** deve essere disabilitata.
+    >**Nota**: l'operazione avrà esito negativo perché la **funzionalità eliminazione** temporanea deve essere disabilitata.
 
 1. Tornare al pannello **az104-10-rsv1 - Elementi di backup** e fare clic su **Macchine virtuali di Azure**.
 
@@ -401,10 +401,10 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **Interrompi backup** selezionare **Elimina dati di backup**, specificare le impostazioni seguenti e fare clic su **Interrompi backup**:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Digitare il nome dell'elemento di backup | **az104-10-vm0** |
-    | Motivo | **Altro** |
+    | Motivo | **Altri** |
     | Commenti | **az104 10 lab** |
 
 1. Tornare al pannello **az104-10-rsv1 - Elementi di backup** e fare clic su **Aggiorna**.
@@ -435,10 +435,10 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
 
 1. Nel pannello **Elimina dati di backup** specificare le impostazioni seguenti e fare clic su **Elimina**:
 
-    | Impostazioni | valore |
+    | Impostazioni | Valore |
     | --- | --- |
     | Digitare il nome dell'elemento di backup | **az104-10-vm0** |
-    | Motivo | **Altro** |
+    | Motivo | **Altri** |
     | Commenti | **az104 10 lab** |
 
 1. Ripetere i passaggi all'inizio di questa attività per eliminare gli elementi di backup per **az104-10-vm1**.
@@ -463,11 +463,11 @@ In questa attività verrà eseguito il ripristino di un file dal backup basato s
    Get-AzResourceGroup -Name 'az104-10*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-   >**Nota**: facoltativamente, è possibile prendere in considerazione l'eliminazione del gruppo di risorse generato automaticamente con il prefisso **AzureBackupRG_** . L'esistenza di questo gruppo non comporta alcun addebito aggiuntivo.
+   >**Nota**: facoltativamente, è possibile prendere in considerazione l'eliminazione del gruppo di risorse generato automaticamente con il prefisso **AzureBackupRG_**. L'esistenza di questo gruppo non comporta alcun addebito aggiuntivo.
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

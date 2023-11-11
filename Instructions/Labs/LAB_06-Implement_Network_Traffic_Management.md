@@ -4,20 +4,20 @@ lab:
   module: Administer Network Traffic Management
 ---
 
-# Lab 06 - Implementare Gestione del traffico
-# Manuale del lab per studenti
+# Lab 06 - Implementare Gestione traffico
+# Manuale del lab per gli studenti
 
-## Scenario del lab
+## Scenario laboratorio
 
 Si è stati incaricati di testare la gestione del traffico di rete per le macchine virtuali di Azure nella topologia di rete hub-spoke, che Contoso considera di implementare nell'ambiente Azure (anziché creare la topologia mesh, testata nel lab precedente). Questo test deve includere l'implementazione della connettività tra spoke basandosi su route definite dall'utente che forzano il flusso del traffico tramite l'hub, nonché la distribuzione del traffico tra macchine virtuali usando i servizi di bilanciamento del carico di livello 4 e 7. A questo scopo, si prevede di usare Azure Load Balancer (livello 4) e il gateway applicazione di Azure (livello 7).
 
-                **Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
 
 >**Nota**: per impostazione predefinita, questo lab richiede un totale di 8 vCPU disponibili nella serie Standard_Dsv3 nell'area scelta per la distribuzione, perché prevede la distribuzione di quattro macchine virtuali di Azure di Standard_D2s_v3 SKU. Se gli studenti usano account di valutazione con un limite di 4 vCPU è possibile usare una dimensione di macchina virtuale che richieda una sola vCPU (ad esempio Standard_B1s).
 
 ## Obiettivi
 
-In questo lab si eseguiranno le attività seguenti:
+Contenuto del lab:
 
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Configurare la topologia di rete hub-spoke
@@ -41,7 +41,7 @@ In questo lab si eseguiranno le attività seguenti:
 
 In questa attività si distribuiranno quattro macchine virtuali nella stessa area di Azure. Le prime due risiederanno in una rete virtuale hub, mentre ognuna delle due rimanenti risiederà in una rete virtuale spoke separata.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -70,7 +70,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
 1. Nel riquadro Cloud Shell eseguire il comando seguente per creare tre reti virtuali e quattro macchine virtuali di Azure in tali reti usando il modello e i file di parametri caricati:
 
-    >**Nota**: verrà richiesto di specificare una password Amministrazione.
+    >**Nota**: verrà richiesto di fornire una password Amministrazione.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -81,7 +81,7 @@ In questa attività si distribuiranno quattro macchine virtuali nella stessa are
 
     >**Nota**: attendere il completamento della distribuzione prima di proseguire al passaggio successivo. L'operazione richiede circa 5 minuti.
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere assistenza all'insegnante e provare questi passaggi.
+    >**Nota**: se si riceve un errore che indica che le dimensioni della macchina virtuale non sono disponibili, chiedere all'insegnante assistenza e provare questi passaggi.
     > 1. Fare clic sul pulsante `{}` in CloudShell, selezionare il file **az104-06-vms-loop-parameters.json** nella barra laterale sinistra e prendere nota del valore del parametro `vmSize`.
     > 1. Controllare il percorso in cui viene distribuito il gruppo di risorse 'az104-06-rg1'. È possibile eseguire `az group show -n az104-06-rg1 --query location` in CloudShell per ottenerlo.
     > 1. Eseguire `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in CloudShell.
@@ -155,7 +155,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet2** registrato in precedenza in questa attività. |
     | Consentire ad az104-06-vnet2 di accedere ad az104-06-vnet01 | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire a az104-06-vnet2 di ricevere traffico inoltrato da az104-06-vnet01 | **Verificare che la casella sia selezionata** |
+    | Consentire ad az104-06-vnet2 di ricevere traffico inoltrato da az104-06-vnet01 | **Verificare che la casella sia selezionata** |
 
     >**Nota**: attendere il completamento dell'operazione.
 
@@ -175,7 +175,7 @@ In questa attività verrà configurato il peering locale tra le reti virtuali di
     | Conosco l'ID della risorsa | Enabled |
     | ID risorsa | Valore del parametro resourceID di **az104-06-vnet3** registrato in precedenza in questa attività. |
     | Consentire ad az104-06-vnet3 di accedere ad az104-06-vnet01 | **Verificare che la casella sia selezionata (impostazione predefinita)** |
-    | Consentire a az104-06-vnet3 di ricevere traffico inoltrato da az104-06-vnet01 | **Verificare che la casella sia selezionata** |
+    | Consentire ad az104-06-vnet3 di ricevere traffico inoltrato da az104-06-vnet01 | **Verificare che la casella sia selezionata** |
 
 
     >**Nota**: attendere il completamento dell'operazione.
@@ -199,8 +199,8 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Tipo di origine | **Macchina virtuale** |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Source type | **Macchina virtuale** |
     | Macchina virtuale | **az104-06-vm0** |
     | Destination | **Specificare manualmente** |
     | URI, FQDN o IPv4 | **10.62.0.4** |
@@ -209,7 +209,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.62.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm2**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test** di diagnostica e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla prima rete virtuale spoke.
 
@@ -218,8 +218,8 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Tipo di origine | **Macchina virtuale** |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Source type | **Macchina virtuale** |
     | Macchina virtuale | **az104-06-vm0** |
     | Destination | **Specificare manualmente** |
     | URI, FQDN o IPv4 | **10.63.0.4** |
@@ -228,7 +228,7 @@ In questa attività si testerà la transitività del peering di reti virtuali us
 
     > **Nota**: **10.63.0.4** rappresenta l'indirizzo IP privato di **az104-06-vm3**
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
+1. Fare clic su **Esegui test** di diagnostica e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che la connessione era diretta, senza hop intermedi tra le macchine virtuali.
 
     > **Nota**: questo comportamento è previsto, perché la rete virtuale hub è collegata direttamente alla seconda rete virtuale spoke.
 
@@ -237,15 +237,15 @@ In questa attività si testerà la transitività del peering di reti virtuali us
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Tipo di origine | **Macchina virtuale** |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Source type | **Macchina virtuale** |
     | Macchina virtuale | **az104-06-vm2** |
     | Destination | **Specificare manualmente** |
     | URI, FQDN o IPv4 | **10.63.0.4** |
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che vengano restituiti i risultati del controllo della connettività. Si noti che lo stato è **Fail**.
+1. Fare clic su **Esegui test** di diagnostica e attendere che vengano restituiti i risultati del controllo della connettività. Si noti che lo stato è **Fail**.
 
     > **Nota:** questo comportamento è previsto, perché le due reti virtuali spoke non sono associate tra loro (il peering di reti virtuali non è transitivo).
 
@@ -302,8 +302,8 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Location | Nome dell'area di Azure in cui sono state create le reti virtuali |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Titolo | Nome dell'area di Azure in cui sono state create le reti virtuali |
     | Nome | **az104-06-rt23** |
     | Propaga route del gateway | **No** |
 
@@ -317,7 +317,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Aggiungere un nuova route con le impostazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet2-to-vnet3** |
     | Destinazione prefisso indirizzo | **Indirizzi IP** |
@@ -331,7 +331,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Associare la tabella di route **az104-06-rt23** alla subnet seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Rete virtuale | **az104-06-vnet2** |
     | Subnet | **subnet0** |
@@ -345,8 +345,8 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Region | Nome dell'area di Azure in cui sono state create le reti virtuali |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Area | Nome dell'area di Azure in cui sono state create le reti virtuali |
     | Nome | **az104-06-rt32** |
     | Propaga route del gateway | **No** |
 
@@ -360,7 +360,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Aggiungere un nuova route con le impostazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome route | **az104-06-route-vnet3-to-vnet2** |
     | Destinazione prefisso indirizzo | **Indirizzi IP** |
@@ -374,7 +374,7 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Associare la tabella di route **az104-06-rt32** alla subnet seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Rete virtuale | **az104-06-vnet3** |
     | Subnet | **subnet0** |
@@ -383,20 +383,20 @@ In questa attività verrà configurato e testato il routing tra le due reti virt
 
 1. Nel portale di Azure tornare al pannello **Network Watcher - Risoluzione dei problemi di connessione**.
 
-1. Nel pannello **Network Watcher - Risoluzione dei problemi di connessione** usare le impostazioni seguenti (lasciare altri con i relativi valori predefiniti):
+1. **Nel pannello Risoluzione dei problemi** di Network Watcher - Connessione ion usare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg1** |
-    | Tipo di origine | **Macchina virtuale** |
+    | Gruppo di risorse | **az104-06-rg1** |
+    | Source type | **Macchina virtuale** |
     | Macchina virtuale | **az104-06-vm2** |
     | Destination | **Specificare manualmente** |
     | URI, FQDN o IPv4 | **10.63.0.4** |
     | Protocollo | **TCP** |
     | Porta di destinazione | **3389** |
 
-1. Fare clic su **Esegui test di diagnostica** e attendere che i risultati del controllo di connettività vengano restituiti. Verificare che lo stato sia **Success**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Fail**, è necessario arrestare e quindi avviare az104-06-vm0.
+1. Fare clic su **Esegui test** di diagnostica e attendere che vengano restituiti i risultati del controllo della connettività. Verificare che lo stato sia **Operazione riuscita**. Esaminare il percorso di rete e notare che il traffico è stato instradato tramite **10.60.0.4**, assegnato alla scheda di rete **az104-06-nic0**. Se lo stato è **Fail**, è necessario arrestare e quindi avviare az104-06-vm0.
 
     > **Nota:** questo comportamento è previsto perché il traffico tra reti virtuali spoke viene ora instradato tramite la macchina virtuale che si trova nella rete virtuale hub, che funziona come router.
 
@@ -413,40 +413,40 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg4** (se necessario create) |
+    | Gruppo di risorse | **az104-06-rg4** (se necessario create) |
     | Nome | **az104-06-lb4** |
-    | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
+    | Area | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | SKU  | **Standard** |
     | Tipo | **Pubblica** |
     | Livello | **Regional** |
     
-1. Nella scheda **Configurazione IP front-end** fare clic su **Aggiungi una configurazione IP front-end** e usare le impostazioni seguenti:  
+1. Nella **scheda Configurazione** IP front-end fare clic su **Aggiungi una configurazione** IP front-end e usare le impostazioni seguenti:  
      
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-06-fe4** |
-    | Tipo di indirizzo IP | Indirizzo IP |
+    | Tipo di IP | Indirizzo IP |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** |
-    | Load Balancer gateway | Nessuno |
+    | Load Balancer Gateway | None |
     
-1. Nel popup **Aggiungi un indirizzo IP pubblico** usare le impostazioni seguenti prima di fare clic su **OK** e quindi **su Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
+1. **Nella finestra popup Aggiungi un indirizzo** IP pubblico usare le impostazioni seguenti prima di fare clic su **OK** e quindi su **Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**. 
      
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-06-pip4** |
     | SKU | Standard |
-    | Livello | A livello di area |
+    | Livello | Regional |
     | Assegnazione | Statico |
     | Preferenza di routing | **Rete Microsoft** |
 
 1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte) e quindi su **Avanti: Regole in ingresso**. 
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-06-lb4-be1** |
     | Rete virtuale | **az104-06-vnet01** |
     | Configurazione pool back-end | **NIC** | 
-    | Versione indirizzo IP | **IPv4** |
+    | Versione IP | **IPv4** |
     | Fare clic su **Aggiungi** per aggiungere una macchina virtuale |  |
     | az104-06-vm0 | **Selezionare la casella** |
     | az104-06-vm1 | **Selezionare la casella** |
@@ -454,19 +454,19 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Nella scheda **Regole in ingresso** fare clic su **Aggiungi una regola di bilanciamento del carico**. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-06-lb4-lbrule1** |
-    | Versione indirizzo IP | **IPv4** |
+    | Versione IP | **IPv4** |
     | Indirizzo IP front-end | **az104-06-fe4** |
     | Pool back-end | **az104-06-lb4-be1** |    
     | Protocollo | **TCP** |
-    | Porta | **80** |
+    | Port | **80** |
     | Porta back-end | **80** |
-    | Probe di integrità | **Crea nuovo** |
+    | Probe di integrità | **  Crea nuovo** |
     | Nome | **az104-06-lb4-hp1** |
     | Protocollo | **TCP** |
-    | Porta | **80** |
+    | Port | **80** |
     | Intervallo | **5** |
     | Chiudere la finestra di creazione di un probe di integrità | **OK** | 
     | Persistenza della sessione | **Nessuno** |
@@ -479,7 +479,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 1. Attendere che il servizio di bilanciamento del carico venga distribuito e quindi fare clic su **Vai alla risorsa**.  
 
-1. Selezionare **Configurazione IP front-end** nella pagina della risorsa Load Balancer. Copiare l'indirizzo IP,
+1. Selezionare **Configurazione IP front-end** nella pagina della risorsa Load Balancer. Copiare l'Indirizzo IP.
 
 1. Aprire un'altra scheda del browser e passare all'indirizzo IP. Verificare che nella finestra del browser sia visualizzato il messaggio **Hello World from az104-06-vm0** o **Hello World from az104-06-vm1**.
 
@@ -499,12 +499,12 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Aggiungere una subnet con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **subnet-appgw** |
     | Intervallo di indirizzi subnet | **10.60.3.224/27** |
 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**
 
     > **Nota**: questa subnet verrà usata dalle istanze del gateway applicazione di Azure, che verranno distribuite più avanti in questa attività. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
 
@@ -515,9 +515,9 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Resource group | **az104-06-rg5** (Crea nuovo) |
+    | Gruppo di risorse | **az104-06-rg5** (Crea nuovo) |
     | Nome del gateway applicazione | **az104-06-appgw5** |
-    | Region | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
+    | Area | Nome dell'area di Azure in cui sono state distribuite tutte le altre risorse in questo lab |
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
     | Numero di istanze | **2** |
@@ -526,7 +526,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Rete virtuale | **az104-06-vnet01** |
     | Subnet | **subnet-appgw (10.60.3.224/27)** |
 
-1. Fare clic su **Avanti: Front-end >** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **OK**. 
+1. Fare clic su **Avanti: Front-end >** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine fare clic su **OK**. 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -537,16 +537,16 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Avanti: Back-end >** e quindi su **Aggiungi un pool back-end**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-06-appgw5-be1** |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
-    | indirizzo IP o FQDN | **10.62.0.4** | 
-    | indirizzo IP o FQDN | **10.63.0.4** |
+    | Indirizzo IP o FQDN | **10.62.0.4** | 
+    | Indirizzo IP o FQDN | **10.63.0.4** |
 
     > **Nota**: le destinazioni rappresentano gli indirizzi IP privati delle macchine virtuali nelle reti virtuali spoke **az104-06-vm2** e **az104-06-vm3**.
 
-1. Fare clic su **Avanti: Configurazione >** e quindi su **+ Aggiungi una regola di routing**. Specificare le seguenti impostazioni:
+1. Fare clic su **Avanti: Configurazione >** e quindi su **+ Aggiungi una regola di routing**. Specificare le impostazioni seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -556,7 +556,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | IP front-end | **Pubblica** |
     | Protocollo | **HTTP** |
     | Porta | **80** |
-    | Tipo di listener | **Base** |
+    | Tipo di listener | **Basic** |
     | URL pagina di errore | **No** |
 
 1. Passare alla scheda **Destinazioni back-end** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi** (due volte).  
@@ -570,9 +570,9 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Protocollo back-end | **HTTP** |
     | Porta back-end | **80** |
     | Impostazioni aggiuntive | **Accettare i valori predefiniti** |
-    | Nome host | **Accettare i valori predefiniti** |
+    | Host name | **Accettare i valori predefiniti** |
 
-1. Fare clic su **Avanti: Tag >** seguito da **Avanti: Revisione e creazione >** , quindi fare clic su **Crea**.
+1. Fare clic su **Avanti: Tag >** seguito da **Avanti: Revisione e creazione >**, quindi fare clic su **Crea**.
 
     > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione potrebbe richiedere circa 8 minuti.
 
@@ -612,7 +612,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Verifica
+## Rivedi
 
 In questo lab sono state eseguite le attività seguenti:
 

@@ -1,6 +1,6 @@
 ---
 demo:
-  title: 'Dimostrazione 11: Amministrare il monitoraggio'
+  title: 'Dimostrazione 11: monitoraggio Amministrazione ister'
   module: Administer Monitoring
 ---
 
@@ -18,7 +18,7 @@ In questa dimostrazione verrà creata una regola di avviso.
 
 1. Cercare e selezionare **Monitoraggio** e quindi **Avvisi**.
 
-1. Selezionare un ambito per la regola di avviso. Informazioni su come è possibile filtrare in base alla sottoscrizione, al tipo di risorsa o alla posizione della risorsa.
+1. Selezionare un ambito per la regola di avviso. Informazioni su come filtrare in base a sottoscrizione, tipo di risorsa o percorso della risorsa.
 
 1. Impostare le condizioni per la regola di avviso. Illustrare in che modo i segnali definiscono ciò che si vuole misurare. 
 
@@ -26,7 +26,7 @@ In questa dimostrazione verrà creata una regola di avviso.
 
 1. Impostare i dettagli per la regola di avviso. Esaminare i dettagli comuni, ad esempio la gravità. 
 
-1. Completare la configurazione dell'avviso ed esaminare eventuali avvisi attivati. 
+1. Completare la configurazione dell'avviso ed esaminare gli avvisi attivati. 
 
 ## Configurare Log Analytics
 
@@ -40,13 +40,13 @@ In questa dimostrazione verrà utilizzato il linguaggio di query di Log Analytic
 
 1. Selezionare un ambito e **applicare** le modifiche. 
 
-1. Esaminare la modalità di organizzazione delle informazioni di log nelle tabelle. Esplorare diverse tabelle.
+1. Esaminare la modalità di organizzazione delle informazioni sui log nelle tabelle. Esplorare diverse tabelle.
 
-1. Passare alla scheda **Query** . Selezionare una query e **caricarla nell'editor**. Informazioni sul numero di query comuni già create.
+1. Passare alla **scheda query** . Selezionare una query e **caricarla nell'editor**. Informazioni sul numero di query comuni già create.
 
 1. Esaminare brevemente la sintassi KQL. 
 
-1. Quando si ha tempo, sperimentare con **Preferiti** e **Query salvate**.
+1. Quando si ha tempo, sperimentare con **** Preferiti e **Query** salvate.
 
 
 
