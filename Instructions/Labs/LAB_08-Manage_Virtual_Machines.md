@@ -48,18 +48,18 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure che verrà usata nel lab |
+    | Abbonamento | Nome della sottoscrizione di Azure che verrà usata nel lab |
     | Gruppo di risorse | Il nome di un nuovo gruppo di risorse **az104-08-rg01** |
     | Virtual machine name | **az104-08-vm0** |
-    | Area | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning delle macchine virtuali di Azure |
+    | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning delle macchine virtuali di Azure |
     | Opzioni di disponibilità | **Zona di disponibilità** |
     | Zona di disponibilità | **Zona 1** |
-    | Immagine | **Windows Server 2019 Datacenter - Gen1/Gen2** |
+    | Immagine | **Windows Server 2019 Datacenter - Gen2** |
     | Istanza Spot di Azure | **No** |
     | Dimensione | **Standard D2s v3** |
     | Username | **Studente** |
-    | Password | **Specificare una password sicura** |
-    | Porte in ingresso pubbliche | **Nessuno** |
+    | Password | **Specificare una password sicura, almeno 12 caratteri** |
+    | Porte in ingresso pubbliche | **Nessuna** |
     | Usare una licenza esistente di Windows Server? | **Non selezionato** |
 
 1. Fare clic su **Avanti: Dischi** e quindi nella scheda **Dischi** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
@@ -75,31 +75,31 @@ In questa attività si distribuiranno macchine virtuali di Azure in diverse zone
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | **az104-08-vnet01** |
+    | Name | **az104-08-vnet01** |
     | Intervallo di indirizzi | **10.80.0.0/20** |
     | Nome subnet | **subnet0** |
     | Intervallo di subnet | **10.80.0.0/24** |
 
 1. Fare clic su **OK** e quindi di nuovo nella scheda **Rete** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subnet | **subnet0** |
     | IP pubblico | **default** |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | **basic** |
-    | Porte in ingresso pubbliche | **Nessuno** |
+    | Porte in ingresso pubbliche | **Nessuna** |
     | Rete accelerata | **Disattivato**
-    | Associare questa macchina virtuale a una soluzione di bilanciamento del carico esistente? | **Non selezionato** |
+    | Opzioni di bilanciamento del carico | **Nessuna** |
 
 1. Selezionare **Avanti: Gestione >** e quindi nella scheda **Gestione** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Opzioni di orchestrazione patch | **Aggiornamenti manuali** |  
 
 1. Selezionare **Avanti: Monitoraggio>** e nella scheda **Monitoraggio** del pannello **Crea macchina virtuale** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Diagnostica di avvio | **Abilita con account di archiviazione personalizzato** |
     | Account di archiviazione di diagnostica | **accettare il valore predefinito** |
@@ -148,7 +148,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | **scripts** |
+    | Name | **scripts** |
     | Livello di accesso pubblico | **Privato (nessun accesso anonimo)** |
 
 1. Tornare nel pannello dell'account di archiviazione che visualizza l'elenco di contenitori e fare clic su **scripts**.
@@ -237,9 +237,9 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
 1. Nel pannello della macchina virtuale **az104-08-vm0** fare clic su **Dischi**, quindi in **Dischi dati ** fare clic su **+ Crea e collegare un nuovo disco**.
 
-1. Creare un disco gestito con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Creare un disco gestito con le impostazioni seguenti (lasciare altri con i valori predefiniti) e fare clic su **Applica**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Disk name | **az104-08-vm0-datadisk-0** |
     | Tipo di archiviazione | **SSD Premium** |
@@ -247,15 +247,14 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
 1. Tornare nel pannello **az104-08-vm0 - Dischi** e fare clic su **+ Crea e collega un nuovo disco** in **Dischi dati **.
 
-1. Creare un disco gestito con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni) e salvare le modifiche:
+1. Creare un disco gestito con le impostazioni seguenti (lasciare altri con i valori predefiniti) e fare clic su **Applica**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Disk name | **az104-08-vm0-datadisk-1** |
     | Tipo di archiviazione | **SSD Premium** |
     | Dimensioni (GB)| **1024 GiB** |
 
-1. Tornare nel pannello **az104-08-vm0 - Dischi** e fare clic su **Salva**.
 
 1. Nel pannello **az104-08-vm0** fare clic su **Esegui comando** nella sezione **Operazioni** e nell'elenco dei comandi fare clic su **RunPowerShellScript**.
 
@@ -292,7 +291,7 @@ In questa attività la risorsa di calcolo per le macchine virtuali di Azure verr
 
     >**Nota**: questa sezione del modello definisce le stesse dimensioni della macchina virtuale di Azure specificate per la prima macchina virtuale tramite il portale di Azure.
 
-1. **Nel pannello Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **51** (`"dataDisks": [ ],`) con il codice seguente:
+1. **Nel pannello Modifica modello**, nella sezione che visualizza il contenuto del modello, sostituire la riga **54** (`"dataDisks": [ ],`) con il codice seguente:
 
    ```json
                     "dataDisks": [
@@ -364,10 +363,10 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | Il nome di un nuovo gruppo di risorse **az104-08-rg02** |
     | Nome del set di scalabilità di macchine virtuali | **az10408vmss0** |
-    | Area | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning di macchine virtuali di Azure diversa da quella usata in precedenza per distribuire le macchine virtuali in questo lab |
+    | Region | Selezionare una delle aree che supportano le zone di disponibilità e in cui è possibile effettuare il provisioning di macchine virtuali di Azure diversa da quella usata in precedenza per distribuire le macchine virtuali in questo lab |
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Modalità di orchestrazione | **Uniforme** |
     | Immagine | **Windows Server 2019 Datacenter - Gen2** |
@@ -385,7 +384,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | **az104-08-rg02-vnet** |
+    | Name | **az104-08-rg02-vnet** |
     | Intervallo di indirizzi | **10.82.0.0/20** |
     | Nome subnet | **subnet0** |
     | Intervallo di subnet | **10.82.0.0/24** |
@@ -400,7 +399,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | **az10408vmss0-nsg** |
+    | Name | **az10408vmss0-nsg** |
 
 1. Fare clic su **Aggiungi una regola in ingresso** e aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -413,7 +412,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
     | Protocollo | **TCP** |
     | Azione | **Consenti** |
     | Priorità | **1010** |
-    | Nome | **custom-allow-http** |
+    | Name | **custom-allow-http** |
 
 1. Fare clic su **Aggiungi** e quindi, di nuovo nel pannello **Crea gruppo di sicurezza di rete**, fare clic su **OK**.
 
@@ -421,27 +420,27 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Tornare alla **scheda Rete** del **pannello Crea un set** di scalabilità di macchine virtuali, nella **sezione Bilanciamento** del carico specificare quanto segue (lasciare altri valori predefiniti).
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Opzioni di bilanciamento del carico | **Azure Load Balancer** |
     | Selezionare un servizio di bilanciamento del carico | **Creare un servizio di bilanciamento del carico** |
     
 1.  Nella pagina Crea un servizio di bilanciamento** del **carico specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su Crea** e quindi **su **Avanti : Ridimensionamento >**.
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome del servizio di bilanciamento del carico | **az10408vmss0-lb** |
 
 1. Nella scheda **Dimensionamento** del pannello **Crea un set di scalabilità di macchine virtuali** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni) e fare clic su **Avanti: Gestione >**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Numero di istanze iniziale | **2** |
     | Criteri di ridimensionamento | **Manuale** |
 
 1. Nella scheda **Gestione** del pannello **Crea un set di scalabilità di macchine virtuali** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Diagnostica di avvio | **Abilita con account di archiviazione personalizzato** |
     | Account di archiviazione di diagnostica | Accettare il valore predefinito |
@@ -454,7 +453,7 @@ In questa attività si distribuirà il set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Avanzate** del pannello **Crea un set di scalabilità di macchine virtuali** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni) e fare clic su **Rivedi e crea**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Algoritmo di distribuzione | **Distribuzione fissa (non consigliata con le zone)** |
 
@@ -476,7 +475,7 @@ In questa attività si installerà il ruolo server Web di Windows Server nelle d
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | **scripts** |
+    | Name | **scripts** |
     | Livello di accesso pubblico | **Privato (nessun accesso anonimo)** |
 
 1. Tornare nel pannello dell'account di archiviazione che visualizza l'elenco di contenitori e fare clic su **scripts**.
@@ -525,22 +524,22 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Nel pannello **az10408vmss0 - Dimensionamento** selezionare l'opzione **Scalabilità automatica personalizzata** e configurare la scalabilità automatica con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Modalità di ridimensionamento | **Ridimensiona in base a una metrica** |
 
 1. Fare clic sul collegamento **+ Aggiungi una regola** e quindi, nel pannello **Regola scalabilità**, specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Origine della metrica | **Risorsa corrente (az10480vmss0)** |
-    | Aggregazione temporale | **Media** |
     | Spazio dei nomi delle metriche | **Host macchina virtuale** |
     | Nome metrica | **Rete in totale** |
     | Operatore | **Maggiore di** |
     | Soglia della metrica per l'attivazione dell'azione di dimensionamento | **10** |
     | Durata (in minuti) | **1** |
     | Statistica intervallo di tempo | **Media** |
+    | Aggregazione temporale | **Media** |
     | Operazione | **Aumenta numero di** |
     | Numero di istanze | **1** |
     | Disattiva regole dopo (minuti) | **5** |
@@ -549,7 +548,7 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Fare clic su **Aggiungi** e di nuovo nel pannello **az10408vmss0 - Dimensionamento** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Limiti per le istanze Minimo | **1** |
     | Limiti per le istanze Massimo | **3** |
@@ -587,13 +586,15 @@ In questa attività verranno cambiate le dimensioni delle istanze del set di sca
 
 1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Dischi**, fare clic su **+ Crea e collega un nuovo disco** e collegare un nuovo disco gestito con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | LUN | **0** |
     | Tipo di archiviazione | **Unità disco rigido Standard** |
     | Dimensioni (GB) | **32** |
 
-1. Salvare le modifiche, nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Istanze**, selezionare le caselle di controllo accanto alle due istanze del set di scalabilità di macchine virtuali, fare clic su **Aggiorna** e quindi, quando viene richiesta la conferma, fare clic su **Sì**.
+1. Applicare la modifica
+
+1. Nella sezione **Impostazioni** del pannello **az10408vmss0** fare clic su **Istanze**, selezionare le caselle di controllo accanto alle istanze del set di scalabilità di macchine virtuali, fare clic su **Aggiorna** e quindi, quando viene richiesta la conferma, fare clic su **Sì**.
 
     >**Nota**: il disco collegato nel passaggio precedente è un disco non formattato. Prima di poterlo usare, è necessario creare una partizione, creare un file system e montarlo. A tale scopo, si userà l'estensione per script personalizzati di macchine virtuali di Azure. Prima di tutto, è necessario rimuovere l'estensione per script personalizzati esistente.
 
