@@ -97,10 +97,10 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | nome di un nuovo gruppo di risorse **az104-11-rg1** |
     | Area di lavoro Log Analytics | qualsiasi nome univoco |
-    | Area | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
+    | Region | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
 
     >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
 
@@ -110,12 +110,12 @@ In questa attività verranno create e configurate un'area di lavoro Azure Log An
 
 1. Nel pannello **Creare un account di Automazione** specificare le impostazioni seguenti, quindi fare clic su **Verifica e crea** e al momento della convalida fare clic su **Crea**:
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- |
     | Nome dell'account di Automazione | qualsiasi nome univoco |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-11-rg1** |
-    | Area | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
+    | Region | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
 
     >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
 
@@ -173,7 +173,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Log** e quindi su **Abilita**.
 
-1. **Nel pannello az104-11-vm0 - Log** verificare che **sia selezionato l'agente di Monitoraggio di Azure (scelta consigliata)** e quindi fare clic su **Configura**.  
+1. Nel pannello az104-11-vm0 - Log** prendere nota che **l'agente** **di Monitoraggio di Azure verrà installato e quindi fare clic su **Configura**.  
 
     >**Nota**: non attendere il completamento dell'operazione, ma procedere con il passaggio successivo. L'operazione potrebbe richiedere circa 5 minuti.
 
@@ -209,7 +209,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nel pannello **Configura logica dei segnali**, nell'elenco dei segnali, nella sezione **Logica avvisi** specificare le impostazioni seguenti (lasciare gli altri valori predefiniti) e fare clic su **Fine**:
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- |
     | Threshold | **Statico** |
     | Tipo di aggregazione | **Media** |
@@ -224,10 +224,10 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | **az104-11-rg1** |
     | Nome gruppo di azioni | **az104-11-ag1** |
-    | Nome visualizzato | **az104-11-ag1** |
+    | Display name | **az104-11-ag1** |
 
 1. Nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Posta elettronica/SMS/Push/Voce** nell'elenco a discesa **Tipo di notifica**. Nella casella di testo **Nome** digitare **admin email**. Fare clic sul pulsante **Modifica dettagli** (icona a forma di matita).
 
@@ -239,7 +239,7 @@ In questa attività si configureranno le impostazioni di diagnostica delle macch
 
 1. Nel pannello **Crea regola di avviso** fare clic su **Avanti: Dettagli > ** e nella sezione **Dettagli regola di avviso** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- |
     | Nome regola di avviso | **Percentuale CPU superiore alla soglia di test** |
     | Descrizione della regola di avviso | **Percentuale CPU superiore alla soglia di test** |

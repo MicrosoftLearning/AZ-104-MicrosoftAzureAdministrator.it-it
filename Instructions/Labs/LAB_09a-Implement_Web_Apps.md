@@ -46,13 +46,13 @@ In questa attività verrà creata un'app Web di Azure.
 
     | Impostazione | Valore |
     | --- | ---|
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
     | Stack di runtime | **PHP 8.2** |
     | Sistema operativo | **Linux** |
-    | Area | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
+    | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
     | Piani dei prezzi | Accettare la configurazione predefinita |
 
 1. Fare clic su **Rivedi e crea**. Nella scheda **Rivedi e crea** del pannello **Crea app Web** assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
@@ -75,7 +75,7 @@ In questa attività verrà creato uno slot di distribuzione di staging.
 
     | Impostazione | valore |
     | --- | ---|
-    | Nome | **staging** |
+    | Name | **staging** |
     | Clona le impostazioni da | **Non clonare le impostazioni**|
 
 1. Tornare al pannello **Slot di distribuzione** dell'app Web e fare clic sulla voce che rappresenta lo slot di staging appena creato.
@@ -181,7 +181,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Nel pannello **Regola scalabilità** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Origine della metrica | **Risorsa corrente** |
     | Spazio dei nomi delle metriche | **metriche standard** |
@@ -199,7 +199,7 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
 
 1. Fare clic su **Aggiungi** e di nuovo nel pannello di dimensionamento del piano di servizio app specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Limiti per le istanze Minimo | **1** |
     | Limiti per le istanze Massimo | **2** |
@@ -228,8 +228,6 @@ In questa attività verrà configurata l'app di Azure e ne verrà testata la sca
    ```
 
 1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)**.
-
-1. Selezionare **Scalabilità** automatica Impostazioni, selezionare la **scheda Cronologia di esecuzione**. In **Mostra i dati per l'ultima** ora selezionare **1 ora** e controllare il **numero** di istanze delle risorse osservate.
 
 1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
 

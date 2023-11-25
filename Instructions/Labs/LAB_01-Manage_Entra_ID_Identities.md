@@ -54,10 +54,10 @@ In questa attività verranno creati e configurati gli utenti.
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser1** |
-    | Nome visualizzato | **az104-01a-aaduser1** |
+    | Display name | **az104-01a-aaduser1** |
     | Genera automaticamente la password | de-select |
     | Password iniziale | **Specificare una password sicura** |
     | Titolo processo (scheda Proprietà) | **Amministratore cloud** |
@@ -88,10 +88,10 @@ In questa attività verranno creati e configurati gli utenti.
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome dell'entità utente | **az104-01a-aaduser2** |
-    | Nome visualizzato | **az104-01a-aaduser2** |
+    | Display name | **az104-01a-aaduser2** |
     | Genera automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore di sistema** |
@@ -139,7 +139,7 @@ In questa attività verranno creati gruppi con appartenenza assegnata e dinamica
     | --- | --- |
     | Proprietà | **jobTitle** |
     | Operatore | **Equals** |
-    | Valore | **Amministratore cloud** |
+    | valore | **Amministratore cloud** |
 
 1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
 
@@ -160,7 +160,7 @@ In questa attività verranno creati gruppi con appartenenza assegnata e dinamica
     | --- | --- |
     | Proprietà | **jobTitle** |
     | Operatore | **Equals** |
-    | Valore | **Amministratore di sistema** |
+    | valore | **Amministratore di sistema** |
 
 1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
 
@@ -183,13 +183,13 @@ In questa attività verranno creati gruppi con appartenenza assegnata e dinamica
 
 1. Tornare nel pannello **Gruppi - Tutti i gruppi**, fare clic sulla voce che rappresenta il gruppo **IT System Administrators** e quindi visualizzare il relativo pannello **Membri**. Verificare che **az104-01a-aaduser2** sia visualizzato nell'elenco dei membri del gruppo.
 
-## Attività 3: Creare un tenant (facoltativo - Problema dell'ambiente lab)
+## Attività 3: Creare un tenant (facoltativo - Possibili problemi di captcha, sottoscrizione a pagamento necessaria)
 
 In questa attività verrà creato un nuovo tenant.
     
 1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
 
-    >**Nota**: si è verificato un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:<br>
+    >**Nota**: si è verificato un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:
     - Provare a creare alcune volte.<br>
     - Controllare la **sezione Gestisci tenant** per assicurarsi che il tenant non sia stato creato in background. <br>
     - Aprire una nuova **finestra InPrivate** e usare il portale di Azure e provare a creare il tenant da questa posizione.<br>
@@ -198,7 +198,7 @@ In questa attività verrà creato un nuovo tenant.
 
 1. Fare clic su **Gestisci i tenant**, quindi nella schermata successiva fare clic su **+ Crea** e specificare l'impostazione seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Tipo di directory | **Microsoft Entra ID** |
     
@@ -224,10 +224,10 @@ In questa attività si creeranno utenti guest e si concederà loro l'accesso all
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome dell'entità utente | **az104-01b-aaduser1** |
-    | Nome visualizzato | **az104-01b-aaduser1** |
+    | Display name | **az104-01b-aaduser1** |
     | Genera automaticamente la password | de-select  |
     | Password iniziale | **Specificare una password sicura** |
     | Posizione | **Amministratore di sistema** |
@@ -237,13 +237,16 @@ In questa attività si creeranno utenti guest e si concederà loro l'accesso all
 
     >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
 
-1. Tornare al primo tenant creato in precedenza. A tale scopo, usare il **pulsante Directory e sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
+1. Tornare al primo tenant creato in precedenza.
+2. Nel riquadro di spostamento selezionare **Panoramica**.
+3. Fare clic su **Gestisci tenant**.
+4. Selezionare la casella accanto al primo tenant creato in precedenza, quindi selezionare **Cambia**.
 
 1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
 
 1. Invitare un nuovo utente guest con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | E-mail | Il nome dell'entità utente copiato in precedenza in questa attività |
     | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
