@@ -27,7 +27,7 @@ In questo lab si eseguiranno le attività seguenti:
 + Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
 + Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
-## Tempo stimato: 30 minuti
+## Tempo stimato: 60 minuti
 
 ## Diagramma dell'architettura
 
@@ -101,7 +101,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | --- | --- |
     | Nome dell'assegnazione | **Require Role tag with Infra value**|
     | Descrizione | **Require Role tag with Infra value for all resources in the Cloud Shell resource group**|
-    | Applicazione dei criteri | Attivato |
+    | Applicazione dei criteri | Attivata |
 
     >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
 
@@ -165,7 +165,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | --- | --- |
     | Nome dell'assegnazione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
     | Descrizione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
-    | Applicazione dei criteri | Attivato |
+    | Applicazione dei criteri | Attivata |
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
@@ -218,7 +218,7 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
 
 1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
 
-## Rivedi
+## Revisione
 
 In questo lab sono state eseguite le attività seguenti:
 
