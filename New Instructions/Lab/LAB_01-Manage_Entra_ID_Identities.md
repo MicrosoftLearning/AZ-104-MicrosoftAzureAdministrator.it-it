@@ -8,7 +8,9 @@ lab:
 
 ## Introduzione al lab
 
-Si tratta della prima di una serie di lab per Azure Amministrazione istrators. In questo lab vengono fornite informazioni su utenti e gruppi. Gli utenti e i gruppi sono i blocchi predefiniti di base per una soluzione di gestione delle identità. Si ha anche familiarità con gli strumenti di amministrazione di base. Questi strumenti includono il portale di Azure, Cloud Shell, Azure PowerShell e l'interfaccia della riga di comando. Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono visualizzati negli Stati Uniti orientali.
+Si tratta della prima di una serie di lab per Azure Amministrazione istrators. In questo lab vengono fornite informazioni su utenti e gruppi. Gli utenti e i gruppi sono i blocchi predefiniti di base per una soluzione di gestione delle identità. Si ha anche familiarità con gli strumenti di amministrazione di base. 
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono visualizzati negli Stati Uniti orientali.
 
 ## Tempo stimato: 40 minuti
 
@@ -27,37 +29,24 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 
 ## Attività
 
-+ Attività 1: acquisire familiarità con il portale di Azure.
-+ Attività 2: Creare un gruppo di risorse.
-+ Attività 3: acquisire familiarità con gli account utente.
-+ Attività 4: Creare gruppi e aggiungere membri.
-+ Attività 5: acquisire familiarità con Cloud Shell.
-+ Attività 6: Praticare con Azure PowerShell.
-+ Attività 7: Esercitarsi con la shell Bash.
++ Attività 1: Creare un gruppo di risorse.
++ Attività 2: Creare e configurare gli account utente.
++ Attività 3: Creare gruppi e aggiungere membri.
++ Attività 4: acquisire familiarità con Cloud Shell.
++ Attività 5: Esercitarsi con Azure PowerShell.
++ Attività 6: Esercitarsi con la shell Bash.
 
-## Attività 1: Acquisire familiarità con il portale di Azure
+## Attività 1: Creare un gruppo di risorse
 
-In questa attività si acquisisce familiarità con il portale di Azure. Il portale di Azure è una console unificata basata sul Web che offre un'alternativa agli strumenti da riga di comando. Con il portale di Azure è possibile gestire la sottoscrizione di Azure usando un'interfaccia utente grafica. È possibile compilare, gestire e monitorare tutto, dalle semplici app Web alle distribuzioni cloud complesse nel portale. 
+In questa attività si crea un gruppo di risorse. Un gruppo di risorse è un raggruppamento di risorse correlate. Ad esempio, tutte le risorse per un progetto, un reparto o un'applicazione. 
+
+>**Nota:** per ogni lab di questo corso si creerà un nuovo gruppo di risorse. In questo modo è possibile individuare e gestire rapidamente le risorse del lab. 
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Per iniziare il tour della portale di Azure, selezionare l'icona del menu in alto a sinistra. 
-
-   + Selezionare Home** per visualizzare **i servizi e le risorse recenti. È anche possibile creare preferiti. 
-   + Selezionare **Dashboard** per una visualizzazione personalizzata. [I](https://learn.microsoft.com/zure/azure-portal/azure-portal-dashboards) dashboard sono una visualizzazione mirata e organizzata delle risorse cloud nel portale di Azure. Usare i dashboard come area di lavoro in cui è possibile monitorare le risorse e avviare rapidamente le attività per le operazioni quotidiane.
-   + Selezionare Tutti i servizi** per visualizzare **un elenco categorizzato dei servizi di Azure.
-
-1. È possibile che sia più veloce cercare **risorse, servizi e documenti** usando la casella di ricerca nel centro superiore del portale. La casella di ricerca fornisce il completamento automatico e i suggerimenti per servizi o risorse. Ad esempio, provare `virt` a notare le corrispondenze suggerite.
-
-1. Sul lato destro della barra dei menu superiore selezionare l'icona **Impostazioni**. Impostazioni consente di personalizzare l'aspetto del portale.
-
-1. Infine, nell'angolo in alto a destra sono le informazioni sull'account utente.
+    >**Nota:** il portale di Azure viene usato in tutti i lab. Se non si ha una versione di Azure, digitare `Quickstart Center` nella casella di ricerca superiore. Poi qualche minuto per guardare il **video Introduttivo nel video portale di Azure**. Anche se in precedenza è stato usato il portale, sono disponibili alcuni suggerimenti e trucchi per spostarsi e personalizzare l'interafacea. 
    
-## Attività 2: Creare un nuovo gruppo di risorse
-
-In questa attività si crea un nuovo gruppo di risorse. Un gruppo di risorse è un raggruppamento di risorse correlate, ad esempio tutte le risorse per un progetto, un reparto o un'applicazione. Per ogni lab di questo corso si crea un gruppo di risorse. 
-    
-1. Accedere al portale di Azure e selezionare **Gruppi di risorse**.
+1. Nella portale di Azure cercare e selezionare `Resource groups`.
    
 1. Nel pannello **Gruppi** di risorse fare clic su **+ Crea** e specificare le informazioni necessarie. 
 
@@ -65,33 +54,43 @@ In questa attività si crea un nuovo gruppo di risorse. Un gruppo di risorse è 
     | --- | --- |
     | Nome della sottoscrizione | sottoscrizione in uso |
     | Nome gruppo di risorse | `az104-rg1` |
-    | Ufficio | l'area geografica |
+    | Ufficio | **Stati Uniti orientali** |
+
+    >**Nota:** tutti i lab usano **Stati Uniti** orientali. Guardare il video Selezionare l'area **migliore** nel **Centro** avvio rapido per informazioni su cosa prendere in considerazione quando si seleziona un'area.  
     
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
     >**Nota**: attendere che il gruppo di risorse venga distribuito. Usare l'icona **notifica** (in alto a destra) per tenere traccia dello stato di avanzamento della distribuzione.
 
-1. Tornare al pannello **Gruppi di risorse**, aggiornare la pagina e verificare che il nuovo gruppo di risorse venga visualizzato nell'elenco dei gruppi di risorse.
+1. Selezionare Vai alla risorsa **, aggiornare **la pagina e verificare che il nuovo gruppo di risorse venga visualizzato nell'elenco dei gruppi di risorse.
 
     ![Screenshot dell'elenco di gruppi di risorse.](../media/az104-lab01-create-resource-group.png)
 
-## Attività 3: acquisire familiarità con gli account utente.
+## Attività 2: Creare e configurare gli account utente
 
-In questa attività si acquisisce familiarità con gli account utente e i profili. È anche possibile visualizzare le appartenenze ai gruppi.
+In questa attività verranno creati e configurati gli account utente. Gli account utente archivieranno i dati utente, ad esempio nome, reparto, posizione e informazioni di contatto.
 
-1. Nella portale di Azure cercare e selezionare `Microsoft Entra ID`.
+1. Continuare nella portale di Azure. 
 
-1. **Nella sezione Gestisci** selezionare il pannello **Utenti**. 
+1. Cercare e selezionare `Microsoft Entra ID`.
 
-1. Selezionare **Nuovo utente** dal menu in alto. Si notino le selezioni per **Crea nuovo utente e **Invita utente**** esterno. La creazione di utenti non rientra nell'ambito di questo lab. 
+1. Nel pannello Microsoft Entra ID scorrere verso il basso fino alla **sezione Gestisci** , fare clic su **Impostazioni** utente ed esaminare le opzioni di configurazione disponibili.
 
-1. **Cercare** e selezionare l'account utente. Le informazioni sull'account utente vengono visualizzate nell'angolo superiore destro del portale. 
+1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Nuovo utente**.
 
-1. Selezionare la **scheda Proprietà** ed esaminare tutte le informazioni sul profilo che è possibile specificare per un account utente. 
+1. Creare un nuovo utente con le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti). Si notino tutti i diversi tipi di dati che possono essere inclusi nell'account utente. 
 
+    | Impostazione | valore |
+    | --- | --- |
+    | Nome dell'entità utente | `az104-user1` |
+    | Nome visualizzato | `az104-user1` |
+    | Genera automaticamente la password | de-select |
+    | Password iniziale | **Specificare una password sicura** |
+    | Titolo processo (scheda Proprietà) | `Cloud Administrator` |
+    | Reparto (scheda Proprietà) | `IT` |
+    | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
-
-## Attività 4: Creare gruppi e aggiungere membri
+### Attività 4: Creare gruppi e aggiungere membri
 
 In questa attività si crea un gruppo. I gruppi vengono usati per account utente o dispositivi. Alcuni gruppi hanno membri assegnati in modo statico. Alcuni gruppi hanno membri assegnati dinamicamente. I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà degli account utente o dei dispositivi. I gruppi statici richiedono un sovraccarico amministrativo maggiore (gli amministratori devono aggiungere e rimuovere manualmente i membri).
 
