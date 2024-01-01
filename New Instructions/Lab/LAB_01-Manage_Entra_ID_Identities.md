@@ -94,7 +94,7 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
 
 In questa attività si crea un gruppo. I gruppi vengono usati per account utente o dispositivi. Alcuni gruppi hanno membri assegnati in modo statico. Alcuni gruppi hanno membri assegnati dinamicamente. I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà degli account utente o dei dispositivi. I gruppi statici richiedono un sovraccarico amministrativo maggiore (gli amministratori devono aggiungere e rimuovere manualmente i membri).
 
-1. Nella portale di Azure cercare e selezionare **Gruppi**.
+1. Nella portale di Azure cercare e selezionare `Groups`.
 
 1. Si notino le informazioni sul gruppo, ad **esempio Tipo di** appartenenza, **Origine** e **Tipo**. Si noti anche il numero di membri nel gruppo. 
 
@@ -113,7 +113,7 @@ In questa attività si crea un gruppo. I gruppi vengono usati per account utente
 
 1. Fare clic su **Nessun membro selezionato**.
 
-1. Nel pannello **Aggiungi membri** cercare l'account utente. **Selezionare** l'account utente da aggiungere al gruppo. 
+1. Nel pannello **Aggiungi membri** cercare l'account utente. **Selezionare** az104-user1** **e aggiungerli al gruppo. 
 
 1. Fare clic su **Crea** per completare la creazione del gruppo. 
 
