@@ -22,7 +22,7 @@ L'organizzazione sta creando un nuovo ambiente lab per i test di pre-produzione 
 
 Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure. 
 
-+ [Gestisci identità ID](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201) Entra*. Creare e configurare gli utenti e assegnarli ai gruppi. Creare un tenant di Azure e gestire gli account guest. 
++ [Gestisci identità ID](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201) Entra. Creare e configurare gli utenti e assegnarli ai gruppi. Creare un tenant di Azure e gestire gli account guest. 
 
 ## Diagramma dell'architettura
 ![Diagramma dell'architettura lab 01.](../media/az104-lab01-user-and-groups2.png)
@@ -113,7 +113,7 @@ In questa attività si crea un gruppo. I gruppi vengono usati per account utente
 
 1. Fare clic su **Nessun membro selezionato**.
 
-1. Nel pannello **Aggiungi membri** cercare l'account utente. **Selezionare** az104-user1** **e aggiungerli al gruppo. 
+1. Nel pannello **Aggiungi membri** cercare e selezionare **az104-user1** e aggiungerli al gruppo. 
 
 1. Fare clic su **Crea** per completare la creazione del gruppo. 
 
