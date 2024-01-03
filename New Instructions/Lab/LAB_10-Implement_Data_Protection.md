@@ -42,23 +42,27 @@ L'organizzazione sta valutando Servizi di ripristino di Azure per il backup e il
 
 In questa attività si userà un modello per distribuire una macchina virtuale. La macchina virtuale verrà usata per testare diversi scenari di backup.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** nel computer.
+1. Se necessario, scaricare i **\\file lab Allfiles\\\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** lab.
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Nella portale di Azure cercare e selezionare `Deploy a custom template`.
+1. Cercare e selezionare `Deploy a custom template`.
 
 1. Nella pagina di distribuzione personalizzata selezionare **Compila un modello personalizzato nell'editor**.
 
 1. Nella pagina modifica modello selezionare **Carica file**.
 
-1. Individuare e selezionare il **file Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** e selezionare **Apri**.\\
+1. Individuare e selezionare il **\\file Allfiles\\Lab10\\az104-10-vms-edge-template.json** e selezionare **Apri**.
+2. 
+   >**Nota:** esaminare il modello. Quante macchine virtuali e reti virtuali vengono create? 
 
 1. Seleziona **Salva**.
 
 1. Nella pagina di distribuzione personalizzata selezionare **Modifica parametri**.
 
-1. Nella pagina modifica parametri selezionare **Carica file**. Individuare e selezionare il **file Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** e selezionare **Apri**.\\
+1. Nella pagina modifica parametri selezionare **Carica file**. Individuare e selezionare il **\\file Allfiles\Lab10\\az104-10-vms-edge-parameters.json** e selezionare **Apri**.
+   
+   >**Nota: si noti che** è possibile decidere quali parametri l'amministratore può modificare. In questo caso, c'è molta flessibilità per apportare modifiche. 
 
 1. Seleziona **Salva**.
 
@@ -73,6 +77,8 @@ In questa attività si userà un modello per distribuire una macchina virtuale. 
     | Password      | Specificare una password complessa |
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+    >**Nota:** attendere che il modello venga distribuito e quindi selezionare **Vai alla risorsa**. È necessario avere una macchina virtuale in una rete virtuale. 
 
 ## Attività 2: Creare un insieme di credenziali di Servizi di ripristino
 

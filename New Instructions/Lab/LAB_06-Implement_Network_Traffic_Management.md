@@ -8,7 +8,7 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab si apprenderà come configurare e testare un servizio di bilanciamento del carico pubblico. Si apprenderà anche come configurare e testare un gateway applicazione. 
+In questo lab si apprenderà come configurare e testare un servizio di bilanciamento del carico pubblico e un gateway applicazione. 
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
 
@@ -31,7 +31,6 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 + Attività 1: Effettuare il provisioning dell'ambiente lab
 + Attività 2: Implementare Azure Load Balancer
 + Attività 3: Implementare il gateway di app Azure lication
-+ Attività 4: Testare la connettività di rete usando Network Watcher
 
 
 
@@ -39,7 +38,7 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 
 In questa attività si userà un modello per distribuire una rete virtuale, un gruppo di sicurezza di rete e due macchine virtuali insieme alle schede di interfaccia di rete virtuale associate. Le macchine virtuali si troveranno in una rete virtuale hub denominata **az104-vnet1**.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\\\06\\az104-06-vms-loop-template.json** e **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nel computer.
+1. Se necessario, scaricare i **\\file lab Allfiles\\Lab06\\az104-06-vms-loop-template.json** e\\** Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nel computer.
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -49,7 +48,9 @@ In questa attività si userà un modello per distribuire una rete virtuale, un g
 
 1. Nella pagina modifica modello selezionare **Carica file**.
 
-1. Individuare e selezionare il **file Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** e selezionare **Apri**.\\
+1. Individuare e selezionare il **\\file Allfiles\\Lab06\\az104-06-vms-loop-template.json** e selezionare **Apri**.
+
+   >**Nota: si noti che** questo file include i parametri nella parte superiore del file. Pertanto, non è necessario un file di parametri separato. 
 
 1. Seleziona **Salva**.
 
@@ -199,8 +200,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 ## Diagramma dell'architettura - gateway applicazione
 
->**Nota: si noti** che il gateway applicazione distribuisce tra due macchine virtuali nelle due diverse reti virtuali. 
-
+>**Nota**: questa gateway applicazione funziona nella stessa rete virtuale del servizio di bilanciamento del carico nelle attività precedenti. Questo non è tipico in un ambiente di produzione.
 
 ![Diagramma delle attività del lab.](../media/az104-lab06gw-architecture-diagram.png)
 
@@ -219,7 +219,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Fare clic su **Salva**
 
-    > **Nota**: questa subnet verrà usata dalle istanze del gateway applicazione di Azure, che verranno distribuite più avanti in questa attività. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori. Questo passaggio potrebbe essere stato eseguito durante la creazione del gateway applicazione. 
+    > **Nota**: questa subnet verrà usata dalle istanze del gateway di app Azure lication. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori. 
 
 1. Nella portale di Azure cercare e selezionare `Application Gateways` e nel pannello **gateway applicazione s** fare clic su **+ Crea**.
 
@@ -250,22 +250,20 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Nome | `az104-gwpip` |
     | Zona di disponibilità | **Nessuno** |
 
-1. Fare clic su **Avanti: Back-end >** e quindi su **Aggiungi un pool back-end**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
+1. Fare clic su **Avanti: Back-end >** e quindi su **Aggiungi un pool back-end**. Si tratta del pool back-end per **le immagini**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
     | Nome | `az104-appgwbe` |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
-    | Indirizzo IP o FQDN | **10.62.0.4** | 
-    | Indirizzo IP o FQDN | **10.63.0.4** |
-
-    > **Nota**: le destinazioni rappresentano gli indirizzi IP privati delle macchine **virtuali az104-vm0** e **az104-vm1**.
+    | Macchina virtuale | **az104-rg6-nic1 (10.60.1.4)** |
+    | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** | 
 
 1. Fare clic su **Avanti: Configurazione >** e quindi su **+ Aggiungi una regola di routing**. Specificare le impostazioni seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome regola | `az104-rule` |
+    | Nome regola | `az104-gwrule` |
     | Priorità | `10` |
     | Nome listener | `az104-listener` |
     | IP front-end | **Pubblica** |
@@ -275,7 +273,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
     ![Screenshot della pagina crea regola del gateway app.](../media/az104-lab06-appgw-rule.png)
 
-1. Passare alla scheda **Destinazioni back-end** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi** (due volte).  
+1. Passare alla scheda **Destinazioni back-end** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -288,7 +286,31 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazioni aggiuntive | **Accettare i valori predefiniti** |
     | Host name | **Accettare i valori predefiniti** |
 
-1. Fare clic su **Avanti: Tag >** seguito da **Avanti: Revisione e creazione >**, quindi fare clic su **Crea**.
+   >**Nota:** usare le icone informative per altre informazioni sull'affinità **** basata su cookie e **sullo svuotamento** delle Connessione. 
+
+1. Selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole.
+
+**Regola 1 : routing al back-end delle immagini**
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | Percorso | `images/*` |
+    | Nome di destinazione | `images` |
+    | Impostazioni back-end | **appgw-settings** |
+    | Destinazione back-end | `az104-appgw-images` |
+
+**Regola 2 : routing al back-end dei video**
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | Percorso | `video/*` |
+    | Nome di destinazione | `videos` |
+    | Impostazioni back-end | **appgw-settings** |
+    | Destinazione back-end | `az104-appgw-videos` |
+
+1. Selezionare **Aggiungi** due volte e quindi Avanti **: Tag >**.
+
+1. Selezionare **Avanti: Rivedi e crea >** e quindi fare clic su **Crea**.
 
     > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione richiederà circa 5-10 minuti.
 
@@ -296,69 +318,20 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Nel pannello **az104-appgw** gateway applicazione copiare il valore dell'indirizzo **** IP pubblico front-end.
 
-1. Aprire un'altra finestra del browser e passare all'indirizzo IP identificato nel passaggio precedente.
+1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/image/`.
 
-1. Verificare che nella finestra del browser sia visualizzato il messaggio **Hello World da az104-vm0** o **Hello World da az104-vm1**.
+1. Verificare di essere indirizzati al server di immagini (vm1). 
 
-1. Aggiornare la finestra per verificare che il messaggio venga modificato in modo da fare riferimento all'altra macchina virtuale. 
+1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/video/`.
 
-    > **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
+1. Verificare di essere indirizzati al server di immagini (vm2). 
 
-## Attività 4: Testare la connettività di rete usando Network Watcher
+> **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
 
-In questa attività si userà Network Watcher nella portale di Azure per testare la connettività tra macchine virtuali. Network Watcher fornisce la risoluzione dei problemi e informazioni aggiuntive sul *motivo per cui* le connessioni hanno esito negativo. Network Watcher contiene diversi strumenti che consentono di risolvere i problemi delle reti.
+1. Nel gateway applicazione** selezionare **Integrità **** back-end.
 
-### Testare la connessione tra vm0 e vm1 
+1. Verificare che entrambi i server nel pool back-end visualizzino **Integro**. 
 
-1. Nella portale di Azure cercare e selezionare `Network Watcher`.
-
-1. In Network Watcher, nel menu Strumenti di diagnostica di rete selezionare **Connessione risoluzione dei problemi**.
-
-1. Usare le informazioni seguenti per completare i campi nella **pagina di risoluzione dei problemi** di Connessione ion.
-
-    | Campo | Valore | 
-    | --- | --- |
-    | Source type           | **Macchina virtuale**   |
-    | Macchina virtuale       | **vm0**    | 
-    | Tipo destinazione      | **Macchina virtuale**   |
-    | Macchina virtuale       | **vm1**   | 
-    | Versione IP preferita  | **Entrambi**              | 
-    | Protocollo              | **TCP**               |
-    | Porta di destinazione      | `3389`                |  
-    | Porta di origine           | *Blank*         |
-    | Test di diagnostica      | *Defaults*      |
-
-    ![Portale di Azure che mostra le impostazioni di risoluzione dei problemi di Connessione.](../media/az104-lab05-connection-troubleshoot.png)
-
-1. Selezionare **Esegui test** di diagnostica.
-
-    >**Nota**: la restituzione dei risultati può richiedere alcuni minuti. Le selezioni dello schermo verranno disattivate durante la raccolta dei risultati. Si noti che il test** di **Connessione ivity mostra **Reachable**. Ciò ha senso perché le macchine virtuali si trovano nella stessa rete virtuale. 
-
-### Testare la connessione tra vm2 e vm3 
-
-1. FContinue con **Network Watcher**.
-
-1. Selezionare **Connessione risoluzione dei problemi**.
-
-1. Usare le informazioni seguenti per completare i campi nella **pagina di risoluzione dei problemi** di Connessione ion.
-
-    | Campo | Valore | 
-    | --- | --- |
-    | Source type           | **Macchina virtuale**   |
-    | Macchina virtuale       | **vm0**    | 
-    | Tipo destinazione      | **Macchina virtuale**   |
-    | Macchina virtuale       | **vm3**   | 
-    | Versione IP preferita  | **Entrambi**              | 
-    | Protocollo              | **TCP**               |
-    | Porta di destinazione      | `3389`                |  
-    | Porta di origine           | *Blank*         |
-    | Test di diagnostica      | *Defaults*      |
-
-    ![Portale di Azure che mostra le impostazioni di risoluzione dei problemi di Connessione.](../media/az104-lab05-connection-troubleshoot.png)
-
-1. Selezionare **Esegui test** di diagnostica.
-
-    >**Nota: si noti** che il test** di **Connessione ivity mostra **Non raggiungibile**. Ciò ha senso perché le macchine virtuali si trovano in reti virtuali diverse. 
 
 ## Esaminare i punti principali del lab
 

@@ -40,7 +40,7 @@ L'organizzazione ha eseguito la migrazione dell'infrastruttura ad Azure. È impo
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\\\11\\az104-11-vm-template.json** e **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** nel computer.
+1. Se necessario, scaricare i **\\file lab Allfiles\\Lab11\\az104-11-vm-template.json** e\\** Allfiles\\Labs\\11\\az104-11-vm-parameters.json** nel computer.
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -50,13 +50,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Nella pagina modifica modello selezionare **Carica file**.
 
-1. Individuare e selezionare il **file Allfiles\\Labs\\11\\az104-11-vm-template.json** e selezionare **Apri**.\\
-
-1. Seleziona **Salva**.
-
-1. Nella pagina di distribuzione personalizzata selezionare **Modifica parametri**.
-
-1. Nella pagina modifica parametri selezionare **Carica file**. Individuare e selezionare il **file Allfiles\\Labs\\11\\az104-11-vm-parameters.json** e selezionare **Apri**.\\
+1. Individuare e selezionare il **\\file Allfiles\\Labs11\\az104-11-vm-template.json** e selezionare **Apri**.
 
 1. Seleziona **Salva**.
 
@@ -76,39 +70,43 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Esaminare le risorse distribuite, tra cui una macchina virtuale e una rete virtuale.
 
-    >**Nota:** più avanti nel lab verrà usato Monitoraggio di Azure, quindi è necessario un minuto per installare l'agente di macchine virtuali
+**Configurare Monitoraggio di Azure (verrà usato nell'ultima attività)**
 
 1. Nel portale cercare e selezionare **Monitoraggio**.
 
 1. Esaminare tutti gli strumenti analitici, di rilevamento, valutazione e diagnosi disponibili.
 
-1. Selezionare **Visualizzazione** informazioni dettagliate macchina virtuale e quindi selezionare **Configura informazioni dettagliate**.
+1. Selezionare **Visualizza** nella **casella Informazioni dettagliate** macchina virtuale e quindi selezionare **Configura informazioni dettagliate**.
 
 1. Selezionare la macchina virtuale e quindi **Abilitare** (due volte).
 
-1. L'installazione e la configurazione dell'agente richiederanno alcuni minuti, procedere con il passaggio successivo. 
+1. Prendere le impostazioni predefinite per le regole di sottoscrizione e raccolta dati, quindi selezionare **Configura**. 
+
+1. L'installazione e la configurazione dell'agente di macchine virtuali richiederanno alcuni minuti, procedere con il passaggio successivo. 
    
 ## Attività 2: Creare l'avviso del log attività di Azure
+
+In questa attività viene creato un avviso per quando viene eliminata una macchina virtuale. 
 
 1. Nella portale di Azure cercare e selezionare **Monitoraggio**. 
 
 1. Nel menu Monitoraggio selezionare **Avvisi**. 
 
-1. Selezionare Crea e** selezionare ****Regola** di avviso. Verrà visualizzato il riquadro **Crea una regola di avviso** con la sezione **Ambito** aperta e il riquadro **Selezionare una risorsa** aperto a destra.
+1. Selezionare Crea e** selezionare ****Regola** di avviso. 
 
-1. **Nel riquadro Selezionare una risorsa** il **campo Filtra per sottoscrizione** deve essere già popolato. Nell'elenco a discesa **Filtra per tipo di risorsa** cercare e selezionare **Macchine virtuali**.
-
-1. Si vuole ricevere un avviso quando viene eliminata una macchina virtuale nel gruppo di risorse. Selezionare la casella per il **gruppo di risorse az104-rg11** e quindi selezionare **Applica**.
+1. Selezionare la casella per il **gruppo di risorse az104-rg11** e quindi selezionare **Applica**. Questo avviso verrà applicato a tutte le macchine virtuali nel gruppo di risorse. In alternativa, è possibile specificare solo un computer specifico. 
 
 1. Selezionare la **scheda Condizione** e quindi selezionare il **collegamento Visualizza tutti i segnali** .
 
-1. Cercare e selezionare **Elimina macchina virtuale (Macchine virtuali).** Selezionare **Applica**.
+1. Cercare e selezionare **Elimina macchina virtuale (Macchine virtuali).** Si notino gli altri segnali predefiniti. Selezionare **Applica**.
 
-1. Poiché si vogliono ricevere avvisi di tutti i tipi, per tutte le impostazioni di **Logica avvisi** lasciare il valore predefinito **Tutti selezionati**. Lasciare aperto il riquadro **Crea una regola di avviso** per la sezione successiva.
+1. Poiché si vogliono ricevere avvisi di tutti i tipi, per tutte le impostazioni di **Logica avvisi** lasciare il valore predefinito **Tutti selezionati**.
+
+1. Lasciare aperto il riquadro **Crea una regola di avviso** per la sezione successiva.
 
 ## Attività 3: Aggiungere un'azione di avviso di posta elettronica
 
-Per l'avviso di Monitoraggio di Azure precedente non sono state aggiunte azioni. Sono solo stati esaminati gli avvisi attivati nel portale di Azure. Le azioni consentono di inviare un messaggio di posta elettronica per le notifiche, attivare una funzione di Azure o chiamare un webhook. In questo esercizio viene aggiunto un avviso di posta elettronica quando vengono eliminate le macchine virtuali.
+In questa attività, se l'avviso viene attivato, verrà inviata una notifica tramite posta elettronica al team operativo. 
 
 1. Nel riquadro **Crea una regola di avviso**, selezionare il pulsante **Avanti: Azioni** e selezionare **Crea gruppo di azioni**. 
 
@@ -121,8 +119,8 @@ Per l'avviso di Monitoraggio di Azure precedente non sono state aggiunte azioni.
     | Gruppo di risorse | **az104-rg11** |
     | Area | **Globale** (impostazione predefinita) |
     | **Dettagli istanza** |
-    | Nome gruppo di azioni | **Avvisi per il team operativo** |
-    | Nome visualizzato | **AlertOpsTeam** |
+    | Nome gruppo di azioni | `Alert the operations team` (deve essere univoco nel gruppo di risorse) |
+    | Nome visualizzato | `AlertOps Team` |
 
 1. Selezionare **Avanti: Notifiche** e immettere i valori seguenti per ogni impostazione.
 
@@ -133,10 +131,7 @@ Per l'avviso di Monitoraggio di Azure precedente non sono state aggiunte azioni.
 
 1. Selezionare **Posta elettronica**, quindi nella casella **Posta elettronica** immettere l'indirizzo di posta elettronica e selezionare **OK**. 
 
-1. Selezionare **Rivedi e crea** per convalidare le impostazioni.
 
-1. Seleziona **Crea**.
- 
 1. Verrà nuovamente visualizzato il riquadro **Crea una regola di avviso**. Selezionare il pulsante **Avanti: Dettagli** e immettere i valori seguenti per ogni impostazione.
 
     | Impostazione | Valore |
@@ -144,19 +139,13 @@ Per l'avviso di Monitoraggio di Azure precedente non sono state aggiunte azioni.
     | Nome regola di avviso | **Macchina virtuale eliminata** |
     | Descrizione | **Una macchina virtuale nel gruppo di risorse è stata eliminata** |
 
-1. Espandere la sezione **Opzioni avanzate** e verificare che l'opzione **Abilita regola di avviso alla creazione** sia selezionata.
-
 1. Selezionare **Rivedi e crea** per convalidare l'input e quindi selezionare **Crea**.
 
-    >**Nota:** i destinatari aggiunti al gruppo di azioni configurato (team operativo) ricevono una notifica:
-
-    - Quando vengono aggiunti al gruppo di azioni
-    - Quando l'avviso è attivo
-    - Quando l'avviso viene attivato
+    >**Nota:** dovresti ricevere una notifica tramite posta elettronica che informa che sei stato aggiunto a un gruppo di azioni. 
 
 ## Attività 4: Attivare l'avviso
 
-Per attivare un avviso, eliminare la macchina virtuale nel gruppo di risorse.
+In questa attività si attiva l'avviso e si conferma che viene inviata una notifica. 
 
 >**Nota:** per attivare una regola di avviso del log attività possono essere necessari fino a cinque minuti. In questo esercizio, se si elimina la macchina virtuale prima della distribuzione della regola, la regola di avviso potrebbe non essere attivata. 
 
@@ -182,27 +171,27 @@ Per attivare un avviso, eliminare la macchina virtuale nel gruppo di risorse.
 
 ## Attività 5: Aggiungere una regola di avviso
 
-Verrà programmata una manutenzione pianificata una tantum, durante la notte. Inizia la sera e continua fino al mattino successivo.
+In questa attività si crea una regola di avviso per eliminare le notifiche durante i periodi di manutenzione. 
 
 1. Nel menu delle risorse del portale di Azure selezionare **Monitoraggio**, selezionare **Avvisi** nel menu a sinistra e selezionare **Regole di elaborazione degli avvisi** nella barra dei menu.
    
 1. Seleziona **+ Crea**.
    
-1. Selezionare la casella corrispondente al gruppo di risorse sandbox come ambito della regola di elaborazione degli avvisi e quindi selezionare **Applica**.
+1. Selezionare il **gruppo** di risorse, quindi selezionare **Applica**.
    
 1. Selezionare **Avanti: Impostazioni regola**, quindi selezionare **Elimina notifiche**.
    
 1. Al termine, selezionare **Avanti: Pianificazione**.
    
-1. Per impostazione predefinita, la regola funziona sempre, a meno che non venga disabilitata. Verrà definita la regola per eliminare le notifiche per una manutenzione pianificata notturna una tantum.
+1. Per impostazione predefinita, la regola funziona sempre, a meno che non venga disabilitata. Verrà definita una regola per eliminare le notifiche durante la manutenzione pianificata durante la notte.
 Immettere queste impostazioni per la pianificazione della regola di elaborazione degli avvisi:
 
     | Impostazione | Valore |
     |---------|---------|
-    |Applicare la regola |A un'ora specifica|
-    |Inizio|Immettere la data odierna alle 22:00.|
-    |Fine|Immettere la data di domani alle 7:00.|
-    |Time zone|Selezionare il fuso orario locale.|
+    | Applicare la regola | A un'ora specifica |
+    | Inizio | Immettere la data odierna alle 22:00. |
+    | Fine | Immettere la data di domani alle 7:00. |
+    | Time zone | Selezionare il fuso orario locale. |
 
     ![Screenshot della sezione pianificazione di una regola di elaborazione degli avvisi](../media/az104-lab11-alert-processing-rule-schedule.png)
 
@@ -210,9 +199,9 @@ Immettere queste impostazioni per la pianificazione della regola di elaborazione
 
     | Impostazione | Valore |
     |---------|---------|
-    |Gruppo di risorse |Selezionare il gruppo di risorse sandbox. |
-    |Nome regola|**Manutenzione pianificata**|
-    |Descrizione|**Eliminare le notifiche durante la manutenzione pianificata.**|
+    | Gruppo di risorse | Selezionare il gruppo di risorse sandbox. |
+    | Nome regola | `Planned Maintenance` |
+    | Descrizione | `Suppress notifications during planned maintenance.` |
 
 1. Selezionare **Rivedi e crea** per convalidare l'input e quindi selezionare **Crea**.
 
