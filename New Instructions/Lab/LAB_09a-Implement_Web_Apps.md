@@ -169,7 +169,7 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 1. Selezionare **Arresta** per completare l'esecuzione del test.
    
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

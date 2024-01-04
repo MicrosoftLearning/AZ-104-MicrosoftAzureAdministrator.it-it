@@ -208,7 +208,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic sul **pulsante Vai alla risorsa** . Nel pannello **Panoramica** si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

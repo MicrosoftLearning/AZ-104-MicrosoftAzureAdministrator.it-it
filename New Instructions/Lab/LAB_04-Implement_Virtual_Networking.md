@@ -109,7 +109,11 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
 
 In questa attività si creano la rete virtuale ManufacturingVnet e le subnet associate. L'organizzazione prevede una crescita per gli uffici di produzione, in modo che le subnet siano ridimensionate per la crescita prevista.
 
-1. Modificare il file template.json** locale **nella **cartella Download**. Se si usa Visual Studio Code, assicurarsi di lavorare in una **finestra** attendibile e non nella **modalità** con restrizioni. 
+1. Individuare il **file template.json** esportato nell'attività precedente. Deve trovarsi nella **cartella Download** .
+
+1. Modificare il file usando l'editor preferito. Se si usa Visual Studio Code, assicurarsi di lavorare in una **finestra** attendibile e non nella **modalità** con restrizioni.
+
+   >**Nota:** per questa attività viene illustrato come modificare e ridistribuire un modello. In caso di confusione, viene fornito il modello finito. 
 
 ### Apportare modifiche alla rete virtuale ManufacturingVnet
 
@@ -133,68 +137,17 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
 
 1. Assicurarsi di **salvare** le modifiche.
 
-    >**Nota:** se è troppo difficile, i file completati finali si trovano nella cartella Lab 04 Downloads. 
+### Distribuire il modello personalizzato
 
-## Apportare modifiche al file parameters.json
+1. Nel portale cercare e selezionare **Distribuisci un modello** personalizzato.
 
-1. Modificare il file parameters.json** locale **e modificare **CoreServicesVnet** in `ManufacturingVnet`.
+1. Selezionare **Compila un modello personalizzato nell'editor** e quindi **Carica file**.
 
-1. Assicurarsi che tutto sia corretto e **Salvare** le modifiche. 
+1. Selezionare il **file templates.json** con le modifiche di produzione e quindi selezionare **Salva**.
 
-    >**Nota:** è ora possibile distribuire il modello con Azure PowerShell (opzione 1) o la shell Bash (opzione 2). È possibile scegliere, ma eseguire solo un tipo di distribuzione. 
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-### Distribuire il modello con Azure PowerShell (opzione 1)
-
-1. Aprire Cloud Shell e selezionare **PowerShell**.
-
-1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell. I passaggi dettagliati sono descritti in Lab 03. 
-
-1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricarli separatamente.
-
-1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
-
-    ```powershell
-    dir
-    ```
-
-1. Distribuire il modello nel gruppo di risorse az104-rg4.
-
-    ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName az104-rg4 -TemplateFile template.json -TemplateParameterFile parameters.json
-    ```
-1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
-
-    >**Nota:** se è necessario apportare modifiche ai file, assicurarsi che **rm** (rimuovere) il file precedente prima di caricarne uno nuovo. 
-    
-
-
-1. Prima di continuare, tornare al portale e assicurarsi che siano state create le subnet e la **rete virtuale ManufacturingVnet** . Potrebbe essere necessario aggiornare **** la pagina delle reti virtuali. 
-
-
-### Distribuire il modello con Bash (opzione 2)
-
-
-1. Aprire Cloud Shell e selezionare **Bash**.
-
-1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell.
-
-1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricarli separatamente.
-
-1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
-
-    ```bash
-    ls
-    ```
-
-1. Distribuire il modello nel gruppo di risorse az104-rg4.
-
-    ```bash
-    az deployment group create --resource-group az104-rg4 --template-file template.json --parameters parameters.json
-    ```
-    
-1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
-
-1. Tornare al portale e verificare che siano state create le **subnet ManufacturingVnet** e associate. Potrebbe essere necessario aggiornare **** la pagina delle reti virtuali. 
+1. Attendere che il modello venga distribuito, quindi confermare (nel portale) che la rete virtuale Manufacturing è stata creata. 
    
 ## Attività 4: Configurare la comunicazione tra un gruppo di sicurezza delle applicazioni e un gruppo di sicurezza di rete 
 
@@ -266,7 +219,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Dopo aver creato la regola del gruppo di sicurezza di rete, esaminare le regole** di sicurezza in uscita predefinite**.
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

@@ -8,15 +8,15 @@ lab:
 
 ## Introduzione al lab    
 
-In questo lab vengono fornite informazioni sul backup e il ripristino delle macchine virtuali di Azure. Si apprenderà come creare un insieme di credenziali del servizio di ripristino e un criterio di backup per le macchine virtuali di Azure. Informazioni sul ripristino di emergenza con Azure Site Recovery per le macchine virtuali. 
+In questo lab vengono fornite informazioni sul backup e il ripristino delle macchine virtuali di Azure. Si apprenderà come creare un insieme di credenziali del servizio di ripristino e un criterio di backup per le macchine virtuali di Azure. Informazioni sul ripristino di emergenza con Azure Site Recovery. 
 
-Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare le aree, ma i passaggi vengono scritti usando Stati Uniti orientali e Stati Uniti occidentali.
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare le aree, ma i passaggi vengono scritti usando **Stati Uniti orientali e **Stati** Uniti** occidentali.
 
 ## Tempo stimato: 40 minuti
 
 ## Scenario laboratorio
 
-L'organizzazione sta valutando Servizi di ripristino di Azure per il backup e il ripristino di file ospitati in macchine virtuali di Azure. Vogliono identificare i metodi di protezione dei dati archiviati nell'insieme di credenziali di Servizi di ripristino da perdite accidentali o dannose di dati.
+L'organizzazione sta valutando Servizi di ripristino di Azure per il backup e il ripristino di macchine virtuali di Azure. L'organizzazione è wanst per identificare i metodi di protezione dei dati da perdite accidentali o dannose.
 
 ## Simulazione interattiva del lab
 
@@ -42,7 +42,7 @@ L'organizzazione sta valutando Servizi di ripristino di Azure per il backup e il
 
 In questa attività si userà un modello per distribuire una macchina virtuale. La macchina virtuale verrà usata per testare diversi scenari di backup.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** lab.
+1. Se necessario, scaricare il **\\file lab Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** .
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -54,17 +54,11 @@ In questa attività si userà un modello per distribuire una macchina virtuale. 
 
 1. Individuare e selezionare il **\\file Allfiles\\Lab10\\az104-10-vms-edge-template.json** e selezionare **Apri**.
 2. 
-   >**Nota:** esaminare il modello. Quante macchine virtuali e reti virtuali vengono create? 
+   >**Nota:** esaminare il modello. Quante macchine virtuali e reti virtuali vengono distribuite? 
 
 1. Seleziona **Salva**.
-
-1. Nella pagina di distribuzione personalizzata selezionare **Modifica parametri**.
-
-1. Nella pagina modifica parametri selezionare **Carica file**. Individuare e selezionare il **\\file Allfiles\Lab10\\az104-10-vms-edge-parameters.json** e selezionare **Apri**.
-   
-   >**Nota: si noti che** è possibile decidere quali parametri l'amministratore può modificare. In questo caso, c'è molta flessibilità per apportare modifiche. 
-
-1. Seleziona **Salva**.
+ 
+   >**Nota: si noti che** questo modello ha molti parametri che l'amministratore può modificare. 
 
 1. Usare le informazioni seguenti per completare i campi di distribuzione personalizzati, lasciando tutti gli altri campi con i valori predefiniti:
 
@@ -82,7 +76,7 @@ In questa attività si userà un modello per distribuire una macchina virtuale. 
 
 ## Attività 2: Creare un insieme di credenziali di Servizi di ripristino
 
-In questa attività verrà creato un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino fornisce i servizi di backup per le macchine virtuali di Azure.
+In questa attività verrà creato un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino fornisce i dati di backup per le macchine virtuali di Azure.
 
 1. Nella portale di Azure cercare e selezionare `Recovery Services vaults` e nel pannello **Insiemi** di credenziali di Servizi di ripristino fare clic su **+ Crea**.
 
@@ -99,7 +93,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
     ![Screenshot dell'insieme di credenziali di Servizi di ripristino.](../media/az104-lab10-create-rsv.png)
 
-1. Fare clic su **Rivedi e crea**, assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
+1. Fare clic su **Rivedi e crea**, verificare che la convalida venga superata e quindi fare clic su **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. La distribuzione dovrebbe richiedere meno di 1 minuto.
 
@@ -260,20 +254,15 @@ In questa attività,
     **Lo sapevi?** È consigliabile [testare il failover di una macchina virtuale](https://learn.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure#run-a-test-failover-for-a-single-vm) protetta.
 
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
 + Backup di Azure servizio offre soluzioni semplici, sicure e convenienti per eseguire il backup e il ripristino dei dati.
-
 + Backup di Azure può proteggere le risorse locali e cloud, incluse le macchine virtuali e le condivisioni file.
-
 + Backup di Azure criteri configurano la frequenza dei backup e il periodo di conservazione per i punti di ripristino. 
-
 + Azure Site Recovery è una soluzione di ripristino di emergenza che fornisce protezione per le macchine virtuali e le applicazioni.
-
 + Azure Site Recovery replica i carichi di lavoro in un sito secondario e, in caso di interruzione o emergenza, è possibile eseguire il failover nel sito secondario e riprendere le operazioni con tempi di inattività minimi.
-
 + Un insieme di credenziali di Servizi di ripristino archivia i dati di backup e riduce al minimo il sovraccarico di gestione.
 
 

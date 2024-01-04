@@ -237,7 +237,7 @@ In questa attività si userà un file Bicep per distribuire un account di archiv
 
 
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

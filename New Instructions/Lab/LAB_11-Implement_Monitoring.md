@@ -8,9 +8,9 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab vengono fornite informazioni su Monitoraggio di Azure. Si apprenderà come creare un avviso da inviare a un gruppo di azioni. Attivare l'avviso e controllare il log attività.  
+In questo lab vengono fornite informazioni su Monitoraggio di Azure. Si apprenderà come creare un avviso e inviarlo a un gruppo di azioni. Attivare e testare l'avviso e controllare il log attività.  
 
-Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
 
 ## Tempo stimato: 40 minuti
 
@@ -40,7 +40,7 @@ L'organizzazione ha eseguito la migrazione dell'infrastruttura ad Azure. È impo
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\Lab11\\az104-11-vm-template.json** e\\** Allfiles\\Labs\\11\\az104-11-vm-parameters.json** nel computer.
+1. Se necessario, scaricare i **\\file lab Allfiles\\Lab11\\az104-11-vm-template.json** nel computer.
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -68,9 +68,9 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Attendere il completamento della distribuzione, quindi fare clic su **Vai al gruppo** di risorse.
 
-1. Esaminare le risorse distribuite, tra cui una macchina virtuale e una rete virtuale.
+1. Esaminare le risorse distribuite. Deve essere presente una rete virtuale con una macchina virtuale.
 
-**Configurare Monitoraggio di Azure (verrà usato nell'ultima attività)**
+**Configurare Monitoraggio di Azure per le macchine virtuali (verrà usato nell'ultima attività)**
 
 1. Nel portale cercare e selezionare **Monitoraggio**.
 
@@ -102,11 +102,11 @@ In questa attività viene creato un avviso per quando viene eliminata una macchi
 
 1. Poiché si vogliono ricevere avvisi di tutti i tipi, per tutte le impostazioni di **Logica avvisi** lasciare il valore predefinito **Tutti selezionati**.
 
-1. Lasciare aperto il riquadro **Crea una regola di avviso** per la sezione successiva.
+1. Lasciare aperto il **riquadro Crea una regola** di avviso per l'attività successiva.
 
 ## Attività 3: Aggiungere un'azione di avviso di posta elettronica
 
-In questa attività, se l'avviso viene attivato, verrà inviata una notifica tramite posta elettronica al team operativo. 
+In questa attività, se l'avviso viene attivato un messaggio di posta elettronica inviato al team operativo. 
 
 1. Nel riquadro **Crea una regola di avviso**, selezionare il pulsante **Avanti: Azioni** e selezionare **Crea gruppo di azioni**. 
 
@@ -120,7 +120,7 @@ In questa attività, se l'avviso viene attivato, verrà inviata una notifica tra
     | Area | **Globale** (impostazione predefinita) |
     | **Dettagli istanza** |
     | Nome gruppo di azioni | `Alert the operations team` (deve essere univoco nel gruppo di risorse) |
-    | Nome visualizzato | `AlertOps Team` |
+    | Nome visualizzato | `AlertOpsTeam` |
 
 1. Selezionare **Avanti: Notifiche** e immettere i valori seguenti per ogni impostazione.
 
@@ -131,8 +131,7 @@ In questa attività, se l'avviso viene attivato, verrà inviata una notifica tra
 
 1. Selezionare **Posta elettronica**, quindi nella casella **Posta elettronica** immettere l'indirizzo di posta elettronica e selezionare **OK**. 
 
-
-1. Verrà nuovamente visualizzato il riquadro **Crea una regola di avviso**. Selezionare il pulsante **Avanti: Dettagli** e immettere i valori seguenti per ogni impostazione.
+1. **Nel riquadro Crea una regola** di avviso selezionare il **pulsante Avanti: Dettagli** e immettere i valori seguenti per ogni impostazione.
 
     | Impostazione | Valore |
     |---------|---------|
@@ -141,41 +140,41 @@ In questa attività, se l'avviso viene attivato, verrà inviata una notifica tra
 
 1. Selezionare **Rivedi e crea** per convalidare l'input e quindi selezionare **Crea**.
 
-    >**Nota:** dovresti ricevere una notifica tramite posta elettronica che informa che sei stato aggiunto a un gruppo di azioni. 
+    >**Nota:** dovresti ricevere una notifica tramite posta elettronica che informa che sei stato aggiunto a un gruppo di azioni. Potrebbe verificarsi un ritardo di alcuni minuti, ma si tratta di un segno sicuro della distribuzione della regola. 
 
 ## Attività 4: Attivare l'avviso
 
 In questa attività si attiva l'avviso e si conferma che viene inviata una notifica. 
 
->**Nota:** per attivare una regola di avviso del log attività possono essere necessari fino a cinque minuti. In questo esercizio, se si elimina la macchina virtuale prima della distribuzione della regola, la regola di avviso potrebbe non essere attivata. 
+>**Nota:** se si elimina la macchina virtuale prima della distribuzione della regola di avviso, la regola di avviso potrebbe non essere attivata. 
 
-1. Nel menu del portale di Azure o nella **home page** selezionare **Crea una risorsa**.
+1. Nel portale cercare e selezionare **Macchine** virtuali.
 
 1. Selezionare la casella per la **macchina virtuale az104-vm0** .
 
 1. Dalla barra dei menu selezionare **Elimina**.
 
-1. Digitare "sì" nel campo **Conferma eliminazione** e quindi selezionare **Elimina**.
+1. Selezionare la casella **Applica l'eliminazione** forzata. Selezionare la casella per confermare l'eliminazione, quindi selezionare **Elimina**. 
 
-1. Nella barra del titolo selezionare l'icona **Notifiche** e attendere l'eliminazione di **vm1**.
+1. Nella barra del titolo selezionare l'icona **Notifiche** e attendere l'eliminazione **di vm0** .
 
-1. Dovrebbe essere stato ricevuto un messaggio di posta elettronica di notifica con un messaggio simile al seguente: **Avviso importante: è stato attivato l'avviso di Monitoraggio di Azure sull'eliminazione della macchina virtuale...** In caso contrario, aprire il programma di posta elettronica e cercare un messaggio di posta elettronica da azure-noreply@microsoft.com.
+1. Si dovrebbe ricevere un messaggio di posta elettronica di notifica che legge, **Avviso importante: la macchina virtuale di avviso di Monitoraggio di Azure è stata eliminata è stata attivata...** In caso contrario, aprire il programma di posta elettronica e cercare un messaggio di posta elettronica da azure-noreply@microsoft.com.
 
     ![Screenshot del messaggio di posta elettronica di avviso.](../media/az104-lab11-alert-email.png)
 
+   >**Nota:** l'invio del messaggio di posta elettronica di avviso e l'aggiornamento degli avvisi nel portale può richiedere alcuni minuti. Se non si vuole attendere, continuare con l'attività successiva e quindi tornare. 
+   
 1. Nel menu delle risorse del portale di Azure selezionare **Monitoraggio** e quindi selezionare **Avvisi** nel menu a sinistra.
 
-1. Dovrebbero essere presenti tre avvisi dettagliati generati dopo l’eliminazione di **vm1**.
+1. Dovrebbero essere presenti tre avvisi dettagliato generati eliminando **vm0**.
 
 1. Selezionare il nome di uno degli avvisi, ad esempio **Macchina virtuale eliminata**. Viene visualizzato un riquadro **Dettagli avviso** che mostra altri dettagli sull'evento.
 
 ## Attività 5: Aggiungere una regola di avviso
 
-In questa attività si crea una regola di avviso per eliminare le notifiche durante i periodi di manutenzione. 
+In questa attività si crea una regola di avviso per eliminare le notifiche durante un periodo di manutenzione. 
 
-1. Nel menu delle risorse del portale di Azure selezionare **Monitoraggio**, selezionare **Avvisi** nel menu a sinistra e selezionare **Regole di elaborazione degli avvisi** nella barra dei menu.
-   
-1. Seleziona **+ Crea**.
+1. Continuare nel pannello **Avvisi** , selezionare **Regole** di elaborazione avvisi e quindi **+ Crea**. 
    
 1. Selezionare il **gruppo** di risorse, quindi selezionare **Applica**.
    
@@ -183,14 +182,14 @@ In questa attività si crea una regola di avviso per eliminare le notifiche dura
    
 1. Al termine, selezionare **Avanti: Pianificazione**.
    
-1. Per impostazione predefinita, la regola funziona sempre, a meno che non venga disabilitata. Verrà definita una regola per eliminare le notifiche durante la manutenzione pianificata durante la notte.
+1. Per impostazione predefinita, la regola funziona sempre, a meno che non venga disabilitata o configurata una pianificazione. Si definirà una regola per eliminare le notifiche durante la manutenzione notturna.
 Immettere queste impostazioni per la pianificazione della regola di elaborazione degli avvisi:
 
     | Impostazione | Valore |
     |---------|---------|
     | Applicare la regola | A un'ora specifica |
-    | Inizio | Immettere la data odierna alle 22:00. |
-    | Fine | Immettere la data di domani alle 7:00. |
+    | Inizio | Immettere la data odierna alle 10.00. |
+    | Fine | Immettere la data di domani alle 7.00. |
     | Time zone | Selezionare il fuso orario locale. |
 
     ![Screenshot della sezione pianificazione di una regola di elaborazione degli avvisi](../media/az104-lab11-alert-processing-rule-schedule.png)
@@ -199,7 +198,7 @@ Immettere queste impostazioni per la pianificazione della regola di elaborazione
 
     | Impostazione | Valore |
     |---------|---------|
-    | Gruppo di risorse | Selezionare il gruppo di risorse sandbox. |
+    | Gruppo di risorse | **az104-rg11** |
     | Nome regola | `Planned Maintenance` |
     | Descrizione | `Suppress notifications during planned maintenance.` |
 
@@ -211,12 +210,16 @@ In questa attività si userà Monitoraggio di Azure per eseguire query sui dati 
 
 1. Nella portale di Azure cercare e selezionare `Monitor` il pannello Fare clic su **Log**.
 
-    >**Nota**: potrebbe essere necessario fare clic su **Attività iniziali** se è la prima volta che si accede a Log Analytics. Se viene ancora visualizzato un **pulsante Abilita** , attendere il completamento della distribuzione precedente.
+1. Nella **finestra Query** selezionare **Macchine** virtuali (riquadro sinistro). Se necessario, chiudere la schermata iniziale. 
 
-1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** espandere la sottoscrizione, espandere il gruppo **di risorse az104-rg1**, quindi selezionare **az104-vm0** e fare clic su **Applica**.
+1. Revoca le query disponibili. **Eseguire** (passare il puntatore del mouse sulla query) la **query Conteggio heartbeat.**
 
-1. Nella finestra delle query incollare la query seguente, fare clic su **Esegui** ed esaminare il grafico risultante:
+1. Quando la macchina virtuale è in esecuzione, dovrebbe essere visualizzato un numero di heartbeat.
 
+1. Esaminare la query. Questa query usa la *tabella heartbeat* . 
+
+1. Sostituire la query con questa e quindi fare clic su **Esegui**. Esaminare il grafico risultante.
+   
    ```sh
    // Virtual Machine available memory
    // Chart the VM's available memory over the last hour.
@@ -226,29 +229,19 @@ In questa attività si userà Monitoraggio di Azure per eseguire query sui dati 
    | project TimeGenerated, Name, Val
    | render timechart
    ```
+1. Quando si ha tempo, esaminare ed eseguire altre query.
 
-    > **Nota**: la query non deve contenere errori (indicati da blocchi rossi sulla barra di scorrimento destra). Se la query non verrà incollata senza errori, incollare il codice della query in un editor di testo, ad esempio Blocco note, quindi copiarlo e incollarlo nella finestra di query da questa posizione.
+    >**Nota: si noti** che uou può configurare una regola di avviso basata su una query. 
 
-
-1. Fare clic su **Query** sulla barra degli strumenti, 
-
-    >**Nota**: a seconda della risoluzione dello schermo, **le query** potrebbero essere nascoste dietro un'elipses.
-
-1. Cancellare eventuali filtri esistenti. Usando la ricerca di query, cercare `Track VM Availability using Heartbeat` e quindi selezionare **Esegui**.
-
-1. Selezionare la **scheda Risultati** della query ed esaminare i risultati della query.
-
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
 + Gli avvisi consentono di rilevare e risolvere i problemi prima che gli utenti notino che si è verificato un problema con l'infrastruttura o l'applicazione.
-
 + È possibile creare avvisi su qualsiasi metrica o fonte di dati di log nella piattaforma di dati di Monitoraggio di Azure.
-
 + Una regola di avviso monitora i dati e acquisisce un segnale che indica che sta accadendo qualcosa nella risorsa specificata.
-
-+ Se vengono soddisfatte le condizioni della regola di avviso, viene attivato un avviso. Diverse azioni (posta elettronica, SMS, push, voce) possono essere avviate e inviate a un gruppo di azioni. 
++ Se vengono soddisfatte le condizioni della regola di avviso, viene attivato un avviso. È possibile attivare diverse azioni (posta elettronica, SMS, push, voce).
++ I gruppi di azioni includono utenti che devono ricevere una notifica di un avviso, in modo da poter intervenire. 
 
 ## Pulire le risorse
 

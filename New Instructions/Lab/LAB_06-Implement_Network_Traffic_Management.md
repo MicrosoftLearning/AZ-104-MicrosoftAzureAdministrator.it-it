@@ -16,7 +16,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 ## Scenario laboratorio
 
-L'organizzazione ha recentemente terminato di testare la gestione del traffico di rete per le macchine virtuali di Azure in una topologia di rete hub-spoke. A questo punto, si vuole testare la distribuzione del traffico tra macchine virtuali usando i servizi di bilanciamento del carico di livello 4 e livello 7. A questo scopo, si prevede di usare Azure Load Balancer (livello 4) e il gateway applicazione di Azure (livello 7).
+L'organizzazione ha un sito Web pubblico. È necessario bilanciare il carico delle richieste pubbliche in ingresso tra macchine virtuali diverse. È anche necessario fornire immagini e video da macchine virtuali diverse. Si prevede di implementare e Azure Load Balancer e un gateway di app Azure lication. Tutte le risorse si trovano nella stessa area. 
 
 ## Simulazioni di lab interattive
 
@@ -38,7 +38,7 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 
 In questa attività si userà un modello per distribuire una rete virtuale, un gruppo di sicurezza di rete e due macchine virtuali insieme alle schede di interfaccia di rete virtuale associate. Le macchine virtuali si troveranno in una rete virtuale hub denominata **az104-vnet1**.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\Lab06\\az104-06-vms-loop-template.json** e\\** Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** nel computer.
+1. Se necessario, scaricare il **\\file lab Allfiles\\Lab06\\az104-06-vms-loop-template.json** lab. 
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -188,7 +188,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
     | Porta di origine           | *Blank*         |
     | Test di diagnostica      | *Defaults*      |
 
-    ![Portale di Azure che mostra le impostazioni di risoluzione dei problemi di Connessione.](../media/az104-lab05-connection-troubleshoot.png)
+    ![Portale di Azure che mostra le impostazioni di risoluzione dei problemi di Connessione.](../media/az104-lab06-connection-troubleshoot.png)
 
 1. Selezionare **Esegui test** di diagnostica.
 
@@ -196,7 +196,7 @@ In questa attività verrà implementata un'istanza di Azure Load Balancer davant
 
 ## Attività 3: Implementare il gateway di app Azure lication
 
-In questa attività verrà implementato un gateway applicazione di Azure davanti alle due macchine virtuali di Azure nelle reti virtuale spoke. Un gateway applicazione fornisce il bilanciamento del carico di livello 7, web application firewall (WAF), la terminazione SSL e la crittografia end-to-end per le risorse definite nel pool back-end. 
+In questa attività si implementerà un gateway di app Azure lication davanti alle due macchine virtuali di Azure. Un gateway applicazione fornisce il bilanciamento del carico di livello 7, web application firewall (WAF), la terminazione SSL e la crittografia end-to-end per le risorse definite nel pool back-end. Il gateway applicazione instrada le immagini a una macchina virtuale e video all'altra macchina virtuale. 
 
 ## Diagramma dell'architettura - gateway applicazione
 
@@ -290,7 +290,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole.
 
-**Regola 1 : routing al back-end delle immagini**
+    **Regola : routing al back-end delle immagini**
 
     | Impostazione | Valore |
     | --- | --- |
@@ -299,7 +299,7 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
     | Impostazioni back-end | **appgw-settings** |
     | Destinazione back-end | `az104-appgw-images` |
 
-**Regola 2 : routing al back-end dei video**
+    **Regola : routing al back-end dei video**
 
     | Impostazione | Valore |
     | --- | --- |
@@ -316,24 +316,23 @@ In questa attività verrà implementato un gateway applicazione di Azure davanti
 
 1. Nella portale di Azure cercare e selezionare **az104-appgw**.
 
+1. Nel gateway applicazione** selezionare **Integrità **** back-end.
+
+1. Verificare che entrambi i server nel pool back-end visualizzino **Integro**. 
+
 1. Nel pannello **az104-appgw** gateway applicazione copiare il valore dell'indirizzo **** IP pubblico front-end.
 
-1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/image/`.
+1. Avviare un'altra finestra del browser e testare l'URL - `http://<frontend ip address>/image/`.
 
 1. Verificare di essere indirizzati al server di immagini (vm1). 
 
-1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/video/`.
+1. Avviare un'altra finestra del browser e testare l'URL - `http://<frontend ip address>/video/`.
 
 1. Verificare di essere indirizzati al server di immagini (vm2). 
 
 > **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
 
-1. Nel gateway applicazione** selezionare **Integrità **** back-end.
-
-1. Verificare che entrambi i server nel pool back-end visualizzino **Integro**. 
-
-
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

@@ -235,7 +235,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
     >**Nota:** si dovrebbe ricevere un messaggio *non autorizzato a eseguire questa operazione*. Non ci si connette dalla rete virtuale. L'applicazione di questa operazione può richiedere alcuni minuti.
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

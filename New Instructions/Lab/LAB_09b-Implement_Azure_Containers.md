@@ -134,7 +134,7 @@ Per impostazione predefinita, l'app contenitore di Azure creata accetterà il tr
 
 1. Verificare che l'app **App Azure Container sia in tempo reale** .
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 

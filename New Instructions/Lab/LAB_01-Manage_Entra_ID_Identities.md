@@ -10,7 +10,7 @@ lab:
 
 Si tratta della prima di una serie di lab per Azure Amministrazione istrators. In questo lab vengono fornite informazioni su utenti e gruppi. Gli utenti e i gruppi sono i blocchi predefiniti di base per una soluzione di gestione delle identità. Si ha anche familiarità con gli strumenti di amministrazione di base. 
 
-Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono visualizzati negli Stati Uniti orientali.
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono visualizzati negli **Stati Uniti** orientali.
 
 ## Tempo stimato: 40 minuti
 
@@ -74,11 +74,15 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
 
 1. Cercare e selezionare `Microsoft Entra ID`.
 
-1. Nel pannello Microsoft Entra ID scorrere verso il basso fino alla **sezione Gestisci** , fare clic su **Impostazioni** utente ed esaminare le opzioni di configurazione disponibili.
+1. Microsoft Entra ID è la soluzione di gestione delle identità e degli accessi basata sul cloud di Azure. Dedicare alcuni minuti a acquisire familiarità con alcune delle funzionalità elencate nel riquadro. 
 
-1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Nuovo utente**.
+   + **Amministrazione unità** amministrative consentono di raggruppare utenti, gruppi o dispositivi in una singola unità gestibile.
+   + **** Le licenze consentono di eseguire attività come gte trial o acquistare una licenza, gestire le licenze disponibili e assegnare licenze a utenti e gruppi.
+   + **La reimpostazione** della password self-service consente agli utenti di gestire la password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione.
 
-1. Creare un nuovo utente con le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti). Si notino tutti i diversi tipi di dati che possono essere inclusi nell'account utente. 
+1. Selezionare **Utenti** e quindi nell'elenco **a discesa Nuovo utente** selezionare **Crea nuovo utente**. Si noti la selezione di **Invita e utente** esterno. 
+
+1. Creare un nuovo utente con le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti). Nella **scheda Proprietà** si notino tutti i diversi tipi di informazioni che possono essere inclusi nell'account utente. 
 
     | Impostazione | valore |
     | --- | --- |
@@ -90,13 +94,15 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
     | Reparto (scheda Proprietà) | `IT` |
     | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
+1. Al termine della revisione, selezionare **Rivedi e crea** e quindi **Crea**.
+
+>**Nota:** è improbabile che si creino account utente singolarmente. Si sa come l'organizzazione prevede di creare e gestire gli account utente?
+
 ### Attività 4: Creare gruppi e aggiungere membri
 
-In questa attività si crea un gruppo. I gruppi vengono usati per account utente o dispositivi. Alcuni gruppi hanno membri assegnati in modo statico. Alcuni gruppi hanno membri assegnati dinamicamente. I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà degli account utente o dei dispositivi. I gruppi statici richiedono un sovraccarico amministrativo maggiore (gli amministratori devono aggiungere e rimuovere manualmente i membri).
+In questa attività si crea un account di gruppo. Gli account di gruppo possono includere account utente o dispositivi. Questi sono due modi di base in cui i membri vengono assegnati ai gruppi: staticamente e dinamicamente. I gruppi statici richiedono agli amministratori di aggiungere e rimuovere i membri manualmente.  I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà di un account utente o di un dispositivo. Ad esempio, il titolo di lavoro. 
 
 1. Nella portale di Azure cercare e selezionare `Groups`.
-
-1. Si notino le informazioni sul gruppo, ad **esempio Tipo di** appartenenza, **Origine** e **Tipo**. Si noti anche il numero di membri nel gruppo. 
 
 1. Selezionare **+ Nuovo gruppo** e creare un nuovo gruppo. 
 
@@ -107,7 +113,7 @@ In questa attività si crea un gruppo. I gruppi vengono usati per account utente
     | Descrizione gruppo | `Administrators that manage the IT lab` |
     | Tipo di appartenenza | **Assegnate** |
 
-    >**Nota**: l'elenco **a discesa Tipo di** appartenenza potrebbe essere disattivato. Qui è possibile passare da un gruppo assegnato a un gruppo dinamico. Questo richiede una licenza Entra ID Premium P1 o P2.
+    >**Nota**: l'elenco **a discesa Tipo di** appartenenza potrebbe essere disattivato. Se si dispone di una licenza Entra ID Premium P1 o P2, è possibile selezionare un gruppo dinamico. 
 
     ![Screenshot della creazione di un gruppo assegnato.](../media/az104-lab01-create-assigned-group.png)
 
@@ -115,15 +121,22 @@ In questa attività si crea un gruppo. I gruppi vengono usati per account utente
 
 1. Nel pannello **Aggiungi membri** cercare e selezionare **az104-user1** e aggiungerli al gruppo. 
 
-1. Fare clic su **Crea** per completare la creazione del gruppo. 
+1. Fare clic su **Crea** per distribuire il gruppo.
+
+1. Dedicare alcuni minuti a acquisire familiarità con altre impostazioni del gruppo.
+
+   + **La scadenza** consente di configurare la durata di un gruppo in giorni. Il gruppo deve essere rinnovato dal proprietario.
+   + **I criteri di denominazione** consentono di configurare parole bloccate e di aggiungere un prefisso o un suffisso ai nomi di gruppo.
+
+>**Nota:** è probabile che si gestisca un numero elevato di gruppi. L'organizzazione ha un piano per la creazione di gruppi e l'aggiunta di membri?
 
 ## Attività 5: acquisire familiarità con Cloud Shell.
 
-In questa attività si lavora con Azure Cloud Shell. Azure Cloud Shell è un terminale interattivo, autenticato e accessibile dal browser per la gestione delle risorse di Azure. Offre la possibilità di scegliere l'esperienza shell più adatta al proprio modo di lavorare, Bash o PowerShell. 
+In questa attività si lavora con Azure Cloud Shell. Azure Cloud Shell è un terminale interattivo, autenticato e accessibile dal browser per la gestione delle risorse di Azure. Offre la possibilità di scegliere l'esperienza shell più adatta al proprio modo di lavorare, Bash o PowerShell. Questo strumento verrà usato spesso in questo corso. 
 
 1. Selezionare l'icona **di Cloud Shell** in alto a destra nel portale di Azure. In alternativa, è possibile passare direttamente a `https://shell.azure.com`.
 
-1. Quando viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**. Bash viene usato nell'attività successiva.
+1. Quando viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**. 
 
     >**Lo sapevi?**  Se si lavora principalmente con sistemi Linux, l'interfaccia della riga di comando di Azure è più naturale. Se si lavora principalmente con i sistemi Windows, Azure PowerShell è più naturale. 
 
@@ -135,13 +148,11 @@ In questa attività si lavora con Azure Cloud Shell. Azure Cloud Shell è un ter
     | Archiviazione account (creare un nuovo account usando un nome univoco globale (ad esempio cloudshellstoragemystorage)) | **cloudshellxxxxxxx** |
     | Condivisione file (crea nuovo) | **shellstorage** |
 
-    >**Nota:** se si lavora in un ambiente lab ospitato, è necessario configurare l'archiviazione di Cloud Shell ogni volta che viene creato un nuovo ambiente lab.
-
     >**Nota: l'attività** 6 consente di esercitarsi con Azure PowerShell. L'attività 7 consente di esercitarsi con l'interfaccia della riga di comando. È possibile eseguire entrambe le attività o solo quella a cui si è più interessati. 
 
 ## Attività 6: Procedura con Azure PowerShell
 
-In questa attività si creano un gruppo di risorse e un gruppo di Azure AD usando la sessione di Azure PowerShell in Cloud Shell.
+In questa attività si creano un gruppo di risorse e un gruppo di Azure AD usando la sessione di Azure PowerShell in Cloud Shell. È possibile usare gli script di Azure PowerShell durante tutto il corso. 
 
     >**Note:** Use the arrow keys to move through the command history. Use the tab key to autocomplete commands and parameters.
 
@@ -183,7 +194,7 @@ In questa attività si creano un gruppo di risorse e un gruppo di Azure AD usand
 
 ## Attività 7: Esercitarsi con la shell Bash
 
-In questa attività si creano un gruppo di risorse e un gruppo di Azure usando la sessione dell'interfaccia della riga di comando di Azure in Cloud Shell.
+In questa attività si creano un gruppo di risorse e un gruppo di Azure usando la sessione dell'interfaccia della riga di comando di Azure in Cloud Shell. È possibile usare gli script dell'interfaccia della riga di comando di Azure durante tutto il corso. 
 
 1. Procedere in Cloud Shell. Usare l'elenco a discesa per passare a **Bash**.
 
@@ -223,7 +234,7 @@ In questa attività si creano un gruppo di risorse e un gruppo di Azure usando l
 
 1. Tornare al portale di Azure. Verificare di avere un nuovo gruppo di risorse e un nuovo gruppo di Azure. Potrebbe essere necessario aggiornare le pagine.   
     
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali per questo lab:
 
@@ -239,8 +250,6 @@ Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali pe
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 

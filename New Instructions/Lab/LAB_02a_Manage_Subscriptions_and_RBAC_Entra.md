@@ -194,7 +194,7 @@ In questa attività viene visualizzato il log attività per determinare se qualc
 
 3. Verificare che il log attività mostri le attività di creazione dei ruoli. 
 
-## Esaminare i punti principali del lab
+## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
