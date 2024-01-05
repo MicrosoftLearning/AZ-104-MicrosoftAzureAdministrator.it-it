@@ -151,7 +151,7 @@ In questa attività si verifica che la distribuzione sia stata completata corret
 
     >**Nota:** è anche possibile distribuire modelli dalla riga di comando. L'attività 4, opzione 1, illustra come usare PowerShell. L'attività 5, opzione 2, illustra come usare l'interfaccia della riga di comando.
 
-## Attività 3: Distribuire una risorsa usando Azure Bicep
+## Attività 4: Distribuire una risorsa usando Azure Bicep
 
 In questa attività si userà un file Bicep per distribuire un account di archiviazione nel gruppo di risorse. Bicep è uno strumento di automazione dichiarativa basato su modelli di Resource Manager, ma è più facile da leggere e usare.
 
@@ -251,7 +251,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.

@@ -12,7 +12,7 @@ Si tratta della prima di una serie di lab per Azure Amministrazione istrators. I
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono visualizzati negli **Stati Uniti** orientali.
 
-## Tempo stimato: 40 minuti
+## Tempo stimato: 30 minuti
 
 ## Scenario laboratorio
 
@@ -44,7 +44,7 @@ In questa attività si crea un gruppo di risorse. Un gruppo di risorse è un rag
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-    >**Nota:** il portale di Azure viene usato in tutti i lab. Se non si ha una versione di Azure, digitare `Quickstart Center` nella casella di ricerca superiore. Poi qualche minuto per guardare il **video Introduttivo nel video portale di Azure**. Anche se in precedenza è stato usato il portale, sono disponibili alcuni suggerimenti e trucchi per spostarsi e personalizzare l'interafacea. 
+    >**Nota:** il portale di Azure viene usato in tutti i lab. Se non si ha una versione di Azure, cercare e selezionare `Quickstart Center`. Dedicare alcuni minuti a guardare il **video Introduttivo nel video portale di Azure**. Anche se in precedenza è stato usato il portale, sono disponibili alcuni suggerimenti e trucchi per spostarsi e personalizzare l'interafacea. 
    
 1. Nella portale di Azure cercare e selezionare `Resource groups`.
    
@@ -62,10 +62,6 @@ In questa attività si crea un gruppo di risorse. Un gruppo di risorse è un rag
 
     >**Nota**: attendere che il gruppo di risorse venga distribuito. Usare l'icona **notifica** (in alto a destra) per tenere traccia dello stato di avanzamento della distribuzione.
 
-1. Selezionare Vai alla risorsa **, aggiornare **la pagina e verificare che il nuovo gruppo di risorse venga visualizzato nell'elenco dei gruppi di risorse.
-
-    ![Screenshot dell'elenco di gruppi di risorse.](../media/az104-lab01-create-resource-group.png)
-
 ## Attività 2: Creare e configurare gli account utente
 
 In questa attività verranno creati e configurati gli account utente. Gli account utente archivieranno i dati utente, ad esempio nome, reparto, posizione e informazioni di contatto.
@@ -74,10 +70,10 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
 
 1. Cercare e selezionare `Microsoft Entra ID`.
 
-1. Microsoft Entra ID è la soluzione di gestione delle identità e degli accessi basata sul cloud di Azure. Dedicare alcuni minuti a acquisire familiarità con alcune delle funzionalità elencate nel riquadro. 
+1. Microsoft Entra ID è la soluzione di gestione delle identità e degli accessi basata sul cloud di Azure. Prendere alcuni minuti per acquisire familiarità con alcune delle funzionalità elencate nel riquadro sinistro. 
 
-   + **Amministrazione unità** amministrative consentono di raggruppare utenti, gruppi o dispositivi in una singola unità gestibile.
-   + **** Le licenze consentono di eseguire attività come gte trial o acquistare una licenza, gestire le licenze disponibili e assegnare licenze a utenti e gruppi.
+   + **Amministrazione istrative unità** consente di raggruppare utenti, gruppi o dispositivi in una singola unità gestibile.
+   + **** Le licenze consentono di acquistare una licenza, gestire le licenze disponibili e assegnare licenze a utenti e gruppi.
    + **La reimpostazione** della password self-service consente agli utenti di gestire la password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione.
 
 1. Selezionare **Utenti** e quindi nell'elenco **a discesa Nuovo utente** selezionare **Crea nuovo utente**. Si noti la selezione di **Invita e utente** esterno. 
@@ -113,7 +109,7 @@ In questa attività si crea un account di gruppo. Gli account di gruppo possono 
     | Descrizione gruppo | `Administrators that manage the IT lab` |
     | Tipo di appartenenza | **Assegnate** |
 
-    >**Nota**: l'elenco **a discesa Tipo di** appartenenza potrebbe essere disattivato. Se si dispone di una licenza Entra ID Premium P1 o P2, è possibile selezionare un gruppo dinamico. 
+    >**Nota: si notino** le opzioni nell'elenco **a discesa Tipo di** appartenenza. Per l'appartenenza dinamica è necessaria una licenza Entra ID Premium P1 o P2. 
 
     ![Screenshot della creazione di un gruppo assegnato.](../media/az104-lab01-create-assigned-group.png)
 
@@ -140,11 +136,13 @@ In questa attività si lavora con Azure Cloud Shell. Azure Cloud Shell è un ter
 
     >**Lo sapevi?**  Se si lavora principalmente con sistemi Linux, l'interfaccia della riga di comando di Azure è più naturale. Se si lavora principalmente con i sistemi Windows, Azure PowerShell è più naturale. 
 
-1. Nella **schermata Non è installato** spazio di archiviazione selezionare **Mostra impostazioni** avanzate e specificare le informazioni necessarie. Al termine, selezionare **Crea archiviazione**. 
+1. Nella **schermata Non è installato** spazio di archiviazione selezionare **Mostra impostazioni** avanzate e specificare le informazioni necessarie. Al termine, selezionare **Crea archiviazione**.
+
+    >**Nota:** quando si lavora con Cloud Shell è necessario un accound di archiviazione e una condivisione file. 
 
     | Impostazione | Valori |
     |  -- | -- |
-    | Gruppo di risorse | **Creare nuovo gruppo di risorse** |
+    | Gruppo di risorse | **az104-rg1** |
     | Archiviazione account (creare un nuovo account usando un nome univoco globale (ad esempio cloudshellstoragemystorage)) | **cloudshellxxxxxxx** |
     | Condivisione file (crea nuovo) | **shellstorage** |
 
@@ -154,9 +152,7 @@ In questa attività si lavora con Azure Cloud Shell. Azure Cloud Shell è un ter
 
 In questa attività si creano un gruppo di risorse e un gruppo di Azure AD usando la sessione di Azure PowerShell in Cloud Shell. È possibile usare gli script di Azure PowerShell durante tutto il corso. 
 
-    >**Note:** Use the arrow keys to move through the command history. Use the tab key to autocomplete commands and parameters.
-
-1. Continuare a lavorare in Cloud Shell. In qualsiasi momento usare **cls** per cancellare la finestra di comando.
+1. Usare i tasti di direzione per spostarsi nella cronologia dei comandi. Usare il tasto TAB per completare automaticamente i comandi e i parametri. In qualsiasi momento usare **cls** per cancellare la finestra di comando.
 
 1. Azure PowerShell usa un *formato sostantivo verbo**-* per i cmdlet. Ad esempio, il cmdlet per creare un nuovo gruppo di risorse è **New-AzResourceGroup**. Per visualizzare come usare il cmdlet, eseguire il comando Get-Help.
 

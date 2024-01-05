@@ -44,11 +44,11 @@ Esistono diverse simulazioni di lab interattive che potrebbero risultare utili p
 
 ## Attività 1: Assegnare tag tramite il portale di Azure
 
-In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure. I tag sono un componente fondamentale di una strategia di governance, come descritto da Microsoft Well-Architected Framework e Cloud Adoption Framework. I tag consentono di identificare rapidamente i proprietari delle risorse, le date di tramonto, i contatti di gruppo e altre coppie nome/valore ritenute importanti dall'organizzazione. Per questo esercizio si assegnerà un tag che identifica il ruolo della risorsa ('Infra' per 'Infrastruttura').
+In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure. I tag sono un componente fondamentale di una strategia di governance, come descritto da Microsoft Well-Architected Framework e Cloud Adoption Framework. I tag consentono di identificare rapidamente i proprietari delle risorse, le date di tramonto, i contatti di gruppo e altre coppie nome/valore ritenute importanti dall'organizzazione. Per questa attività, si assegna un tag che identifica il ruolo della risorsa ('Infra' per 'Infrastruttura').
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
       
-1. Cerca e seleziona **Gruppi di risorse**.
+1. Cercare e selezionare `Resource groups`.
 
 1. In Gruppi di risorse selezionare **+ Crea**.
 
@@ -60,7 +60,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 1. Nel pannello del gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
 
-1. Creare un tag con le impostazioni seguenti e applicare la modifica:
+1. Creare un tag con le impostazioni seguenti.
 
     | Impostazione | valore |
     | --- | --- |
@@ -75,9 +75,9 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 In questa attività si assegnerà il criterio predefinito *Richiedi un tag con il relativo valore sulle risorse* al gruppo di risorse e si valuterà il risultato. Criteri di Azure può essere usato per applicare la configurazione e in questo caso la governance alle risorse di Azure. 
 
-1. Nel portale di Azure cercare e selezionare **Criteri**. 
+1. Nella portale di Azure cercare e selezionare `Policy`. 
 
-1. Nella sezione **Creazione** fare clic su **Definizioni**. Esaminare l'elenco delle definizioni dei criteri predefiniti disponibili per l'uso. Potrebbe anche essere utile cercare `Require a tag`.
+1. Nella sezione **Creazione** fare clic su **Definizioni**. Esaminare l'elenco delle definizioni di [criteri predefinite](https://learn.microsoft.com/azure/governance/policy/samples/built-in-policies) disponibili per l'uso. Si noti che è anche possibile cercare una definizione.
 
     ![Screenshot della definizione dei criteri.](../media/az104-lab02b-policytags.png)
 
@@ -102,7 +102,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | Descrizione | `Require Cost Center tag with default value for all resources in the resource group`|
     | Applicazione dei criteri | Attivata |
 
-    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
+    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. **Assegnato da** viene popolato automaticamente in base al nome utente che crea l'assegnazione. 
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
@@ -113,17 +113,13 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Fare clic su **Avanti** ed esaminare la scheda **Correzione**. Lasciare deselezionata la casella di controllo **Crea un'identità gestita**. 
 
-    >**Nota**: questa impostazione può essere usata quando il criterio o l'iniziativa include l'effetto **deployIfNotExists** o **Modify**.
-
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-    >**Nota**: a questo punto si verificherà se la nuova assegnazione del criterio è effettiva provando a creare un altro account di archiviazione di Azure nel gruppo di risorse senza aggiungere esplicitamente il tag necessario. 
+    >**Nota**: ora si verificherà che la nuova assegnazione di criteri sia attiva tentando di creare un account Archiviazione di Azure nel gruppo di risorse. Si creerà l'account di archiviazione senza aggiungere il tag necessario. 
     
-    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 15 minuti.
+    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 10 minuti.
 
-1. Tornare al pannello del gruppo di risorse creato nell'attività precedente e selezionare il **pannello Tag** .
-
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
+1. Nel portale cercare e selezionare e selezionare `Storage Account`**+ Crea**. 
 
 1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite di altri utenti), fare clic su Rivedi** e quindi fare clic **su **Crea**:
 
@@ -146,7 +142,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 In questa attività verrà usata una nuova definizione di criteri per correggere eventuali risorse non conformi. Verrà usata un'attività di correzione come parte dei criteri per modificare le risorse esistenti in modo che siano conformi ai criteri. In questo scenario, tutte le risorse figlio di un gruppo di risorse erediteranno il **tag Role** definito nel gruppo di risorse.
 
-1. Nel portale di Azure cercare e selezionare **Criteri**. 
+1. Nella portale di Azure cercare e selezionare `Policy`. 
 
 1. Nella sezione **Creazione** fare clic su **Assegnazioni**. 
 
@@ -206,7 +202,9 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Verificare che questa volta la convalida sia stata superata e fare clic su **Crea**.
 
-1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic sul **pulsante Vai alla risorsa** . Nel pannello **Panoramica** si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
+1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic su **Vai alla risorsa**.
+
+1. Nel pannello **Panoramica** si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
 
 ## Punti chiave
 
@@ -221,7 +219,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.

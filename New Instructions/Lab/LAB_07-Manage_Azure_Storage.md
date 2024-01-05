@@ -251,7 +251,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.

@@ -20,6 +20,8 @@ La rete virtuale **ManufacturingVnet** viene distribuita nell'area **Europa occi
 
 Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure. 
 
++ [Proteggere il traffico](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2013) di rete. Creare una macchina virtuale, una rete virtuale e un gruppo di sicurezza di rete. Aggiungere regole del gruppo di sicurezza di rete per consentire e impedire il traffico.
+  
 + [Creare una semplice rete](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%204) virtuale. Creare reti virtuali con due macchine virtuali. Illustrare le macchine virtuali in grado di comunicare. 
 
 + [Progettare e implementare una rete virtuale in Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure). Creare un gruppo di risorse e creare reti virtuali con subnet.  
@@ -164,7 +166,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
     | Subscription | *sottoscrizione in uso* |
     | Gruppo di risorse | **az104-rg4** |
     | Nome | `asg-web` |
-    | Area | **(Stati Uniti) Stati Uniti orientali**  |
+    | Area | **Europa occidentale**  |
 
 1. Fare clic su **Rivedi e crea** e quindi dopo la convalida fare clic su **Crea**.
 
@@ -234,7 +236,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.

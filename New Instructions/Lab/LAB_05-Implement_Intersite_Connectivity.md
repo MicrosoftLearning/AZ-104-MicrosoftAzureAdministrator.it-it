@@ -8,7 +8,7 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab verranno esaminate le comunicazioni tra reti virtuali. Si implementerà il peering di rete virtuale ed si eseguiranno comandi remoti per testare le connessioni. Verranno inoltre fornite informazioni sullo strumento Network Watcher.  
+In questo lab verranno esaminate le comunicazioni tra reti virtuali. Si implementerà il peering di rete virtuale ed si eseguiranno comandi remoti per testare le connessioni.   
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali. 
 
@@ -225,8 +225,6 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 Se si usa la propria sottoscrizione, è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
