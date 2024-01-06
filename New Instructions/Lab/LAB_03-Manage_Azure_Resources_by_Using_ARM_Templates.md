@@ -35,9 +35,10 @@ Il team ha esaminato le funzionalità amministrative di base di Azure, ad esempi
 + Attività 1: Creare un modello di Azure Resource Manager per la distribuzione di un disco gestito di Azure.
 + Attività 2: Modificare un modello di Azure Resource Manager e quindi creare un disco gestito di Azure usando il modello.
 + Attività 3: Esaminare la distribuzione basata su modello di Azure Resource Manager del disco gestito.
-+ Attività 4: Distribuire un disco gestito usando Azure Bicep.
-+ Attività 5: Distribuire un modello con Azure PowerShell (opzione 1).
++ Attività 4: Distribuire un modello con Azure PowerShell (opzione 1).
 + Attività 5: Distribuire un modello con l'interfaccia della riga di comando (opzione 2). 
++ Attività 6: Distribuire un disco gestito usando Azure Bicep.
+
 
 
 ## Attività 1: Creare un modello di Azure Resource Manager per la distribuzione di un disco gestito di Azure
@@ -60,8 +61,9 @@ In questa attività si usa il portale di Azure per generare un modello di Azure 
     | Area geografica | **Stati Uniti orientali** |
     | Zona di disponibilità | **La ridondanza dell'infrastruttura non è richiesta** | 
     | Source type | **Nessuno** |
-    | Dimensione | **32Gb** | 
     | Prestazioni | **Unità disco rigido Standard** |
+    | Dimensione | **32 Gib** | 
+
 
 1. Fare clic su **Rivedi e crea** *una sola volta*. Non **** distribuire la risorsa.
 
@@ -69,7 +71,7 @@ In questa attività si usa il portale di Azure per generare un modello di Azure 
 
 1. Esaminare le informazioni visualizzate nel modello. Esaminare sia la **scheda Modello** che **Parametri** .
 
-1. Fare clic su **Scarica** e salvare il modello nel computer.
+1. Fare clic su **Scarica** e salvare i modelli nell'unità locale. Verrà creato un file compresso compresso. 
 
 1. Estrarre il contenuto del file scaricato nella cartella Download** del **computer. Si noti che sono presenti due file JSON (modello e parametri). 
 
@@ -77,13 +79,15 @@ In questa attività si usa il portale di Azure per generare un modello di Azure 
 
 1. Nella portale di Azure annullare la distribuzione del disco gestito.
 
+   >**Nota:**  è possibile esportare un intero gruppo di risorse o solo risorse specifiche all'interno di tale gruppo di risorse.
+
 ## Attività 2: Modificare un modello di Azure Resource Manager e quindi creare un disco gestito di Azure usando il modello
 
 In questa attività si usa il modello creato per distribuire un nuovo disco gestito. Questa attività descrive il processo generale di distribuzione basata su modelli, in modo da poter ripetere facilmente e rapidamente le distribuzioni. Se è necessario modificare un parametro o due, è possibile modificare facilmente il modello in futuro.
 
 1. Nella portale di Azure cercare e selezionare `Deploy a custom template`.
 
-1. Nel pannello **Distribuzione** personalizzata si noti che è possibile usare un **modello** di avvio rapido. Sono disponibili molti modelli predefiniti. La selezione di un modello fornirà una breve descrizione.
+1. Nel pannello **Distribuzione** personalizzata si noti che è possibile usare un **modello** di avvio rapido. Esistono molti modelli predefiniti, come illustrato nel menu a discesa. 
 
 1. Invece di usare una guida introduttiva, selezionare **Compila un modello personalizzato nell'editor**.
 
@@ -149,15 +153,72 @@ In questa attività si verifica che la distribuzione sia stata completata corret
 
 1. Si noti che il disco gestito è stato creato.
 
-    >**Nota:** è anche possibile distribuire modelli dalla riga di comando. L'attività 4, opzione 1, illustra come usare PowerShell. L'attività 5, opzione 2, illustra come usare l'interfaccia della riga di comando.
+    >**Nota:** è anche possibile distribuire modelli dalla riga di comando. L'attività 4 illustra come eseguire la distribuzione con PowerShell. L'attività 5 illustra come eseguire la distribuzione usando l'interfaccia della riga di comando.
 
-## Attività 4: Distribuire una risorsa usando Azure Bicep
+
+## Attività 4. Distribuire un modello con Azure PowerShell (opzione 1).
+
+1. Aprire Cloud Shell e selezionare **PowerShell**.
+
+1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell.
+
+1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricare ogni file separatamente.
+
+1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
+
+    ```powershell
+    dir
+    ```
+
+1. In Cloud Shell selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON dei parametri.
+
+1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk2**. Usare **CTRL+S** o il menu Altro** in alto a destra **per salvare le modifiche. 
+
+    >**Nota**: è possibile impostare come destinazione la distribuzione del modello in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
+
+1. Per eseguire la distribuzione in un gruppo di risorse, usare **New-AzResourceGroupDeployment**.
+
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName az104-rg3 -TemplateFile template.json -TemplateParameterFile parameters.json
+    ```
+1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
+
+1. È possibile verificare che il disco sia stato creato controllando il portale o usando il **comando Get-AzDisk** . 
+   
+## Attività 5: Distribuire un modello con l'interfaccia della riga di comando (opzione 2)
+
+1. Aprire Cloud Shell e selezionare **Bash**.
+
+1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell.
+
+1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricare ogni file separatamente.
+
+1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
+
+    ```sh
+    ls
+    ```
+
+1. In Cloud Shell selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON dei parametri.
+
+1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk3**. Usare **CTRL+S** o il menu Altro** in alto a destra **per salvare le modifiche. 
+
+    >**Nota**: è possibile impostare come destinazione la distribuzione del modello in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
+
+1. Per eseguire la distribuzione in un gruppo di risorse, usare **az deployment group create**.
+
+    ```sh
+    az deployment group create --resource-group az104-rg3 --template-file template.json --parameters parameters.json
+    ```
+1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
+
+1. È possibile verificare che il disco sia stato creato controllando il portale o usando il **comando az disk list** .
+   
+## Attività 6: Distribuire una risorsa usando Azure Bicep
 
 In questa attività si userà un file Bicep per distribuire un account di archiviazione nel gruppo di risorse. Bicep è uno strumento di automazione dichiarativa basato su modelli di Resource Manager, ma è più facile da leggere e usare.
 
-1. Aprire una sessione Bash** di Cloud Shell**. Se necessario, usare il collegamento Avanzate** per configurare l'archiviazione**. 
-
-1. Selezionare l'icona **Carica/Scarica file** nella barra dei menu di Cloud Shell. Questo è rappresentato da un'icona del documento con frecce su e giù.
+1. Aprire una sessione Bash** di Cloud Shell**. 
 
 1. Selezionare **Carica**. Individuare la directory \Allfiles\Lab03 e selezionare il file **modello Bicep azuredeploy.bicep**.
 
@@ -180,62 +241,6 @@ In questa attività si userà un file Bicep per distribuire un account di archiv
 1. Chiudere Cloud Shell e tornare al portale di Azure completo. 
 
 1. Cercare e selezionare **Archiviazione Account**. Verificare che sia stato creato un account di archiviazione denominato **az104** nel **gruppo di risorse az104-rg3** .
-
-## Attività 5. Distribuire un modello con Azure PowerShell (opzione 1).
-
-1. Aprire Cloud Shell e selezionare **PowerShell**.
-
-1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell.
-
-1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricare ogni file separatamente.
-
-1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
-
-    ```powershell
-    dir
-    ```
-
-1. In Cloud Shell selezionare l'icona **Editor** e passare al file JSON dei parametri.
-
-1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk2**. 
-
-    >**Nota**: è possibile impostare come destinazione la distribuzione del modello in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
-
-1. Per eseguire la distribuzione in un gruppo di risorse, usare **New-AzResourceGroupDeployment**.
-
-    ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName az104-rg3 -TemplateFile template.json -TemplateParameterFile parameters.json
-    ```
-1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
-   
-## Attività 6: Distribuire un modello con l'interfaccia della riga di comando (opzione 2)
-
-1. Aprire Cloud Shell e selezionare **Bash**.
-
-1. Se necessario, usare le **impostazioni avanzate** per creare l'archiviazione su disco per Cloud Shell.
-
-1. In Cloud Shell usare l'icona **Carica** per caricare i file di modello e parametri. Sarà necessario caricare ogni file separatamente.
-
-1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell.
-
-    ```sh
-    dir
-    ```
-
-1. In Cloud Shell selezionare l'icona **Editor** e passare al file JSON dei parametri.
-
-1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk2**. 
-
-    >**Nota**: è possibile impostare come destinazione la distribuzione del modello in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
-
-1. Per eseguire la distribuzione in un gruppo di risorse, usare **az deployment group create**.
-
-    ```sh
-    az deployment group create --resource-group az104-rg3 --template-file template.json --parameters parameters.json
-    ```
-1. Verificare che il comando venga completato e ProvisioningState sia **Succeeded**.
-
-
 
 ## Punti chiave
 

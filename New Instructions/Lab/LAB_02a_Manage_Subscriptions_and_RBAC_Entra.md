@@ -25,7 +25,7 @@ Per semplificare la gestione delle risorse di Azure nell'organizzazione, è stat
     - Creazione di ticket di richiesta di supporto
     - Visualizzazione dei gruppi di risorse
 
-## Scenario di lab interattivo
+## Scenari di lab interattivi
 
 Esistono alcune simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure. 
 
@@ -43,7 +43,7 @@ Esistono alcune simulazioni di lab interattive che potrebbero risultare utili pe
 
 + Attività 1: Implementare i gruppi di gestione.
 + Attività 2: Esaminare e assegnare un ruolo di Azure predefinito.
-+ Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato per l'help desk.
++ Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato per il personale help desk.
 + Attività 4: Testare il ruolo personalizzato per assicurarsi che disponga delle autorizzazioni corrette
 + Attività 5: Monitorare le assegnazioni di ruolo con il log attività.
 
@@ -74,78 +74,80 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
     | ID gruppo di gestione | `az104-mg1` |
     | Nome visualizzato del gruppo di gestione | `az104-mg1` |
 
-1. In questo scenario, tutte le sottoscrizioni verranno ora aggiunte al gruppo di gestione. Il controllo degli accessi in base al ruolo verrà quindi applicato al gruppo di gestione e con ambito all'help desk. 
+1. In questo scenario, tutte le sottoscrizioni verranno ora aggiunte al gruppo di gestione. Il controllo degli accessi in base al ruolo verrà quindi applicato al gruppo di gestione.
+
+1. **Aggiornare** la pagina del gruppo di gestione fino a visualizzare il nuovo gruppo di gestione. 
+
+   >**Nota:** si è notato il gruppo di gestione radice? Tutti i gruppi di gestione e le sottoscrizioni fanno parte del gruppo di gestione radice.
 
 ## Attività 2: Esaminare e assegnare un ruolo di Azure predefinito
 
 In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale all'account utente. Azure offre un numero elevato di [ruoli](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles) predefiniti.
 
-1. Nel portale cercare e il **gruppo di gestione az104-mg1** .
+1. Selezionare il **gruppo di gestione az104-mg1** .
 
 1. Selezionare il **pannello Controllo di accesso (IAM)** e quindi la **scheda Ruoli** .
 
-1. Scorrere le definizioni di ruolo disponibili. **Visualizzare** un ruolo per ottenere informazioni dettagliate su **Autorizzazioni**, **JSON** e **Assegnazioni**. 
+   >**Nota:** si notino le altre opzioni disponibili per **Controllare l'accesso**, **l'assegnazione** di ruolo e **le assegnazioni** Nega. 
+
+1. Scorrere le definizioni di ruolo predefinite disponibili. **Visualizzare** un ruolo per ottenere informazioni dettagliate su **Autorizzazioni**, **JSON** e **Assegnazioni**. 
 
 1. Selezionare **+ Aggiungi** dal menu a discesa, selezionare **Aggiungi assegnazione di** ruolo. 
 
-1. Nel pannello **Aggiungi assegnazione di ruolo** specificare le impostazioni seguenti e fare clic su **Avanti** dopo ogni passaggio:
+1. Nel pannello **Aggiungi assegnazione di** ruolo cercare e selezionare Collaboratore **** macchina virtuale. Il ruolo collaboratore macchina virtuale consente di gestire le macchine virtuali, ma non di accedere al sistema operativo o di gestire la rete virtuale e l'account di archiviazione a cui sono connessi. Seleziona **Avanti**. 
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Selezionare questo ruolo | **Collaboratore macchine virtuali** |
-    | Assegnare l'accesso a (nel riquadro Membri) | **Utente, gruppo o entità servizio** |
-    | Seleziona (+Seleziona membri) | *l'account* utente (visualizzato nell'angolo superiore destro del portale) |
+1. Nella **scheda **Membri** selezionare Membri**.
 
-4. Fare clic su **Verifica e assegna** due volte per creare l'assegnazione di ruolo.
+1. Cercare e selezionare *l'account utente. Le informazioni sull'account utente vengono visualizzate nell'angolo superiore destro del portale. Fare clic su **Seleziona**. 
 
-    >**Nota:** il ruolo collaboratore macchina virtuale consente di gestire le macchine virtuali, ma non di accedere al sistema operativo o di gestire la rete virtuale e l'account di archiviazione a cui sono connessi.
+1. Fare clic su **Verifica e assegna** due volte per creare l'assegnazione di ruolo.
 
-    >**Nota:** questa assegnazione potrebbe non concedere in realtà altri provilegi. Se si dispone già del ruolo Proprietario, questo ruolo include tutti i privilegi associati al ruolo Collaboratore.
+1. Tornare al gruppo di gestione. Seleziona **Controllo di accesso (IAM)**. Nella **scheda Assegnazioni** di ruolo verificare di avere il **ruolo Collaboratore** macchina virtuale. 
+
+    >**Nota:** questa assegnazione potrebbe non concedere in realtà altri provilegi. Se si ha già il ruolo Proprietario, questo ruolo include tutti i privilegi associati al ruolo Collaboratore macchina virtuale.
+    >
+    >**Nota:** questa attività illustra come assegnare un ruolo predefinito.  Come procedura consigliata, assegnare sempre ruoli a gruppi non singoli. 
 
 
-## Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato per l'help desk
+## Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato per il personale help desk
 
 In questa attività verrà creato un ruolo controllo degli accessi in base al ruolo personalizzato. I ruoli personalizzati sono una parte fondamentale dell'implementazione del principio dei privilegi minimi per un ambiente. I ruoli predefiniti potrebbero avere troppe autorizzazioni per l'organizzazione. In questa attività verrà creato un nuovo ruolo e verranno rimosse le autorizzazioni non necessarie.
 
-1. Nel portale cercare e selezionare il **gruppo di gestione az104-mg1** .
+1. Continuare a lavorare sul gruppo di gestione. Nel pannello **Controllo di accesso (IAM)** selezionare la **scheda Controlla accesso** .
 
-1. Selezionare il pannello **Controllo di accesso (IAM)** e quindi la **scheda Controlla accesso** .
-
- 1. **Nella casella Crea un ruolo** personalizzato selezionare **Aggiungi**.
+1. **Nella casella Crea un ruolo** personalizzato selezionare **Aggiungi**.
 
 1. Nella scheda Informazioni di base di **Crea un ruolo** personalizzato specificare il nome `Custom Support Request`. Nel campo Descrizione immettere `A custom contributor role for support requests.` 
 
-1. Nel campo Autorizzazioni baseline selezionare **Clona un ruolo**. Nel menu a discesa Role to clone (Ruolo da clonare) selezionare Support Request Contributor (Collaboratore **** richiesta di supporto).
+1. Per **Autorizzazioni** di base selezionare **Clona un ruolo**. **Nel menu a discesa Role to clone (Ruolo da clonare**) selezionare Support Request Contributor (Collaboratore **** richiesta di supporto).
 
     ![Screenshot che clona un ruolo.](../media/az104-lab02a-clone-role.png)
 
-1. Selezionare la **scheda Autorizzazioni** e quindi selezionare **+ Escludi autorizzazioni**.
+1. Selezionare **Avanti** per passare alla **scheda Autorizzazioni** e quindi selezionare **+ Escludi autorizzazioni**.
 
 1. Nel campo di ricerca del provider di risorse immettere `.Support` e selezionare **Microsoft.Support**.
 
 1. Nell'elenco delle autorizzazioni posizionare una casella di controllo accanto a **Altro: Registra il provider** di risorse di supporto e quindi selezionare **Aggiungi**. Il ruolo deve essere aggiornato per includere questa autorizzazione come *NotAction*.
 
-    >**Nota:** un provider di risorse di Azure è un set di operazioni REST che abilitano la funzionalità per un servizio di Azure specifico. Non vogliamo che l'help desk sia in grado di avere questa funzionalità, quindi viene rimosso il ruolo rom. 
+    >**Nota:** un provider di risorse di Azure è un set di operazioni REST che abilitano la funzionalità per un servizio di Azure specifico. Non vogliamo che l'Help Desk sia in grado di avere questa funzionalità, quindi viene rimossa dal ruolo clonato. 
 
-1. Selezionare la **scheda Ambiti** assegnabili. Selezionare l'icona **Elimina** nella riga per la sottoscrizione.
+1. Selezionare **+ Aggiungi ambiti** assegnabili. Selezionare il **gruppo di gestione az104-mg1** , quindi fare clic su **Avanti**.
 
-1. Selezionare **+ Aggiungi ambiti** assegnabili. Selezionare il **gruppo di gestione az104-mg1** e quindi fare clic su **Seleziona**.
+1. Esaminare il codice JSON per Azioni**, *NotActions* e *AssignableScopes* personalizzati nel ruolo. 
 
-1. Selezionare la **scheda JSON. Esaminare il codice JSON** per Azioni**, *NotActions* e *AssignableScopes* personalizzati nel ruolo. 
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-1. **Selezionare Rivedi e crea** e quindi selezionare **Crea**.
+    >**Nota:** a questo punto è stato creato un ruolo personalizzato. Il passaggio successivo consiste nell'assegnare il ruolo a un help desk. Prima di eseguire questa operazione, verrà testato un utente. 
 
-    >**Nota:** a questo punto è stato creato un ruolo personalizzato. Il passaggio successivo consiste nell'assegnare il ruolo a un utente dell'help desk. 
-
-Attività 4: Assegnare e testare i ruoli controllo degli accessi in base al ruolo personalizzati.
+## Attività 4: Assegnare e testare il ruolo controllo degli accessi in base al ruolo personalizzato.
 
 In questa attività si aggiunge il ruolo personalizzato a un utente di test e si confermano le relative autorizzazioni. 
 
 1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID** e quindi selezionare il pannello **Utenti**.
 
-    >**Nota**: questa attività richiede un account utente per il test. Per questo lab si userà helpdesk-user1****. Prendere un minuto per identificare un utente di test. Se necessario, è possibile **aggiungere** un nuovo utente. Se si sta creando un nuovo utente, richiedere che la password venga impostata al momento dell'accesso. 
+    >**Nota**: questa attività richiede un account utente per il test. Per questo lab si userà helpdesk-user1****. Se necessario, è possibile **aggiungere** un nuovo utente. Se si sta creando un nuovo utente, richiedere che la password venga impostata al momento dell'accesso. 
 
-1. Prima di continuare, assicurarsi di avere il nome** dell'entità utente per l'account **di test. Sarà necessario eseguire l'accesso al portale. Usare l'icona per copiare queste informazioni negli Appunti. 
+1. Prima di continuare, assicurarsi di avere il nome** dell'entità **utente utente per l'account utente di test. Sarà necessario eseguire l'accesso al portale. È possibile copiare l'UPN negli Appunti. 
 
 1. Nella portale di Azure tornare al **gruppo di gestione az104-mg1**.
 
@@ -155,14 +157,12 @@ In questa attività si aggiunge il ruolo personalizzato a un utente di test e si
 
     >**Nota**: se il ruolo personalizzato non è visibile, possono essere necessari fino a 5 minuti prima che il ruolo personalizzato venga visualizzato dopo la creazione. **Aggiornare** la pagina. 
 
-1. Selezionare il **Ruolo** e fare clic su **Avanti**. Nella **scheda Membri** fare clic su **+ Seleziona membri** e **selezionare** l'account **utente hellpdesk-user1**.  
+1. Selezionare il **Ruolo** e fare clic su **Avanti**. Nella **scheda Membri** fare clic su **+ Seleziona membri** e **selezionare** user-user-user-helpdesk account **utente1**.  
 
 1. Selezionare **Rivedi e assegna** due volte.
 
     >**Nota:** a questo punto, si ha un account utente help desk con privilegi personalizzati per creare un ticket di supporto. Il passaggio successivo consiste nel testare l'account.
     
-## Attività 4: Testare il ruolo personalizzato per assicurarsi che disponga delle autorizzazioni corrette
-
 1. Aprire una **finestra del browser InPrivate** e passare al portale di Azure all'indirizzo `https://portal.azure.com`.
 
 1. Specificare il nome del principio utente per helpdesk-user1. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
@@ -175,13 +175,15 @@ In questa attività si aggiunge il ruolo personalizzato a un utente di test e si
 
     >**Nota**: molte organizzazioni scelgono di fornire a tutti gli amministratori cloud l'accesso ai casi di supporto aperti. In questo modo gli amministratori possono risolvere i casi di supporto più velocemente.
 
-1. Nella finestra del browser **InPrivate**, nella scheda **Descrizione del problema/Riepilogo** del pannello **Guida e supporto - Nuova richiesta di supporto**, digitare **Limiti del servizio e della sottoscrizione** nel campo Riepilogo e selezionare il tipo di problema **Limiti del servizio e della sottoscrizione (quote)**. Si noti che la sottoscrizione in uso in questo lab è elencata nell'elenco a discesa **Sottoscrizione**.
+1. Per **Tipo di** problema selezionare **Limiti** di servizio e sottoscrizione. Si notino le altre opzioni.
 
-    >**Nota**: poiché il ruolo è stato assegnato al gruppo di gestione, tutte le sottoscrizioni devono essere disponibili per i dek della Guida. Se non viene visualizzata l'opzione **Limiti di servizio e sottoscrizione (quote),** disconnettersi dal portale di Azure e accedere di nuovo.
+1. nel campo Riepilogo e selezionare il **tipo di problema Limiti di servizio e sottoscrizione (quote).** Seleziona **Avanti**.
+
+    >**Nota**: poiché il ruolo è stato assegnato al gruppo di gestione, tutte le sottoscrizioni devono essere disponibili per l'Help Desk. Se non viene visualizzata l'opzione **Limiti di servizio e sottoscrizione (quote),** disconnettersi dal portale di Azure e accedere di nuovo.
 
 1. Dedicare alcuni minuti all'esplorazione della creazione di una **nuova richiesta** di supporto, ma non continuare con la creazione della richiesta di supporto. Disconnettersi invece come utente help desk dal portale di Azure e chiudere la finestra del browser InPrivate.
 
-    >**Nota:** è stato verificato che un utente dell'help desk disponga delle autorizzazioni corrette. A questo punto si creerebbe un gruppo help desk e si aggiungerebbero membri. 
+    >**Nota:** è stato verificato che un utente dell'Help Desk disponga delle autorizzazioni corrette.
 
 ## Attività 5: Monitorare le assegnazioni di ruolo con il log attività
 

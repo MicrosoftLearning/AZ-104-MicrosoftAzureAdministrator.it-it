@@ -85,14 +85,14 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nel pannello della definizione del criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** fare clic su **Assegna**.
 
-1. Specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
+1. Specificare l'ambito **** facendo clic sul pulsante con i puntini di sospensione e selezionando i valori seguenti. Al termine, fare clic su **Seleziona** . 
 
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | *sottoscrizione in uso* |
-    | Gruppo di risorse | **az-rg2b** |
+    | Gruppo di risorse | **az-rg2** |
 
-    >**Nota**: un ambito determina le risorse o i gruppi di risorse in cui ha effetto l'assegnazione dei criteri. È possibile assegnare criteri a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. È anche possibile specificare esclusioni, ad esempio singole sottoscrizioni, gruppi di risorse o risorse (a seconda dell'ambito di assegnazione).
+    >**Nota**: un ambito determina le risorse o i gruppi di risorse in cui ha effetto l'assegnazione dei criteri. È possibile assegnare criteri a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. È anche possibile specificare esclusioni, ad esempio sottoscrizioni singole, gruppi di risorse o risorse.
 
 1. Nella scheda **Informazioni di base** configurare le proprietà dell'assegnazione specificando le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -102,7 +102,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | Descrizione | `Require Cost Center tag with default value for all resources in the resource group`|
     | Applicazione dei criteri | Attivata |
 
-    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. **Assegnato da** viene popolato automaticamente in base al nome utente che crea l'assegnazione. 
+    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. 
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
@@ -125,7 +125,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     | Impostazione | Valore |
     | --- | --- |
-    | Gruppo di risorse | **az104-rg2b** |
+    | Gruppo di risorse | **az104-rg2** |
     | Nome account di archiviazione | *qualsiasi combinazione univoca globale di tra 3 e 24 lettere minuscole e cifre, a partire da una lettera* |
 
     >**Nota**: è possibile che venga visualizzato un **errore di convalida. Fare clic qui per informazioni dettagliate** sull'errore. In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
@@ -152,19 +152,17 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Il nome del gruppo di risorse contenente l'account Cloud Shell identificato nella prima attività |
-
-    ![Screenshot della pagina dell'ambito dei criteri. ](../media/az104-lab02b-policyscope2.png) 
+    | Subscription | sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg2` |
 
 1. Per specificare la **definizione** dei criteri, fare clic sul pulsante con i puntini di sospensione e quindi cercare e selezionare `Inherit a tag from the resource group if missing`.
 
-1. Nella scheda **Informazioni di base** configurare le rimanenti proprietà dell'assegnazione specificando le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Selezionare **Aggiungi** e quindi configurare le proprietà Di base rimanenti **** dell'assegnazione.
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'assegnazione | **Ereditare il tag Role e il relativo valore Infra dal gruppo di risorse se mancante**|
-    | Descrizione | **Ereditare il tag Role e il relativo valore Infra dal gruppo di risorse se mancante**|
+    | Nome dell'assegnazione | `Inherit the Role tag and its Infra value from the resource group if missing` |
+    | Descrizione | `Inherit the Role tag and its Infra value from the resource group if missing` |
     | Applicazione dei criteri | Attivata |
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
@@ -180,7 +178,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
     | Creare un'attività di correzione | Enabled |
     | Criterio da correggere | **Eredita un tag dal gruppo di risorse se mancante** |
 
-    >**Nota**: questa definizione dei criteri include l'effetto **Modify**.
+    >**Nota**: questa definizione dei criteri include l'effetto **Modify**. È quindi necessaria un'identità gestita. 
 
     ![Screenshot della pagina di correzione dei criteri. ](../media/az104-lab02b-policyremediation.png) 
 
@@ -190,9 +188,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
     
     >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 15 minuti.
 
-1. Tornare al pannello del gruppo di risorse creato nella prima attività.
-
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
+1. Cercare e selezionare `Storage Account`e fare clic su **+ Crea**. 
 
 1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti) e fare clic su **Rivedi**:
 
@@ -204,7 +200,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic su **Vai alla risorsa**.
 
-1. Nel pannello **Panoramica** si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
+1. Nel pannello **Tag** si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
 
 ## Punti chiave
 
