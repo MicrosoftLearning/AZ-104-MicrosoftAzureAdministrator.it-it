@@ -66,9 +66,9 @@ Queste reti virtuali e subnet sono strutturate in modo da supportare le risorse 
 
 L'organizzazione pianifica una grande crescita per i servizi di base. In questa attività si creano la rete virtuale e le subnet associate per supportare le risorse esistenti e la crescita pianificata.
 
-1. Cercare e selezionare **Rete virtuale.**
+1. Cercare e selezionare `Virtual Networks`.
 
-1. Selezionare **Crea** nella pagina Reti virtuali e completare gli **** indirizzi** Basics e **IPv4. 
+1. Selezionare **Crea** nella pagina Reti virtuali e completare le **schede Informazioni di base** e **Indirizzi** IP. 
 
 1. Usare le informazioni contenute nella tabella seguente per creare la rete virtuale CoreServicesVnet.  
 
@@ -77,10 +77,8 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
     | Informazioni di base       | Gruppo di risorse     | **az104-rg4** |
     |              | Nome               | `CoreServicesVnet`     |
     |              | Area             | (Stati Uniti) **Stati Uniti orientali**         |
-    | Indirizzi IP | Spazio indirizzi IPv4 | `10.20.0.0/16` (Eliminare o sovrascrivere lo spazio indirizzi IP)     |
+    | Indirizzi IP | Spazio indirizzi IPv4 | `10.20.0.0/16` (separare le voci)    |
 
-
-1. Nell'area subnet eliminare la **subnet predefinita** .
 
 1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. 
 
@@ -204,7 +202,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Seleziona **+ Aggiungi**.
 
-1. Nel pannello **Aggiungi regola** porta in ingresso usare le informazioni seguenti per aggiungere la regola della porta in ingresso e quindi selezionare **Aggiungi**.
+1. Nel pannello **Aggiungi regola** di sicurezza in ingresso usare le informazioni seguenti per aggiungere la regola della porta in ingresso e quindi selezionare **Aggiungi**.
 
     | Impostazione | Valore |
     | -- | -- |

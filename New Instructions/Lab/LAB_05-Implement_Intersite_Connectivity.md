@@ -12,7 +12,7 @@ In questo lab verranno esaminate le comunicazioni tra reti virtuali. Si implemen
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali. 
 
-## Tempo stimato: 30 minuti
+## Tempo stimato: 40 minuti
 
 ## Scenario laboratorio 
 
@@ -126,7 +126,7 @@ In questa attività viene creata una rete virtuale di servizi di produzione con 
 
 ## Attività 3: Testare la connessione tra le macchine virtuali
 
-In questa attività viene testata la connessione tra le macchine virtuali in reti virtuali diverse.
+In questa attività viene testata la connessione tra le macchine virtuali in reti virtuali diverse. Prima di continuare, assicurarsi che entrambe le macchine virtuali siano state distribuite e siano in esecuzione. 
 
 ### Verificare l'indirizzo IP privato di CoreServicesVM
 
@@ -136,7 +136,7 @@ In questa attività viene testata la connessione tra le macchine virtuali in ret
    
 ### Testare la connessione a CoreServicesVM dalla **ManufacturingVM**.
 
-1. Nel portale selezionare per e selezionare la `ManufacturingVM` macchina virtuale.
+1. Passare alla `ManufacturingVM` macchina virtuale.
 
 1. **Nella sezione Operazioni** selezionare il **pannello Esegui comando**.
 
@@ -171,6 +171,7 @@ In questa attività vengono creati peering di rete virtuale per abilitare le com
     |                                      | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
     |                                      | Consentire a CoreServicesVNet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
     |                                      | Consentire a CoreServicesVNet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
+    |                                      | Consentire al gateway in CoreServicesVNet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
     |                                      | Abilitare CoreServicesVNet per l'uso del gateway remoto delle reti virtuali con peering       | Non selezionato (impostazione predefinita)                        |
     | Rete virtuale remota               |                                               |                                       |
     |                                      | Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
@@ -180,6 +181,7 @@ In questa attività vengono creati peering di rete virtuale per abilitare le com
     |                                      | Rete virtuale                               | **ManufacturingVnet**                     |
     |                                      | Consentire a ManufacturingVNet di accedere a CoreServicesVNet  | selezionato (impostazione predefinita)                       |
     |                                      | Consentire a ManufacturingVNet di ricevere traffico inoltrato da CoreServicesVNet | Opzione selezionata                        |
+   |                                      | Consentire al gateway in CoreServicesVNet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
     |                                      | Abilitare ManufacturingVNet per l'uso del gateway remoto di CoreServicesVNet       | Non selezionato (impostazione predefinita)                        |
 
 1. Esaminare le impostazioni e selezionare **Aggiungi**.
@@ -188,7 +190,7 @@ In questa attività vengono creati peering di rete virtuale per abilitare le com
  
 1. In CoreServicesVnet | Peer verificare che il peering **CoreServicesVnet-to-ManufacturingVnet** sia elencato. Aggiornare la pagina per assicurarsi che lo **stato** del peering sia **Connessione.**
 
-1. Passare a **ManufacturingVnet** e verificare che sia elencato il **peering ManufacturingVnet-to-CoreServicesVnet** . Verificare che lo **stato** del peering sia **Connessione ed**.
+1. Passare a **ManufacturingVnet** e verificare che sia elencato il **peering ManufacturingVnet-to-CoreServicesVnet** . Verificare che lo **stato** del peering sia **Connessione ed**. Può essere necessario **aggiornare** la pagina. 
 
  
 ## Attività 5: Testare la connessione tra le macchine virtuali

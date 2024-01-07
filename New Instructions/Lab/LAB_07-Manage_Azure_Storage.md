@@ -38,7 +38,7 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 
 ## Attività 1: Creare e configurare l'account di archiviazione privato. 
 
-In questa attività si creerà e si configurerà un account di archiviazione.
+In questa attività si creerà e si configurerà un account di archiviazione. L'account di archiviazione userà l'archiviazione con ridondanza geografica e non avrà accesso pubblico. 
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -72,19 +72,19 @@ In questa attività si creerà e si configurerà un account di archiviazione.
 
 1. Nella **sezione Sicurezza e rete** selezionare **Rete**. Si noti che l'accesso alla rete pubblica è disabilitato.
 
-+ Modificare il **livello** di accesso pubblico su **Abilitato da reti virtuali e indirizzi** IP selezionati.
-+ **Nella sezione Firewall** selezionare la casella **Aggiungi l'indirizzo IP del client.**
-+ Assicurarsi di **salvare** le modifiche. 
+    + Modificare il **livello** di accesso pubblico su **Abilitato da reti virtuali e indirizzi** IP selezionati.
+    + **Nella sezione Firewall** selezionare la casella **Aggiungi l'indirizzo IP del client.**
+    + Assicurarsi di **salvare** le modifiche. 
   
 1. **Nella sezione Gestione** dati visualizzare il **pannello** Ridondanza. Si notino le informazioni sulle posizioni del data center primario e secondario.
 
 1. **Nella sezione Gestione** dati selezionare **Gestione** del ciclo di vita e quindi selezionare **Aggiungi una regola**.
 
-+ **Assegnare alla regola `Movetocool`il nome** . Si notino le opzioni per limitare l'ambito della regola.
-
-+ Nella **scheda BLOB di** base, *se* i BLOB basati sono stati modificati più di `30 days` prima *,* **passare all'archiviazione ad accesso sporadico**.
-
-+ Si noti che è possibile configurare altre condizioni. Selezionare **Aggiungi** al termine dell'esplorazione.
+    + **Assegnare alla regola `Movetocool`il nome** . Si notino le opzioni per limitare l'ambito della regola.
+    
+    + Nella **scheda BLOB di** base, *se* i BLOB basati sono stati modificati più di `30 days` prima *,* **passare all'archiviazione ad accesso sporadico**.
+    
+    + Si noti che è possibile configurare altre condizioni. Selezionare **Aggiungi** al termine dell'esplorazione.
 
     ![Screenshot per passare alle condizioni delle regole ad accesso sporadico.](../media/az104-lab07-movetocool.png)
 
@@ -124,7 +124,7 @@ In questa attività si creerà un contenitore BLOB e si caricherà un BLOB. I co
 
 1. Nel pannello **Carica BLOB** espandere la **sezione Avanzate** .
 
-   >**Nota**: individuare un file da caricare. Può trattarsi di qualsiasi tipo di file, ma un file di piccole dimensioni è ottimale. 
+>**Nota**: individuare un file da caricare. Può trattarsi di qualsiasi tipo di file, ma un file di piccole dimensioni è ottimale. 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -134,8 +134,6 @@ In questa attività si creerà un contenitore BLOB e si caricherà un BLOB. I co
     | Livello di accesso | **Frequente**  (si notino le altre opzioni) |
     | Carica nella cartella | `securitytest` |
     | Ambito di crittografia | Usa l'ambito del contenitore predefinito esistente |
-
-    > **Nota**: i livelli di accesso possono essere impostati per singoli BLOB.
 
 1. Fare clic su **Carica**.
 
@@ -173,7 +171,7 @@ In questa attività si creerà un contenitore BLOB e si caricherà un BLOB. I co
 
 ## Attività 5: Creare e configurare una condivisione file di Azure
 
-In questa attività verranno create e configurate le condivisioni di File di Azure. 
+In questa attività verranno create e configurate le condivisioni di File di Azure. Si userà Archiviazione Browser per gestire la condivisione file. 
 
 ### Creare la condivisione file e caricare un file
 
