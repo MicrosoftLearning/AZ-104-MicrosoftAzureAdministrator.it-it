@@ -16,7 +16,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 ## Scenario laboratorio
 
-L'organizzazione sta valutando Servizi di ripristino di Azure per il backup e il ripristino di macchine virtuali di Azure. L'organizzazione è wanst per identificare i metodi di protezione dei dati da perdite accidentali o dannose.
+L'organizzazione sta valutando come eseguire il backup e il ripristino di macchine virtuali di Azure da perdite accidentali o dannose di dati. Inoltre, l'organizzazione vuole esplorare l'uso di Azure Site Recovery per scenari di ripristino di emergenza. 
 
 ## Simulazione interattiva del lab
 

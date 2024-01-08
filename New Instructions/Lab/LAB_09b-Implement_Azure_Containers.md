@@ -11,7 +11,7 @@ lab:
 In questo lab si apprenderà come implementare Istanze di Azure Container e App Azure Container. Si apprenderà come distribuire un'istanza di Azure Container per visualizzare un'app Hello World.
 Si apprenderà come distribuire l'app Azure Container predefinita. 
 
-Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
 
 ## Tempo stimato: 30 minuti
 
@@ -49,14 +49,14 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Subscription | nome della sottoscrizione di Azure |
+    | Abbonamento | Selezionare la Sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
     | Nome contenitore | `az104-c1` |
     | Area | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze)|
     | Origine immagine | **Immagini di avvio rapido** |
     | Image | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
-1. Fare clic su **Avanti: Rete >** e nella scheda **Rete** del pannello **Crea istanza di Container** specificare le impostazioni seguenti, lasciando i valori predefiniti per le altre:
+1. Fare clic su **Avanti: Rete >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
@@ -64,13 +64,13 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
     >**Nota**: il contenitore sarà raggiungibile pubblicamente all'indirizzo dns-name-label.region.azurecontainer.io. Se viene visualizzato un messaggio di errore **L'etichetta del nome DNS non è disponibile**, specificare un valore diverso.
 
-1. Fare clic su **Avanti: Avanzate >**, esaminare le impostazioni nella **scheda Avanzate** del **pannello Crea istanza** del contenitore senza apportare modifiche.
+1. Fare clic su **Avanti: Avanzate >**, esaminare le impostazioni senza apportare modifiche.
 
  1. Fare clic su **Rivedi e crea**, verificare che la convalida sia stata superata e quindi selezionare **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione dovrebbe richiedere 2-3 minuti.
 
-    >**Nota**: durante l'attesa può essere interessante visualizzare il [codice alla base di questa applicazione di esempio](https://github.com/Azure-Samples/aci-helloworld). Per visualizzarlo, passare alla cartella \\app.
+    >**Nota**: durante l'attesa può essere interessante visualizzare il [codice alla base di questa applicazione di esempio](https://github.com/Azure-Samples/aci-helloworld). Per visualizzare il codice, esplorare la cartella dell'app \\.
 
 ## Attività 2: Esaminare la funzionalità di Istanza di Azure Container
 
@@ -84,9 +84,9 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
      ![Screenshot della pagina di panoramica di ACI nel portale.](../media/az104-lab09b-aci-overview.png)
 
-1. Verificare che venga visualizzata la pagina **Benvenuti in Istanze di Azure Container**.
+1. Verificare che venga visualizzata la pagina **Benvenuti in Istanze di Azure Container**. Aggiornare la pagina più volte per creare alcune voci di log e quindi chiudere la scheda del browser.  
 
-1. Chiudere la nuova scheda del browser e nel portale di Azure, nella sezione **Impostazioni** del pannello dell'istanza del contenitore, fare clic su **Contenitori** e quindi su **Log**.
+1. **Nella sezione Impostazioni** del pannello dell'istanza del contenitore fare clic su **Contenitori** e quindi su **Log**.
 
 1. Verificare che siano visualizzate le voci di log che rappresentano la richiesta HTTP GET generata visualizzando l'applicazione nel browser.
 
@@ -102,7 +102,7 @@ App Contenitore di Azure considerano ulteriormente il concetto di cluster Kubern
 
 1. In **App** contenitore selezionare **Crea**.
 
-1. Usare le informazioni seguenti per compilare i dettagli nella **scheda Informazioni di base** e quindi selezionare **Avanti: Contenitore >**.
+1. Usare le informazioni seguenti per compilare i dettagli nella **scheda Informazioni di base** .*.
 
     | Impostazione | Azione |
     |---|---|
@@ -112,15 +112,11 @@ App Contenitore di Azure considerano ulteriormente il concetto di cluster Kubern
     | Area    | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze) |
     | Ambiente app contenitore | Lasciare il valore predefinito |
 
-1. Assicurarsi che **l'opzione Usa immagine** di avvio rapido sia abilitata e che l'immagine di avvio rapido sia impostata su **Contenitore Simple hello world**.
+1. **Nella scheda Contenitore** assicurarsi che **l'opzione Usa immagine** di avvio rapido sia abilitata e che l'immagine di avvio rapido sia impostata su **Contenitore Hello World** semplice.
 
-1. Selezionare il **pulsante Rivedi e crea** nella parte inferiore della pagina. 
+1. **Selezionare Rivedi e crea** e quindi **Crea**.
 
-    >**Nota**: se sono presenti errori, qualsiasi scheda contenente errori viene contrassegnata con un punto rosso.  Passare alla scheda appropriata.  I campi contenenti un errore verranno evidenziati in rosso.  Dopo aver corretto tutti gli errori, selezionare **Rivedi e crea** di nuovo.
-
-1. Seleziona **Crea**.
-
-    >**Nota:** viene visualizzata una pagina con il messaggio *Distribuzione in corso* .  Al termine della distribuzione, verrà visualizzato il messaggio: *La distribuzione è stata completata*.
+    >**Nota:** attendere che l'app contenitore venga distribuita. L'operazione richiede alcuni minuti. 
  
 ## Attività 4: Testare e verificare la distribuzione dell'app contenitore
 

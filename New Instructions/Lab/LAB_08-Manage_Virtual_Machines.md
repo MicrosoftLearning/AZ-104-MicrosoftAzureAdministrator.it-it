@@ -8,7 +8,7 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab viene confrontato il ridimensionamento manuale delle macchine virtuali con il ridimensionamento automatico delle macchine virtuali. Si apprenderà come configurare e ridimensionare una singola macchina virtuale. Si apprenderà come creare un set di scalabilità di macchine virtuali e configurare la scalabilità automatica.
+In questo lab vengono create e confrontate le macchine virtuali con i set di scalabilità di macchine virtuali. Si apprenderà come creare, configurare e ridimensionare una singola macchina virtuale. Si apprenderà come creare un set di scalabilità di macchine virtuali e configurare la scalabilità automatica.
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
 
@@ -16,7 +16,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 ## Scenario laboratorio
 
-L'organizzazione vuole esplorare la distribuzione e la configurazione di macchine virtuali di Azure. Prima di tutto, è necessario determinare le diverse opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazione che è possibile implementare quando si usano le macchine virtuali di Azure. Successivamente, è necessario esaminare le opzioni di resilienza e scalabilità delle risorse di calcolo e di archiviazioni disponibili quando si usano i set di scalabilità di macchine virtuali.
+L'organizzazione vuole esplorare la distribuzione e la configurazione di macchine virtuali di Azure. Prima di tutto, si implementa una macchina virtuale di Azure con scalabilità manuale. Implementare quindi un set di scalabilità di macchine virtuali ed esplorare la scalabilità automatica.
 
 ## Simulazioni di lab interattive
 
@@ -36,9 +36,6 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 + Attività 5: Creare una macchina virtuale con Azure PowerShell (opzione 1)
 + Attività 6: Creare una macchina virtuale usando l'interfaccia della riga di comando (opzione 2) 
 
-
-
-
 ## Attività 1 e 2: Diagramma dell'architettura di Azure Macchine virtuali
 
 ![Diagramma delle attività di architettura.](../media/az104-lab08a-architecture-diagram.png)
@@ -49,13 +46,13 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
 
 1. Accedere al portale di Azure - `https://portal.azure.com`.
 
-1. Cercare e selezionare `Virtual machines` e nel pannello **Macchine** virtuali fare clic su **+ Crea** e quindi selezionare nell'elenco a discesa **+ Macchina** virtuale di Azure.
+1. Cercare e selezionare `Virtual machines`, nel pannello **Macchine** virtuali fare clic su **+ Crea** e quindi selezionare nell'elenco a discesa **+ Macchina** virtuale di Azure. Si notino le altre opzioni. 
 
-1. Nella **scheda Informazioni di base** del **pannello Crea una macchina** virtuale, nel **menu a discesa Zona di disponibilità** posizionare un segno di spunta accanto a **Zona 2**. Questa opzione deve selezionare sia La zona 1** che ****la zona 2**.
+1. Nel menu a discesa Zona di disponibilità della **scheda Informazioni di base** posizionare un segno di spunta accanto a **Zona 2**.**** Questa opzione deve selezionare sia La zona 1** che ****la zona 2**.
 
-    >**Nota**: verranno distribuite due macchine virtuali nell'area selezionata, una in ogni zona. Si ottiene il contratto di servizio con tempo di attività del 99,99% perché sono distribuite almeno due macchine virtuali in almeno due zone. Nello scenario in cui potrebbe essere necessaria una sola macchina virtuale, è consigliabile distribuire la macchina virtuale in una zona per assicurarsi che il disco e le risorse corrispondenti si trovino nella stessa zona.
+    >**Nota**: verranno distribuite due macchine virtuali nell'area selezionata, una in ogni zona. Si ottiene il contratto di servizio con tempo di attività del 99,99% perché sono distribuite almeno due macchine virtuali in almeno due zone. Nello scenario in cui potrebbe essere necessaria una sola macchina virtuale, è consigliabile distribuire comunque la macchina virtuale in un'altra zona.
 
-1. Nella scheda Informazioni di base usare le impostazioni seguenti per completare i campi (lasciare gli altri con i valori predefiniti):
+1. Nella scheda Informazioni di base continuare a completare la configurazione:
 
     | Impostazione | Valore |
     | --- | --- |
@@ -82,6 +79,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Impostazione | Valore |
     | --- | --- |
     | Tipo di disco del sistema operativo | **SSD Premium** |
+    | Elimina con macchina virtuale | **** selezionato (impostazione predefinita) |
     | Abilita compatibilità disco Ultra | **Non selezionato** |
 
 1. Fare clic su **Avanti: Rete >** accettare le impostazioni predefinite, ma non fornire un servizio di bilanciamento del carico. 
@@ -104,13 +102,15 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
 
 1. Nel pannello **Rivedi e crea** fare clic su **Crea**.
 
-    >**Nota:** monitorare i **messaggi di notifica** e attendere il completamento della distribuzione. 
+    >**Nota:** monitorare i messaggi di **notifica** .
+
+1. Attendere il completamento della distribuzione, quindi selezionare **Vai alla risorsa**. 
 
 ## Attività 2: Gestire il ridimensionamento delle risorse di calcolo e archiviazione per le macchine virtuali
 
-In questa attività si ridimensiona il calcolo per una macchina virtuale modificandone le dimensioni in uno SKU diverso. Azure offre flessibilità nella selezione delle dimensioni delle macchine virtuali, in modo da poter modificare una macchina virtuale per periodi di tempo se richiede più o meno risorse di calcolo e memoria allocate. Questo concetto viene esteso ai dischi, in cui è possibile modificare le prestazioni del disco o aumentare la capacità allocata.
+In questa attività si ridimensiona una macchina virtuale modificandone le dimensioni in uno SKU diverso. Azure offre flessibilità nella selezione delle dimensioni delle macchine virtuali, in modo da poter modificare una macchina virtuale per periodi di tempo se richiede più o meno risorse di calcolo e memoria allocate. Questo concetto viene esteso ai dischi, in cui è possibile modificare le prestazioni del disco o aumentare la capacità allocata.
 
-1. Nella portale di Azure cercare e selezionare **az104-vm1**.
+1. Continuare a usare **la macchina virtuale az104-vm1** .
 
 1. Nel pannello **az104-vm1** macchina virtuale fare clic su **Dimensioni** e impostare le dimensioni della macchina virtuale su **DS1_v2** e fare clic su **Ridimensiona**
 
@@ -118,9 +118,9 @@ In questa attività si ridimensiona il calcolo per una macchina virtuale modific
 
     ![Screenshot del ridimensionamento della macchina virtuale.](../media/az104-lab08-resize-vm.png)
 
-1. Nel pannello **az104-vm1** macchina virtuale fare clic su Dischi **, in **Dischi dati** fare clic **su **+ Crea e collegare un nuovo disco**.
+1. Nell'area **Impostazioni** selezionare **Dischi**.
 
-1. Creare un disco gestito con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. In **Dischi dati** selezionare **+ Crea e collegare un nuovo disco**. Configurare le impostazioni (lasciare le altre impostazioni nei valori predefiniti). 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -130,23 +130,23 @@ In questa attività si ridimensiona il calcolo per una macchina virtuale modific
 
 1. Fare clic su **Applica**.
 
-1. Dopo aver creato il disco, fare clic su **Scollega** e quindi su **Applica**.
-    
-    >**Nota**: potrebbe essere necessario scorrere verso destra per visualizzare l'icona *di scollegamento* .
+1. Dopo aver creato il disco, fare clic su **Scollega** (se necessario scorrere verso destra per visualizzare l'icona di scollegamento) e quindi fare clic su **Applica**.
 
-1. Nella portale di Azure cercare e selezionare `Disks`.
+    >**Nota**: lo scollegamento rimuove il disco dalla macchina virtuale, ma lo mantiene nello spazio di archiviazione per un uso successivo. 
 
-1. Nell'elenco dei dischi selezionare l'oggetto **vm1-disk1** .
+1. Cercare e selezionare `Disks`. Nell'elenco dei dischi selezionare l'oggetto **vm1-disk1** .
 
-1. Da vm1-disk1 selezionare **Dimensioni e prestazioni**.
+    >**Nota:** il **pannello Panoramica** fornisce informazioni sulle prestazioni e sull'utilizzo per il disco. 
 
-1. In Dimensioni e prestazioni impostare il tipo di **archiviazione su SSD** Standard e quindi fare clic su **Salva**.
+1. Nel pannello Impostazioni selezionare **Dimensioni e prestazioni**.** **
 
-    >**Nota**: non è possibile modificare il tipo di archiviazione del disco mentre è collegato o mentre la macchina virtuale è in esecuzione. 
+1. Impostare il tipo di archiviazione su **SSD** Standard e quindi fare clic su **Salva**.
 
 1. Tornare alla **macchina virtuale az104-vm1** e selezionare **Dischi**.
 
-1. Verificare che il disco sia ora **HDD** Standard.
+1. Verificare che il disco sia ora **SSD** Standard.
+
+>**Nota:** è stata creata una macchina virtuale, è stato modificato lo SKU e le dimensioni del disco dati. Nell'attività successiva si usa set di scalabilità di macchine virtuali per automatizzare il processo di ridimensionamento. 
 
 ## Attività 3 e 4: Diagramma dell'architettura di Azure set di scalabilità di macchine virtuali
 
@@ -264,13 +264,16 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Scegliere **Proporzioni** dal menu nella parte sinistra della finestra del set di scalabilità.
 
-1. Si noti che la **modalità** di scalabilità può essere **ridimensionata in base alle metriche o **alla scalabilità** a un numero** di istanze specifico. Nei set di scalabilità con un numero ridotto di istanze di macchine virtuali, l'aumento o la riduzione del numero di istanze può essere ottimale. Nei set di scalabilità con un numero elevato di istanze di macchine virtuali, il ridimensionamento basato sulle metriche potrebbe essere più appropriato.
+>**Nota: si noti che** è possibile ridimensionare **** manualmente o **ridimensionare** automaticamente personalizzata. Nei set di scalabilità con un numero ridotto di istanze di macchine virtuali, l'aumento o la riduzione del numero di istanze (scalabilità manuale) può essere ottimale. Nei set di scalabilità con un numero elevato di istanze di macchine virtuali, il ridimensionamento in base alle metriche (scalabilità automatica personalizzata) può essere più appropriato.
 
-1. Selezionare il pulsante **su Scalabilità** automatica personalizzata. Selezionare quindi **Aggiungi una regola**. 
+
 
 ### Regola di aumento del numero di istanze
 
-1. Si creerà una regola di scalabilità orizzontale che aumenta automaticamente il numero di istanze di macchine virtuali. Questa regola aumenta il numero di istanze quando il carico medio della CPU è maggiore del 70% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene aumentato del 20%. Fare clic su **Aggiungi** dopo aver effettuato le selezioni. 
+1. Selezionare **Scalabilità automatica personalizzata**. modificare quindi la modalità** di scalabilità **in **Ridimensiona in base alla metrica**. Quindi selezionare **Aggiungi regola**.
+   
+1. Si creerà una regola che aumenta automaticamente il numero di istanze di macchina virtuale. Questa regola aumenta il numero di istanze quando il carico medio della CPU è maggiore del 70% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene aumentato del 20%.
+
 
     | Impostazione | Valore |
     | --- | --- |
@@ -291,7 +294,9 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Durante le serate o i fine settimana, la domanda può diminuire, quindi è importante creare una regola di ridimensionamento.
 
-1. Si creerà una regola che riduce il numero di istanze di macchine virtuali in un set di scalabilità. Il numero di istanze deve diminuire quando il carico medio della CPU scende al di sotto del 30% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene diminuito del 20%. Modificare le impostazioni e quindi selezionare **Aggiungi**.
+1. Si creerà una regola che riduce il numero di istanze di macchine virtuali in un set di scalabilità. Il numero di istanze deve diminuire quando il carico medio della CPU scende al di sotto del 30% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene diminuito del 20%.
+
+1. Selezionare **Aggiungi una regola**, modificare le impostazioni e quindi selezionare **Aggiungi**.
 
     | Impostazione | Valore |
     | --- | --- |
@@ -316,6 +321,8 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Nella **pagina vmss1** selezionare **Istanze**. In questo modo è possibile monitorare il numero di istanze di macchina virtuale. 
 
+>**Nota:** se si è interessati a usare Azure PowerShell per la creazione di macchine virtuali, provare l'attività 5. Se si è interessati a usare l'interfaccia della riga di comando per creare macchine virtuali, provare l'attività 6. 
+
 ## Attività 5: Creare una macchina virtuale con Azure PowerShell (opzione 1)
 
 1. Accedere al portale di Azure - `https://portal.azure.com`.
@@ -335,23 +342,26 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     -Zone '1' `
     -Size 'Standard_D2s_v3' 
     -Credential '(Get-Credential)' `
-
-1. Once the command completes, use **Get-AzVM** to list the virtual machines in your resource group. 
+    ```
+    
+1. Al termine del comando, usare **Get-AzVM** per elencare le macchine virtuali nel gruppo di risorse. 
 
     ```powershell
     Get-AzVM `
     -ResourceGroupName 'az104-rg8'
     -Status
+    ```
+    
+1. Verificare che la nuova macchina virtuale sia elencata e che lo **stato** sia **in esecuzione**.
 
-1. Verify your new virtual machine is listed and the **Status** is **Running**.
-
-1. Use **Stop-AzVM** to deallocate your virtual machine. Type **Yes** to confirm. 
+1. Usare **Stop-AzVM** per deallocare la macchina virtuale. Digitare **Sì** per confermare. 
 
     ```
     Stop-AzVM `
     -ResourceGroupName 'az104-rg8'
     -Name 'myPSVM' `
-
+    ```
+    
 1. Usare **Get-AzVM** con il **parametro -Status** per verificare che il computer sia **deallocato**.
 
     >**Lo sapevi?** Quando si usa Azure per arrestare la macchina virtuale, lo stato viene *deallocato*. Ciò significa che vengono rilasciati indirizzi IP pubblici non statici e si interrompe il pagamento dei costi di calcolo della macchina virtuale.
