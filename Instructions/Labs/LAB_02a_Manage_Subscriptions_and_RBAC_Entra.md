@@ -33,7 +33,7 @@ Contenuto del lab:
 + Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
 
 
-## Tempo stimato: 30 minuti
+## Tempo stimato: 60 minuti
 
 ## Diagramma dell'architettura
 
@@ -48,7 +48,7 @@ Contenuto del lab:
 
 In questa attività si creeranno e configureranno gruppi di gestione. 
 
-1. Accedi al [**portale di Azure**](http://portal.azure.com).
+1. Accedere al [**portale di Azure**](http://portal.azure.com).
 
 1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
 
@@ -132,7 +132,7 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome utente | **az104-02-aaduser1**|
     | Nome | **az104-02-aaduser1**|
@@ -209,7 +209,7 @@ In questa attività si creerà un utente, si assegnerà il ruolo controllo degli
 1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
   >**Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di gestione. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
 
-## Rivedi
+## Revisione
 
 In questo lab sono state eseguite le attività seguenti:
 
