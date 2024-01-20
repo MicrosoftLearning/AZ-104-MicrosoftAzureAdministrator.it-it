@@ -39,7 +39,7 @@ Contenuto del lab:
 
 In questa attività verrà creata una rete virtuale con più subnet mediante il portale di Azure
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Reti virtuali** fare clic su **+ Crea**.
 
@@ -160,6 +160,8 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Selezionare **Associa indirizzo** IP pubblico e nell'elenco **a discesa Indirizzo IP** pubblico selezionare **az104-04-pip0**.
 
+>**Nota:** se viene visualizzato un errore, *il nome di dominio è già in uso*, si tratta di un problema noto. Sarà necessario individuare l'indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete separatamente. 
+
 1. Seleziona **Salva**.
 
 1. Tornare al pannello **az104-04-vnet1** .
@@ -173,6 +175,8 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 1. Verificare che l'allocazione **** sia **statica**.
 
 1. Selezionare **Associa indirizzo** IP pubblico e nell'elenco **a discesa Indirizzo IP** pubblico selezionare **az104-04-pip1**.
+
+>**Nota:** se viene visualizzato un errore, *il nome di dominio è già in uso*, si tratta di un problema noto. Sarà necessario individuare l'indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete separatamente. 
 
 1. Seleziona **Salva**.
    
@@ -224,7 +228,7 @@ In questa attività verranno configurati gruppi di sicurezza di rete per consent
     | Origine | **Any** |
     | Intervalli porte di origine | * |
     | Destinazione | **Any** |
-    | Servizioo | **RDP** |
+    | Service | **RDP** |
     | Azione | **Consenti** |
     | Priorità | **300** |
     | Nome | **AllowRDPInBound** |
@@ -278,7 +282,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS in una rete v
     | Impostazione | Valore |
     | --- | --- |
     | Nome collegamento | **az104-04-vnet1-link** |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
+    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
     | Rete virtuale | **az104-04-vnet1** |
     | Abilita registrazione automatica | Enabled |
 
@@ -334,7 +338,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
     | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm0** |
-    | Tipo | **A** |
+    | Type | **A** |
     | Set di record alias | **No** |
     | TTL | **1** |
     | Unità TTL | **Ore** |
@@ -349,7 +353,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
     | Impostazione | valore |
     | --- | --- |
     | Nome | **az104-04-vm1** |
-    | Tipo | **A** |
+    | Type | **A** |
     | Set di record alias | **No** |
     | TTL | **1** |
     | Unità TTL | **Ore** |
@@ -399,7 +403,7 @@ In questa attività verrà configurata la risoluzione dei nomi DNS esterni media
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Rivedi
+## Revisione
 
 In questo lab sono state eseguite le attività seguenti:
 
