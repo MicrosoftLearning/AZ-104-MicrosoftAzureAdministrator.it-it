@@ -39,7 +39,7 @@ Contenuto del lab:
 
 In questa attività si distribuirà una macchina virtuale di Azure che verrà usata più avanti in questo lab.
 
-1. Accedi al **[portale di Azure](https://portal.azure.com)**.
+1. Accedere al **[portale di Azure](https://portal.azure.com)**.
 
 1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
 
@@ -203,9 +203,9 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
 
 1. Chiudere la finestra del browser in modalità InPrivate, tornare nella finestra del browser che mostra il pannello **licenses/LICENSE** del contenitore di Archiviazione di Azure e da qui tornare nel pannello **az104-07-container**.
 
-1. Fare clic sul collegamento **Passa all'account utente Azure AD** accanto all'etichetta **Metodo di autenticazione**.
+1. Fare clic sul **collegamento Passa all'account** utente Microsoft Entra accanto all'etichetta **Metodo di autenticazione** .
 
-    > **Nota**: quando si cambia il metodo di autenticazione, è possibile che venga visualizzato il messaggio di errore *"Non si è autorizzati a visualizzare l'elenco dei dati con l'account utente Azure AD corrente"*. Questo comportamento è previsto.  
+    > **Nota**: è possibile visualizzare un errore quando si modifica il metodo di autenticazione (l'errore è *"Non si dispone delle autorizzazioni per elencare i dati usando l'account utente con Microsoft Entra"*). Questo comportamento è previsto.  
 
     > **Nota**: a questo punto non si hanno le autorizzazioni per cambiare il metodo di autenticazione.
 
@@ -221,7 +221,7 @@ In questa attività verranno configurate l'autenticazione e l'autorizzazione per
     | Assegna accesso a | **Utente, gruppo o entità servizio** |
     | Membri | Il nome dell'account utente |
 
-1. Fare clic su **Verifica e assegna** e quindi su **Verifica e assegna**, poi tornare nel pannello **Panoramica** del contenitore **az104-07-container** e verificare che sia possibile impostare il metodo di autenticazione su (Passa all'account utente Azure AD).
+1. Fare clic su **Rivedi e** assegna e quindi **rivedi e assegnare** e tornare al **pannello Panoramica** del **contenitore az104-07-container** e verificare che sia possibile modificare il metodo di autenticazione in (Passare all'account utente di Microsoft Entra).
 
     > **Nota**: possono essere necessari circa 5 minuti prima che la modifica diventi effettiva.
 
@@ -328,7 +328,7 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
     >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
 
-## Rivedi
+## Revisione
 
 In questo lab sono state eseguite le attività seguenti:
 

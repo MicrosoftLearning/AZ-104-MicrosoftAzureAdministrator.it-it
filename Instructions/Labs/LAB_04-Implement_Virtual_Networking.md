@@ -52,9 +52,9 @@ In questa attività verrà creata una rete virtuale con più subnet mediante il 
     | Nome | **az104-04-vnet1** |
     | Area | Nome di qualsiasi area di Azure disponibile nella sottoscrizione che verrà usata in questo lab |
 
-1. Fare clic su **Avanti: Indirizzi IP**. L'indirizzo** **iniziale è **10.40.0.0**. La **dimensione** dello spazio degli indirizzi è **/20**. Assicurarsi di fare clic su **Aggiungi**. 
+1. Fare clic su **Avanti: Indirizzi IP**. L'indirizzo** **iniziale è **10.40.0.0**. La **dimensione** dello spazio degli indirizzi è **/20**. 
 
-1. Fare clic su **+ Aggiungi subnet**, immettere i valori seguenti e quindi fare clic su **Aggiungi**.
+1. Fare clic su **+ Aggiungi subnet**. Eliminare la subnet predefinita** esistente**. Immettere i valori seguenti e quindi fare clic su **Aggiungi**. 
 
     | Impostazione | Valore |
     | --- | --- |
@@ -160,7 +160,14 @@ In questa attività verrà configurata un'assegnazione statica di indirizzi IP p
 
 1. Selezionare **Associa indirizzo** IP pubblico e nell'elenco **a discesa Indirizzo IP** pubblico selezionare **az104-04-pip0**.
 
->**Nota:** se viene visualizzato un errore, *il nome di dominio è già in uso*, si tratta di un problema noto. Sarà necessario individuare l'indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete separatamente. 
+    >**Nota:** se viene visualizzato un errore, *il nome di dominio è già in uso*, si tratta di un problema noto. Sarà necessario individuare l'indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete separatamente.
+    >
+    > + Passare a **Indirizzi IP pubblici**
+    > + Fare clic su **az104-04-pip0**
+    > + **Nel riquadro Panoramica** fare clic su **Associa IP**
+    > + Impostare **Tipo di** risorsa su **Interfaccia di rete**
+    > + Impostare **l'interfaccia** di rete su **az104-04-nic0**
+    > + Ripetere per **az104-04-pip1** e **az104-04-nic1**
 
 1. Seleziona **Salva**.
 
