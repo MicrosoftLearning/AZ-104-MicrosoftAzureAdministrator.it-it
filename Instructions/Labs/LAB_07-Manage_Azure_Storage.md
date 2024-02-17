@@ -285,17 +285,17 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 
     > **Nota**: se non è stato registrato l'URL di firma di accesso condiviso dall'attività 4, è necessario generarne uno nuovo con la stessa configurazione. Usare i passaggi 4-6 dell'attività 4 come guida per generare un nuovo URL di firma di accesso condiviso BLOB. 
 
-1. Verrà visualizzato il contenuto della pagina **Licenza MIT**.
+1. Dovrebbe essere possibile scaricare il file LICEN edizione Standard.txt.
 
     > **Nota**: questo comportamento è previsto, perché ci si connette dal proprio indirizzo IP client.
 
 1. Chiudere la finestra del browser in modalità InPrivate e tornare nella finestra del browser in cui è visualizzato il pannello **Rete** dell'account di archiviazione di Azure.
 
-1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
+1. Nel portale di Azure cercare e selezionare **Macchine virtuali**, quindi nell'elenco di macchine virtuali fare clic su **az104-07-vm0**.
 
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
+1. Nella sezione **Operazioni** del pannello **az104-07-vm0** fare clic su **Esegui comando**.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per provare a scaricare il BLOB LICENSE dal contenitore **az104-07-container** dell'account di archiviazione. Sostituire il segnaposto `[blob SAS URL]` con l'URL di firma di accesso condiviso del BLOB generato nell'attività precedente:
+1. **Nel pannello Esegui script** comando eseguire quanto segue nel **riquadro Script** di PowerShell per tentare di scaricare il BLOB LICEN edizione Standard dal **contenitore az104-07-container** dell'account di archiviazione (sostituire il `[blob SAS URL]` segnaposto con l'URL della firma di accesso condiviso BLOB generato nell'attività precedente):
 
    ```powershell
    Invoke-WebRequest -URI '[blob SAS URL]'
@@ -303,8 +303,6 @@ In questa attività si configurerà l'accesso alla rete per Archiviazione di Azu
 1. Verificare che il tentativo di download non sia riuscito.
 
     > **Nota**: verrà visualizzato un messaggio analogo a **AuthorizationFailure: Questa richiesta non è autorizzata a eseguire questa operazione**. Questo comportamento è previsto, perché ci si connette dall'indirizzo IP assegnato a una macchina virtuale di Azure che ospita l'istanza di Cloud Shell.
-
-1. Chiudere il riquadro Cloud Shell.
 
 ## Pulire le risorse
 
