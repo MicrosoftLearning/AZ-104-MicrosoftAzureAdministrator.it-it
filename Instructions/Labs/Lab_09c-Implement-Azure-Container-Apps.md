@@ -4,100 +4,88 @@ lab:
   module: Administer PaaS Compute Options
 ---
 
-# Lab 09c: Implementare app di Azure Container
-# Manuale del lab per gli studenti
+# Lab 09c - Implementare app di Azure Container
+
+## Introduzione al lab
+
+In questo lab si apprenderà come implementare e distribuire app contenitore di Azure.
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
+
+## Tempo stimato: 15 minuti
 
 ## Scenario laboratorio
-App Contenitore di Azure consente di eseguire microservizi e applicazioni in contenitori in una piattaforma serverless. Con App contenitore si possono sfruttare i vantaggi dell'esecuzione di contenitori, senza doversi preoccupare della configurazione manuale dell'infrastruttura del cloud e di agenti di orchestrazione complessi.
 
-## Obiettivi
+L'organizzazione ha un'applicazione Web che viene eseguita in una macchina virtuale nel data center locale. L'organizzazione vuole spostare tutte le applicazioni nel cloud, ma non vuole gestire un numero elevato di server. Si decide di valutare le app di Azure Container.
 
-In questo lab si eseguiranno le attività seguenti:
-- Attività 1: Creare un'app e un ambiente contenitore
-- Attività 2: Distribuire l'app contenitore
-- Attività 3: Testare e verificare la distribuzione dell'app contenitore
+## Simulazioni di lab interattive
 
-Per iniziare, accedere al [portale di Azure](https://portal.azure.com).
+Non sono disponibili simulazioni di lab interattive per questo argomento. 
 
-## Tempo stimato: 20 minuti
+## Competenze mansione
 
-## Attività 1: Creare un'app e un ambiente contenitore
+- Attività 1: Creare e configurare un'app e un ambiente azure Container.
+- Attività 2: Testare e verificare la distribuzione dell'app Azure Container.
 
-Per creare l'app contenitore, iniziare dalla home page portale di Azure.
+## Diagramma dell'architettura
 
-1. `Container Apps` Cercare nella barra di ricerca superiore.
-1. Selezionare **App** contenitore nei risultati della ricerca.
-1. Selezionare il pulsante **Crea**.
+![Diagramma delle attività.](../media/az104-lab09b-aca-architecture.png)
 
-### Scheda Informazioni di base
+## Attività 1: Creare e configurare un'app e un ambiente azure Container
 
-*Nella scheda Informazioni di* base eseguire le azioni seguenti.
+App Contenitore di Azure considerano ulteriormente il concetto di cluster Kubernetes gestito e gestisce ulteriormente l'ambiente del cluster, oltre a fornire altri servizi gestiti all'interno del cluster. A differenza di un cluster Azure Kubernetes, in cui è comunque necessario gestire il cluster, un'istanza di App Contenitore di Azure rimuove alcune delle complessità per configurare un cluster Kubernetes.
 
-1. Immettere i valori seguenti nella *sezione Dettagli* progetto.
+1. Nella portale di Azure cercare e selezionare `Container Apps`.
+
+1. In **App** contenitore selezionare **Crea**.
+
+1. Usare le informazioni seguenti per compilare i dettagli nella **scheda Informazioni di base** .*.
 
     | Impostazione | Azione |
     |---|---|
-    | Subscription | Seleziona la tua sottoscrizione di Azure. |
-    | Resource group | Selezionare **Crea nuovo** e immettere `az104-09c-rg1`. |
-    | Nome dell'app contenitore |  Immetti `my-container-app`. |
+    | Abbonamento | Selezionare la Sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg9` |
+    | Nome dell'app contenitore |  `my-app` |
+    | Area    | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze) |
+    | Ambiente app contenitore | Lasciare il valore predefinito |
 
-#### Crea un ambiente
+1. **Nella scheda Contenitore** assicurarsi che **l'opzione Usa immagine** di avvio rapido sia abilitata e che l'immagine di avvio rapido sia impostata su **Contenitore Hello World** semplice.
 
-Creare quindi un ambiente per l'app contenitore.
+1. **Selezionare Rivedi e crea** e quindi **Crea**.
 
-1. Selezionare l'area appropriata.
+    >**Nota:** attendere che l'app contenitore venga distribuita. L'operazione richiede alcuni minuti. 
+ 
+## Attività 2: Testare e verificare la distribuzione dell'app Azure Container
 
-    | Impostazione | Valore |
-    |--|--|
-    | Area | **La tua scelta**. |
-
-1. *Nel campo Crea ambiente* app contenitore selezionare il **collegamento Crea nuovo**.
-1. *Nella pagina Crea ambiente* app contenitore nella *scheda Informazioni di base* immettere i valori seguenti:
-
-    | Impostazione | Valore |
-    |--|--|
-    | Nome ambiente | Immetti `my-environment`. |
-    | Ridondanza della zona | selezionare **Disabilitato** |
-
-1. Selezionare la **scheda Monitoraggio** per creare un'area di lavoro Log Analytics.
-1. Selezionare il **collegamento Crea nuovo** nel *campo Area di lavoro* Log Analytics e immettere i valori seguenti.
-
-    | Impostazione | valore |
-    |--|--|
-    | Nome | Immetti `my-container-apps-logs` |
-  
-    Il *campo Località* è precompilato con l'area geografica.
-
-1. Selezionare **OK**, quindi **Crea**. 
-
-1. Fare clic su **Avanti: Contenitore**.
-
-1. Selezionare la casella accanto a **Usa immagine** di avvio rapido.
-
-1. Selezionare il **pulsante Rivedi e crea** nella parte inferiore della pagina. Questo passaggio può richiedere alcuni minuti. 
-
-    Le impostazioni nell'app contenitore vengono verificate. Se non vengono rilevati errori, il *pulsante Crea* è abilitato.  
-
-    In caso di errori, qualsiasi scheda contenente errori viene contrassegnata con un punto rosso.  Passare alla scheda appropriata.  I campi contenenti un errore verranno evidenziati in rosso.  Dopo aver corretto tutti gli errori, selezionare **Rivedi e crea** di nuovo.
-
-1. Seleziona **Crea**.
-
-    Viene visualizzata una pagina con il messaggio *Distribuzione in corso* .  Al termine della distribuzione, verrà visualizzato il messaggio: *La distribuzione è stata completata*.
-   
-## Attività 2: Testare e verificare la distribuzione dell'app contenitore
+Per impostazione predefinita, l'app contenitore di Azure creata accetterà il traffico sulla porta 80 usando l'applicazione Hello World di esempio. App Azure Container fornirà un nome DNS per l'applicazione. Copiare e passare a questo URL per assicurarsi che l'applicazione sia attiva e in esecuzione.
 
 1. Selezionare Vai alla risorsa** per visualizzare **la nuova app contenitore.
 
 1. Selezionare il collegamento accanto a *URL* applicazione per visualizzare l'applicazione.
 
-1. Verificare che l'app **App Azure Container sia in tempo reale** .
+    ![Screenshot della pagina di panoramica di ACA nel portale.](../media/az104-lab09b-aca-overview.png)
 
+1. Verificare che l'app **App Azure Container sia in tempo reale** .
+   
 ## Pulire le risorse
 
-Se non si intende continuare a usare questa applicazione, è possibile eliminare l'istanza di App Azure Container e tutti i servizi associati rimuovendo il gruppo di risorse.
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
-1. Selezionare il **gruppo di risorse my-container-apps** nella *sezione Panoramica* .
-1. Selezionare il **pulsante Elimina gruppo** di risorse nella parte superiore della panoramica* del gruppo *di risorse.
-1. Immettere il nome del gruppo di risorse e confermare l'eliminazione dell'app. 
-1. Selezionare **Elimina**.
-1. Il completamento del processo per eliminare il gruppo di risorse può richiedere alcuni minuti.
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
+
+
+
+## Punti chiave
+
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
+
++ App Azure Container (ACA) è una piattaforma serverless che consente di mantenere meno infrastruttura e risparmiare sui costi durante l'esecuzione di applicazioni in contenitori.
++ App contenitore fornisce informazioni dettagliate sulla configurazione del server, sull'orchestrazione dei contenitori e sulla distribuzione. 
++ I carichi di lavoro in ACA sono in genere processi a esecuzione prolungata, ad esempio un'app Web.
+
+## Altre informazioni con la formazione autogestita
+
++ [Configurare un'app contenitore in App](https://learn.microsoft.com/training/modules/configure-container-app-azure-container-apps/) Azure Container. Esamina le funzionalità e le funzionalità di App Azure Container e quindi illustra come creare, configurare, ridimensionare e gestire app contenitore usando App Contenitore di Azure.
+     

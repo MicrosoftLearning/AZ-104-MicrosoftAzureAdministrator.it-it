@@ -5,51 +5,56 @@ lab:
 ---
 
 # Lab 09b - Implementare Istanze di Azure Container
-# Manuale del lab per gli studenti
+
+## Introduzione al lab
+
+In questo lab si apprenderà come implementare e distribuire Istanze di Azure Container.
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
+
+## Tempo stimato: 15 minuti
 
 ## Scenario laboratorio
 
-Contoso vuole trovare una nuova piattaforma per i carichi di lavoro virtualizzati. Sono state identificate diverse immagini del contenitore che possono essere sfruttate per raggiungere questo obiettivo. Poiché si vuole ridurre al minimo la gestione dei contenitori, si prevede di valutare l'uso di Istanze di Azure Container per la distribuzione di immagini Docker.
+L'organizzazione ha un'applicazione Web che viene eseguita in una macchina virtuale nel data center locale. L'organizzazione vuole spostare tutte le applicazioni nel cloud, ma non vuole gestire un numero elevato di server. Si decide di valutare Istanze di Azure Container e Docker. 
+## Simulazioni di lab interattive
 
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
 
-## Obiettivi
++ [Distribuire Istanze di Azure Container](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%203). Creare, configurare e distribuire un contenitore Docker con Istanze di Azure Container.
+  
++ [Implementare Istanze di Azure Container](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014).  Distribuire un'immagine Docker usando Istanze di Azure Container. 
 
-Contenuto del lab:
+## Competenze mansione
 
-- Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
-- Attività 2: Esaminare la funzionalità di Istanza di Azure Container
+- Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker.
+- Attività 2: Testare e verificare la distribuzione di un'istanza di Azure Container.
 
-## Tempo stimato: 20 minuti
 
 ## Diagramma dell'architettura
 
-![image](../media/lab09b.png)
-
-### Istruzioni
-
-## Esercizio 1
+![Diagramma delle attività.](../media/az104-lab09b-aci-architecture.png)
 
 ## Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
 
-In questa attività verrà creata una nuova istanza di contenitore per l'applicazione Web.
+In questa attività si creerà una semplice applicazione Web usando un'immagine Docker. Docker è una piattaforma che consente di creare pacchetti ed eseguire applicazioni in ambienti isolati denominati contenitori. Istanze di Azure Container fornisce l'ambiente di calcolo per l'immagine del contenitore.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Nel portale di Azure trovare **Istanze di Container** e nel pannello **Istanze di Container** fare clic su **+ Crea**.
+1. Nella portale di Azure cercare e selezionare `Container instances` e quindi **nel pannello Istanze** di Contenitore fare clic su **+ Crea**.
 
 1. Nella scheda **Dati principali** del pannello **Crea istanza di Container** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09b-rg1** |
-    | Nome contenitore | **az104-9b-c1** |
-    | Area | Nome di un'area in cui è possibile effettuare il provisioning delle istanze di Azure Container |
+    | Abbonamento | Selezionare la Sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
+    | Nome contenitore | `az104-c1` |
+    | Area | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze)|
     | Origine immagine | **Immagini di avvio rapido** |
-    | Immagine | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
+    | Image | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
-1. Fare clic su **Avanti: Rete >** e nella scheda **Rete** del pannello **Crea istanza di Container** specificare le impostazioni seguenti, lasciando i valori predefiniti per le altre:
+1. Fare clic su **Avanti: Rete >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
@@ -57,15 +62,17 @@ In questa attività verrà creata una nuova istanza di contenitore per l'applica
 
     >**Nota**: il contenitore sarà raggiungibile pubblicamente all'indirizzo dns-name-label.region.azurecontainer.io. Se viene visualizzato un messaggio di errore **L'etichetta del nome DNS non è disponibile**, specificare un valore diverso.
 
-1. Fare clic su **Avanti: Avanzate >**, esaminare le impostazioni nella scheda **Avanzate** del pannello **Crea istanza di Container** senza apportare modifiche, fare clic su **Verifica e crea**, verificare che la convalida sia stata superata e fare clic su **Crea**.
+1. Fare clic su **Avanti: Avanzate >**, esaminare le impostazioni senza apportare modifiche.
 
-    >**Nota**: attendere il completamento della distribuzione. L'operazione richiede circa 3 minuti.
+ 1. Fare clic su **Rivedi e crea**, verificare che la convalida sia stata superata e quindi selezionare **Crea**.
 
-    >**Nota**: durante l'attesa può essere interessante visualizzare il [codice alla base di questa applicazione di esempio](https://github.com/Azure-Samples/aci-helloworld). Per visualizzarlo, passare alla cartella \\app.
+    >**Nota**: attendere il completamento della distribuzione. L'operazione dovrebbe richiedere 2-3 minuti.
 
-## Attività 2: Esaminare la funzionalità di Istanza di Azure Container
+    >**Nota**: durante l'attesa può essere interessante visualizzare il [codice alla base di questa applicazione di esempio](https://github.com/Azure-Samples/aci-helloworld). Per visualizzare il codice, esplorare la cartella dell'app \\.
 
-In questa attività verrà esaminata la distribuzione dell'istanza di contenitore.
+## Attività 2: Testare e verificare la distribuzione di un'istanza di Azure Container 
+
+In questa attività si esamina la distribuzione dell'istanza del contenitore. Per impostazione predefinita, l'istanza di Azure Container è accessibile sulla porta 80. Dopo aver distribuito l'istanza, è possibile passare al contenitore usando il nome DNS fornito nell'attività precedente.
 
 1. Nel pannello della distribuzione fare clic sul collegamento **Vai alla risorsa**.
 
@@ -73,39 +80,34 @@ In questa attività verrà esaminata la distribuzione dell'istanza di contenitor
 
 1. Copiare il valore **FQDN**dell'istanza di contenitore, aprire una nuova scheda del browser e passare all'URL corrispondente.
 
-1. Verificare che venga visualizzata la pagina **Benvenuti in Istanze di Azure Container**.
+     ![Screenshot della pagina di panoramica di ACI nel portale.](../media/az104-lab09b-aci-overview.png)
 
-1. Chiudere la nuova scheda del browser e nel portale di Azure, nella sezione **Impostazioni** del pannello dell'istanza del contenitore, fare clic su **Contenitori** e quindi su **Log**.
+1. Verificare che venga visualizzata la pagina **Benvenuti in Istanze di Azure Container**. Aggiornare la pagina più volte per creare alcune voci di log e quindi chiudere la scheda del browser.  
+
+1. **Nella sezione Impostazioni** del pannello dell'istanza del contenitore fare clic su **Contenitori** e quindi su **Log**.
 
 1. Verificare che siano visualizzate le voci di log che rappresentano la richiesta HTTP GET generata visualizzando l'applicazione nel browser.
-
+   
 ## Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
-1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
-    >**Nota**: per il corretto funzionamento di questi comandi, è necessario creare l'archiviazione di Cloud Shell. 
+## Punti chiave
 
-1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-09b*'
-   ```
++ Istanze di Azure Container (ACI) è un servizio che consente di distribuire contenitori nel cloud pubblico di Microsoft Azure.
++ ACI non richiede il provisioning o la gestione di un'infrastruttura sottostante.
++ ACI supporta sia contenitori Linux che contenitori Windows.
++ I carichi di lavoro in Istanze di Azure Container vengono in genere avviati e arrestati da un certo tipo di processo o trigger e sono in genere di breve durata. 
 
-1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+## Altre informazioni con la formazione autogestita
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-09b*' | Remove-AzResourceGroup -Force -AsJob
-   ```
++ [Eseguire immagini del contenitore in Istanze di Azure Container](https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/). Informazioni su come Istanze di Azure Container consente di distribuire rapidamente i contenitori, su come impostare le variabili di ambiente e specificare i criteri di riavvio del contenitore.
 
-    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
-
-## Rivedi
-
-In questo lab sono state eseguite le attività seguenti:
-
-- Distribuzione di un'immagine Docker usando Istanza di Azure Container
-- Esame della funzionalità di Istanza di Azure Container
+    
