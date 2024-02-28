@@ -98,7 +98,7 @@ In questa attività si usa il modello scaricato per distribuire un nuovo disco g
 
 1. Selezionare **Salva** per salvare le modifiche.
 
-1. Dpn non dimentica il file dei parametri. Selezionare **Modifica parametri**, fare clic su **Carica file** e caricare il **parameters.json**. 
+1. Non dimenticare il file dei parametri. Selezionare **Modifica parametri**, fare clic su **Carica file** e caricare il **parameters.json**. 
 
 1. Apportare questa modifica in modo che corrisponda al file modello.
 
@@ -160,7 +160,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
     ```
     >**Nota**: se è necessario, è possibile usare **cls** per cancellare la finestra di comando. È possibile usare i tasti di direzione per spostare la cronologia dei comandi.
    
-1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON dei parametri.
+1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON del modello.
 
 1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk3**. Usare **CTRL+S** per salvare le modifiche. 
 
@@ -189,7 +189,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
     ls
     ```
 
-1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON dei parametri.
+1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON del modello.
 
 1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk4**. Usare **CTRL+S** per salvare le modifiche. 
 
