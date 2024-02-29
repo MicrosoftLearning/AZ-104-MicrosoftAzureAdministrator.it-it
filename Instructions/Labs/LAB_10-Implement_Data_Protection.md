@@ -4,477 +4,299 @@ lab:
   module: Administer Data Protection
 ---
 
-# Lab 10 - Eseguire il backup delle macchine virtuali
-# Manuale del lab per gli studenti
+# Lab 10 - Implementare la protezione dati
 
-## Scenario laboratorio
+## Introduzione al lab    
 
-L'attività da eseguire consiste nel valutare l'uso di Servizi di ripristino di Azure per il backup e il ripristino di file ospitati in macchine virtuali di Azure e in computer locali. Si vogliono inoltre identificare i metodi di protezione dei dati archiviati nell'insieme di credenziali di Servizi di ripristino da perdita dei dati accidentale o dannosa.
+In questo lab vengono fornite informazioni sul backup e il ripristino delle macchine virtuali di Azure. Si apprenderà come creare un insieme di credenziali del servizio di ripristino e un criterio di backup per le macchine virtuali di Azure. Informazioni sul ripristino di emergenza con Azure Site Recovery. 
 
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
-
-## Obiettivi
-
-Contenuto del lab:
-
-+ Attività 1: Effettuare il provisioning dell'ambiente lab
-+ Attività 2: Creare un insieme di credenziali di Servizi di ripristino
-+ Attività 3: Implementare il backup a livello di macchina virtuale di Azure
-+ Attività 4: Implementare il backup di file e cartelle
-+ Attività 5: Eseguire il ripristino dei file usando l'Agente di Servizi di ripristino di Azure
-+ Attività 6: Eseguire il ripristino dei file usando gli snapshot macchina virtuale di Azure (facoltativo)
-+ Attività 7: Esaminare la funzionalità di eliminazione temporanea di Servizi di ripristino di Azure (facoltativo)
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare le aree, ma i passaggi vengono scritti usando **Stati Uniti orientali e **Stati** Uniti** occidentali.
 
 ## Tempo stimato: 50 minuti
 
+## Scenario laboratorio
+
+L'organizzazione sta valutando come eseguire il backup e il ripristino di macchine virtuali di Azure da perdite accidentali o dannose di dati. Inoltre, l'organizzazione vuole esplorare l'uso di Azure Site Recovery per scenari di ripristino di emergenza. 
+
+## Simulazione interattiva del lab
+
+È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
+
++ **[Eseguire il backup di macchine virtuali e file](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** locali. Creare un insieme di credenziali dei servizi di ripristino e implementare un backup di macchine virtuali di Azure. Implementare il backup di file e cartelle locali usando l'agente di Servizi di ripristino di Microsoft Azure. I backup locali non rientrano nell'ambito di questo lab, ma potrebbe essere utile visualizzare questi passaggi. 
+
+## Competenze mansione
+
++ Attività 1: usare un modello per effettuare il provisioning di un'infrastruttura.
++ Attività 2: Creare e configurare un insieme di credenziali di Servizi di ripristino.
++ Attività 3: Configurare il backup a livello di macchina virtuale di Azure.
++ Attività 4: Monitorare Backup di Azure.
++ Attività 5: Abilitare la replica di macchine virtuali. 
+
+## Tempo stimato: 40 minuti
+
 ## Diagramma dell'architettura
 
-![image](../media/lab10.png)
+![Diagramma delle attività di architettura.](../media/az104-lab10-architecture.png)
 
-### Istruzioni
+## Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura
 
-## Esercizio 1
+In questa attività si userà un modello per distribuire una macchina virtuale. La macchina virtuale verrà usata per testare diversi scenari di backup.
 
-## Attività 1: Effettuare il provisioning dell'ambiente lab
+1. Scaricare i **file lab Allfiles\\Lab10\\**.\\
 
-In questa attività verranno distribuite due macchine virtuali che verranno usate per testare scenari di backup diversi.
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Cercare e selezionare `Deploy a custom template`.
 
-1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
+1. Nella pagina di distribuzione personalizzata selezionare **Compila un modello personalizzato nell'editor**.
 
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
+1. Nella pagina modifica modello selezionare **Carica file**.
 
-    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
+1. Individuare e selezionare il **\\file Allfiles\\Lab10\\az104-10-vms-edge-template.json** e selezionare **Apri**.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** e **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** nella home directory di Cloud Shell.
+   >**Nota:** esaminare il modello. Viene distribuita una rete virtuale e una macchina virtuale in modo da poter illustrare il backup e il ripristino. 
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà le macchine virtuali. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure. Digitare ogni riga di comando separatamente ed eseguirle separatamente:
+1. Selezionare **Salva** per salvare le modifiche.
 
-   ```powershell
-   $location = '[Azure_region]'
-    ```
-    
-   ```powershell
-   $rgName = 'az104-10-rg0'
-    ```
-    
-   ```powershell
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
+1. Selezionare **Modifica parametri** e quindi **Carica file**.
 
-1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
-    >**Nota**: verrà richiesto di fornire una password Amministrazione.
-    
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-10-vms-edge-template.json `
-      -TemplateParameterFile $HOME/az104-10-vms-edge-parameters.json `
-      -AsJob
-   ```
+1. Caricare e selezionare il **\\file Allfiles\\Lab10\\az104-10-vms-edge-parameters.json** .
 
-1. Ridurre a icona il riquadro Cloud Shell, ma non chiuderlo.
+1. Selezionare **Salva** per salvare le modifiche.
 
-    >**Nota**: non attendere il completamento della distribuzione, ma procedere con l'attività successiva. La distribuzione dovrebbe richiedere 5 minuti circa.
+1. Usare le informazioni seguenti per completare i campi di distribuzione personalizzati, lasciando tutti gli altri campi con i valori predefiniti:
 
-## Attività 2: Creare un insieme di credenziali di Servizi di ripristino
+    | Impostazione       | Valore         | 
+    | ---           | ---           |
+    | Subscription  | la propria sottoscrizione di Azure |
+    | Gruppo di risorse| `az104-rg-region1` (Se necessario, selezionare **Crea nuovo**)
+    | Area geografica        | **Stati Uniti orientali**   |
+    | Username      | **localadmin**   |
+    | Password      | Specificare una password complessa |
 
-In questa attività verrà creato un insieme di credenziali di Servizi di ripristino.
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-1. Nel portale di Azure cercare e selezionare **Insiemi di credenziali di Servizi di ripristino** e quindi nel pannello **Insiemi di credenziali di Servizi di ripristino** fare clic su **+ Crea**.
+    >**Nota:** attendere che il modello venga distribuito e quindi selezionare **Vai alla risorsa**. È necessario avere una macchina virtuale in una rete virtuale. 
+
+## Attività 2: Creare e configurare un insieme di credenziali di Servizi di ripristino
+
+In questa attività verrà creato un insieme di credenziali di Servizi di ripristino. Un insieme di credenziali di Servizi di ripristino fornisce l'archiviazione per i dati della macchina virtuale. 
+
+1. Nella portale di Azure cercare e selezionare `Recovery Services vaults` e nel pannello **Insiemi** di credenziali di Servizi di ripristino fare clic su **+ Crea**.
 
 1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-10-rg1** |
-    | Nome dell'insieme di credenziali | **az104-10-rsv1** |
-    | Area | Nome dell'area in cui sono state distribuite le due macchine virtuali nell'attività precedente |
+    | Subscription | nome della sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg-region1`  |
+    | Nome dell'insieme di credenziali | `az104-rsv-region1` |
+    | Area geografica | **Stati Uniti orientali** |
 
     >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
 
-1. Fare clic su **Rivedi e crea**, assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
+    ![Screenshot dell'insieme di credenziali di Servizi di ripristino.](../media/az104-lab10-create-rsv.png)
 
-    >**Nota**: attendere il completamento della distribuzione. La distribuzione dovrebbe richiedere meno di 1 minuto.
+1. Fare clic su **Rivedi e crea**, verificare che la convalida venga superata e quindi fare clic su **Crea**.
+
+    >**Nota**: attendere il completamento della distribuzione. La distribuzione richiederà alcuni minuti. 
 
 1. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** nella sezione **Impostazioni** fare clic su **Proprietà**.
+1. Nel pannello Insieme di credenziali di Servizi di ripristino fare clic su Proprietà nella **sezione Impostazioni**.****
 
-1. Nel pannello **az104-10-rsv1 - Proprietà** fare clic sul collegamento **Aggiorna** sotto l'etichetta **Configurazione di backup**.
+1. Selezionare il **collegamento Aggiorna** in **Etichetta configurazione** backup.
 
 1. Nel pannello **Configurazione** backup esaminare le opzioni disponibili per **Archiviazione tipo di** replica. Lasciare selezionata l'impostazione predefinita **Con ridondanza geografica** e chiudere il pannello.
 
     >**Nota**: questa impostazione può essere configurata solo se non sono presenti elementi di backup esistenti.
+    
+    >**Lo sapevi?** L'opzione [Ripristino](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore) tra aree consente di ripristinare i dati in un'area secondaria abbinata di Azure. 
 
-1. Nel pannello **az104-10-rsv1 - Proprietà** visualizzato di nuovo fare clic sul collegamento **Aggiorna** sotto l'etichetta **Impostazioni di sicurezza**.
+1. Tornare al pannello Insieme di credenziali di Servizi di ripristino, fare clic sul **collegamento Aggiorna** in **Sicurezza Impostazioni >'etichetta Eliminazione temporanea e impostazioni** di sicurezza.
 
-1. Nel pannello **Impostazioni di sicurezza** si noti che l'opzione **Eliminazione temporanea (per carichi di lavoro in esecuzione in Azure)** è **abilitata**.
+1. Nel pannello **Impostazioni di sicurezza** si noti che l'opzione **Eliminazione temporanea (per carichi di lavoro in esecuzione in Azure)** è **abilitata**. Si noti che il periodo** di conservazione dell'eliminazione **temporanea è **di 14** giorni. 
 
-1. Chiudere il pannello **Impostazioni di sicurezza** e nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** visualizzato di nuovo fare clic su **Panoramica**.
+1. Tornare al pannello Insieme di credenziali di Servizi di ripristino, selezionare il **pannello Panoramica** .
 
-## Attività 3: Implementare il backup a livello di macchina virtuale di Azure
+>**Lo sapevi?** Azure ha due tipi di insiemi di credenziali: insiemi di credenziali di Servizi di ripristino e insiemi di credenziali di backup. La differenza principale è costituita dalle origini dati di cui è possibile eseguire il backup. Altre informazioni sulle [differenze](https://learn.microsoft.com/answers/questions/405915/what-is-difference-between-recovery-services-vault).
 
-In questa attività verrà implementato il backup a livello di macchina virtuale di Azure.
+## Attività 3: Configurare il backup a livello di macchina virtuale di Azure
+
+In questa attività verrà implementato il backup a livello di macchina virtuale di Azure. Come parte di un backup di vm, sarà necessario definire i criteri di backup e conservazione applicabili al backup. A diverse macchine virtuali possono essere assegnati criteri di backup e conservazione diversi.
 
    >**Nota**: prima di avviare questa attività, assicurarsi che la distribuzione avviata nella prima attività di questo lab sia stata completata correttamente.
 
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** fare clic su **Panoramica** e quindi su **+ Backup**.
+1. Nel pannello Insieme di credenziali di Servizi di ripristino fare clic su **Panoramica**, quindi su **+ Backup**.
 
 1. Nel pannello **Obiettivo del backup** specificare le impostazioni seguenti:
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Dove viene eseguito il carico di lavoro? | **Azure** |
-    | Di quali elementi si vuole eseguire il backup? | **Macchina virtuale** |
+    | Dove viene eseguito il carico di lavoro? | **Azure** (si notino le altre opzioni) |
+    | Di quali elementi si vuole eseguire il backup? | **Macchina** virtuale (si notino le altre opzioni) |
 
-1. Nel pannello **Obiettivo del backup** fare clic su **Backup**.
+1. Selezionare **Backup**.
 
-1. In **Criteri di backup** esaminare le impostazioni per **DefaultPolicy** e selezionare **Crea nuovi criteri**.
+1. Si noti che esistono due **sottotipi** di criteri: **Avanzato** e **Standard**. Esaminare le scelte e selezionare **Standard**. 
+
+1. In **Criteri di backup** selezionare **Crea un nuovo criterio**.
 
 1. Definire un nuovo criterio di backup con le impostazioni seguenti e non modificare i valori predefiniti per gli altri criteri:
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Nome del criterio | **az104-10-backup-policy** |
+    | Nome del criterio | `az104-backup` |
     | Frequenza | **Giornaliero** |
     | Ora | **12:00** |
     | Fuso orario | Nome del fuso orario locale |
-    | Conservare gli snapshot del ripristino istantaneo per | **2** giorni |
+    | Conservare gli snapshot del ripristino istantaneo per | **12** giorni |
+
+    ![Screenshot della pagina dei criteri di backup.](../media/az104-lab10-backup-policy.png)
 
 1. Fare clic su **OK** per creare il criterio e quindi nella sezione **Macchine virtuali** selezionare **Aggiungi**.
 
-1. Nel pannello **Seleziona macchine virtuali** selezionare **az-104-10-vm0**, fare clic su **OK**, quindi nel pannello **Backup** visualizzato di nuovo fare clic su **Abilita backup**.
+1. Nel pannello **Seleziona macchine** virtuali selezionare **az-104-10-vm0**, fare clic su **OK** e quindi nel **pannello Backup** fare clic su **Abilita backup**.
 
-    >**Nota**: attendere il completamento dell'abilitazione del backup. L'operazione richiede circa 2 minuti.
+    >**Nota**: attendere il completamento dell'abilitazione del backup. L'operazione dovrebbe richiedere circa 2 minuti.
 
-1. Tornare al pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** e nella sezione **Elementi protetti** fare clic su **Elementi di backup**, quindi sulla voce **Macchina virtuale di Azure**.
+1. **Nella sezione Elementi** protetti fare clic su **Elementi** di backup e quindi fare clic sulla **voce Macchina** virtuale di Azure.
 
-1. Nel pannello **Elementi di backup (macchina virtuale di Azure)** selezionare il collegamento **Visualizza dettagli** per **az104-10-vm0** ed esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
+1. Selezionare il **collegamento Visualizza dettagli** per **az104-10-vm0** ed esaminare i valori delle **voci Backup pre-check** e **Stato ultimo backup** .
 
-1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Esegui backup ora**, accettare il valore predefinito nell'elenco a discesa **Conserva backup fino a** e fare clic su **OK**.
+    >**Nota: si noti che** il backup è in sospeso.
+    
+1. Selezionare **Backup now (Backup now**), accettare il valore predefinito nell'elenco **a discesa Mantieni backup fino a** e fare clic su **OK**.
 
     >**Nota**: non attendere il completamento del backup, ma procedere con l'attività successiva.
 
-## Attività 4: Implementare il backup di file e cartelle
+## Attività 4: Monitorare Backup di Azure
 
-In questa attività verrà implementato il backup di file e cartelle mediante Servizi di ripristino di Azure.
+In questa attività si distribuirà un account di archiviazione di Azure. Si configurerà quindi l'insieme di credenziali per inviare i log e le metriche all'account di archiviazione. Questo repository può quindi essere usato con Log Analytics o altre soluzioni di monitoraggio di terze parti.
 
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-10-vm1**.
+1. Nella portale di Azure cercare e selezionare `Storage accounts`.
 
-1. Nel pannello **az104-10-vm1** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
+1. Nella pagina Archiviazione account selezionare **Crea**.
 
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
+1. Usare le informazioni seguenti per definire l'account di archiviazione e quindi selezionare **Rivedi**.
 
-    >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
+    | Impostazioni | Valore |
+    | --- | --- | 
+    | Subscription          | *Sottoscrizione in uso*    |
+    | Gruppo di risorse        | **az104-rg-region1**        |
+    | Nome account di archiviazione  | Specificare un nome univoco globale   |
+    | Area geografica                | **Stati Uniti orientali**   |
 
-1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
+1. Nella scheda Rivedi selezionare **Crea**.
 
-    >**Nota:** poiché il portale di Azure non supporta più IE11, è necessario usare il browser Microsoft Edge per questa attività.
+    >**Nota**: attendere il completamento della distribuzione. Ci vorranno circa un minuto.
 
-1. Nella sessione di Desktop remoto per la macchina virtuale di Azure **az104-10-vm1** avviare un'istanza del Web browser Microsoft Edge, passare al [portale di Azure](https://portal.azure.com) e accedere usando le credenziali.
+1. Cercare e selezionare l'insieme di credenziali di Servizi di ripristino.
 
-1. Nel portale di Azure cercare e selezionare **Insiemi di credenziali di Servizi di ripristino** e in **Insiemi di credenziali di Servizi di ripristino** fare clic su **az104-10-rsv1**.
+1. Selezionare **Diagnostica Impostazioni** e quindi selezionare **Aggiungi impostazione** di diagnostica.
 
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** fare clic su **+ Backup**.
+1. Denominare l'impostazione `Logs and Metrics to storage`.
 
-1. Nel pannello **Obiettivo del backup** specificare le impostazioni seguenti:
+1. Posizionare un segno di spunta accanto alle categorie di log e metriche seguenti:
+
+    - **Backup di Azure dati di report**
+    - **Dati del processo di addon Backup di Azure**
+    - **Addon Backup di Azure i dati degli avvisi**
+    - **Processi di Azure Site Recovery**
+    - **Eventi di Azure Site Recovery**
+    - **Integrità**
+
+1. In Dettagli destinazione posizionare un segno di spunta accanto a Archivia **a un account** di archiviazione.
+
+1. Nel campo a discesa Archiviazione account selezionare l'account di archiviazione distribuito in precedenza in questa attività.
+
+1. Seleziona **Salva**.
+
+1. Tornare all'insieme di credenziali di Servizi di ripristino nel pannello Monitoraggio selezionare **Processi di backup**.** **
+
+1. Individuare l'operazione di backup per la **macchina virtuale az104-10-vm0** . 
+
+1. Esaminare i dettagli del processo di backup.
+
+## Attività 5: Abilitare la replica di macchine virtuali
+
+1. Nella portale di Azure cercare e selezionare `Recovery Services vaults` e nel pannello **Insiemi** di credenziali di Servizi di ripristino fare clic su **+ Crea**.
+
+1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
     | Impostazioni | Valore |
     | --- | --- |
-    | Dove viene eseguito il carico di lavoro? | **Locale** |
-    | Di quali elementi si vuole eseguire il backup? | **File e cartelle** |
+    | Subscription | nome della sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg-region2` (Se necessario, selezionare **Crea nuovo**) |
+    | Nome dell'insieme di credenziali | `az104-rsv-region2` |
+    | Area | **Stati Uniti occidentali** |
 
-    >**Nota**: anche se la macchina virtuale in uso in questa attività è in esecuzione in Azure, è possibile sfruttarla per valutare le funzionalità di backup applicabili a qualsiasi computer locale che esegue Windows Server.
+    >**Nota**: assicurarsi di specificare un'area **diversa** rispetto alla macchina virtuale.
 
-1. Nel pannello **Obiettivo del backup** fare clic su **Preparare l'infrastruttura**.
+1. Fare clic su **Rivedi e crea**, verificare che la convalida venga superata e quindi fare clic su **Crea**.
 
-1. Nel pannello **Preparare l'infrastruttura** fare clic sul collegamento **Scaricare l'agente per Windows Server o Windows Client**.
+    >**Nota**: attendere il completamento della distribuzione. La distribuzione richiederà alcuni minuti. 
 
-1. Quando richiesto, fare clic su **Esegui** per avviare l'installazione di **MARSAgentInstaller.exe** con le impostazioni predefinite.
+1. Cercare e selezionare la `az104-10-vm0` macchina virtuale.
 
-    >**Nota**: nella pagina **Consenso esplicito per Microsoft Update** dell'**Installazione guidata di Agente servizi di ripristino di Microsoft Azure** selezionare l'opzione di installazione **Non utilizzare Microsoft Update**.
+1. Nel pannello **Backup e ripristino** di emergenza selezionare **Ripristino** di emergenza. 
 
-1. Nella pagina **Installazione** dell'**Installazione guidata di Agente servizi di ripristino di Microsoft Azure** fare clic su **Continua con la registrazione**. Verrà avviata la **Registrazione guidata server**.
+1. Selezionare **Abilita replica**.
 
-1. Passare alla finestra del Web browser che mostra il portale di Azure e nel pannello **Preparare l'infrastruttura** selezionare la casella di controllo **Already downloaded or using the latest Recovery Server Agent** (Download già completato o con la versione più recente di Agente servizi di ripristino), quindi fare clic su **Scarica**.
+1. Nella **scheda Informazioni di base** notare l'area **** di destinazione.
 
-1. Quando viene richiesto se aprire o salvare il file delle credenziali dell'insieme di credenziali, fare clic su **Salva**. Il file delle credenziali dell'insieme di credenziali verrà salvato nella cartella Download locale.
+1. Passare alla **scheda Impostazioni avanzate** . Le selezioni delle risorse sono state effettuate. È importante esaminarle. 
 
-1. Tornare alla finestra della **Registrazione guidata server** e nella pagina **Identificazione insieme di credenziali** fare clic su **Esplora**.
+1. Verificare le impostazioni di sottoscrizione, gruppo di risorse vm, rete virtuale e disponibilità (prendere le impostazioni predefinite).
 
-1. Nella finestra di dialogo **Seleziona insieme di credenziali** passare alla cartella **Download**, fare clic sul file delle credenziali dell'insieme di credenziali scaricato e fare clic su **Apri**.
+1. In **Archiviazione impostazioni** selezionare **Mostra dettagli**.
 
-1. Nella pagina **Identificazione insieme di credenziali** visualizzata di nuovo fare clic su **Avanti**.
+    | Impostazione | Valore |
+    | ---- | ---- |
+    | Varianza per la macchina virtuale | **Varianza normale**  |
+    | Account di archiviazione della cache | **(nuovo) xxx**  |
 
-1. Assicurarsi che **la passphrase salva in modo sicuro in Azure Key Vault** non sia selezionata. 
+   >**Nota:** è importante che entrambe queste impostazioni vengano popolate o che la convalida non riesca. Se i valori non sono presenti, provare ad aggiornare la pagina. In caso contrario, creare un account di archiviazione vuoto e tornare a questa pagina.
 
-1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic su **Genera passphrase**.
+1. In Impostazioni **replica** selezionare **Mostra dettagli**. Si noti che l'insieme di credenziali delle risorse di ripristino nell'area 2 è stato selezionato automaticamente.
 
-1. Nella pagina **Impostazione crittografia** della **Registrazione guidata server** fare clic sul pulsante **Esplora** accanto a **Immetti un percorso in cui salvare la passphrase**.
+1. Selezionare **Rivedi e avvia replica** e quindi **Abilita replica**.
 
-1. Nella finestra di dialogo **Sfoglia per cartelle** selezionare la cartella **Documenti** e fare clic su **OK**.
+    >**Nota**: l'abilitazione della replica richiederà 10-15 minuti. Controllare i messaggi di notifica in alto a destra nel portale. Durante l'attesa, valutare la possibilità di esaminare i collegamenti di training auto-passo alla fine di questa pagina.
+    
+1. Al termine della replica, cercare e individuare l'insieme di credenziali di Servizi di ripristino, **az104-rsv-region2**. Può essere necessario **aggiornare** la pagina. 
 
-1. Fare clic su **Fine**, esaminare l'avviso di **Backup di Microsoft Azure** e fare clic su **Sì**, quindi attendere il completamento della registrazione.
+1. **Nella sezione Elementi** protetti selezionare **Elementi** replicati.
 
-    >**Nota**: in un ambiente di produzione è consigliabile archiviare il file della passphrase in un percorso sicuro diverso dal server di cui viene eseguito il backup.
+1. Verificare che la macchina virtuale sia visualizzata come integra per l'integrità della replica. Si noti che lo stato mostrerà la sincronizzazione (a partire dallo stato 0%) e in definitiva mostra **Protected** dopo il completamento della sincronizzazione iniziale.
 
-1. Nella pagina **Registrazione server** della **Registrazione guidata server** esaminare l'avviso relativo alla posizione del file della passphrase, assicurarsi che la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** sia selezionata e fare clic su **Chiudi**. Verrà aperta automaticamente la console di **Backup di Microsoft Azure**.
+   ![Screenshot della pagina elementi replicati.](../media/az104-lab10-replicated-items.png)
 
-1. Nella console di **Backup di Microsoft Azure** nel riquadro **Azioni** fare clic su **Pianifica backup**.
-
-1. Nella **Pianificazione guidata backup** nella pagina **Attività iniziali** fare clic su **Avanti**.
-
-1. Nella pagina **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
-
-1. Nella finestra di dialogo **Seleziona elementi** espandere **C:\\Windows\\System32\\drivers\\etc\\**, selezionare **hosts** e quindi fare clic su**OK**:
-
-1. Nella pagina **Seleziona elementi per backup** fare clic su **Avanti**.
-
-1. Nella pagina **Specificare la pianificazione del backup** assicurarsi che l'opzione **Giorno** sia selezionata e nella prima casella di riepilogo a discesa sotto la casella **Agli orari seguenti (è consentito un massimo di tre orari al giorno)** selezionare **4:30** e quindi fare clic su **Avanti**.
-
-1. Nella pagina **Seleziona criteri di conservazione** accettare le impostazioni predefinite, quindi fare clic su **Avanti**.
-
-1. Nella pagina **Scegliere il tipo di backup iniziale** accettare le impostazioni predefinite, quindi fare clic su **Avanti**.
-
-1. Nella pagina **Conferma** fare clic su **Fine.** Al termine della creazione della pianificazione del backup, fare clic su **Chiudi**.
-
-1. Nel riquadro Azioni della console di **Backup di Microsoft Azure** fare clic su **Esegui backup**.
-
-    >**Nota**: l'opzione per eseguire il backup su richiesta diventa disponibile dopo la creazione di un backup pianificato.
-
-1. Nella pagina **Seleziona elemento di backup** dell'Esecuzione guidata backup assicurarsi che l'opzione **File e cartelle** sia selezionata e fare clic su **Avanti**.
-
-1. Nella pagina **Conserva backup fino a** accettare l'impostazione predefinita e fare clic su **Avanti**.
-
-1. Nella pagina **Conferma** fare clic su **Backup**.
-
-1. Al termine del backup, fare clic su **Chiudi**, quindi chiudere Backup di Microsoft Azure.
-
-1. Passare alla finestra del Web browser che mostra il portale di Azure, tornare al pannello **Insieme di credenziali di Servizi di ripristino** nella sezione **Elementi protetti** e fare clic su **Elementi di backup**.
-
-1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Azure Backup Agent**.
-
-1. Nel pannello **Elementi di backup (Azure Backup Agent)** verificare se è presente una voce che fa riferimento all'unità **C:\\** di **az104-10-vm1.**.
-
-## Attività 5: Eseguire il ripristino dei file usando l'Agente di Servizi di ripristino di Azure (facoltativo)
-
-In questa attività verrà eseguito il ripristino dei file mediante l'Agente di Servizi di ripristino di Azure.
-
-1. Nella sessione di Desktop remoto per **az104-10-vm1** aprire Esplora file, passare alla cartella **C:\\Windows\\System32\\drivers\\etc\\** ed eliminare il file **hosts**.
-
-1. Aprire Backup di Microsoft Azure e fare clic su **Ripristina dati** nel riquadro **Azioni**. Verrà avviato il **Ripristino guidato dei dati**.
-
-1. Nella pagina **Attività iniziali** del **Ripristino guidato dei dati** assicurarsi che l'opzione **Questo server (az104-10-vm1.)** sia selezionata e fare clic su **Avanti**.
-
-1. Nella pagina **Seleziona modalità di ripristino** assicurarsi che l'opzione **Singoli file e cartelle** sia selezionata e fare clic su **Avanti**.
-
-1. Nella pagina **Seleziona volume e data** nell'elenco a discesa **Seleziona il volume** selezionare **C:\\**, accettare la selezione predefinita del backup disponibile e fare clic su **Monta**.
-
-    >**Nota**: attendere il completamento dell'operazione di montaggio. L'operazione potrebbe richiedere circa due minuti.
-
-1. Nella pagina **Sfoglia e ripristina file** prendere nota della lettera di unità del volume di ripristino ed esaminare il suggerimento relativo all'uso di robocopy.
-
-1. Fare clic su **Start**, espandere la cartella **Sistema Windows** e fare clic su **Prompt dei comandi**.
-
-1. Dal prompt dei comandi eseguire il codice seguente per copiare il file **hosts** di ripristino nel percorso originale (sostituire `[recovery_volume]` con la lettera di unità del volume di ripristino identificato in precedenza):
-
-   ```sh
-   robocopy [recovery_volume]:\Windows\System32\drivers\etc C:\Windows\system32\drivers\etc hosts /r:1 /w:1
-   ```
-
-1. Tornare al **Ripristino guidato dei dati** e in **Cerca e ripristina file** fare clic su **Smonta** e quando viene richiesta la conferma fare clic su **Sì**.
-
-1. Chiudere la sessione di Desktop remoto.
-
-## Attività 6: Eseguire il ripristino dei file usando gli snapshot macchina virtuale di Azure (facoltativo)
-
-In questa attività verrà eseguito il ripristino di un file dal backup basato su snapshot a livello di macchina virtuale di Azure.
-
-1. Passare alla finestra del browser in esecuzione nel computer del lab che mostra il portale di Azure.
-
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-10-vm0**.
-
-1. Nel pannello **az104-10-vm0** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
-
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
-
-    >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
-
-1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
-
-   >**Nota:** poiché il portale di Azure non supporta più IE11, è necessario usare il browser Microsoft Edge per questa attività.
-
-1. Nella sessione di Desktop remoto per **az104-10-vm0** fare clic su **Start**, espandere la cartella **Sistema Windows** e fare clic su **Prompt dei comandi**.
-
-1. Dal prompt dei comandi eseguire il codice seguente per eliminare il file **hosts**:
-
-   ```sh
-   del C:\Windows\system32\drivers\etc\hosts
-   ```
-
-   >**Nota**: più avanti in questa attività verrà eseguito il ripristino di questo file dal backup basato su snapshot a livello di macchina virtuale di Azure.
-
-1. Nella sessione di Desktop remoto per la macchina virtuale di Azure **az104-10-vm0** avviare un'istanza del Web browser Microsoft Edge, passare al [portale di Azure](https://portal.azure.com) e accedere usando le credenziali.
-
-1. Nel portale di Azure cercare e selezionare **Insiemi di credenziali di Servizi di ripristino** e in **Insiemi di credenziali di Servizi di ripristino** fare clic su **az104-10-rsv1**.
-
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** nella sezione **Elementi protetti** fare clic su **Elementi di backup**.
-
-1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Macchina virtuale di Azure**.
-
-1. Nel pannello **Elementi di backup (Macchina virtuale di Azure)** selezionare **Visualizza dettagli** per **az104-10-vm0**.
-
-1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Ripristino di file**.
-
-    >**Nota**: è possibile eseguire il ripristino subito dopo l'avvio del backup in base a uno snapshot coerente con l'applicazione.
-
-1. Nel pannello **Ripristino di file** accettare il punto di ripristino predefinito e fare clic su **Scarica eseguibile**.
-
-    >**Nota**: lo script monta i dischi dal punto di ripristino selezionato come unità locali all'interno del sistema operativo da cui viene eseguito lo script.
-
-1. Fare clic su **Scarica** e quando viene richiesto se si vuole eseguire o salvare **IaaSVMILRExeForWindows.exe** fare clic su **Salva**.
-
-1. Nella finestra Esplora file visualizzata di nuovo fare doppio clic sul file appena scaricato.
-
-1. Quando viene richiesto di fornire la password dal portale, copiare la password dalla casella di testo **Password per eseguire lo script** nel pannello **Ripristino di file**, incollarla nel prompt dei comandi e premere **INVIO**.
-
-    >**Nota**: verrà aperta una finestra Windows PowerShell con lo stato di avanzamento del montaggio.
-
-    >**Nota**: se a questo punto viene visualizzato un messaggio di errore, aggiornare la finestra del Web browser e ripetere gli ultimi tre passaggi.
-
-1. Attendere il completamento del processo di montaggio, esaminare i messaggi informativi nella finestra Windows PowerShell, prendere nota della lettera di unità assegnata al volume che ospita **Windows** e avviare Esplora file.
-
-1. In Esplora file passare alla lettera di unità che ospita lo snapshot del volume del sistema operativo identificato nel passaggio precedente ed esaminarne il contenuto.
-
-1. Passare alla finestra **Prompt dei comandi**.
-
-1. Dal prompt dei comandi eseguire il codice seguente per copiare il file **hosts** di ripristino nel percorso originale (sostituire `[os_volume]` con la lettera di unità del volume del sistema operativo identificato in precedenza):
-
-   ```sh
-   robocopy [os_volume]:\Windows\System32\drivers\etc C:\Windows\system32\drivers\etc hosts /r:1 /w:1
-   ```
-
-1. Tornare al pannello **Ripristino di file** nel portale di Azure e fare clic su **Smonta dischi**.
-
-1. Chiudere la sessione di Desktop remoto.
-
-## Attività 7: Esaminare la funzionalità di eliminazione temporanea di Servizi di ripristino di Azure
-
-1. Nel portale di Azure nel computer del lab cercare e selezionare **Insiemi di credenziali di Servizi di ripristino** e in **Insiemi di credenziali di Servizi di ripristino** fare clic su **az104-10-rsv1**.
-
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** nella sezione **Elementi protetti** fare clic su **Elementi di backup**.
-
-1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Azure Backup Agent**.
-
-1. Nel pannello **Elementi di backup (Azure Backup Agent)** fare clic sulla voce che rappresenta il backup di **az104-10-vm1**.
-
-1. In **C:\\ nel pannello az104-10-vm1.** selezionare **Visualizza dettagli** per **az104-10-vm1.** .
-
-1. Nel pannello Dettagli fare clic su **az104-10-vm1**.
-
-1. Nel pannello **az104-10-vm1.** Server protetti fare clic su **Elimina**.
-
-1. Nel pannello **Elimina** specificare le impostazioni seguenti.
-
-    | Impostazioni | Valore |
-    | --- | --- |
-    | DIGITARE IL NOME DEL SERVER | **az104-10-vm1.** |
-    | Motivo | **Riciclo del server di sviluppo/test** |
-    | Commenti | **az104 10 lab** |
-
-    >**Nota**: assicurarsi di includere il punto finale quando si digita il nome del server
-
-1. Abilitare la casella di controllo accanto all'etichetta **Sono presenti dati di backup di 1 elemento di backup associati a questo server. Si è consapevoli che facendo clic su "Conferma" verranno eliminati definitivamente tutti i dati di backup cloud. Questa azione non può essere annullata. È possibile inviare un avviso agli amministratori di questa sottoscrizione per notificare l'eliminazione** e fare clic su **Elimina**.
-
-    >**Nota**: l'operazione avrà esito negativo perché la **funzionalità eliminazione** temporanea deve essere disabilitata.
-
-1. Tornare al pannello **az104-10-rsv1 - Elementi di backup** e fare clic su **Macchine virtuali di Azure**.
-
-1. Nel pannello **az104-10-rsv1 - Elementi di backup** fare clic su **Macchina virtuale di Azure**.
-
-1. Nel pannello **Elementi di backup (Macchina virtuale di Azure)** selezionare **Visualizza dettagli** per **az104-10-vm0**.
-
-1. Nel pannello dell'elemento di backup **az104-10-vm0** fare clic su **Interrompi backup**.
-
-1. Nel pannello **Interrompi backup** selezionare **Elimina dati di backup**, specificare le impostazioni seguenti e fare clic su **Interrompi backup**:
-
-    | Impostazioni | Valore |
-    | --- | --- |
-    | Digitare il nome dell'elemento di backup | **az104-10-vm0** |
-    | Motivo | **Altri** |
-    | Commenti | **az104 10 lab** |
-
-1. Tornare al pannello **az104-10-rsv1 - Elementi di backup** e fare clic su **Aggiorna**.
-
-    >**Nota**: la voce **Macchina virtuale di Azure** elenca ancora **1** elemento di backup.
-
-1. Fare clic sulla voce **Macchina virtuale di Azure** e nel pannello **Elementi di backup (Macchina virtuale di Azure)** fare clic sulla voce **az104-10-vm0**.
-
-1. Nel pannello dell'elemento di backup **az104-10-vm0** si noti che è possibile selezionare l'opzione **Annulla eliminazione** per il backup eliminato.
-
-    >**Nota**: questa funzionalità è fornita dalla funzionalità di eliminazione temporanea, che è abilitata per impostazione predefinita per i backup di macchine virtuali di Azure.
-
-1. Tornare al pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** e nella sezione **Impostazioni** fare clic su **Proprietà**.
-
-1. Nel pannello **az104-10-rsv1 - Proprietà** fare clic sul collegamento **Aggiorna** sotto l'etichetta **Impostazioni di sicurezza**.
-
-1. Nel pannello **Impostazioni di sicurezza** disabilitare **Eliminazione temporanea (Per i carichi di lavoro in esecuzione in Azure)** e **Funzionalità di sicurezza (Per i carichi di lavoro in esecuzione nell'ambiente locale)** e fare clic su **Salva**.
-
-    >**Nota**: questo non influisce sugli elementi già in stato di eliminazione temporanea.
-
-1. Chiudere il pannello **Impostazioni di sicurezza** e nel pannello dell'insieme di credenziali di Servizi di ripristino **az104-10-rsv1** visualizzato di nuovo fare clic su **Panoramica**.
-
-1. Tornare al pannello dell'elemento di backup **az104-10-vm0** e fare clic su **Annulla eliminazione**.
-
-1. Nel pannello **Undelete az104-10-vm0** fare clic su **Annulla eliminazione**.
-
-1. Attendere il completamento dell'operazione di annullamento dell'eliminazione, aggiornare la pagina del Web browser, se necessario, tornare al pannello dell'elemento di backup **az104-10-vm0** e fare clic su **Elimina dati di backup**.
-
-1. Nel pannello **Elimina dati di backup** specificare le impostazioni seguenti e fare clic su **Elimina**:
-
-    | Impostazioni | Valore |
-    | --- | --- |
-    | Digitare il nome dell'elemento di backup | **az104-10-vm0** |
-    | Motivo | **Altri** |
-    | Commenti | **az104 10 lab** |
-
-1. Ripetere i passaggi all'inizio di questa attività per eliminare gli elementi di backup per **az104-10-vm1**.
+1. Selezionare la macchina virtuale per visualizzare altri dettagli.
+   
+>**Lo sapevi?** È consigliabile [testare il failover di una macchina virtuale](https://learn.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure#run-a-test-failover-for-a-single-vm) protetta.
 
 ## Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
-1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
-1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+## Punti chiave
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-10*'
-   ```
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
-1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
++ Backup di Azure servizio offre soluzioni semplici, sicure e convenienti per eseguire il backup e il ripristino dei dati.
++ Backup di Azure può proteggere le risorse locali e cloud, incluse le macchine virtuali e le condivisioni file.
++ Backup di Azure criteri configurano la frequenza dei backup e il periodo di conservazione per i punti di ripristino. 
++ Azure Site Recovery è una soluzione di ripristino di emergenza che fornisce protezione per le macchine virtuali e le applicazioni.
++ Azure Site Recovery replica i carichi di lavoro in un sito secondario e, in caso di interruzione o emergenza, è possibile eseguire il failover nel sito secondario e riprendere le operazioni con tempi di inattività minimi.
++ Un insieme di credenziali di Servizi di ripristino archivia i dati di backup e riduce al minimo il sovraccarico di gestione.
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-10*' | Remove-AzResourceGroup -Force -AsJob
-   ```
+## Altre informazioni con la formazione autogestita
 
-   >**Nota**: facoltativamente, è possibile prendere in considerazione l'eliminazione del gruppo di risorse generato automaticamente con il prefisso **AzureBackupRG_**. L'esistenza di questo gruppo non comporta alcun addebito aggiuntivo.
-
-    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
-
-## Rivedi
-
-In questo lab sono state eseguite le attività seguenti:
-
-+ Provisioning dell'ambiente lab
-+ Creazione di un insieme di credenziali di Servizi di ripristino
-+ Implementazione di un backup a livello di macchina virtuale di Azure
-+ Implementazione del backup di file e cartelle
-+ Esecuzione del ripristino dei file mediante l'Agente di Servizi di ripristino di Azure
-+ Esecuzione del ripristino dei file mediante gli snapshot macchina virtuale di Azure
-+ Verifica della funzionalità di eliminazione temporanea di Servizi di ripristino di Azure
++ [Proteggere le macchine virtuali usando Backup di Azure](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/). Usare Backup di Azure per proteggere server locali, macchine virtuali, istanze di SQL Server, File di Azure e altri carichi di lavoro.
++ [Proteggi l'infrastruttura di Azure con Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). È possibile ottenere funzionalità di ripristino di emergenza per l'infrastruttura di Azure personalizzando la replica, il failover e il failback di macchine virtuali di Azure con Azure Site Recovery.
