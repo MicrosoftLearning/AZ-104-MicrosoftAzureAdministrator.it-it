@@ -65,6 +65,7 @@ In questa attività si crea una rete virtuale di servizi di base con una macchin
     | Dimensione | **Standard_DS2_v3** |
     | Username | `localadmin` | 
     | Password | **Specificare una password complessa** |
+    | Porte in ingresso pubbliche | **Nessuno** |
 
     ![Screenshot della pagina di creazione di macchine virtuali di base. ](../media/az104-lab05-createcorevm.png)
    
@@ -111,6 +112,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
     | Dimensione | **Standard_DS2_v3** | 
     | Username | `localadmin` | 
     | Password | **Specificare una password complessa** |
+    | Porte in ingresso pubbliche | **Nessuno** |
 
 1. Nella **scheda Dischi accettare** le impostazioni predefinite e quindi selezionare **Avanti: Rete >**.
 
