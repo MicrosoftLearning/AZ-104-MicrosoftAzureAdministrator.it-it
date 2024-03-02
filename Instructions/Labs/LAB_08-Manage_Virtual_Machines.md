@@ -349,7 +349,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     -Image 'Win2019Datacenter' `
     -Zone '1' `
     -Size 'Standard_D2s_v3' 
-    -Credential '(Get-Credential)' `
+    -Credential '(Get-Credential)' 
     ```
 
 1. Al termine del comando, usare **Get-AzVM** per elencare le macchine virtuali nel gruppo di risorse.
