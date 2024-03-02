@@ -5,173 +5,174 @@ lab:
 ---
 
 # Lab 02b – Gestire la governance tramite Criteri di Azure
-# Manuale del lab per gli studenti
+
+## Introduzione al lab
+
+In questo lab si apprenderà come implementare i piani di governance dell'organizzazione. Si apprenderà come i criteri di Azure possono garantire l'applicazione delle decisioni operative nell'intera organizzazione. Si apprenderà come usare l'assegnazione di tag alle risorse per migliorare la creazione di report. 
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali. 
+
+## Tempo stimato: 30 minuti
 
 ## Scenario laboratorio
 
-Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
+Il footprint del cloud dell'organizzazione è cresciuto notevolmente nell'ultimo anno. Durante un controllo recente è stato rilevato un numero considerevole di risorse che non hanno un proprietario, un progetto o un centro di costo definiti. Per migliorare la gestione delle risorse di Azure nell'organizzazione, si decide di implementare le funzionalità seguenti:
 
-- Assegnazione di tag a gruppi di risorse che includono solo risorse dell'infrastruttura (ad esempio account di archiviazione Cloud Shell)
+- applicare tag di risorsa per allegare metadati importanti alle risorse di Azure
 
-- Verifica che sia possibile aggiungere solo le risorse con il tag appropriato ai gruppi di risorse dell'infrastruttura
+- applicare l'uso dei tag di risorsa per le nuove risorse usando Criteri di Azure
 
-- Correzione di eventuali risorse non conformi
+- aggiornare le risorse esistenti con i tag delle risorse
 
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+- usare i blocchi delle risorse per proteggere le risorse configurate
 
-## Obiettivi
+## Simulazioni di lab interattive
 
-In questo lab si eseguiranno le attività seguenti:
+Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure. 
 
-+ Attività 1: Creare e assegnare tag tramite il portale di Azure
-+ Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
-+ Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
++ [Gestire i](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2015) blocchi delle risorse. Aggiungere un blocco della risorsa e testare per confermare.
+  
++ [Creare criteri di Azure](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2017). Creare criteri di Azure che limitano le risorse di posizione possono trovarsi. Creare una nuova risorsa e assicurarsi che i criteri vengano applicati. 
 
-## Tempo stimato: 60 minuti
++ [Gestire la governance tramite criteri](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203) di Azure. Creare e assegnare tag tramite il portale di Azure. Creare criteri di Azure che richiedono l'assegnazione di tag. Correggere le risorse non conformi.
 
 ## Diagramma dell'architettura
 
-![image](../media/lab02b.png)
+![Diagramma dell'architettura delle attività.](../media/az104-lab02b-architecture.png)
 
-### Istruzioni
+## Competenze mansione
 
-## Esercizio 1
++ Attività 1: Creare e assegnare tag tramite il portale di Azure.
++ Attività 2: Applicare l'assegnazione di tag tramite un Criteri di Azure.
++ Attività 3: applicare l'assegnazione di tag tramite un Criteri di Azure.
++ Attività 4: Configurare e testare i blocchi delle risorse. 
 
 ## Attività 1: Assegnare tag tramite il portale di Azure
 
-In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure.
+In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure. I tag sono un componente fondamentale di una strategia di governance, come descritto da Microsoft Well-Architected Framework e Cloud Adoption Framework. I tag consentono di identificare rapidamente i proprietari delle risorse, le date di tramonto, i contatti di gruppo e altre coppie nome/valore ritenute importanti dall'organizzazione. Per questa attività, si assegna un tag che identifica il ruolo della risorsa ('Infra' per 'Infrastruttura').
 
-1. Nel portale di Azure avviare una sessione di **PowerShell** all'interno di **Cloud Shell**.
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
+      
+1. Cercare e selezionare `Resource groups`.
 
-    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**. 
-
-1. Nel riquadro Cloud Shell eseguire quanto segue per identificare il nome dell'account di archiviazione usato da Cloud Shell:
-
-   ```powershell
-   df
-   ```
-
-1. Nell'output del comando prendere nota della prima parte del percorso completo che indica il montaggio dell'unità home di Cloud Shell (contrassegnato qui come `xxxxxxxxxxxxxx`:
-
-   ```
-   //xxxxxxxxxxxxxx.file.core.windows.net/cloudshell   (..)  /usr/csuser/clouddrive
-   ```
-
-1. Nel portale di Azure cercare e selezionare **Account di archiviazione**, quindi fare clic sulla voce dell'elenco che rappresenta l'account di archiviazione identificato nel passaggio precedente.
-
-1. Nel pannello dell'account di archiviazione fare clic sul collegamento che rappresenta il nome del gruppo di risorse contenente l'account di archiviazione.
-
-    **Nota**: prendere nota del gruppo di risorse in cui è contenuto l'account di archiviazione, perché sarà necessario più avanti nel lab.
-
-1. Nel pannello del gruppo di risorse fare clic su **Tag** nel menu a sinistra e creare un nuovo tag.
-
-1. Creare un tag con le impostazioni seguenti e applicare la modifica:
-
-    | Impostazione | valore |
-    | --- | --- |
-    | Nome | **Ruolo** |
-    | Valore | **Infra** |
-
-1. Fare clic su **Applica** e chiudere la finestra dell'edizione dei tag per tornare al pannello dell'account di archiviazione. Fare clic sui puntini di sospensione nell'account di archiviazione e selezionare **Modifica tag** per notare che il nuovo tag non è stato assegnato automaticamente all'account di archiviazione. 
-
-## Attività 2: Imporre l'assegnazione di tag tramite criteri di Azure
-
-In questa attività si assegnerà il criterio predefinito *Richiedi un tag con il relativo valore sulle risorse* al gruppo di risorse e si valuterà il risultato. 
-
-1. Nel portale di Azure cercare e selezionare **Criteri**. 
-
-1. Nella sezione **Creazione** fare clic su **Definizioni**. Esaminare l'elenco delle definizioni dei criteri predefiniti disponibili per l'uso. Elencare tutti i criteri predefiniti che comportano l'uso di tag selezionando la voce **Tag** (e deselezionando tutte le altre voci) nell'elenco a discesa **Categoria**. 
-
-1. Fare clic sulla voce che rappresenta il criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** ed esaminarne la definizione.
-
-1. Nel pannello della definizione del criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** fare clic su **Assegna**.
-
-1. Specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
+1. In Gruppi di risorse selezionare **+ Crea**.
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Nome del gruppo di risorse contenente l'account Cloud Shell identificato nell'attività precedente |
+    | Nome della sottoscrizione | sottoscrizione in uso |
+    | Nome gruppo di risorse | `az104-rg2` |
+    | Ufficio | **Stati Uniti orientali** |
 
-    >**Nota**: un ambito determina le risorse o i gruppi di risorse in cui ha effetto l'assegnazione dei criteri. È possibile assegnare criteri a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. È anche possibile specificare esclusioni, ad esempio singole sottoscrizioni, gruppi di risorse o risorse (a seconda dell'ambito di assegnazione). 
+    >**Nota:** per ogni lab di questo corso si creerà un nuovo gruppo di risorse. In questo modo è possibile individuare e gestire rapidamente le risorse del lab. 
+
+1. Selezionare **Avanti: Tag** e creare un nuovo tag.
+
+    | Impostazione | valore |
+    | --- | --- |
+    | Nome | `Cost Center` |
+    | valore | `000` |
+
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+## Attività 2: Applicare l'assegnazione di tag tramite un Criteri di Azure
+
+In questa attività si assegnerà il criterio predefinito *Richiedi un tag con il relativo valore sulle risorse* al gruppo di risorse e si valuterà il risultato. Criteri di Azure può essere usato per applicare la configurazione e in questo caso la governance alle risorse di Azure. 
+
+1. Nella portale di Azure cercare e selezionare `Policy`. 
+
+1. Nel pannello **** Creazione selezionare **Definizioni**. Esaminare l'elenco delle definizioni di [criteri predefinite](https://learn.microsoft.com/azure/governance/policy/samples/built-in-policies) disponibili per l'uso. Si noti che è anche possibile cercare una definizione.
+
+    ![Screenshot della definizione dei criteri.](../media/az104-lab02b-policytags.png)
+
+1. Fare clic sulla voce che rappresenta il **criterio predefinito Richiedi un tag e il relativo valore sulle risorse** . Esaminare la definizione. 
+
+1. Nel pannello della definizione del criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** fare clic su **Assegna**.
+
+1. Specificare l'ambito **** facendo clic sul pulsante con i puntini di sospensione e selezionando i valori seguenti. Al termine, fare clic su **Seleziona** . 
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | Subscription | *sottoscrizione in uso* |
+    | Gruppo di risorse | **az104-rg2** |
+
+    >**Nota**: è possibile assegnare criteri a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. È anche possibile specificare esclusioni, ad esempio sottoscrizioni singole, gruppi di risorse o risorse. In questo scenario si vuole che il tag in tutte le risorse del gruppo di risorse.
 
 1. Nella scheda **Informazioni di base** configurare le proprietà dell'assegnazione specificando le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'assegnazione | **Require Role tag with Infra value**|
-    | Descrizione | **Require Role tag with Infra value for all resources in the Cloud Shell resource group**|
+    | Nome dell'assegnazione | `Require Cost Center tag with Default value`|
+    | Descrizione | `Require Cost Center tag with default value for all resources in the resource group`|
     | Applicazione dei criteri | Attivata |
 
-    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. È anche possibile aggiungere una **descrizione** facoltativa. Il valore di **Assegnato da** viene popolato automaticamente in base al nome dell'utente che crea l'assegnazione. 
+    >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. Si noti che è possibile disabilitare il criterio in qualsiasi momento. 
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome del tag | **Ruolo** |
-    | Valore del tag | **Infra** |
+    | Nome del tag | `Cost Center` |
+    | Valore del tag | `000` |
 
 1. Fare clic su **Avanti** ed esaminare la scheda **Correzione**. Lasciare deselezionata la casella di controllo **Crea un'identità gestita**. 
 
-    >**Nota**: questa impostazione può essere usata quando il criterio o l'iniziativa include l'effetto **deployIfNotExists** o **Modify**.
-
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-    >**Nota**: a questo punto si verificherà se la nuova assegnazione del criterio è effettiva provando a creare un altro account di archiviazione di Azure nel gruppo di risorse senza aggiungere esplicitamente il tag necessario. 
+    >**Nota**: ora si verificherà che la nuova assegnazione di criteri sia attiva tentando di creare un account Archiviazione di Azure nel gruppo di risorse. Si creerà l'account di archiviazione senza aggiungere il tag necessario. 
     
-    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 15 minuti.
+    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 10 minuti.
 
-1. Tornare nel pannello del gruppo di risorse che ospita l'account di archiviazione usato per l'unità home di Cloud Shell, identificato nell'attività precedente.
+1. Nel portale cercare e selezionare e selezionare `Storage Account`**+ Crea**. 
 
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
-
-1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti), fare clic su Rivedi** e quindi fare clic **su **Crea**:
+1. Nella **scheda Informazioni di base** del pannello **Crea account** di archiviazione completare la configurazione.
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
+    | Gruppo di risorse | **az104-rg2** |
+    | Nome account di archiviazione | *qualsiasi combinazione univoca globale di tra 3 e 24 lettere minuscole e cifre, a partire da una lettera* |
 
-    >**Nota**: è possibile che venga visualizzato un **errore di convalida. Fare clic qui per informazioni dettagliate** sull'errore; In tal caso, fare clic sul messaggio di errore per identificare il motivo dell'errore e ignorare il passaggio successivo. 
+1. Selezionare **Rivedi** e quindi fare clic su **Crea**:
 
 1. Dopo aver creato la distribuzione, verrà visualizzato il messaggio **Distribuzione non riuscita** nell'elenco **Notifiche** del portale. Nell'elenco **Notifiche** passare alla panoramica della distribuzione e fare clic su l messaggio **Distribuzione non riuscita. Fare clic qui per i dettagli** per identificare il motivo dell'errore. 
 
-    >**Nota**: verificare se il messaggio di errore indica che la distribuzione della risorsa non è consentita dai criteri. 
+    ![Screenshot dell'errore del criterio non consentito.](../media/az104-lab02b-policyerror.png) 
 
-    >**Nota:** facendo clic scheda **Errore raw**, è possibile trovare altri dettagli sull'errore, tra cui il nome della definizione del ruolo **Require Role tag with Infra value**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Role** con il relativo valore impostato su **Infra**.
+    >**Nota**: verificare che il messaggio di errore indichi che la distribuzione delle risorse non è consentita dai criteri. 
+
+    >**Nota**: facendo clic sulla **scheda Errore** non elaborato, è possibile trovare altri dettagli sull'errore, incluso il nome della definizione **del ruolo Richiedi tag centro di costo con valore** predefinito. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Centro di costo** con il relativo valore impostato su **Predefinito**.
 
 ## Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
-In questa attività verrà usata una definizione di criteri diversa per correggere eventuali risorse non conformi. 
+In questa attività verrà usata la nuova definizione di criteri per correggere eventuali risorse non conformi. In questo scenario verranno create tutte le risorse figlio di un gruppo di risorse che ereditano il **tag Centro** di costo definito nel gruppo di risorse.
 
-1. Nel portale di Azure cercare e selezionare **Criteri**. 
+1. Nella portale di Azure cercare e selezionare `Policy`. 
 
 1. Nella sezione **Creazione** fare clic su **Assegnazioni**. 
 
-1. Nell'elenco di assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta l'assegnazione di criteri **Require Role tag with Infra value** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione.
+1. Nell'elenco delle assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta il **tag Richiedi centro di costo con assegnazione di criteri** valore predefinito e usare la **voce di menu Elimina assegnazione** per eliminare l'assegnazione.
 
 1. Fare clic su **Assegna criteri** e specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Subscription | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Il nome del gruppo di risorse contenente l'account Cloud Shell identificato nella prima attività |
+    | Subscription | sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg2` |
 
-1. Per specificare il valore di **Definizione dei criteri**, fare clic sul pulsante con i puntini di sospensione e quindi cercare e selezionare **Eredita un tag dal gruppo di risorse se mancante**.
+1. Per specificare la **definizione** dei criteri, fare clic sul pulsante con i puntini di sospensione e quindi cercare e selezionare `Inherit a tag from the resource group if missing`.
 
-1. Nella scheda **Informazioni di base** configurare le rimanenti proprietà dell'assegnazione specificando le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Selezionare **Aggiungi** e quindi configurare le proprietà Di base rimanenti **** dell'assegnazione.
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'assegnazione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
-    | Descrizione | **Inherit the Role tag and its Infra value from the Cloud Shell resource group if missing**|
+    | Nome dell'assegnazione | `Inherit the Cost Center tag and its value 000 from the resource group if missing` |
+    | Descrizione | `Inherit the Cost Center tag and its value 000 from the resource group if missing` |
     | Applicazione dei criteri | Attivata |
 
 1. Fare clic **due volte su Avanti** e impostare **Parametri** sui valori seguenti:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome del tag | **Ruolo** |
+    | Nome del tag | `Cost Center` |
 
 1. Fare clic su **Avanti** e quindi, nella scheda **Correzione**, configurare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
@@ -180,48 +181,77 @@ In questa attività verrà usata una definizione di criteri diversa per corregge
     | Creare un'attività di correzione | Enabled |
     | Criterio da correggere | **Eredita un tag dal gruppo di risorse se mancante** |
 
-    >**Nota**: questa definizione dei criteri include l'effetto **Modify**.
+    >**Nota**: questa definizione dei criteri include l'effetto **Modify**. È quindi necessaria un'identità gestita. 
+
+    ![Screenshot della pagina di correzione dei criteri. ](../media/az104-lab02b-policyremediation.png) 
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-    >**Nota**: per verificare se la nuova assegnazione del criterio è effettiva, si creerà un altro account di archiviazione di Azure nello stesso gruppo di risorse senza aggiungere esplicitamente il tag necessario. 
+    >**Nota**: per verificare che la nuova assegnazione di criteri sia attiva, si creerà un altro account di archiviazione di Azure nello stesso gruppo di risorse senza aggiungere in modo esplicito il tag richiesto. 
     
-    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 15 minuti.
+    >**Nota**: l'applicazione del criterio potrebbe richiedere da 5 a 10 minuti.
 
-1. Tornare nel pannello del gruppo di risorse che ospita l'account di archiviazione usato per l'unità home di Cloud Shell, identificato nella prima attività.
-
-1. Nel pannello del gruppo di risorse fare clic su **+ Crea**, quindi cercare **Account di archiviazione** e fare clic su **+ Crea**. 
+1. Cercare e selezionare `Storage Account`e fare clic su **+ Crea**. 
 
 1. Nella **scheda Informazioni di base** del **pannello Crea account** di archiviazione verificare di usare il gruppo di risorse a cui sono stati applicati i criteri e specificare le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti) e fare clic su **Rivedi**:
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome account di archiviazione | Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera |
+    | Nome account di archiviazione | *qualsiasi combinazione univoca globale di tra 3 e 24 lettere minuscole e cifre, a partire da una lettera* |
 
 1. Verificare che questa volta la convalida sia stata superata e fare clic su **Crea**.
 
-1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic sul pulsante **Vai alla risorsa**, quindi nel pannello **Panoramica** dell'account di archiviazione appena creato si noti che il tag **Role** con il valore **Infra** è stato assegnato automaticamente alla risorsa.
+1. Dopo aver effettuato il provisioning del nuovo account di archiviazione, fare clic su **Vai alla risorsa**.
 
-## Attività 4: Eseguire la pulizia delle risorse
+1. Nel pannello **Tag** si noti che il **centro** di costo con il valore **000** è stato assegnato automaticamente alla risorsa.
 
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti; tenere comunque presente che i criteri di Azure non comportano costi aggiuntivi.
+    >**Lo sapevi?** Se si cerca e si seleziona **Tag** nel portale, è possibile visualizzare le risorse con un tag specifico. 
+
+## Attività 4: Configurare e testare i blocchi delle risorse
+
+In questa attività viene configurato e testato un blocco delle risorse. I blocchi impediscono eliminazioni o modifiche di una risorsa. 
+
+1. Cercare e selezionare il gruppo di risorse.
    
-   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
+1. **Nel pannello** Impostazioni selezionare **Blocchi**.
 
-1. Nel portale cercare e selezionare **Criteri**.
+1. Selezionare **Aggiungi** e completare le informazioni sul blocco delle risorse. Al termine, selezionare **OK**. 
 
-1. Nella sezione **Creazione** fare clic su **Assegnazioni**, fare clic sull'icona con i puntini di sospensione a destra dell'assegnazione creata nell'attività precedente, quindi fare clic su **Elimina assegnazione**. 
+    | Impostazione | Valore |
+    | --- | --- |
+    | Nome del blocco | `rg-lock` |
+    | Tipo di blocco | **delete** (si noti la selezione per sola lettura) |
+    
+1. Passare al pannello Panoramica** del gruppo **di risorse e selezionare **Elimina gruppo** di risorse.
 
-1. Nel portale cercare e selezionare **Account di archiviazione**.
+1. Nella casella di testo Immettere il **nome del gruppo di risorse per confermare l'eliminazione** specificare il nome del gruppo di risorse. `az104-rg2` Si noti che è possibile copiare e incollare il nome del gruppo di risorse. 
 
-1. Nell'elenco degli account di archiviazione selezionare il gruppo di risorse corrispondente all'account di archiviazione creato nell'ultima attività del lab. Selezionare **Tag**, fare clic su **Elimina** (il cestino a destra) per il tag **Role:Infra** e premere **Applica**. 
+1. Si noti l'avviso: l'eliminazione di questo gruppo di risorse e le relative risorse dipendenti è un'azione permanente e non può essere annullata. Selezionare **Elimina**.
 
-1. Fare clic su **Panoramica** e quindi su **Elimina** nella parte superiore del pannello dell'account di archiviazione. Quando viene richiesta la conferma, nel pannello **Elimina account di archiviazione** digitare il nome dell'account di archiviazione da confermare e fare clic su **Elimina**. 
+1. Si dovrebbe ricevere una notifica che nega l'eliminazione. 
 
-## Revisione
+    ![Screenshot dell'errore di eliminazione del messaggio.](../media/az104-lab02b-failuretodelete.png) 
 
-In questo lab sono state eseguite le attività seguenti:
+## Pulire le risorse
 
-- Creazione e assegnazione di tag tramite il portale di Azure
-- Imposizione dei tag tramite un criterio di Azure
-- Applicazione dei tag tramite un criterio di Azure
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
+
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
+
+## Punti chiave
+
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
+
++ I tag di Azure sono metadati costituiti da una coppia chiave-valore. I tag descrivono una determinata risorsa nell'ambiente. In particolare, l'assegnazione di tag in Azure consente di etichettare le risorse in un manne logico.
++ Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Una condizione confronta un valore o un campo proprietà della risorsa con un valore richiesto. Esistono molte definizioni di criteri predefinite ed è possibile personalizzare i criteri. 
++ La funzionalità Criteri di Azure attività di correzione viene usata per rendere le risorse conformi in base a una definizione e un'assegnazione. Le risorse non conformi a un'assegnazione di definizione modify o deployIfNotExist possono essere inserite in conformità usando un'attività di correzione.
++ È possibile configurare un blocco delle risorse in una sottoscrizione, un gruppo di risorse o una risorsa. Il blocco può proteggere una risorsa da eliminazioni e modifiche accidentali dell'utente. Un blocco esegue l'override di tutte le autorizzazioni utente.
++ Criteri di Azure è una procedura di sicurezza pre-distribuzione. Il controllo degli accessi in base al ruolo e i blocchi delle risorse sono procedure di sicurezza post-distribuzione. 
+
+## Altre informazioni con la formazione autogestita
+
++ [Progettare una strategia](https://learn.microsoft.com/training/modules/enterprise-governance/) di governance aziendale. Usare il controllo degli accessi in base al ruolo e Criteri di Azure per limitare l'accesso alle soluzioni di Azure e determinare quale metodo è adatto agli obiettivi di sicurezza.
+  
+

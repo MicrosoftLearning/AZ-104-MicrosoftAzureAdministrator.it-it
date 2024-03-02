@@ -5,267 +5,191 @@ lab:
 ---
 
 # Lab 09a - Implementare app Web
-# Manuale del lab per gli studenti
+
+
+## Introduzione al lab
+
+In questo lab vengono fornite informazioni sulle app Web di Azure. Si apprenderà come configurare un'app Web per visualizzare un'applicazione Hello World in un repository GitHub esterno. Si apprenderà come creare uno slot di staging e scambiare con lo slot di produzione. Si apprenderà anche la scalabilità automatica per soddisfare le modifiche della domanda.
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
+
+## Tempo stimato: 20 minuti
 
 ## Scenario laboratorio
 
-È necessario valutare l'uso di app Web di Azure per l'hosting dei siti Web di Contoso ospitati attualmente nei data center locali della società. I siti Web sono in esecuzione su server Windows che usano lo stack di runtime PHP. È inoltre necessario determinare in che modo è possibile implementare le procedure DevOps sfruttando gli slot di distribuzione di app Web di Azure.
+L'organizzazione è interessata alle app Web di Azure per ospitare i siti Web aziendali. I siti Web sono attualmente ospitati in un data center locale. I siti Web vengono eseguiti nei server Windows usando lo stack di runtime PHP. L'hardware sta per scadere e sarà presto necessario sostituirlo. L'organizzazione vuole evitare nuovi costi hardware usando Azure per ospitare i siti Web. 
 
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+## Simulazioni di lab interattive
 
-## Obiettivi
+Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
 
-Contenuto del lab:
-
-+ Attività 1: Creare un'app Web di Azure
-+ Attività 2: Creare uno slot di distribuzione di staging
-+ Attività 3: Configurare le impostazioni di distribuzione delle app Web
-+ Attività 4: Distribuire codice nello slot di distribuzione di staging
-+ Attività 5: Scambiare gli slot di staging
-+ Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
-
-## Tempo stimato: 30 minuti
++ [Creare un'app](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%202) Web. Creare un'app Web che esegue un contenitore Docker.
+    
++ [Implementare app](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013) Web di Azure. Creare un'app Web di Azure, gestire la distribuzione e ridimensionare l'app. 
 
 ## Diagramma dell'architettura
 
-![image](../media/lab09a.png)
+![Diagramma delle attività.](../media/az104-lab09a-architecture.png)
 
-### Istruzioni
+## Competenze mansione
 
-## Esercizio 1
++ Attività 1: Creare e configurare un'app Web di Azure.
++ Attività 2: Creare e configurare uno slot di distribuzione.
++ Attività 3: Configurare le impostazioni di distribuzione dell’app Web.
++ Attività 4: Scambiare gli slot di distribuzione.
++ Attività 5: Configurare e testare la scalabilità automatica dell'app Web di Azure.
 
-## Attività 1: Creare un'app Web di Azure
+## Attività 1: Creare e configurare un'app Web di Azure
 
-In questa attività verrà creata un'app Web di Azure.
+In questa attività si crea un'app Web di Azure. app Azure Services è una soluzione PAAS (Platform As a Service) per applicazioni Web, per dispositivi mobili e altre applicazioni basate sul Web. Le app Web di Azure fanno parte app Azure Servizi che ospitano la maggior parte degli ambienti di runtime, ad esempio PHP, Java e .NET. Il piano di servizio app selezionato determina il calcolo, l'archiviazione e le funzionalità dell'app Web. 
 
-1. Accedi al [**portale di Azure**](http://portal.azure.com).
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Nel portale di Azure cercare e selezionare **Servizi app** e nel pannello **Servizi app** fare clic su **+ Crea**.
+1. Cercare e selezionare `App services`.
+
+1. Selezionare **+ Crea** dal menu a discesa App **** Web. Si notino le altre scelte. 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea app Web** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
     | Impostazione | Valore |
     | --- | ---|
-    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | Nome di un nuovo gruppo di risorse **az104-09a-rg1** |
+    | Subscription | sottoscrizione di Azure |
+    | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
     | Nome dell'app Web | Qualsiasi nome univoco a livello globale |
     | Pubblica | **Codice** |
     | Stack di runtime | **PHP 8.2** |
     | Sistema operativo | **Linux** |
-    | Region | Nome di un'area di Azure in cui è possibile effettuare il provisioning di app Web di Azure |
-    | Piani dei prezzi | Accettare la configurazione predefinita |
+    | Area | **Stati Uniti orientali** |
+    | Piani dei prezzi | accettare le impostazioni predefinite |
+    | Ridondanza della zona | accettare le impostazioni predefinite |
 
-1. Fare clic su **Rivedi e crea**. Nella scheda **Rivedi e crea** del pannello **Crea app Web** assicurarsi che la convalida abbia avuto esito positivo e fare clic su **Crea**.
+ 1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
-    >**Nota**: attendere che venga creata l'app Web prima di procedere all'attività successiva. L'operazione dovrebbe richiedere circa un minuto.
+    >**Nota**: attendere che l'app Web venga creata prima di procedere con l'attività successiva. L'operazione dovrebbe richiedere circa un minuto.
 
-1. Nel pannello della distribuzione fare clic su **Vai alla risorsa**.
+1. Dopo la distribuzione, selezionare **Vai alla risorsa**.
 
-## Attività 2: Creare uno slot di distribuzione di staging
+## Attività 2: Creare e configurare uno slot di distribuzione
 
-In questa attività verrà creato uno slot di distribuzione di staging.
+In questa attività verrà creato uno slot di distribuzione di staging. Gli slot di distribuzione consentono di eseguire test prima di rendere disponibile l'app al pubblico (o agli utenti finali). Dopo aver eseguito il test, è possibile scambiare lo slot dallo sviluppo o dalla gestione temporanea all'ambiente di produzione. Molte organizzazioni usano slot per eseguire test di pre-produzione. Inoltre, molte organizzazioni eseguono più slot per ogni applicazione, ad esempio sviluppo, controllo di qualità, test e produzione.
 
 1. Nel pannello dell'app Web appena distribuita fare clic sul **collegamento Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
 
-1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Slot di distribuzione**.
+1. Chiudere la nuova scheda del browser e portale di Azure fare clic su Slot di distribuzione nella **sezione Distribuzione** del pannello App Web.****
 
-    >**Nota**: a questo punto l'app Web include un singolo slot di distribuzione con etichetta **PRODUCTION**.
+    >**Nota**: l'app Web, a questo punto, ha un singolo slot di distribuzione con etichetta **PRODUCTION**.
 
 1. Fare clic su **+ Add slot** (Aggiungi slot) e aggiungere un nuovo slot con le impostazioni seguenti:
 
     | Impostazione | valore |
     | --- | ---|
-    | Name | **staging** |
+    | Nome | `staging` |
     | Clona le impostazioni da | **Non clonare le impostazioni**|
 
-1. Tornare al pannello **Slot di distribuzione** dell'app Web e fare clic sulla voce che rappresenta lo slot di staging appena creato.
+1. Selezionare **Aggiungi**.
+
+1. Tornare al pannello **Slot** di distribuzione dell'app Web, fare clic sulla voce che rappresenta lo slot di staging appena creato.
 
     >**Nota**: verrà visualizzato il pannello che mostra le proprietà dello slot di staging.
 
 1. Esaminare il pannello dello slot di staging e notare che l'URL è diverso da quello assegnato allo slot di produzione.
 
-## Attività 3: Configurare le impostazioni di distribuzione delle app Web
+## Attività 3: Configurare le impostazioni di distribuzione dell'app Web
 
-In questa attività verranno configurate le impostazioni della distribuzione Web.
+In questa attività verranno configurate le impostazioni di distribuzione dell'app Web. Le impostazioni di distribuzione consentono la distribuzione continua. Ciò garantisce che il servizio app abbia la versione più recente dell'applicazione.
 
-1. Nel pannello dello slot di distribuzione di staging, nella sezione **Distribuzione** fare clic su **Centro distribuzione** e quindi selezionare la scheda **Impostazioni**.
+1. Nello slot di staging selezionare **Centro** distribuzione e quindi selezionare **Impostazioni**.
 
-    >**Nota:** assicurarsi di trovarsi nel pannello dello slot di staging invece che dello slot di produzione.
+    >**Nota:** assicurarsi di essere nel pannello dello slot di staging (anziché nello slot di produzione).
     
-1. Nella scheda **Impostazioni** nell'elenco a discesa **Origine** selezionare **Archivio Git locale** e fare clic sul pulsante **Salva**
+1. Nell'elenco **a discesa Origine** selezionare **Git** esterno. Si notino le altre scelte. 
 
-1. Nel pannello **Centro** distribuzione copiare la **voce Git Clone Uri** in Blocco note.
+1. Nel campo repository immettere `https://github.com/Azure-Samples/php-docs-hello-world`
 
-    >**Nota:** sarà necessario il valore Uri clone Git nell'attività successiva di questo lab.
+1. Nel campo ramo immettere `master`.
 
-1. Nel pannello **Centro distribuzione** selezionare la scheda **Credenziali GIT locale/FTPS**, nella sezione **Ambito utente** specificare le impostazioni seguenti e fare clic su **Salva**.
+1. Seleziona **Salva**.
 
-    | Impostazione | Valore |
-    | --- | ---|
-    | Nome utente | qualsiasi nome univoco globale (vedere la nota)  |
-    | Password | qualsiasi password che soddisfi i requisiti di complessità (vedere la nota) |
+1. Nello slot di staging selezionare **Panoramica**.
 
-    >**Nota:** copiare queste credenziali in Blocco note. saranno necessarie più avanti.
-    
-    >**Nota:** queste credenziali verranno passate tramite l'URI. Non includere caratteri speciali che influiscono sull'interpretazione dell'URI. Ad esempio, @, $o #. Un segno asterick o più (al centro della stringa) funzionerà.
-    
-## Attività 4: Distribuire codice nello slot di distribuzione di staging
+1. Selezionare il **collegamento Dominio predefinito** e aprire l'URL in una nuova scheda. 
 
-In questa attività verrà distribuito codice nello slot di distribuzione.
+1. Verificare che lo slot di staging visualizzi **Hello World**.
 
-1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
+>**Nota:** la distribuzione potrebbe richiedere un minuto. Assicurarsi di aggiornare **** la pagina dell'applicazione.
 
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
+## Attività 4: Scambiare gli slot di distribuzione
 
-    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
+In questa attività lo slot di staging verrà scambiato con lo slot di produzione. Lo scambio di uno slot consente di usare il codice testato nello slot di staging e spostarlo nell'ambiente di produzione. Il portale di Azure richiederà anche se è necessario spostare altre impostazioni dell'applicazione personalizzate per lo slot. Lo scambio degli slot è un'attività comune per i team di supporto delle applicazioni e per i team di supporto delle applicazioni, in particolare quelli che distribuiscono aggiornamenti di routine delle app e correzioni di bug.
 
-1. Dal riquadro Cloud Shell eseguire il codice seguente per clonare il repository remoto contenente il codice per l'app Web.
+1. Tornare al pannello **Slot** di distribuzione e quindi selezionare **Scambia**.
 
-   ```powershell
-   git clone https://github.com/Azure-Samples/php-docs-hello-world
-   ```
+1. Esaminare le impostazioni predefinite e fare clic su **Scambia**.
 
-1. Dal riquadro Cloud Shell eseguire il codice seguente per impostare la posizione corrente sul clone appena creato del repository locale contenente il codice dell'app Web di esempio.
+1. Nel pannello **Panoramica** dell'app Web selezionare il **collegamento Dominio predefinito** per visualizzare la home page del sito Web.
 
-   ```powershell
-   Set-Location -Path $HOME/php-docs-hello-world/
-   ```
+1. Verificare che la pagina Web di produzione visualizzi **Hello World!** .
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per aggiungere il file Git remoto (assicurarsi di sostituire i `[deployment_user_name]` segnaposto e `[git_clone_uri]` con il valore rispettivamente del **nome utente delle credenziali** di distribuzione e **dell'URI** clone Git identificato nell'attività precedente):
+    >**Nota:** copiare l'URL** di dominio **predefinito necessario per i test di carico nell'attività successiva. 
 
-   ```powershell
-   git remote add [deployment_user_name] [git_clone_uri]
-   ```
+## Attività 5: Configurare e testare la scalabilità automatica dell'app Web di Azure
 
-    >**Nota**: non è necessario che il valore successivo a `git remote add` corrisponda al nome utente di **Credenziali distribuzione**, ma deve essere univoco
+In questa attività verrà configurata la scalabilità automatica dell'app Web di Azure. La scalabilità automatica consente di mantenere prestazioni ottimali per l'app Web quando aumenta il traffico verso l'app Web. Per determinare quando l'app deve essere ridimensionata, è possibile monitorare metriche come utilizzo della CPU, memoria o larghezza di banda.
 
-1. Dal riquadro Cloud Shell eseguire il comando seguente per eseguire il push del codice dell'app Web di esempio dal repository locale allo slot di distribuzione di staging dell'app Web di Azure (assicurarsi di sostituire i valori segnaposto con il valore di **nome utente e password delle credenziali** di distribuzione e il nome dell'app, identificato nell'attività precedente):
+1. **Nella sezione Impostazioni** selezionare **Scale out (piano di servizio app).**
 
-   ```powershell
-    git push https://<deployment-username>:<deployment-password>@<app-name>-staging.scm.azurewebsites.net/<app-name>.git master
-   ```
+    >**Nota:** assicurarsi di lavorare sullo slot di produzione non sullo slot di staging.  
 
-1. Chiudere il riquadro Cloud Shell.
+1. **Nella sezione Ridimensionamento** selezionare **Automatico**. Si noti l'opzione **Basata su** regole. Il ridimensionamento basato su regole può essere configurato per metriche di app diverse. 
 
-1. Nel pannello dello slot di staging fare clic su **Panoramica** e quindi sul **collegamento Dominio predefinito** per visualizzare la pagina Web predefinita in una nuova scheda del browser.
+1. **Nel campo Burst** massimo selezionare **2**.
 
-1. Verificare che nella pagina del browser sia visualizzato il messaggio **Hello World!** e chiudere la nuova scheda.
+    ![Screenshot della pagina di scalabilità automatica.](../media/az104-lab09a-autoscale.png)
 
-## Attività 5: Scambiare gli slot di staging
+1. Seleziona **Salva**.
 
-In questa attività lo slot di staging verrà scambiato con lo slot di produzione
+1. Selezionare **Diagnostica e risoluzione dei problemi** (riquadro sinistro).
 
-1. Tornare al pannello che mostra lo slot di produzione dell'app Web.
+1. Nella casella Test di carico dell'app **** selezionare **Crea test** di carico.
 
-1. Nella sezione**Distribuzione** fare clic su **Slot di distribuzione** e quindi sull'icona **Scambia** della barra degli strumenti.
+    + Selezionare **+ Crea** e assegnare un nome** al **test di carico.  Il nome deve essere univoco.
+    + Selezionare **Rivedi e crea** e quindi **Crea**.
 
-1. Nel pannello **Scambia** esaminare le impostazioni predefinite e fare clic su **Scambia**.
+1. Attendere la creazione del test di carico e quindi selezionare **Vai alla risorsa**.
 
-1. Fare clic su **Panoramica** nel pannello slot di produzione dell'app Web e quindi sul **collegamento Dominio predefinito** per visualizzare la home page del sito Web in una nuova scheda del browser.
+1. **Nella panoramica**** | Aggiungi richieste** HTTP selezionare **Crea.**
 
-1. Verificare che la pagina Web predefinita sia stata sostituita con la pagina **Hello World!** .
+1. Per l'URL** di test, incollare l'URL ****del dominio** predefinito. Assicurarsi che sia formattato correttamente e inizi con **https://**.
 
-## Attività 6: Configurare e testare la scalabilità automatica dell'app Web di Azure
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-In questa attività verrà configurata l'app di Azure e ne verrà testata la scalabilità automatica.
+    >**Nota:** la creazione del test può richiedere alcuni minuti. 
 
-1. Nel pannello che mostra lo slot di produzione dell'app Web, nella sezione **Impostazioni**, fare clic su **Aumenta istanze (piano di servizio app)**.
+1. Esaminare i risultati del test, tra cui **Utenti** virtuali, **Tempo** di risposta e **Richieste/sec**.
 
-1. Nella sezione** Ridimensionamento selezionare l'opzione **Basata su** regole, quindi fare clic sul **collegamento Gestisci regole basate sul ridimensionamento**.**
-
-1. Fare clic su **Scalabilità automatica personalizzata**.
-
-    >**Nota**: è anche possibile dimensionare manualmente l'app Web.
-
-1. Selezionare **Ridimensiona in base a una metrica** e fare clic su **+ Aggiungi una regola**.
-
-1. Nel pannello **Regola scalabilità** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
-
-    | Impostazione | valore |
-    | --- |--- |
-    | Origine della metrica | **Risorsa corrente** |
-    | Spazio dei nomi delle metriche | **metriche standard** |
-    | Nome metrica | **Percentuale CPU** |
-    | Operatore | **Maggiore di** |
-    | Soglia della metrica per l'attivazione dell'azione di dimensionamento | **10** |
-    | Durata (in minuti) | **1** |
-    | Statistica intervallo di tempo | **Massimo** |
-    | Aggregazione temporale | **Massimo** |
-    | Operazione | **Aumenta numero di** |
-    | Numero di istanze | **1** |
-    | Disattiva regole dopo (minuti) | **5** |
-
-    >**Nota**: questi valori non rappresentano una configurazione realistica, perché lo scopo è quello di attivare la scalabilità automatica il prima possibile, senza un periodo di attesa prolungato.
-
-1. Fare clic su **Aggiungi** e di nuovo nel pannello di dimensionamento del piano di servizio app specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
-
-    | Impostazione | valore |
-    | --- |--- |
-    | Limiti per le istanze Minimo | **1** |
-    | Limiti per le istanze Massimo | **2** |
-    | Limiti per le istanze Valore predefinito | **1** |
-
-1. Fare clic su **Salva**.
-
-    >**Nota**: se si verifica un errore che indica che il provider di risorse "microsoft.insights" non è registrato, eseguire `az provider register --namespace 'Microsoft.Insights'` in Cloud Shell e riprovare a salvare le regole di scalabilità automatica.
-
-1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
-
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
-
-1. Dal riquadro Cloud Shell eseguire il codice seguente per identificare l'URL dell'app Web di Azure.
-
-   ```powershell
-   $rgName = 'az104-09a-rg1'
-
-   $webapp = Get-AzWebApp -ResourceGroupName $rgName
-   ```
-
-1. Dal riquadro Cloud Shell eseguire il codice seguente per avviare un ciclo infinito che invia le richieste HTTP all'app Web:
-
-   ```powershell
-   while ($true) { Invoke-WebRequest -Uri $webapp.DefaultHostName }
-   ```
-
-1. Ridurre a icona il riquadro Cloud Shell senza chiuderlo e nel pannello dell'app Web, nella sezione Impostazioni, fare clic su **Aumenta istanze (piano di servizio app)**.
-
-1. Monitorare l'utilizzo e il numero di istanze per qualche minuto. 
-
-    >**Nota**: potrebbe essere necessario selezionare **Aggiorna** per la pagina.
-
-1. Dopo aver notato che il numero di istanze è aumentato a 2, riaprire il riquadro Cloud Shell e terminare lo script premendo **CTRL+C**.
-
-1. Chiudere il riquadro Cloud Shell.
+1. Selezionare **Arresta** per completare l'esecuzione del test.
 
 ## Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere molto tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
-1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
 
-1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-09a*'
-   ```
+## Punti chiave
 
-1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-09a*' | Remove-AzResourceGroup -Force -AsJob
-   ```
++ app Azure Servizi consente di creare, distribuire e ridimensionare rapidamente le app Web.
++ servizio app include il supporto per molti ambienti di sviluppo, tra cui ASP.NET, Java, PHP e Python.
++ Gli slot di distribuzione consentono di creare ambienti separati per la distribuzione e il test dell'app Web.
++ È possibile ridimensionare manualmente o automaticamente un'app Web per gestire una domanda aggiuntiva.
++ Sono disponibili un'ampia gamma di strumenti di diagnostica e test. 
 
-    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
+## Altre informazioni con la formazione autogestita
 
-## Rivedi
-
-In questo lab sono state eseguite le attività seguenti:
-
-+ Creazione di un'app Web di Azure
-+ Creazione di uno slot di distribuzione di staging
-+ Configurazione delle impostazioni di distribuzione delle app Web
-+ Distribuzione di codice nello slot di distribuzione di staging
-+ Scambio degli slot di staging
-+ Configurazione e test della scalabilità automatica dell'app Web di Azure
++ [Preparare la distribuzione di un'app Web per il test e il rollback usando servizio app slot](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/) di distribuzione. Usare gli slot di distribuzione per semplificare la distribuzione e il rollback di un'app Web nel servizio app di Azure.
++ [Ridimensionare un'app Web servizio app per soddisfare in modo efficiente la domanda con servizio app aumentare e aumentare le prestazioni](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/). Rispondere ai periodi di maggiore attività aumentando in modo incrementale le risorse disponibili e quindi, per ridurre i costi, riducendo queste risorse quando l'attività scende.

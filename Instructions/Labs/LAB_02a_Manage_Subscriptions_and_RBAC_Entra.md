@@ -5,214 +5,175 @@ lab:
 ---
 
 # Lab 02a - Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo
-# Manuale del lab per gli studenti
 
-## Requisiti del lab
+## Introduzione al lab
 
-Questo lab richiede autorizzazioni per creare utenti, creare ruoli personalizzati basati su ruoli di Azure Controllo di accesso (RBAC) e assegnare questi ruoli agli utenti. Non tutti i provider di servizi di hosting possono fornire questa funzionalità. Chiedere al docente informazioni sulla disponibilità di questo lab.
+In questo lab vengono fornite informazioni sul controllo degli accessi in base al ruolo. Si apprenderà come usare autorizzazioni e ambiti per controllare le azioni che le identità possono e non possono eseguire. Si apprenderà anche come semplificare la gestione delle sottoscrizioni usando i gruppi di gestione. 
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali. 
+
+## Tempo stimato: 30 minuti
 
 ## Scenario laboratorio
 
-Per migliorare la gestione delle risorse di Azure in Contoso, è stato chiesto di implementare le funzionalità seguenti:
+Per semplificare la gestione delle risorse di Azure nell'organizzazione, è stato richiesto di implementare le funzionalità seguenti:
 
-- Creazione di un gruppo di gestione che includa tutte le sottoscrizioni di Azure di Contoso
+- Creazione di un gruppo di gestione che include tutte le sottoscrizioni di Azure.
 
-- concessione delle autorizzazioni per inviare richieste di supporto per tutte le sottoscrizioni nel gruppo di gestione a un utente designato. Le autorizzazioni dell'utente devono essere limitate solo a: 
+- Concessione delle autorizzazioni per inviare richieste di supporto per tutte le sottoscrizioni nel gruppo di gestione. Le autorizzazioni devono essere limitate solo a: 
 
-    - Creazione dei ticket della richiesta di supporto
-    - Visualizzazione dei gruppi di risorse
-
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
-
-## Obiettivi
-
-Contenuto del lab:
-
-+ Attività 1: Implementare i gruppi di gestione
-+ Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati 
-+ Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
+    - Creare e gestire macchine virtuali
+    - Creare ticket di richiesta di supporto (non includere l'aggiunta di provider di Azure)
 
 
-## Tempo stimato: 60 minuti
+## Simulazioni di lab interattive
+
+Esistono alcune simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure. 
+
++ [Gestire l'accesso con il controllo degli accessi in base al ruolo](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2014). Assegnare un ruolo predefinito a un utente e monitorare i log attività. 
+
++ [Gestire le sottoscrizioni e il controllo degli accessi in base al ruolo](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202). Implementare un gruppo di gestione e creare e assegnare un ruolo controllo degli accessi in base al ruolo personalizzato.
+
++ [Aprire una richiesta](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2022) di supporto. Esaminare le opzioni del piano di supporto, quindi creare e monitorare una richiesta di supporto, una fatturazione o tecnica.
 
 ## Diagramma dell'architettura
 
-![image](../media/lab02aentra.png)
+![Diagramma delle attività del lab.](../media/az104-lab02a-architecture.png)
 
+## Competenze mansione
 
-### Istruzioni
-
-## Esercizio 1
++ Attività 1: Implementare i gruppi di gestione.
++ Attività 2: Esaminare e assegnare un ruolo di Azure predefinito.
++ Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato.
++ Attività 4: Monitorare le assegnazioni di ruolo con il log attività.
 
 ## Attività 1: Implementare i gruppi di gestione
 
-In questa attività si creeranno e configureranno gruppi di gestione. 
+In questa attività si creeranno e configureranno gruppi di gestione. I gruppi di gestione vengono usati per organizzare logicamente le sottoscrizioni. Le sottoscrizioni devono essere segmentate e consentire il controllo degli accessi in base al ruolo e Criteri di Azure essere assegnate e ereditate ad altri gruppi di gestione e sottoscrizioni. Ad esempio, se l'organizzazione ha un team di supporto dedicato per l'Europa, è possibile organizzare le sottoscrizioni europee in un gruppo di gestione per fornire al personale di supporto l'accesso a tali sottoscrizioni (senza fornire l'accesso individuale a tutte le sottoscrizioni). Nello scenario tutti gli utenti dell'Help Desk dovranno creare una richiesta di supporto in tutte le sottoscrizioni. 
 
-1. Accedere al [**portale di Azure**](http://portal.azure.com).
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Cercare e selezionare **Gruppi di gestione** per passare al pannello **Gruppi di gestione**.
+1. Cercare e selezionare `Microsoft Entra ID`.
 
-1. Esaminare i messaggi nella parte superiore del pannello **Gruppi di gestione**. Se viene visualizzato il messaggio Che indica **che l'utente è registrato come amministratore della directory ma non dispone delle autorizzazioni necessarie per accedere al gruppo** di gestione radice, seguire questa sequenza di passaggi:
+1. Nel pannello **Gestisci** selezionare **Proprietà**.
 
-    1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
-    
-    1.  Nel pannello che visualizza le proprietà del tenant, nel menu verticale a sinistra selezionare Proprietà nella **sezione Gestisci**.****
-    
-    1.  Nel pannello **Proprietà** del tenant, nella **sezione Gestione degli accessi per le risorse** di Azure selezionare **Sì** e quindi selezionare **Salva**.
-    
-    1.  Tornare nel pannello **Gruppi di gestione** e selezionare **Aggiorna**.
+1. Esaminare l'area **Gestione degli accessi per le risorse** di Azure. Assicurarsi di poter gestire l'accesso a tutte le sottoscrizioni e i gruppi di gestione di Azure nel tenant.
+   
+1. Cercare e selezionare `Management groups`.
 
 1. Nel pannello **Gruppi di gestione** fare clic su **+ Crea**.
 
-    >**Nota**: se in precedenza non sono stati creati gruppi di gestione, selezionare **Inizia a usare i gruppi di gestione**
-
-1. Creare un gruppo di gestione con le impostazioni seguenti:
+1. Creare un gruppo di gestione con le impostazioni seguenti. Al termine, selezionare **Invia** . 
 
     | Impostazione | Valore |
     | --- | --- |
-    | ID gruppo di gestione | **az104-02-mg1** |
-    | Nome visualizzato del gruppo di gestione | **az104-02-mg1** |
+    | ID gruppo di gestione | `az104-mg1` (deve essere univoco nella directory) |
+    | Nome visualizzato del gruppo di gestione | `az104-mg1` |
 
-1. Nell'elenco dei gruppi di gestione fare clic sulla voce che rappresenta il gruppo di gestione appena creato.
+1. **Aggiornare** la pagina del gruppo di gestione per assicurarsi che venga visualizzato il nuovo gruppo di gestione. L'operazione potrebbe richiedere un minuto. 
 
-1. Nel pannello **az104-02-mg1** fare clic su **Sottoscrizioni**. 
+   >**Nota:** si è notato il gruppo di gestione radice? Il gruppo di gestione radice è integrato nella gerarchia in modo che tutti i gruppi di gestione e le sottoscrizioni si ripieghino su di esso. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di ruolo di Azure a livello di directory. Dopo aver creato un gruppo di gestione, aggiungere tutte le sottoscrizioni che devono essere incluse nel gruppo. 
 
-1. Nel pannello **az104-02-mg1 \| Sottoscrizioni** fare clic su **+Aggiungi**, quindi nell'elenco a discesa **Sottoscrizione** del pannello **Aggiungi sottoscrizione** selezionare la sottoscrizione in uso in questo lab e fare clic su **Salva**.
+## Attività 2: Esaminare e assegnare un ruolo di Azure predefinito
 
-    >**Nota**: nel pannello **az104-02-mg1 \| Sottoscrizioni** copiare l'ID della sottoscrizione di Azure negli Appunti. Sarà necessario nell'attività successiva.
+In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles) predefiniti. 
 
-## Attività 2: Creare ruoli Controllo degli accessi in base al ruolo personalizzati
+1. Selezionare il **gruppo di gestione az104-mg1** .
 
-In questa attività si creerà una definizione di un ruolo Controllo degli accessi in base al ruolo personalizzato.
+1. Selezionare il **pannello Controllo di accesso (IAM)** e quindi la **scheda Ruoli** .
 
-1. Nel computer del lab aprire il file **\\Allfiles\\Labs\\02\\ az104-02a-customRoleDefinition.json** nel Blocco note ed esaminarne il contenuto:
+1. Scorrere le definizioni di ruolo predefinite disponibili. **Visualizzare** un ruolo per ottenere informazioni dettagliate su **Autorizzazioni**, **JSON** e **Assegnazioni**. Spesso si useranno *proprietario*, *collaboratore* e *lettore*. 
 
-   ```json
-   {
-      "Name": "Support Request Contributor (Custom)",
-      "IsCustom": true,
-      "Description": "Allows to create support requests",
-      "Actions": [
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-      ],
-      "NotActions": [
-      ],
-      "AssignableScopes": [
-          "/providers/Microsoft.Management/managementGroups/az104-02-mg1",
-          "/subscriptions/SUBSCRIPTION_ID"
-      ]
-   }
-   ```
-    > **Nota**: se non si è certi della posizione in cui i file vengono archiviati in locale nell'ambiente lab, rivolgersi all'insegnante.
+1. Selezionare **+ Aggiungi** dal menu a discesa, selezionare **Aggiungi assegnazione di** ruolo. 
 
-1. Sostituire il segnaposto `SUBSCRIPTION_ID` nel file JSON con l'ID sottoscrizione copiato negli Appunti e salvare la modifica.
+1. Nel pannello **Aggiungi assegnazione di** ruolo cercare e selezionare Collaboratore **** macchina virtuale. Il ruolo collaboratore macchina virtuale consente di gestire le macchine virtuali, ma non di accedere al sistema operativo o di gestire la rete virtuale e l'account di archiviazione a cui sono connessi. Questo è un buon ruolo per l'Help Desk. Selezionare **Avanti**.
 
-1. Nel portale di Azure aprire il riquadro **Cloud Shell** facendo clic sull'icona della barra degli strumenti accanto alla casella di testo della ricerca.
+    >**Lo sapevi?** Azure inizialmente ha fornito solo il **modello di distribuzione classica** . Questa operazione è stata sostituita dal **modello di distribuzione Azure Resource Manager** . Come procedura consigliata, non usare le risorse classiche. 
 
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**. 
+1. Nella **scheda **Membri** selezionare Membri**.
 
-    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**. 
+    >**Nota:** il passaggio successivo assegna il ruolo al gruppo helpdesk****. Se non si ha un gruppo help desk, è necessario un minuto per crearlo.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona **Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare il file **\\Allfiles\\Labs\\02\\az104-02a-customRoleDefinition.json** nella home directory di Cloud Shell.
+1. Cercare e selezionare il `helpdesk` gruppo. Fare clic su **Seleziona**. 
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per creare la definizione del ruolo personalizzato:
+1. Fare clic su **Verifica e assegna** due volte per creare l'assegnazione di ruolo.
 
-   ```powershell
-   New-AzRoleDefinition -InputFile $HOME/az104-02a-customRoleDefinition.json
-   ```
+1. Continuare nel pannello **Controllo di accesso (IAM).** **Nella scheda Assegnazioni** di ruolo verificare che il **gruppo helpdesk** disponga del **ruolo Collaboratore** macchina virtuale. 
 
-1. Chiudere il riquadro Cloud Shell.
+    >**Nota:** come procedura consigliata assegnare sempre ruoli a gruppi non singoli. 
 
-## Attività 3: Assegnare ruoli Controllo degli accessi in base al ruolo
-
-In questa attività si creerà un utente, si assegnerà il ruolo controllo degli accessi in base al ruolo creato nell'attività precedente a tale utente e si verificherà che l'utente possa eseguire l'attività specificata nella definizione del ruolo controllo degli accessi in base al ruolo.
-
-1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**, fare clic su **Utenti** e quindi su **+ Nuovo utente**.
-
-1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
-
-    | Impostazione | valore |
-    | --- | --- |
-    | Nome utente | **az104-02-aaduser1**|
-    | Nome | **az104-02-aaduser1**|
-    | Consenti la creazione manuale della password | Enabled |
-    | Password iniziale | **Specificare una password sicura** |
-
-    >**Nota**: **copiare negli Appunti** il valore completo di **Nome utente**. Sarà necessario più avanti in questo lab.
-
-1. Nel portale di Azure tornare nel gruppo di gestione **az104-02-mg1** e visualizzarne i **dettagli**.
-
-1. Fare clic su **Controllo di accesso (IAM)**, fare clic su **+ Aggiungi** e quindi su **Aggiungi assegnazione di ruolo**. Nella scheda **Ruolo** cercare **Collaboratore richiesta di supporto (personalizzato)**. 
-
-    >**Nota**: se il ruolo personalizzato non è visibile, possono essere necessari fino a 10 minuti perché il ruolo personalizzato venga visualizzato dopo la creazione.
-
-1. Selezionare il **Ruolo** e fare clic su **Avanti**. Nella scheda **Membri** fare clic su **+ Selezionare i membri** e **selezionare** l'account utente az104-***********************.**********.onmicrosoft.com. Fare clic su **Avanti** e quindi su **Rivedi e assegna**.
-
-1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, cambiare la password per l'utente.
-
-    >**Nota**: invece di digitare il nome utente, è possibile incollare il contenuto degli Appunti.
-
-1. Nella finestra del browser **InPrivate** cercare e selezionare **Gruppi di risorse** nel portale di Azure per verificare che l'utente az104-02-aaduser1 possa visualizzare tutti i gruppi di risorse.
-
-1. Nella finestra del browser **InPrivate** cercare e selezionare **Tutte le risorse** nel portale di Azure per verificare che l'utente az104-02-aaduser1 non possa visualizzare nessuna risorsa.
-
-1. Nella finestra del browser **InPrivate**, nel portale di Azure, cercare e selezionare **Guida e supporto** e quindi fare clic su **+ Crea una richiesta di supporto**. 
-
-1. Nella finestra del browser **InPrivate**, nella scheda **Descrizione del problema/Riepilogo** del pannello **Guida e supporto - Nuova richiesta di supporto**, digitare **Limiti del servizio e della sottoscrizione** nel campo Riepilogo e selezionare il tipo di problema **Limiti del servizio e della sottoscrizione (quote)**. Si noti che la sottoscrizione in uso in questo lab è elencata nell'elenco a discesa **Sottoscrizione**.
-
-    >**Nota**: la presenza della sottoscrizione in uso in questo lab nell'elenco a discesa **Sottoscrizione** indica che l'account in uso ha le autorizzazioni necessarie per creare la richiesta di supporto specifica della sottoscrizione.
-
-    >**Nota**: se l'opzione **Limiti del servizio e della sottoscrizione (quote)** non è visualizzata, disconnettersi dal portale di Azure e accedere di nuovo.
-
-1. Non continuare con la creazione della richiesta di supporto. Al contrario, disconnettersi come utente az104-02-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
-
-## Attività 4: Eseguire la pulizia delle risorse
-
-   >**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno effettuati addebiti imprevisti, anche se le risorse create in questo lab non comportano costi aggiuntivi.
-
-   >**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia.
-
-1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**, fare clic su **Utenti**.
-
-1. Nel pannello **Utenti - Tutti gli utenti** fare clic su **az104-02-aaduser1**.
-
-1. Nel pannello **az104-02-aaduser1 - Profilo** copiare il valore dell'attributo **ID oggetto**.
-
-1. Nel portale di Azure avviare una sessione di **PowerShell** all'interno di **Cloud Shell**.
-
-1. Nel riquadro Cloud Shell eseguire quanto segue per rimuovere l'assegnazione della definizione di ruolo personalizzata (sostituire il `[object_ID]` segnaposto con il valore dell'attributo ID** oggetto dell'account ****utente az104-02-aaduser1** copiato in precedenza in questa attività):
-
-   ```powershell
-   
-    $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes | Where-Object {$_ -like '*managementgroup*'}
+    >**Lo sapevi?** Questa assegnazione potrebbe non concedere privilegi aggiuntivi. Se si ha già il ruolo Proprietario, tale ruolo include tutte le autorizzazioni associate al ruolo Collaboratore macchina virtuale.
     
-    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
-   ```
+## Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per rimuovere la definizione del ruolo personalizzato:
+In questa attività verrà creato un ruolo controllo degli accessi in base al ruolo personalizzato. I ruoli personalizzati sono una parte fondamentale dell'implementazione del principio dei privilegi minimi per un ambiente. I ruoli predefiniti potrebbero avere troppe autorizzazioni per lo scenario. In questa attività verrà creato un nuovo ruolo e verranno rimosse le autorizzazioni non necessarie. Si prevede di gestire le autorizzazioni sovrapposte?
 
-   ```powershell
-   Remove-AzRoleDefinition -Name 'Support Request Contributor (Custom)' -Force
-   ```
+1. Continuare a lavorare sul gruppo di gestione. Nel pannello **Controllo di accesso (IAM)** selezionare la **scheda Controlla accesso** .
 
-1. Nella portale di Azure tornare al **pannello Utenti - Tutti gli utenti** dell'ID **** Di Microsoft Entra ed eliminare l'account **utente az104-02-aaduser1**.
+1. **Nella casella Crea un ruolo** personalizzato selezionare **Aggiungi**.
 
-1. Nel portale di Azure tornare nel pannello **Gruppi di gestione**. 
+1. Nella scheda Informazioni di base completare la configurazione.
 
-1. Nel pannello **Gruppi di gestione** selezionare l'icona con i **puntini di sospensione** accanto alla sottoscrizione nel gruppo di gestione **az104-02-mg1** e selezionare **Sposta** per spostare la sottoscrizione nel **gruppo di gestione radice tenant**.
+    | Impostazione | Valore |
+    | --- | --- |
+    | Nome del ruolo personalizzato | `Custom Support Request` |
+    | Descrizione | ''Un ruolo collaboratore personalizzato per le richieste di supporto'. |
 
-   >**Nota**: è probabile che il gruppo di gestione di destinazione sia il **gruppo di gestione radice tenant**, a meno che non sia stata creata una gerarchia di gruppi di gestione personalizzata prima di eseguire questo lab.
-   
-1. Selezionare **Aggiorna** per verificare che la sottoscrizione sia stata spostata correttamente nel **gruppo di gestione radice tenant**.
+1. Per **Autorizzazioni** di base selezionare **Clona un ruolo**. **Nel menu a discesa Role to clone (Ruolo da clonare**) selezionare Support Request Contributor (Collaboratore **** richiesta di supporto).
 
-1. Tornare nel pannello **Gruppi di gestione**, fare clic sull'icona con i **puntini di sospensione** a destra del gruppo di gestione **az104-02-mg1** e fare clic su **Elimina**.
-  >**Nota**: se non è possibile eliminare il **gruppo di gestione radice del tenant**, è probabile che la **sottoscrizione di Azure** si trovi nel gruppo di gestione. È necessario spostare la **sottoscrizione di Azure** dal **gruppo di gestione radice del tenant** e quindi eliminare il gruppo.
+    ![Screenshot che clona un ruolo.](../media/az104-lab02a-clone-role.png)
 
-## Revisione
+1. Selezionare **Avanti** per passare alla **scheda Autorizzazioni** e quindi selezionare **+ Escludi autorizzazioni**.
 
-In questo lab sono state eseguite le attività seguenti:
+1. Nel campo di ricerca del provider di risorse immettere `.Support` e selezionare **Microsoft.Support**.
 
-- Implementazione di gruppi di gestione
-- Creazione di ruoli Controllo degli accessi in base al ruolo personalizzati 
-- Assegnazione di ruoli Controllo degli accessi in base al ruolo
+1. Nell'elenco delle autorizzazioni posizionare una casella di controllo accanto a **Altro: Registra il provider** di risorse di supporto e quindi selezionare **Aggiungi**. Il ruolo deve essere aggiornato per includere questa autorizzazione come *NotAction*.
+
+    >**Nota:** un provider di risorse di Azure è un set di operazioni REST che abilitano la funzionalità per un servizio di Azure specifico. Non vogliamo che l'Help Desk sia in grado di avere questa funzionalità, quindi viene rimossa dal ruolo clonato. È anche possibile selete e aggiungere altre funzionalità al nuovo ruolo. 
+
+1. Nella **scheda Ambiti** assegnabili verificare che il gruppo di gestione sia elencato e quindi fare clic su **Avanti**.
+
+1. Esaminare il codice JSON per Azioni**, *NotActions* e *AssignableScopes* personalizzati nel ruolo. 
+
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+    >**Nota:** a questo punto, è stato creato un ruolo personalizzato e assegnato al gruppo di gestione.  
+
+## Attività 4: Monitorare le assegnazioni di ruolo con il log attività
+
+In questa attività viene visualizzato il log attività per determinare se qualcuno ha creato un nuovo ruolo. 
+
+1. Nel portale individuare la **risorsa az104-mg1** e selezionare **Log** attività. Il log attività fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione. 
+
+1. Esaminare le attività per le assegnazioni di ruolo. Il log attività può essere filtrato per operazioni specifiche. 
+
+    ![Screenshot della pagina Log attività con il filtro configurato.](../media/az104-lab02a-searchactivitylog.png)
+
+## Pulire le risorse
+
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
+
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
+  
+## Punti chiave
+
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
+
++ I gruppi di gestione vengono usati per organizzare logicamente le sottoscrizioni.
++ Il gruppo di gestione radice predefinito include tutti i gruppi di gestione e le sottoscrizioni.
++ Azure ha molti ruoli predefiniti. È possibile assegnare questi ruoli per controllare l'accesso alle risorse.
++ È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
++ I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
++ È possibile usare il log attività per monitorare le assegnazioni di ruolo. 
+
+## Altre informazioni con la formazione autogestita
+
++ [Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse in Azure.
++ [Creare ruoli personalizzati per le risorse di Azure con il controllo](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/) degli accessi in base al ruolo. Informazioni sulla struttura delle definizioni di ruolo per il controllo di accesso. Identificare le proprietà dei ruoli da usare per definire le autorizzazioni del ruolo personalizzato. Creare un ruolo personalizzato di Azure e assegnarlo a un utente.
+
+
+
+
+

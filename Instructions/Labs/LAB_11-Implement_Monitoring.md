@@ -5,345 +5,261 @@ lab:
 ---
 
 # Lab 11 - Implementare il monitoraggio
-# Manuale del lab per gli studenti
+
+## Introduzione al lab
+
+In questo lab vengono fornite informazioni su Monitoraggio di Azure. Si apprenderà come creare un avviso e inviarlo a un gruppo di azioni. Attivare e testare l'avviso e controllare il log attività.  
+
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
+
+## Tempo stimato: 40 minuti
 
 ## Scenario laboratorio
 
-È necessario valutare le funzionalità di Azure che offrono informazioni dettagliate sulle prestazioni e la configurazione delle risorse di Azure, concentrandosi in particolare sulle macchine virtuali di Azure. A tale scopo, si intende esaminare le funzionalità di Monitoraggio di Azure, incluso Log Analytics.
+L'organizzazione ha eseguito la migrazione dell'infrastruttura ad Azure. È importante che i Amministrazione istrator vengano informati di eventuali modifiche significative dell'infrastruttura. Si prevede di esaminare le funzionalità di Monitoraggio di Azure, incluso Log Analytics.
 
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi. 
+## Simulazione interattiva del lab
 
-## Obiettivi
+È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
 
-Contenuto del lab:
-
-+ Attività 1: Effettuare il provisioning dell'ambiente lab
-+ Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement
-+ Attività 3: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
-+ Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
-+ Attività 5: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
-+ Attività 6: Esaminare la funzionalità di Monitoraggio di Azure
-+ Attività 7: Esaminare la funzionalità di Azure Log Analytics
-
-## Tempo stimato: 45 minuti
++ [Implementare il monitoraggio.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Creare un'area di lavoro Log Analytics e soluzioni di automazione di Azure. Esaminare le impostazioni di monitoraggio e diagnostica per le macchine virtuali. Esaminare le funzionalità di Monitoraggio di Azure e Log Analytics. 
 
 ## Diagramma dell'architettura
 
-![image](../media/lab11.png)
+![Diagramma delle attività di architettura](../media/az104-lab11-architecture.png)
 
-### Istruzioni
+## Competenze mansione
 
-## Esercizio 1
++ Attività 1: usare un modello per effettuare il provisioning di un'infrastruttura.
++ Attività 2: Creare un avviso.
++ Attività 3: Configurare le notifiche del gruppo di azioni.
++ Attività 4: attivare un avviso e verificare che funzioni.
++ Attività 5: Configurare una regola di elaborazione degli avvisi.
++ Attività 6: Usare query di log di Monitoraggio di Azure.
 
-## Attività 1: Effettuare il provisioning dell'ambiente lab
+## Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Se necessario, scaricare i **\\file lab Allfiles\\Lab11\\az104-11-vm-template.json** nel computer.
 
-1. Nel portale di Azure aprire **Azure Cloud Shell** facendo clic sull'icona nell'angolo in alto a destra.
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Se viene richiesto di selezionare **Bash** o **PowerShell**, selezionare **PowerShell**.
+1. Nella portale di Azure cercare e selezionare `Deploy a custom template`.
 
-    >**Nota**: se è la prima volta che si avvia **Cloud Shell** e viene visualizzato il messaggio **Non sono state montate risorse di archiviazione**, selezionare la sottoscrizione in uso nel lab e quindi fare clic su **Crea archivio**.
+1. Nella pagina di distribuzione personalizzata selezionare **Compila un modello personalizzato nell'editor**.
 
-1. Sulla barra degli strumenti del riquadro Cloud Shell fare clic sull'icona**Carica/Scarica file**, nel menu a discesa fare clic su **Carica** e caricare i file **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** e **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** nella home directory di Cloud Shell.
+1. Nella pagina modifica modello selezionare **Carica file**.
 
-1. Nel riquadro Cloud Shell eseguire il comando seguente per creare il gruppo di risorse che ospiterà le macchine virtuali. Sostituire il segnaposto `[Azure_region]` con il nome di un'area di Azure in cui si intende distribuire le macchine virtuali di Azure:
+1. Individuare e selezionare il **\\file Allfiles\\Labs11\\az104-11-vm-template.json** e selezionare **Apri**.
 
-    >**Nota:** assicurarsi di scegliere una delle aree elencate come **Area dell'area di lavoro Log Analytics** nella [documentazione relativa ai mapping delle aree di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) a cui si fa riferimento
+1. Seleziona **Salva**.
 
-   ```powershell
-   $location = '[Azure_region]'
+1. Usare le informazioni seguenti per completare i campi di distribuzione personalizzati, lasciando tutti gli altri campi con i valori predefiniti:
 
-   $rgName = 'az104-11-rg0'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
-
-1. Nel riquadro Cloud Shell eseguire il codice seguente per creare la prima rete virtuale e distribuire in tale rete una macchina virtuale usando il modello e i file di parametri caricati:
-
-    >**Nota**: verrà richiesto di fornire una password Amministrazione.
+    | Impostazione       | Valore         | 
+    | ---           | ---           |
+    | Subscription  | la propria sottoscrizione di Azure |
+    | Gruppo di risorse| `az104-rg11` (Se necessario, selezionare **Crea nuovo**)
+    | Area geografica        | **Stati Uniti orientali**   |
+    | Username      | `localadmin`   |
+    | Password      | Specificare una password complessa |
     
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-11-vm-template.json `
-      -TemplateParameterFile $HOME/az104-11-vm-parameters.json `
-      -AsJob
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+
+1. Attendere il completamento della distribuzione, quindi fare clic su **Vai al gruppo** di risorse.
+
+1. Esaminare le risorse distribuite. Deve essere presente una rete virtuale con una macchina virtuale.
+
+**Configurare Monitoraggio di Azure per le macchine virtuali (verrà usato nell'ultima attività)**
+
+1. Nel portale cercare e selezionare **Monitoraggio**.
+
+1. Esaminare tutti gli strumenti analitici, di rilevamento, valutazione e diagnosi disponibili.
+
+1. Selezionare **Visualizza** nella **casella Informazioni dettagliate** macchina virtuale e quindi selezionare **Configura informazioni dettagliate**.
+
+1. Selezionare la macchina virtuale e quindi **Abilitare** (due volte).
+
+1. Prendere le impostazioni predefinite per le regole di sottoscrizione e raccolta dati, quindi selezionare **Configura**. 
+
+1. L'installazione e la configurazione dell'agente di macchine virtuali richiederanno alcuni minuti, procedere con il passaggio successivo. 
+   
+## Attività 2: Creare un avviso
+
+In questa attività viene creato un avviso per quando viene eliminata una macchina virtuale. 
+
+1. Continuare nella **pagina Monitoraggio** , selezionare **Avvisi**. 
+
+1. Selezionare Crea e** selezionare ****Regola** di avviso. 
+
+1. Selezionare la casella per il gruppo di risorse e quindi selezionare **Applica**. Questo avviso verrà applicato a tutte le macchine virtuali nel gruppo di risorse. In alternativa, è possibile specificare solo un computer specifico. 
+
+1. Selezionare la **scheda Condizione** e quindi selezionare il **collegamento Visualizza tutti i segnali** .
+
+1. Cercare e selezionare **Elimina macchina virtuale (Macchine virtuali).** Si notino gli altri segnali predefiniti. Selezionare **Applica**.
+
+1. Nell'area **Logica** avvisi (scorrere verso il basso) esaminare le selezioni a **livello** di evento. Lasciare selezionata** l'impostazione predefinita **Tutti.
+
+1. Esaminare le **selezioni di Stato** . Lasciare selezionata** l'impostazione predefinita **Tutti.
+
+1. Lasciare aperto il **riquadro Crea una regola** di avviso per l'attività successiva.
+
+## Attività 3: Configurare le notifiche del gruppo di azioni
+
+In questa attività, se l'avviso viene attivato, inviare una notifica tramite posta elettronica al team operativo. 
+
+1. Continuare a lavorare sull'avviso. Selezionare **Avanti: Azioni** e quindi selezionare **Crea gruppo** di azioni.
+
+    >**Lo sapevi?** Puoi aggiungere fino a cinque gruppi di azioni a una regola di avviso. I gruppi di azioni vengono eseguiti simultaneamente, senza un ordine specifico. Più regole di avviso possono usare lo stesso gruppo di azioni. 
+
+1. Nella scheda **Informazioni di base** immettere i valori indicati di seguito per ogni impostazione.
+
+    | Impostazione | Valore |
+    |---------|---------|
+    | **Dettagli di progetto** |
+    | Subscription | sottoscrizione in uso |
+    | Gruppo di risorse | **az104-rg11** |
+    | Area | **Globale** (impostazione predefinita) |
+    | **Dettagli istanza** |
+    | Nome gruppo di azioni | `Alert the operations team` (deve essere univoco nel gruppo di risorse) |
+    | Nome visualizzato | `AlertOpsTeam` |
+
+1. Selezionare **Avanti: Notifiche** e immettere i valori seguenti per ogni impostazione.
+
+    | Impostazione | Valore |
+    |---------|---------|
+    | Tipo di notifica | Selezionare **Posta elettronica/SMS/Push/Chiamata vocale** |
+    | Nome | `VM was deleted` |
+
+1. Selezionare **Posta elettronica**, quindi nella casella **Posta elettronica** immettere l'indirizzo di posta elettronica e selezionare **OK**. 
+
+    >**Nota:** dovresti ricevere una notifica tramite posta elettronica che informa che sei stato aggiunto a un gruppo di azioni. Potrebbe verificarsi un ritardo di alcuni minuti, ma si tratta di un segno sicuro della distribuzione della regola.
+
+1. Dopo aver creato il gruppo di azioni passare alla **scheda Avanti: Dettagli** e immettere i valori seguenti per ogni impostazione.
+
+    | Impostazione | Valore |
+    |---------|---------|
+    | Nome regola di avviso | `VM was deleted` |
+    | Descrizione della regola di avviso | `A VM in your resource group was deleted` |
+
+1. Selezionare **Rivedi e crea** per convalidare l'input e quindi selezionare **Crea**.
+
+## Attività 4: Attivare un avviso e verificare che funzioni
+
+In questa attività si attiva l'avviso e si conferma che viene inviata una notifica. 
+
+>**Nota:** se si elimina la macchina virtuale prima della distribuzione della regola di avviso, la regola di avviso potrebbe non essere attivata. 
+
+1. Nel portale cercare e selezionare **Macchine** virtuali.
+
+1. Selezionare la casella per la **macchina virtuale az104-vm0** .
+
+1. Dalla barra dei menu selezionare **Elimina**.
+
+1. Selezionare la casella **Applica l'eliminazione** forzata. Immettere `delete` per confermare e quindi selezionare **Elimina**. 
+
+1. Nella barra del titolo selezionare l'icona **Notifiche** e attendere l'eliminazione **di vm0** .
+
+1. Si dovrebbe ricevere un messaggio di posta elettronica di notifica che legge, **Avviso importante: la macchina virtuale di avviso di Monitoraggio di Azure è stata eliminata è stata attivata...** In caso contrario, aprire il programma di posta elettronica e cercare un messaggio di posta elettronica da azure-noreply@microsoft.com.
+
+    ![Screenshot del messaggio di posta elettronica di avviso.](../media/az104-lab11-alert-email.png)
+   
+1. Nel menu delle risorse del portale di Azure selezionare **Monitoraggio** e quindi selezionare **Avvisi** nel menu a sinistra.
+
+1. Dovrebbero essere presenti tre avvisi dettagliato generati eliminando **vm0**.
+
+   >**Nota:** l'invio del messaggio di posta elettronica di avviso e l'aggiornamento degli avvisi nel portale può richiedere alcuni minuti. Se non si vuole attendere, continuare con l'attività successiva e quindi tornare. 
+
+1. Selezionare il nome di uno degli avvisi, ad esempio **Macchina virtuale eliminata**. Viene visualizzato un riquadro **Dettagli avviso** che mostra altri dettagli sull'evento.
+
+## Attività 5: Configurare una regola di elaborazione degli avvisi
+
+In questa attività si crea una regola di avviso per eliminare le notifiche durante un periodo di manutenzione. 
+
+1. Continuare nel pannello **Avvisi** , selezionare **Regole** di elaborazione avvisi e quindi **+ Crea**. 
+   
+1. Selezionare il **gruppo** di risorse, quindi selezionare **Applica**.
+   
+1. Selezionare **Avanti: Impostazioni regola**, quindi selezionare **Elimina notifiche**.
+   
+1. Al termine, selezionare **Avanti: Pianificazione**.
+   
+1. Per impostazione predefinita, la regola funziona sempre, a meno che non venga disabilitata o configurata una pianificazione. Si definirà una regola per eliminare le notifiche durante la manutenzione notturna.
+Immettere queste impostazioni per la pianificazione della regola di elaborazione degli avvisi:
+
+    | Impostazione | Valore |
+    |---------|---------|
+    | Applicare la regola | A un'ora specifica |
+    | Inizio | Immettere la data odierna alle 10.00. |
+    | Fine | Immettere la data di domani alle 7.00. |
+    | Time zone | Selezionare il fuso orario locale. |
+
+    ![Screenshot della sezione pianificazione di una regola di elaborazione degli avvisi](../media/az104-lab11-alert-processing-rule-schedule.png)
+
+1. Selezionare **Avanti: Dettagli** e immettere le impostazioni seguenti:
+
+    | Impostazione | Valore |
+    |---------|---------|
+    | Gruppo di risorse | **az104-rg11** |
+    | Nome regola | `Planned Maintenance` |
+    | Descrizione | `Suppress notifications during planned maintenance.` |
+
+1. Selezionare **Rivedi e crea** per convalidare l'input e quindi selezionare **Crea**.
+
+## Attività 6: Usare query di log di Monitoraggio di Azure
+
+In questa attività si userà Monitoraggio di Azure per eseguire query sui dati acquisiti dalla macchina virtuale.
+
+1. Nella portale di Azure cercare e selezionare `Monitor` il pannello Fare clic su **Log**.
+
+1. Se necessario, chiudere la schermata iniziale. 
+
+1. Selezionare un ambito, il **gruppo** di risorse. Selezionare **Applica**. 
+
+1. **Nella scheda Query** selezionare **Macchine** virtuali (riquadro sinistro). 
+
+1. Esaminare le query disponibili. **Eseguire** (passare il puntatore del mouse sulla query) la **query Conteggio heartbeat.**
+
+1. Quando la macchina virtuale è in esecuzione, dovrebbe essere visualizzato un numero di heartbeat.
+
+1. Esaminare la query. Questa query usa la *tabella heartbeat* . 
+
+1. Sostituire la query con questa e quindi fare clic su **Esegui**. Esaminare il grafico risultante. 
+
+   ```
+    InsightsMetrics
+    | where TimeGenerated > ago(1h)
+    | where Name == "UtilizationPercentage"
+    | summarize avg(Val) by bin(TimeGenerated, 5m), Computer //split up by computer
+    | render timechart
    ```
 
-    >**Nota**: non attendere il completamento della distribuzione, ma procedere con l'attività successiva. La distribuzione dovrebbe richiedere 3 minuti circa.
-
-## Attività 2: Registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement.
-
-1. Nel riquadro Cloud Shell eseguire il comando seguente per registrare i provider di risorse Microsoft.Insights e Microsoft.AlertsManagement.
-
-   ```powershell
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
-
-   Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
-   ```
-
-1. Ridurre a icona il riquadro Cloud Shell, ma non chiuderlo.
-
-## Attività 3: Creare e configurare un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
-
-In questa attività verranno create e configurate un'area di lavoro Azure Log Analytics e soluzioni basate su Automazione di Azure
-
-1. Nel portale di Azure cercare e selezionare **Aree di lavoro Log Analytics** e nel pannello **Aree di lavoro Log Analytics** fare clic su **+ Crea**.
-
-1. Nella scheda **Dati principali** del pannello **Crea area di lavoro Log Analytics** immettere le impostazioni seguenti, fare clic su **Verifica e crea** e quindi su **Crea**:
-
-    | Impostazioni | Valore |
-    | --- | --- |
-    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | nome di un nuovo gruppo di risorse **az104-11-rg1** |
-    | Area di lavoro Log Analytics | qualsiasi nome univoco |
-    | Region | nome dell'area di Azure in cui è stata distribuita la macchina virtuale nell'attività precedente |
-
-    >**Nota**: assicurarsi di specificare la stessa area in cui sono state distribuite le macchine virtuali nell'attività precedente.
-
-    >**Nota**: attendere il completamento della distribuzione. La distribuzione dovrebbe richiedere 1 minuto circa.
-
-1. Nel portale di Azure cercare e selezionare **Account di Automazione** e nel pannello **Account di Automazione** fare clic su **+ Crea**.
-
-1. Nel pannello **Creare un account di Automazione** specificare le impostazioni seguenti, quindi fare clic su **Verifica e crea** e al momento della convalida fare clic su **Crea**:
-
-    | Impostazioni | valore |
-    | --- | --- |
-    | Nome dell'account di Automazione | qualsiasi nome univoco |
-    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | **az104-11-rg1** |
-    | Region | nome dell'area di Azure determinata in base alla [documentazione dei mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
-
-    >**Nota:** assicurarsi di specificare l'area di Azure in base alla [documentazione sui mapping dell'area di lavoro](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
-
-    >**Nota**: attendere il completamento della distribuzione. La distribuzione può richiedere 3 minuti circa.
-
-1. Fare clic su **Vai alla risorsa**.
-
-1. Nella sezione **Gestione della configurazione** del pannello Account di Automazione fare clic su **Inventario**.
-
-1. Nell'elenco a discesa **Area di lavoro Log Analytics** del riquadro **Inventario** selezionare l'area di lavoro Log Analytics creata in precedenza in questa attività e fare clic su **Abilita**.
-
-    >**Nota:** attendere il completamento dell'installazione della soluzione Log Analytics corrispondente. L'operazione potrebbe richiedere circa 3 minuti.
-
-    >**Nota:** viene installata automaticamente anche la soluzione **Rilevamento modifiche**.
-
-1. Nel pannello Account di Automazione, nella sezione ** Gestione aggiornamenti** fare clic su **Gestione aggiornamenti**, quindi su **Abilita**.
-
-    >**Nota**: attendere il completamento dell'installazione. L'operazione potrebbe richiedere circa cinque minuti.
-
-## Attività 4: Esaminare le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
-
-In questa attività si esamineranno le impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
-
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-11-vm0**.
-
-1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Metriche**.
-
-1. Nel pannello **az104-11-vm0 \| Metriche**, nel grafico predefinito, si noti che l'unico **spazio dei nomi delle metriche** disponibile è **Host macchina virtuale**.
-
-    >**Nota:** questo comportamento è previsto, perché non sono ancora state configurate impostazioni di diagnostica a livello di guest. È tuttavia possibile abilitare le metriche della memoria guest direttamente dall'elenco a discesa **Spazio dei nomi delle metriche**. Le metriche verranno abilitate più avanti in questo esercizio.
-
-1. Nell'elenco a discesa **Metrica** esaminare l'elenco delle metriche disponibili.
-
-    >**Nota:** l'elenco include una gamma di metriche relative a CPU, disco e rete che possono essere raccolte dall'host macchina virtuale, senza avere accesso alle metriche a livello di guest.
-
-1. Nell'elenco a discesa **Metrica** selezionare **Percentuale CPU**, nell'elenco a discesa **Aggregazione** selezionare **Media** ed esaminare il grafico risultante.
-
-## Attività 5: Configurare le impostazioni di diagnostica delle macchine virtuali di Azure
-
-In questa attività si configureranno le impostazioni di diagnostica delle macchine virtuali di Azure.
-
-1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Impostazioni di diagnostica**.
-
-1. Nella **scheda Panoramica** del **pannello az104-11-vm0 \| Diagnostic settings (Impostazioni** di diagnostica) selezionare un **account** di archiviazione di diagnostica e quindi fare clic su **Abilita monitoraggio** a livello di guest.
-
-    >**Nota**: attendere l'installazione dell'estensione delle impostazioni di diagnostica. L'operazione potrebbe richiedere circa 3 minuti.
-
-1. Passare alla scheda **Contatori delle prestazioni** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** ed esaminare i contatori disponibili.
-
-    >**Nota:** per impostazione predefinita, sono abilitati i contatori di CPU, memoria, disco e rete. È possibile passare alla visualizzazione **personalizzata** per un elenco più dettagliato.
-
-1. Passare alla scheda **Log** del pannello **az104-11-vm0 \| Impostazioni di diagnostica** ed esaminare le opzioni di raccolta del registro eventi disponibili.
-
-    >**Nota:** per impostazione predefinita, la raccolta dei log include le voci critiche, di errore e di avviso del registro applicazioni e del registro di sistema, nonché le voci di errore di controllo del registro di sicurezza. Qui è anche possibile passare alla visualizzazione **personalizzata** per informazioni più dettagliate sulle impostazioni di configurazione.
-
-1. Nella sezione **Monitoraggio** del pannello **az104-11-vm0** fare clic su **Log** e quindi su **Abilita**.
-
-1. Nel pannello az104-11-vm0 - Log** prendere nota che **l'agente** **di Monitoraggio di Azure verrà installato e quindi fare clic su **Configura**.  
-
-    >**Nota**: non attendere il completamento dell'operazione, ma procedere con il passaggio successivo. L'operazione potrebbe richiedere circa 5 minuti.
-
-1. Nel pannello **az104-11-vm0 \| Log**, sezione **Monitoraggio**, fare clic su **Metriche**.
-
-1. Nel pannello **az104-11-vm0 \| Metriche**, nel grafico predefinito, si noti che a questo punto l'elenco a discesa **Spazio dei nomi delle metriche** oltre alla voce **Host macchina virtuale** include anche la voce **Guest (versione classica)**.
-
-    >**Nota:** questo comportamento è previsto, perché sono stati abilitate le impostazioni di diagnostica a livello di guest. È anche possibile scegliere **Abilita le nuove metriche di memoria guest**.
-
-1. Nell'elenco a discesa ** Spazio dei nomi delle metriche** selezionare la voce **Guest (versione classica)**.
-
-1. Nell'elenco a discesa **Metrica** esaminare l'elenco delle metriche disponibili.
-
-    >**Nota**: l'elenco include metriche aggiuntive a livello di guest non disponibili quando ci si basa solo sul monitoraggio a livello di host.
-
-1. Nell'elenco a discesa **Metrica** selezionare **Memoria\\Byte disponibili**, nell'elenco a discesa **Aggregazione** selezionare **Max** ed esaminare il grafico risultante.
-
-## Attività 6: Esaminare la funzionalità di Monitoraggio di Azure
-
-1. Nel portale di Azure cercare e selezionare **Monitoraggio** e nel pannello **Monitoraggio \| Panoramica** fare clic su **Metriche**.
-
-1. Nella scheda **Sfoglia** del pannello **Selezionare un ambito** passare al gruppo di risorse **az104-11-rg0**, espanderlo, selezionare la casella di controllo accanto alla voce della macchina virtuale **az104-11-vm0** all'interno del gruppo di risorse e fare clic su **Applica**.
-
-    >**Nota**: offre la stessa visualizzazione e le stesse opzioni disponibili nel pannello **az104-11-vm0 - Metriche**.
-
-1. Nell'elenco a discesa **Metrica** selezionare **Percentuale CPU**, nell'elenco a discesa **Aggregazione** selezionare **Media** ed esaminare il grafico risultante.
-
-1. Nel pannello **Monitoraggio \| Metriche**, nel riquadro **Percentuale CPU media per az104-11-vm0**, fare clic su **Nuova regola di avviso**.
-
-    >**Nota**: la creazione di una regola di avviso da Metriche non è supportata per le metriche dello spazio dei nomi delle metriche Guest (versione classica). Questa operazione può essere eseguita usando i modelli Azure Resource Manager, come descritto nel documento [Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello Resource Manager per una macchina virtuale Windows](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)
-
-1. Nella sezione **Condizione** del pannello **Crea regola di avviso** fare clic sulla voce della condizione esistente.
-
-1. Nel pannello **Configura logica dei segnali**, nell'elenco dei segnali, nella sezione **Logica avvisi** specificare le impostazioni seguenti (lasciare gli altri valori predefiniti) e fare clic su **Fine**:
-
-    | Impostazioni | valore |
-    | --- | --- |
-    | Threshold | **Statico** |
-    | Tipo di aggregazione | **Media** |
-    | Operatore | **Maggiore di** |
-    | Valore soglia | **2** |
-    | Controllare ogni | **1 minuto** |
-    | Periodo di ricerca posticipata| **1 minuto** |
-
-1. Fare clic su **Avanti: Azioni > **, nella sezione **Gruppo di azioni** del pannello **Crea regola di avviso** fare clic sul pulsante **+ Crea gruppo di azioni**.
-
-1. Nella scheda **Dati principali** del pannello **Crea gruppo di azioni** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi selezionare **Avanti: Notifiche >**:
-
-    | Impostazioni | Valore |
-    | --- | --- |
-    | Abbonamento | Nome della sottoscrizione di Azure usata in questo lab |
-    | Gruppo di risorse | **az104-11-rg1** |
-    | Nome gruppo di azioni | **az104-11-ag1** |
-    | Display name | **az104-11-ag1** |
-
-1. Nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Posta elettronica/SMS/Push/Voce** nell'elenco a discesa **Tipo di notifica**. Nella casella di testo **Nome** digitare **admin email**. Fare clic sul pulsante **Modifica dettagli** (icona a forma di matita).
-
-1. Nel pannello **Posta elettronica/Messaggio SMS/Push/Voce** selezionare la casella di controllo **Posta elettronica**, digitare l'indirizzo di posta elettronica nella casella di testo **Posta elettronica**, lasciare i valori predefiniti per le altre impostazioni, fare clic su **OK** e nella scheda **Notifiche** del pannello **Crea gruppo di azioni** selezionare **Avanti: Azioni >**.
-
-1. Nella scheda **Azioni** del pannello **Crea gruppo di azioni** esaminare gli elementi disponibili nell'elenco a discesa **Tipo di azione** senza apportare modifiche e selezionare **Revisione e creazione**.
-
-1. Nella scheda **Revisione e creazione** del pannello **Crea gruppo di azioni** selezionare **Crea**.
-
-1. Nel pannello **Crea regola di avviso** fare clic su **Avanti: Dettagli > ** e nella sezione **Dettagli regola di avviso** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
-
-    | Impostazioni | valore |
-    | --- | --- |
-    | Nome regola di avviso | **Percentuale CPU superiore alla soglia di test** |
-    | Descrizione della regola di avviso | **Percentuale CPU superiore alla soglia di test** |
-    | Gravità | **Gravità 3** |
-    | Abilita alla creazione | **Sì** |
-
-1. Fare clic su **Rivedi e crea** e quindi nella scheda **Rivedi e crea** fare clic su **Crea**.
-
-    >**Nota**: possono essere necessari fino a 10 minuti prima che una regola di avviso per una metrica diventi attiva.
-
-1. Nel portale di Azure cercare e selezionare **Macchine virtuali** e nel pannello **Macchine virtuali** fare clic su **az104-11-vm0**.
-
-1. Nel pannello **az104-11-vm0** fare clic su **Connetti**, nel menu a discesa fare clic su **RDP**, nel pannello **Connetti tramite RDP** selezionare **Scarica file RDP** e seguire le istruzioni per avviare la sessione di Desktop remoto.
-
-    >**Nota**: questo passaggio si riferisce alla connessione tramite Desktop remoto da un computer Windows. In un computer Mac è possibile usare il client Desktop remoto da Mac App Store e nei computer Linux è possibile usare un software client RDP open source.
-
-    >**Nota**: è possibile ignorare eventuali richieste di avviso durante la connessione alle macchine virtuali di destinazione.
-
-1. Quando richiesto, accedere usando il nome utente e la password dello **studente** presenti nel file dei parametri.
-
-1. Nella sessione di Desktop remoto fare clic su **Start**, espandere la cartella **Sistema Windows** e fare clic su **Prompt dei comandi**.
-
-1. Dal prompt dei comandi eseguire il comando seguente per attivare un maggiore utilizzo della CPU nella macchina virtuale di Azure **az104-11-vm0**:
-
-   ```sh
-   for /l %a in (0,0,1) do echo a
-   ```
-
-    >**Nota:** verrà avviato il ciclo infinito che dovrebbe aumentare l'utilizzo della CPU oltre la soglia della regola di avviso appena creata.
-
-1. Lasciare aperta la sessione di Desktop remoto e tornare alla finestra del browser che visualizza il portale di Azure nel computer lab.
-
-1. Nella finestra del portale di Azure tornare al pannello **Monitoraggio** e fare clic su **Avvisi**.
-
-1. Prendere nota del numero di avvisi **Gravità 3** e quindi fare clic sulla riga **Gravità 3**.
-
-    >**Nota**: potrebbe essere necessario attendere alcuni minuti e fare clic su **Aggiorna**.
-
-1. Nel pannello **Tutti gli avvisi** esaminare gli avvisi generati.
-
-## Attività 7: Esaminare la funzionalità di Azure Log Analytics
-
-1. Nel portale di Azure tornare al pannello **Monitoraggio** e fare clic su **Log**.
-
-    >**Nota**: potrebbe essere necessario fare clic su **Attività iniziali** se è la prima volta che si accede a Log Analytics.
-
-1. Se necessario, fare clic su **Seleziona ambito**, nel pannello **Selezionare un ambito** selezionare la scheda **Recenti**, selezionare **az104-11-vm0** e fare clic su **Applica**.
-
-1. Nella finestra delle query incollare la query seguente, fare clic su **Esegui** ed esaminare il grafico risultante:
-
-   ```sh
-   // Virtual Machine available memory
-   // Chart the VM's available memory over the last hour.
-   InsightsMetrics
-   | where TimeGenerated > ago(1h)
-   | where Name == "AvailableMB"
-   | project TimeGenerated, Name, Val
-   | render timechart
-   ```
-
-    > **Nota**: la query non deve contenere errori (indicati da blocchi rossi sulla barra di scorrimento destra). Se non è possibile incollare la query senza errori direttamente dalle istruzioni, incollare il codice della query in un editor di testo, ad esempio il Blocco note, quindi copiarlo e incollarlo nella finestra di query da tale editor.
-
-
-1. Fare clic su **Query** nella barra degli strumenti, nel riquadro **Query** individuare **Rileva disponibilità macchina virtuale** e fare doppio clic sul riquadro per compilare la finestra della query, fare clic sul pulsante **Esegui** nel riquadro ed esaminare i risultati.
-
-1. Nella scheda **Nuova query 1** selezionare l'intestazione **Tabelle** ed esaminare l'elenco delle tabelle nella sezione **Macchine virtuali**.
-
-    >**Nota:** i nomi di diverse tabelle corrispondono alle soluzioni installate in precedenza in questo lab.
-
-1. Passare il puntatore del mouse sulla voce **VMComputer** e fare clic sull'icona **Visualizza anteprima dati**.
-
-1. Se sono disponibili dati, nel riquadro **Aggiorna** fare clic su **Usa nell'editor**.
-
-    >**Nota:** potrebbe essere necessario attendere alcuni minuti prima che i dati aggiornati diventino disponibili.
+1. Quando si ha tempo, esaminare ed eseguire altre query. 
+
+    >**Lo sapevi?**: se vuoi esercitarti con altre query, è disponibile un [ambiente](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial#open-log-analytics) demo di Log Analytics.
+    
+    >**Lo sapevi?**: dopo aver trovato una query desiderata, è possibile creare un avviso da esso. 
 
 ## Pulire le risorse
 
->**Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate garantisce che non verranno addebitati costi imprevisti.
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
->**Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
-1. Nel portale di Azure aprire la sessione di **PowerShell** all'interno del riquadro **Cloud Shell**.
+## Punti chiave
 
-1. Elencare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-11*'
-   ```
++ Gli avvisi consentono di rilevare e risolvere i problemi prima che gli utenti notino che si è verificato un problema con l'infrastruttura o l'applicazione.
++ È possibile creare avvisi su qualsiasi metrica o fonte di dati di log nella piattaforma di dati di Monitoraggio di Azure.
++ Una regola di avviso monitora i dati e acquisisce un segnale che indica che sta accadendo qualcosa nella risorsa specificata.
++ Se vengono soddisfatte le condizioni della regola di avviso, viene attivato un avviso. È possibile attivare diverse azioni (posta elettronica, SMS, push, voce).
++ I gruppi di azioni includono utenti che devono ricevere una notifica di un avviso.
 
-1. Eliminare tutti i gruppi di risorse creati nei lab di questo modulo eseguendo il comando seguente:
+## Altre informazioni con la formazione autogestita
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-11*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Nota**: il comando viene eseguito in modo asincrono, in base a quanto determinato dal parametro -AsJob, quindi, sebbene sia possibile eseguire un altro comando di PowerShell immediatamente dopo nella stessa sessione di PowerShell, i gruppi di risorse verranno rimossi dopo alcuni minuti.
-
-## Rivedi
-
-In questo lab sono state eseguite le attività seguenti:
-
-+ Provisioning dell'ambiente lab
-+ Creazione e configurazione di un'area di lavoro Azure Log Analytics e di soluzioni basate su Automazione di Azure
-+ Esame delle impostazioni di monitoraggio predefinite delle macchine virtuali di Azure
-+ Configurazione delle impostazioni di diagnostica delle macchine virtuali di Azure
-+ Esame della funzionalità di Monitoraggio di Azure
-+ Esame della funzionalità di Azure Log Analytics
++ [Migliorare la risposta agli eventi imprevisti con gli avvisi in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/). Rispondere agli eventi imprevisti e alle attività nell'infrastruttura tramite le funzionalità di avviso di Monitoraggio di Azure.
++ [Monitorare le macchine virtuali di Azure con Monitoraggio](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/) di Azure. Monitorare le macchine virtuali di Azure usando Monitoraggio di Azure per raccogliere e analizzare le metriche e i log degli host e dei client delle macchine virtuali.

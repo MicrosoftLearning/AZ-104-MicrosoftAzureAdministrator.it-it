@@ -6,292 +6,156 @@ lab:
 
 # Lab 01 - Gestire le identità id di Microsoft Entra
 
-# Manuale del lab per gli studenti
+## Introduzione al lab
 
-## Scenario laboratorio
-
-Per consentire agli utenti di Contoso di eseguire l'autenticazione tramite Microsoft Entra ID, è stato eseguito il provisioning di utenti e account di gruppo. L'appartenenza ai gruppi dovrà essere aggiornata automaticamente in base alle mansioni degli utenti. È anche necessario creare un tenant di test con un account utente di test e concedere all'account autorizzazioni limitate per le risorse nella sottoscrizione di Contoso Azure.
-
-**Nota:** è disponibile una **[simulazione di lab interattiva](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** che consente di eseguire questo lab in base ai propri tempi. Si potrebbero notare piccole differenza tra la simulazione interattiva e il lab ospitato, ma i concetti e le idee principali dimostrati sono gli stessi.
-
-## Obiettivi
-
-Contenuto del lab:
-
-+ Attività 1: Creare e configurare gli utenti
-+ Attività 2: Creare gruppi con appartenenza assegnata e dinamica
-+ Attività 3: Creare un tenant (facoltativo - problema dell'ambiente lab)
-+ Attività 4: Gestire gli utenti guest (facoltativo - problema dell'ambiente lab)
+Si tratta della prima di una serie di lab per Azure Amministrazione istrators. In questo lab vengono fornite informazioni su utenti e gruppi. Gli utenti e i gruppi sono i blocchi predefiniti di base per una soluzione di gestione delle identità. 
 
 ## Tempo stimato: 30 minuti
 
+## Scenario laboratorio
+
+L'organizzazione sta creando un nuovo ambiente lab per i test di pre-produzione di app e servizi.  Alcuni tecnici vengono assunti per gestire l'ambiente lab, incluse le macchine virtuali. Per consentire agli ingegneri di eseguire l'autenticazione tramite Microsoft Entra ID, è stato eseguito il provisioning di utenti e gruppi. Per ridurre al minimo il sovraccarico amministrativo, l'appartenenza ai gruppi deve essere aggiornata automaticamente in base ai titoli dei processi. 
+
+## Simulazione interattiva del lab
+
+Questo lab usa una simulazione di lab interattiva. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
+
+>**Nota:** questa simulazione viene aggiornata. Microsoft Entra ID è il nuovo nome per Azure Active Directory (Azure AD). 
+
++ [Gestisci identità ID](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201) Entra. Creare e configurare gli utenti e assegnarli ai gruppi. Creare un tenant di Azure e gestire gli account guest. 
+
 ## Diagramma dell'architettura
-![image](../media/lab01entra.png)
+![Diagramma dell'architettura lab 01.](../media/az104-lab01-architecture.png)
 
-### Istruzioni
+## Competenze mansione
 
-## Esercizio 1
++ Attività 1: Creare e configurare gli account utente.
++ Attività 2: Creare gruppi e aggiungere membri.
 
-## Attività 1: Creare e configurare gli utenti
+## Attività 1: Creare e configurare gli account utente
 
-In questa attività verranno creati e configurati gli utenti.
+In questa attività verranno creati e configurati gli account utente. Gli account utente archivieranno i dati utente, ad esempio nome, reparto, posizione e informazioni di contatto.
 
->**Nota**: se in precedenza è stata usata la licenza di valutazione per l'ID Microsoft Entra in questo tenant, sarà necessario un nuovo tenant ed eseguire l'attività 2 dopo l'attività 3 nel nuovo tenant.
+1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+    >**Nota:** il portale di Azure viene usato in tutti i lab. Se non si ha una versione di Azure, cercare e selezionare `Quickstart Center`. Dedicare alcuni minuti a guardare il **video Introduttivo nel video portale di Azure**. Anche se in precedenza è stato usato il portale, sono disponibili alcuni suggerimenti e trucchi per esplorare e personalizzare l'interfaccia.
+    
+1. Cercare e selezionare `Microsoft Entra ID`. Microsoft Entra ID è la soluzione di gestione delle identità e degli accessi basata sul cloud di Azure. Prendere alcuni minuti per acquisire familiarità con alcune delle funzionalità elencate nel riquadro sinistro. 
 
-1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
+1. Selezionare il **pannello Panoramica** e quindi la **scheda Gestisci tenant** . 
 
-1. Nel pannello Microsoft Entra ID scorrere verso il basso fino alla **sezione Gestisci** , fare clic su **Impostazioni** utente ed esaminare le opzioni di configurazione disponibili.
+    >**Lo sapevi?** Un tenant è un'istanza specifica dell'ID Microsoft Entra contenente account e gruppi. A seconda della situazione, è possibile creare più tenant e **passare** da un tenant all'altro. 
 
-1. Nella sezione Gestisci del **pannello Microsoft Entra ID fare clic su **Utenti** e quindi fare clic sull'account utente per visualizzarne **le impostazioni del profilo****. 
+1. Tornare alla **pagina Entra ID** e selezionare Licenze****. Da qui è possibile acquistare una licenza, gestire le licenze disponibili e assegnare licenze a utenti e gruppi. Selezionare **Funzionalità** con licenza per vedere cosa è disponibile.
+   
+### Creare un nuovo utente
 
-1. Fare clic su **Modifica proprietà**, quindi nella **scheda Impostazioni** impostare **Percorso** utilizzo su **Stati Uniti** e fare clic su **Salva** per applicare la modifica.
+1. Selezionare **Utenti** e quindi nell'elenco **a discesa Nuovo utente** selezionare **Crea nuovo utente**. 
 
-    >**Nota**: questa operazione è necessaria per assegnare una licenza Microsoft Entra ID P2 all'account utente più avanti in questo lab.
-
-1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Nuovo utente**.
-
-1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
+1. Creare un nuovo utente con le impostazioni seguenti (lasciare le impostazioni predefinite per altri utenti). Nella **scheda Proprietà** si notino tutti i diversi tipi di informazioni che possono essere inclusi nell'account utente. 
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome dell'entità utente | **az104-01a-aaduser1** |
-    | Display name | **az104-01a-aaduser1** |
-    | Genera automaticamente la password | de-select |
-    | Password iniziale | **Specificare una password sicura** |
-    | Titolo processo (scheda Proprietà) | **Amministratore cloud** |
-    | Reparto (scheda Proprietà) | **ESSO** |
+    | Nome dell'entità utente | `az104-user1` |
+    | Nome visualizzato | `az104-user1` |
+    | Genera automaticamente la password | **checked** |
+    | Account abilitato | **checked** |
+    | Titolo processo (scheda Proprietà) | `IT Lab Administrator` |
+    | Reparto (scheda Proprietà) | `IT` |
     | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
-    >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
+1. Al termine della revisione, selezionare **Rivedi e crea** e quindi **Crea**.
 
-1. Nell'elenco di utenti fare clic sull'account utente appena creato per visualizzare il relativo pannello.
+1. Aggiornare la pagina e verificare che il nuovo utente sia stato creato. 
 
-1. Esaminare le opzioni disponibili nella **sezione Gestione** e notare che è possibile identificare i ruoli assegnati all'account utente e le autorizzazioni dell'account utente per le risorse di Azure.
+### Invitare un utente esterno
 
-1. Nella sezione **Gestisci** fare clic su **Ruoli assegnati**, quindi fare clic sul pulsante **+ Aggiungi assegnazione** e assegnare il ruolo **Amministratore utenti** a **az104-01a-aaduser1**.
+1. Nell'elenco **a discesa Nuovo utente** selezionare **Invita un utente** esterno. 
 
-    >**Nota**: è anche possibile assegnare ruoli durante il provisioning di un nuovo utente.
-
-1. Aprire una finestra **InPrivate** del browser e accedere al [portale di Azure](https://portal.azure.com) con l'account utente appena creato. Quando viene richiesto di aggiornare la password, impostarla su una password sicura di propria scelta. 
-
-    >**Nota**: invece di digitare il nome utente (incluso il nome di dominio), è possibile incollare il contenuto degli Appunti.
-
-1. Nella finestra del **browser InPrivate**, nella portale di Azure, cercare e selezionare **Microsoft Entra ID**.
-
-    >**Nota**: anche se questo account utente può accedere al tenant, non ha accesso alle risorse di Azure. Questo comportamento è previsto, poiché tale accesso deve essere concesso esplicitamente tramite Controllo degli accessi in base al ruolo. 
-
-1. Nella finestra del **browser InPrivate** , nel pannello Microsoft Entra ID scorrere verso il basso fino alla **sezione Gestione** , fare clic su **Impostazioni** utente e notare che non si dispone delle autorizzazioni necessarie per modificare le opzioni di configurazione.
-
-1. Nella sezione Gestione** della finestra del **browser InPrivate** fare clic su **Utenti** e quindi su **+ Nuovo utente** nel pannello **Microsoft Entra ID.
-
-1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
-
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'entità utente | **az104-01a-aaduser2** |
-    | Display name | **az104-01a-aaduser2** |
-    | Genera automaticamente la password | de-select  |
-    | Password iniziale | **Specificare una password sicura** |
-    | Posizione | **Amministratore di sistema** |
-    | Reparto | **ESSO** |
-    | Località di utilizzo | **Stati Uniti** |
+    | E-mail | Indirizzo di posta elettronica |
+    | Nome visualizzato | nome dell'utente |
+    | Invia messaggio di invito | **Selezionare la casella** |
+    | Message | `Welcome to Azure and our group project` |
+
+1. Passare alla **scheda Proprietà** . Completare le informazioni di base, inclusi questi campi. 
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | Posizione  | `IT Lab Administrator` |
+    | Department  | `IT` |
+    | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
+
+1. Selezionare **Rivedi e invita** e quindi **Invita**.
+
+1. **Aggiornare** la pagina e verificare che l'utente invitato sia stato creato. Si dovrebbe ricevere il messaggio di posta elettronica di invito a breve. 
+
+    >**Nota:** è improbabile che si creino account utente singolarmente. Si sa come l'organizzazione prevede di creare e gestire gli account utente?
     
-1. Disconnettersi come utente az104-01a-aaduser1 dal portale di Azure e chiudere la finestra InPrivate del browser.
+## Attività 2: Creare gruppi e aggiungere membri
 
-## Attività 2: Creare gruppi con appartenenza assegnata e dinamica
+In questa attività si crea un account di gruppo. Gli account di gruppo possono includere account utente o dispositivi. Questi sono due modi di base in cui i membri vengono assegnati ai gruppi: staticamente e dinamicamente. I gruppi statici richiedono agli amministratori di aggiungere e rimuovere i membri manualmente.  I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà di un account utente o di un dispositivo. Ad esempio, il titolo di lavoro. 
 
-In questa attività verranno creati gruppi con appartenenza assegnata e dinamica.
+1. Nella portale di Azure cercare e selezionare `Groups`.
 
-1. Tornare all'portale di Azure in cui si è connessi con l'account **** utente, tornare al **pannello Panoramica** del tenant e, nella **sezione Gestisci**, fare clic su **Licenze**.
+1. Acquisire familiarità con le impostazioni del gruppo nel riquadro sinistro.
 
-    >**Nota**: le licenze Microsoft Entra ID Premium P1 o P2 sono necessarie per implementare gruppi dinamici.
+   + **La scadenza** consente di configurare una durata del gruppo in giorni. Dopo tale periodo, il gruppo deve essere rinnovato dal proprietario.
+   + **I criteri di denominazione** consentono di configurare parole bloccate e di aggiungere un prefisso o un suffisso ai nomi di gruppo.
 
-1. Nella sezione **Gestisci** fare clic su **Tutti i prodotti**.
-
-1. Fare clic su **+ Prova/Acquista** e attivare la versione di valutazione gratuita di Microsoft Entra ID Premium P2.
-
-1. Aggiornare la finestra del browser per verificare che l'attivazione sia riuscita. 
-
-    >**Nota**: l'attivazione delle licenze può richiedere fino a 10 minuti. Continuare ad aggiornare la pagina finché non viene visualizzata. Non procedere fino a quando non sono state attivate le licenze.
-
-1. Nel pannello **Licenze - Tutti i prodotti** selezionare la **voce Microsoft Entra ID P2** e assegnare tutte le opzioni di licenza all'account utente e i due account utente appena creati.
-
-1. Nel portale di Azure tornare al pannello tenant Microsoft Entra ID e fare clic su **Gruppi**.
-
-1. Usare il pulsante **+ Nuovo gruppo** per creare un nuovo gruppo con le impostazioni seguenti:
+1. Nel pannello **Tutti i gruppi** selezionare **+ Nuovo gruppo** e creare un nuovo gruppo.     
 
     | Impostazione | Valore |
     | --- | --- |
     | Tipo di gruppo | **Sicurezza** |
-    | Nome del gruppo | **IT Cloud Administrators** |
-    | Descrizione gruppo | **Contoso IT cloud administrators** |
-    | Tipo di appartenenza | **Utente dinamico** |
-
-    >**Nota:** se l'elenco a discesa **Tipo di appartenenza** è disattivato, attendere alcuni minuti e aggiornare la pagina del browser.
-
-1. Fare clic su **Aggiungi query dinamica**.
-
-1. Nella scheda **Configura regole** del pannello **Regole di appartenenza dinamica** creare una nuova regola con le impostazioni seguenti:
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Proprietà | **jobTitle** |
-    | Operatore | **Equals** |
-    | valore | **Amministratore cloud** |
-
-1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
-
-1. Tornare al **pannello Gruppi - Tutti i gruppi** del tenant, fare clic sul **pulsante + Nuovo gruppo** e creare un nuovo gruppo con le impostazioni seguenti:
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Tipo di gruppo | **Sicurezza** |
-    | Nome del gruppo | **IT System Administrators** |
-    | Descrizione gruppo | **Contoso IT system administrators** |
-    | Tipo di appartenenza | **Utente dinamico** |
-
-1. Fare clic su **Aggiungi query dinamica**.
-
-1. Nella scheda **Configura regole** del pannello **Regole di appartenenza dinamica** creare una nuova regola con le impostazioni seguenti:
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Proprietà | **jobTitle** |
-    | Operatore | **Equals** |
-    | valore | **Amministratore di sistema** |
-
-1. Salvare la regola facendo clic su **+ Aggiungi un'espressione** e quindi su **Salva**. Tornare nel pannello **Nuovo gruppo** e fare clic su **Crea**. 
-
-1. Tornare al **pannello Gruppi - Tutti i gruppi** del tenant, fare clic sul **pulsante + Nuovo gruppo** e creare un nuovo gruppo con le impostazioni seguenti:
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Tipo di gruppo | **Sicurezza** |
-    | Nome del gruppo | **IT Lab Administrators** |
-    | Descrizione gruppo | **Contoso IT Lab administrators** |
+    | Nome del gruppo | `IT Lab Administrators` |
+    | Descrizione gruppo | `Administrators that manage the IT lab` |
     | Tipo di appartenenza | **Assegnate** |
+
+    >**Nota**: per l'appartenenza dinamica è necessaria una licenza Entra ID Premium P1 o P2. Se sono disponibili altri **tipi di** appartenenza, le opzioni verranno visualizzate nell'elenco a discesa. 
     
-1. Fare clic su **Nessun membro selezionato**.
+    ![Screenshot della creazione di un gruppo assegnato.](../media/az104-lab01-create-assigned-group.png)
 
-1. Nel pannello **Aggiungi membri** cercare e selezionare i gruppi **IT Cloud Administrators** e **IT System Administrators** e quindi, di nuovo nel pannello **Nuovo gruppo**, fare clic su **Crea**.
+1. Selezionare **Nessun proprietario selezionato**.
 
-1. Tornare nel pannello **Gruppi - Tutti i gruppi**, fare clic sulla voce che rappresenta il gruppo **IT Cloud Administrators** e quindi visualizzare il relativo pannello **Membri**. Verificare che **az104-01a-aaduser1** sia visualizzato nell'elenco dei membri del gruppo.
+1. **Nella pagina Aggiungi proprietari** cercare e **selezionare** se stessi come proprietario. Si noti che è possibile avere più di un proprietario. 
 
-    >**Nota**: si potrebbero riscontrare ritardi con gli aggiornamenti del gruppi di appartenenza dinamica. Per accelerare l'aggiornamento, passare al pannello del gruppo, visualizzare il relativo pannello **Regole di appartenenza dinamica**, scegliere **Modifica** per modificare la regola riportata nella casella di testo **Sintassi delle regole** aggiungendo uno spazio alla fine, quindi fare clic su **Salva** per salvare la modifica.
+1. Selezionare **Nessun membro selezionato**.
 
-1. Tornare nel pannello **Gruppi - Tutti i gruppi**, fare clic sulla voce che rappresenta il gruppo **IT System Administrators** e quindi visualizzare il relativo pannello **Membri**. Verificare che **az104-01a-aaduser2** sia visualizzato nell'elenco dei membri del gruppo.
+1. **Nel riquadro Aggiungi membri** cercare e **selezionare** **az104-user1** e l'utente **** guest invitato. Aggiungere entrambi gli utenti al gruppo. 
 
-## Attività 3: Creare un tenant (facoltativo - Possibili problemi di captcha, sottoscrizione a pagamento necessaria)
+1. Selezionare **Crea** per distribuire il gruppo.
 
-In questa attività verrà creato un nuovo tenant.
-    
-1. Nella portale di Azure cercare e selezionare **Microsoft Entra ID**.
+1. **Aggiornare** la pagina e verificare che il gruppo sia stato creato.
 
-    >**Nota**: si è verificato un problema noto con la verifica Captcha nell'ambiente lab. Se viene visualizzato l'errore **Creazione non riuscita. Troppe richieste, provare più tardi**, eseguire le operazioni seguenti:
-    - Provare a creare alcune volte.<br>
-    - Controllare la **sezione Gestisci tenant** per assicurarsi che il tenant non sia stato creato in background. <br>
-    - Aprire una nuova **finestra InPrivate** e usare il portale di Azure e provare a creare il tenant da questa posizione.<br>
-     Generare il problema con il formatore, quindi usare la simulazione interattiva del **[lab per visualizzare](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** i passaggi. <br>
-    - È possibile provare questa attività in un secondo momento, ma la creazione di un tenant non è necessaria in altri lab. 
+1. Selezionare il nuovo gruppo ed esaminare le **informazioni membri** e **proprietari** .
 
-1. Fare clic su **Gestisci i tenant**, quindi nella schermata successiva fare clic su **+ Crea** e specificare l'impostazione seguente:
+>**Nota:** è possibile gestire un numero elevato di gruppi. L'organizzazione ha un piano per la creazione di gruppi e l'aggiunta di membri?
+   
+## Pulire le risorse
 
-    | Impostazione | valore |
-    | --- | --- |
-    | Tipo di directory | **Microsoft Entra ID** |
-    
-1. Fare clic su **Avanti: Configurazione**
+Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Nome organizzazione | **Contoso Lab** |
-    | Nome di dominio iniziale | Qualsiasi nome DNS valido costituito da lettere minuscole e cifre e che inizia con una lettera | 
-    | Paese/area geografica | **Stati Uniti** |
++ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
++ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
+  
+## Punti chiave
 
-   > **Nota**: il valore di **Nome di dominio iniziale** non deve essere un nome legittimo che potrebbe corrispondere alla propria organizzazione o a un'altra. Il segno di spunta verde nella casella di testo **Nome di dominio iniziale** indicherà che il nome di dominio immesso è valido e univoco.
+Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali per questo lab:
 
-1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
-
-1. Visualizzare il pannello del tenant appena creato usando il **collegamento Fare clic qui per passare al nuovo tenant: Contoso Lab** o il **pulsante Directory + Sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
-
-## Attività 4: Gestire gli utenti guest.
-
-In questa attività si creeranno utenti guest e si concederà loro l'accesso alle risorse in una sottoscrizione di Azure.
-
-1. Nella portale di Azure che visualizza il tenant di Contoso Lab, nella **sezione Gestione** fare clic su **Utenti** e quindi su **+ Nuovo utente**.
-
-1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
-
-    | Impostazione | valore |
-    | --- | --- |
-    | Nome dell'entità utente | **az104-01b-aaduser1** |
-    | Display name | **az104-01b-aaduser1** |
-    | Genera automaticamente la password | de-select  |
-    | Password iniziale | **Specificare una password sicura** |
-    | Posizione | **Amministratore di sistema** |
-    | Reparto | **ESSO** |
-
-1. Fare clic sul profilo appena creato.
-
-    >**Nota**: usare **Copia negli Appunti** per copiare l'intero **nome dell'entità utente** (nome utente più dominio). Questo valore sarà necessario più avanti in questa attività.
-
-1. Tornare al primo tenant creato in precedenza.
-2. Nel riquadro di spostamento selezionare **Panoramica**.
-3. Fare clic su **Gestisci tenant**.
-4. Selezionare la casella accanto al primo tenant creato in precedenza, quindi selezionare **Cambia**.
-
-1. Tornare nel pannello **Utenti - Tutti gli utenti** e quindi fare clic su **+ Invita utente esterno**.
-
-1. Invitare un nuovo utente guest con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
-
-    | Impostazione | valore |
-    | --- | --- |
-    | E-mail | Il nome dell'entità utente copiato in precedenza in questa attività |
-    | Nome visualizzato (scheda Proprietà)  | **az104-01b-aaduser1** |
-    | Titolo processo (scheda Proprietà) | **Lab Administrator** |
-    | Reparto (scheda Proprietà) | **ESSO** |
-    | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
-
-1. Fare clic su **Invita**. 
-
-1. Tornare nel pannello **Utenti - Tutti gli utenti** e fare clic sulla voce che rappresenta l'account utente guest appena creato.
-
-1. Nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Gruppi**.
-
-1. Fare clic su **+ Aggiungi l'appartenenza** e aggiungere l'account utente guest al gruppo **IT Lab Administrators**.
++ Un tenant rappresenta l'organizzazione e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni.
++ Microsoft Entra ID ha account utente e guest. Ogni account ha un livello di accesso specifico per l'ambito del lavoro previsto.
++ I gruppi combinano utenti o dispositivi correlati. Esistono due tipi di gruppi, tra cui Sicurezza e Microsoft 365.
++ L'appartenenza al gruppo può essere assegnata in modo statico o dinamico.
 
 
-## Attività 5: Pulire le risorse
+## Altre informazioni con la formazione autogestita
 
-> **Nota**: ricordarsi di rimuovere tutte le risorse di Azure appena create che non vengono più usate. La rimozione delle risorse inutilizzate evita l'addebito di costi imprevisti. Anche se, in questo caso, non sono previsti costi aggiuntivi associati ai tenant e ai relativi oggetti, è consigliabile rimuovere gli account utente, gli account di gruppo e il tenant creato in questo lab.
++ [Informazioni sull'ID](https://learn.microsoft.com/training/modules/understand-azure-active-directory/) Microsoft Entra. Confrontare Microsoft Entra ID con Active Directory DS, informazioni su Microsoft Entra ID P1 e P2 ed esplorare Microsoft Entra Domain Services per la gestione di dispositivi e app aggiunti a un dominio nel cloud.
++ [Creare utenti e gruppi di Azure in Microsoft Entra ID](https://learn.microsoft.com//training/modules/create-users-and-groups-in-azure-active-directory/). Creare utenti in Microsoft Entra ID. Informazioni su tipi di gruppi diversi. Creare un gruppo e aggiungere membri. Gestire account guest Business to Business.
++ [Consentire agli utenti di reimpostare la password con la reimpostazione della password self-service di Microsoft Entra](https://learn.microsoft.com/training/modules/allow-users-reset-their-password/). Valutare la funzionalità di reimpostazione della password self-service per consentire agli utenti dell'organizzazione di reimpostare una password o sbloccare un account. Impostare, configurare e testare la reimpostazione della password self-service.
 
- > **Nota**: non è necessario preoccuparsi se le risorse del lab non possono essere rimosse immediatamente. A volte le risorse hanno dipendenze e l'eliminazione può richiedere più tempo. Si tratta di un'attività comune dell'amministratore per monitorare l'utilizzo delle risorse, quindi è sufficiente esaminare periodicamente le risorse nel portale per verificare il funzionamento della pulizia. 
 
-1. **Nel portale** di Azure cercare **Microsoft Entra ID** nella barra di ricerca. In **Gestisci** selezionare Licenze****. Una volta in Licenze in Gestisci selezionare **Tutti i prodotti** e quindi selezionare **l'elemento Microsoft Entra ID Premium P2** nell'elenco.** **** ** Procedere selezionando **Utenti con licenza**. Selezionare gli account utente **az104-01a-aaduser1** e **az104-01a-aaduser2** a cui sono state assegnate le licenze in questo lab, fare clic su **Rimuovi licenza** e, quando viene richiesto di confermare, fare clic su **Sì**.
 
-1. Nel portale di Azure passare al pannello **Utenti - Tutti gli utenti**, fare clic sulla voce che rappresenta l'account utente guest **az104-01b-aaduser1**, quindi nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
-
-1. Ripetere la stessa sequenza di passaggi per eliminare gli account utente rimanenti creati in questo lab.
-
-1. Passare al pannello **Gruppi - Tutti i gruppi**, selezionare i gruppi creati in questo lab, fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
-
-1. Nella portale di Azure visualizzare il pannello del tenant di Contoso Lab usando il **pulsante Directory e sottoscrizione** (direttamente a destra del pulsante Cloud Shell) nella barra degli strumenti portale di Azure.
-
-1. Passare al pannello **Utenti - Tutti gli utenti**, fare clic sulla voce che rappresenta l'account utente **az104-01b-aaduser1**, quindi nel pannello **az104-01b-aaduser1 - Profilo** fare clic su **Elimina** e, quando viene richiesto di confermare, fare clic su **OK**.
-
-1. Passare al **pannello Contoso Lab - Panoramica** del tenant di Contoso Lab, fare clic su **Gestisci tenant** e quindi nella schermata successiva selezionare la casella accanto a **Contoso Lab**, fare clic su **Elimina** nel **tenant "Contoso Labs"?** fare clic sul collegamento Ottenere l'autorizzazione **per eliminare le risorse** di Azure nel pannello **Proprietà** impostare **Gestione degli accessi per le risorse **** di Azure su Sì** e fare clic su **Salva**.
-
-1. Tornare nel pannello **Elimina tenant "Contoso Lab"**, fare clic su **Aggiorna** e su **Elimina**.
-
-> **Nota**: se un tenant ha una licenza di valutazione, è necessario attendere la scadenza della licenza di valutazione prima di poter eliminare il tenant. Ciò non comporta costi aggiuntivi.
-
-#### Rivedi
-
-In questo lab sono state eseguite le attività seguenti:
-
-- Utenti creati e configurati
-- Gruppi creati con appartenenza assegnata e dinamica
-- Creazione di un tenant
-- Utenti guest gestiti 
