@@ -135,7 +135,7 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
 
 ### Apportare modifiche al file dei parametri
 
-1. Individuare il **file template.json** esportato nell'attività precedente. Deve trovarsi nella **cartella Download** .
+1. Individuare il **file parameters.json** esportato nell'attività precedente. Deve trovarsi nella **cartella Download** .
 
 1. Modificare il file usando l'editor preferito.
 
@@ -358,7 +358,7 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 
 ## Altre informazioni con la formazione autogestita
 
-+ [Introduzione alle Rete virtuale di](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/) Azure. Progettare e implementare un'infrastruttura di rete di Azure di base, ad esempio reti virtuali, INDIRIZZI IP pubblici e privati, DNS, peering di rete virtuale, routing e NAT virtuale di Azure.
++ [Introduzione alle reti virtuali di Azure](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/). Progettare e implementare un'infrastruttura di rete di Azure di base, ad esempio reti virtuali, INDIRIZZI IP pubblici e privati, DNS, peering di rete virtuale, routing e NAT virtuale di Azure.
 + [Progettare uno schema](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) di indirizzamento IP. Identificare le funzionalità di indirizzamento IP privato e pubblico delle reti virtuali locali e di Azure.
 + [Proteggere e isolare l'accesso alle risorse di Azure usando i gruppi di sicurezza di rete e gli endpoint di](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) servizio. I gruppi di sicurezza e gli endpoint aiutano a proteggere le macchine virtuali e i servizi di Azure dall'accesso non autorizzato alla rete.
 + [Ospitare il dominio in DNS](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) di Azure. Creare una zona DNS per il nome di dominio. Crea record DNS per eseguire il mapping del dominio a un indirizzo IP. Verificare che il nome di dominio venga risolto nel server Web.
