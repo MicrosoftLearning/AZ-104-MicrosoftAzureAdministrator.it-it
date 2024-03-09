@@ -66,7 +66,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Opzioni di disponibilità | **Zona di disponibilità** |
     | Zona di disponibilità | **Zona 1, 2** (leggere la nota sull'uso dei set di scalabilità di macchine virtuali) |
     | Tipo di sicurezza | **Standard** |
-    | Image | **Windows Server 2019 Datacenter - x64 Gen2** |
+    | Immagine | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Istanza Spot di Azure | **unchecked** |
     | Dimensione | **Standard D2s v3** |
     | Username | `localadmin` |
@@ -152,7 +152,13 @@ In questa attività si ridimensiona una macchina virtuale modificandone le dimen
 
 1. Tornare alla **macchina virtuale az104-vm1** e selezionare **Dischi**.
 
+1. **Nella sezione Disco** dati selezionare **Collega dischi** esistenti.
+
+1. Nell'elenco **a discesa Nome** disco selezionare **VM1-DISK1**. 
+
 1. Verificare che il disco sia ora **SSD** Standard.
+
+1. Seleziona **Applica** per salvare le modifiche. 
 
     >**Nota:** è stata creata una macchina virtuale, è stato ridimensionato lo SKU e le dimensioni del disco dati. Nell'attività successiva si usa set di scalabilità di macchine virtuali per automatizzare il processo di ridimensionamento.
 
@@ -177,7 +183,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Modalità di orchestrazione | **Uniforme** |
     | Tipo di sicurezza | **Standard** |
-    | Image | **Windows Server 2019 Datacenter - x64 Gen2** |
+    | Immagine | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Eseguire con sconto di Spot Azure | **Non selezionato** |
     | Dimensione | **Standard D2s_v3** |
     | Username | `localadmin` |
@@ -349,7 +355,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     -Image 'Win2019Datacenter' `
     -Zone '1' `
     -Size 'Standard_D2s_v3' 
-    -Credential '(Get-Credential)' `
+    -Credential '(Get-Credential)' 
     ```
 
 1. Al termine del comando, usare **Get-AzVM** per elencare le macchine virtuali nel gruppo di risorse.

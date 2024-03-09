@@ -70,7 +70,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
     | Impostazione | valore |
     | --- | --- |
     | Nome | `Cost Center` |
-    | valore | `000` |
+    | Valore | `000` |
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
@@ -131,15 +131,13 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     | Gruppo di risorse | **az104-rg2** |
     | Nome account di archiviazione | *qualsiasi combinazione univoca globale di tra 3 e 24 lettere minuscole e cifre, a partire da una lettera* |
 
-1. Selezionare **Rivedi** e quindi fare clic su **Crea**:
+1. Selezionare **Rivedi** e quindi fare clic su **Crea**.
 
-1. Dopo aver creato la distribuzione, verrà visualizzato il messaggio **Distribuzione non riuscita** nell'elenco **Notifiche** del portale. Nell'elenco **Notifiche** passare alla panoramica della distribuzione e fare clic su l messaggio **Distribuzione non riuscita. Fare clic qui per i dettagli** per identificare il motivo dell'errore. 
+1. Dovrebbe essere visualizzato un **messaggio di convalida non riuscito** . Visualizzare il messaggio per identificare il motivo dell'errore. Verificare che il messaggio di errore indichi che la distribuzione delle risorse non è consentita dai criteri. 
 
     ![Screenshot dell'errore del criterio non consentito.](../media/az104-lab02b-policyerror.png) 
 
-    >**Nota**: verificare che il messaggio di errore indichi che la distribuzione delle risorse non è consentita dai criteri. 
-
-    >**Nota**: facendo clic sulla **scheda Errore** non elaborato, è possibile trovare altri dettagli sull'errore, incluso il nome della definizione **del ruolo Richiedi tag centro di costo con valore** predefinito. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Centro di costo** con il relativo valore impostato su **Predefinito**.
+>**Nota**: facendo clic sulla **scheda Errore** non elaborato, è possibile trovare altri dettagli sull'errore, incluso il nome della definizione **del ruolo Richiedi tag centro di costo con valore** predefinito. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Centro di costo** con il relativo valore impostato su **Predefinito**.
 
 ## Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
