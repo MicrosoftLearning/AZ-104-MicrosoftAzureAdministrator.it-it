@@ -271,7 +271,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
    >**Nota:** leggere le informazioni sull'affinità **** basata su cookie e **sullo svuotamento** delle Connessione.
 
-1. **Nella sezione Routing basato su** percorso selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi aggiungere la seconda regola.
+1. **Nella sezione Routing basato su** percorso selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi aggiungere la seconda regola. 
 
     **Regola : routing al back-end delle immagini**
 
@@ -291,7 +291,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-videobe` |
 
-1. Selezionare **Aggiungi** due volte e quindi Avanti **: Tag >**. Non sono necessarie modifiche.
+1. Assicurarsi di salvare **** e controllare le modifiche, quindi selezionare **Avanti: Tag >**. Non sono necessarie modifiche.
 
 1. Selezionare **Avanti: Rivedi e crea >** e quindi fare clic su **Crea**.
 
