@@ -146,7 +146,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
     | Impostazione | Valori |
     |  -- | -- |
     | Gruppo di risorse | **az104-rg3** |
-    | account Archiviazione (Crea nuovo) | `sacloudshell` (deve essere univoco a livello globale, tra 3 e 24 caratteri di lunghezza e usare solo numeri e lettere minuscole) |
+    | account Archiviazione (Crea nuovo) | *deve essere univoco a livello globale, tra 3 e 24 caratteri di lunghezza e usare solo numeri e lettere minuscole* |
     | Condivisione file (Crea nuovo) | `fs-cloudshell` |
 
 1. Al termine, selezionare **Crea archiviazione**. È sufficiente eseguire questa operazione la prima volta che si usa Cloud Shell. Il provisioning dell'archiviazione richiederà alcuni minuti.
