@@ -92,7 +92,7 @@ In questa attività si usa il modello scaricato per distribuire un nuovo disco g
 1. Nel riquadro dell'editor apportare queste modifiche.
 
     + Modificare **disks_az104_disk1_name** in `disk_name` (due posizioni da modificare)
-    + Modificare **az104_disk1** in `az102_disk2` (un'unica posizione da modificare)
+    + Modificare **az104-disk1** in `az104-disk2` (una posizione da modificare)
 
 1. Si noti che si tratta di un **disco Standard** . La posizione è **eastus**. Le dimensioni del disco sono **di 32 GB**.
 
