@@ -41,7 +41,7 @@ L'organizzazione ha eseguito la migrazione dell'infrastruttura ad Azure. È impo
 
 In questa attività si distribuirà una macchina virtuale che verrà usata per testare gli scenari di monitoraggio.
 
-1. Se necessario, scaricare i **\\file lab Allfiles\\Lab11\\az104-11-vm-template.json** nel computer.
+1. Scaricare i **\\file di lab Allfiles\\Lab11\\az104-11-vm-template.json** nel computer.
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 

@@ -92,7 +92,7 @@ In questa attività si usa il modello scaricato per distribuire un nuovo disco g
 1. Nel riquadro dell'editor apportare queste modifiche.
 
     + Modificare **disks_az104_disk1_name** in `disk_name` (due posizioni da modificare)
-    + Modificare **az104_disk1** in `az102_disk2` (un'unica posizione da modificare)
+    + Modificare **az104-disk1** in `az104-disk2` (una posizione da modificare)
 
 1. Si noti che si tratta di un **disco Standard** . La posizione è **eastus**. Le dimensioni del disco sono **di 32 GB**.
 
@@ -146,7 +146,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
     | Impostazione | Valori |
     |  -- | -- |
     | Gruppo di risorse | **az104-rg3** |
-    | account Archiviazione (Crea nuovo) | `sacloudshell` (deve essere univoco a livello globale, tra 3 e 24 caratteri di lunghezza e usare solo numeri e lettere minuscole) |
+    | account Archiviazione (Crea nuovo) | *deve essere univoco a livello globale, tra 3 e 24 caratteri di lunghezza e usare solo numeri e lettere minuscole* |
     | Condivisione file (Crea nuovo) | `fs-cloudshell` |
 
 1. Al termine, selezionare **Crea archiviazione**. È sufficiente eseguire questa operazione la prima volta che si usa Cloud Shell. Il provisioning dell'archiviazione richiederà alcuni minuti.

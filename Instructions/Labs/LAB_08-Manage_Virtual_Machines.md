@@ -354,8 +354,8 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     -Location 'East US' `
     -Image 'Win2019Datacenter' `
     -Zone '1' `
-    -Size 'Standard_D2s_v3' 
-    -Credential '(Get-Credential)' 
+    -Size 'Standard_D2s_v3' ` 
+    -Credential (Get-Credential)
     ```
 
 1. Al termine del comando, usare **Get-AzVM** per elencare le macchine virtuali nel gruppo di risorse.
@@ -373,7 +373,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     ```powershell
     Stop-AzVM `
     -ResourceGroupName 'az104-rg8' `
-    -Name 'myPSVM' `
+    -Name 'myPSVM' 
     ```
 
 1. Usare **Get-AzVM** con il **parametro -Status** per verificare che il computer sia **deallocato**.

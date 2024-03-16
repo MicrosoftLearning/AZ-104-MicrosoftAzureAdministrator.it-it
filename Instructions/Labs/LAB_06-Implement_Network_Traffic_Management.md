@@ -179,9 +179,9 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
 1. Nella portale di Azure cercare e selezionare `Virtual networks`.
 
-1. Nel pannello **Reti** virtuali fare clic su **az104-vnet1** nell'elenco delle reti virtuali.
+1. Nel pannello **Reti** virtuali fare clic su **az104-06-vnet1** nell'elenco delle reti virtuali.
 
-1. Nel pannello **az104-vnet1 virtual network (Rete virtuale az104-vnet1**) nella **sezione Impostazioni** fare clic su **Subnet** e quindi su **+ Subnet**.
+1. Nella sezione Impostazioni del **pannello az104-06-vnet1** **fare clic su **Subnet** e quindi su **+ Subnet**.**
 
 1. Aggiungere una subnet con le impostazioni seguenti (lasciare altri con i valori predefiniti).
 
@@ -207,7 +207,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
     | Numero minimo di istanze | `2` |
-    | Zona di disponibilità | **Nessuno** |
+    | Zona di disponibilità | **Zona 1** |
     | HTTP2 | **Disabilitato** |
     | Rete virtuale | **az104-06-vnet1** |
     | Subnet | **subnet-appgw (10.60.3.224/27)** |
@@ -259,7 +259,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Nome listener | `az104-listener` |
     | IP front-end | **Pubblica** |
     | Protocollo | **HTTP** |
-    | Porta | `80` |
+    | Port | `80` |
     | Tipo di listener | **Base** |
 
 1. Passare alla **scheda Destinazioni** back-end. Selezionare **Aggiungi** dopo aver completato le informazioni di base.
@@ -271,7 +271,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
    >**Nota:** leggere le informazioni sull'affinità **** basata su cookie e **sullo svuotamento** delle Connessione.
 
-1. **Nella sezione Routing basato su** percorso selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi aggiungere la seconda regola.
+1. **Nella sezione Routing basato su** percorso selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi su **Aggiungi** dopo la seconda regola. 
 
     **Regola : routing al back-end delle immagini**
 
@@ -291,7 +291,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-videobe` |
 
-1. Selezionare **Aggiungi** due volte e quindi Avanti **: Tag >**. Non sono necessarie modifiche.
+1. Assicurarsi di salvare **** e controllare le modifiche, quindi selezionare **Avanti: Tag >**. Non sono necessarie modifiche.
 
 1. Selezionare **Avanti: Rivedi e crea >** e quindi fare clic su **Crea**.
 
