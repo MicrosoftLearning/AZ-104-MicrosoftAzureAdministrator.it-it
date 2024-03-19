@@ -148,9 +148,9 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
     | ---- | ---- |
     | Nome del criterio | `az104-backup` |
     | Frequenza | **Giornaliero** |
-    | Ora | **12:00** |
+    | Time | **12:00** |
     | Fuso orario | Nome del fuso orario locale |
-    | Conservare gli snapshot del ripristino istantaneo per | **12** giorni |
+    | Conservare gli snapshot del ripristino istantaneo per | **2** giorni |
 
     ![Screenshot della pagina dei criteri di backup.](../media/az104-lab10-backup-policy.png)
 
