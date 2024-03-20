@@ -158,7 +158,7 @@ In questa attività si ridimensiona una macchina virtuale modificandone le dimen
 
 1. Verificare che il disco sia ora **SSD** Standard.
 
-1. Seleziona **Applica** per salvare le modifiche. 
+1. Selezionare **Applica** per salvare le modifiche. 
 
     >**Nota:** è stata creata una macchina virtuale, è stato ridimensionato lo SKU e le dimensioni del disco dati. Nell'attività successiva si usa set di scalabilità di macchine virtuali per automatizzare il processo di ridimensionamento.
 
