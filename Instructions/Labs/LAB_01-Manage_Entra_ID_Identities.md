@@ -10,6 +10,9 @@ lab:
 
 Si tratta della prima di una serie di lab per Azure Amministrazione istrators. In questo lab vengono fornite informazioni su utenti e gruppi. Gli utenti e i gruppi sono i blocchi predefiniti di base per una soluzione di gestione delle identità. 
 
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali. 
+
+
 ## Tempo stimato: 30 minuti
 
 ## Scenario laboratorio
@@ -20,7 +23,7 @@ L'organizzazione sta creando un nuovo ambiente lab per i test di pre-produzione 
 
 Questo lab usa una simulazione di lab interattiva. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
 
->**Nota:** questa simulazione viene aggiornata. Microsoft Entra ID è il nuovo nome per Azure Active Directory (Azure AD). 
+>**Nota:** questa simulazione viene aggiornata. Microsoft Entra ID è il nuovo nome di Azure Active Directory (Azure AD). 
 
 + [Gestisci identità ID](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201) Entra. Creare e configurare gli utenti e assegnarli ai gruppi. Creare un tenant di Azure e gestire gli account guest. 
 
@@ -77,14 +80,14 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
     | E-mail | Indirizzo di posta elettronica |
     | Nome visualizzato | nome dell'utente |
     | Invia messaggio di invito | **Selezionare la casella** |
-    | Message | `Welcome to Azure and our group project` |
+    | Messaggio | `Welcome to Azure and our group project` |
 
 1. Passare alla **scheda Proprietà** . Completare le informazioni di base, inclusi questi campi. 
 
     | Impostazione | Valore |
     | --- | --- |
     | Posizione  | `IT Lab Administrator` |
-    | Department  | `IT` |
+    | Reparto  | `IT` |
     | Percorso utilizzo (scheda Proprietà) | **Stati Uniti** |
 
 1. Selezionare **Rivedi e invita** e quindi **Invita**.

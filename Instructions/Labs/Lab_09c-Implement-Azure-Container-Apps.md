@@ -22,14 +22,14 @@ L'organizzazione ha un'applicazione Web che viene eseguita in una macchina virtu
 
 Non sono disponibili simulazioni di lab interattive per questo argomento. 
 
+## Diagramma dell'architettura
+
+![Diagramma delle attività.](../media/az104-lab09b-aca-architecture.png)
+
 ## Competenze mansione
 
 - Attività 1: Creare e configurare un'app e un ambiente azure Container.
 - Attività 2: Testare e verificare la distribuzione dell'app Azure Container.
-
-## Diagramma dell'architettura
-
-![Diagramma delle attività.](../media/az104-lab09b-aca-architecture.png)
 
 ## Attività 1: Creare e configurare un'app e un ambiente azure Container
 
