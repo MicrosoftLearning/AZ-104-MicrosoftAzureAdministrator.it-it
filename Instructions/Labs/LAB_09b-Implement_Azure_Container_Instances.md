@@ -25,15 +25,14 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
   
 + [Implementare Istanze di Azure Container](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014).  Distribuire un'immagine Docker usando Istanze di Azure Container. 
 
+## Diagramma dell'architettura
+
+![Diagramma delle attività.](../media/az104-lab09b-aci-architecture.png)
+
 ## Competenze mansione
 
 - Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker.
 - Attività 2: Testare e verificare la distribuzione di un'istanza di Azure Container.
-
-
-## Diagramma dell'architettura
-
-![Diagramma delle attività.](../media/az104-lab09b-aci-architecture.png)
 
 ## Attività 1: Distribuire un'istanza di Azure Container usando un'immagine Docker
 
@@ -52,7 +51,7 @@ In questa attività si creerà una semplice applicazione Web usando un'immagine 
     | Nome contenitore | `az104-c1` |
     | Area | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze)|
     | Origine immagine | **Immagini di avvio rapido** |
-    | Image | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
+    | Immagine | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
 1. Fare clic su **Avanti: Rete >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
