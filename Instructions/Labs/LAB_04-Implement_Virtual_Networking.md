@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 04: Implementare Rete virtuale ing'
+  title: 'Lab 04: Implementare la rete virtuale'
   module: Implement Virtual Networking
 ---
 
@@ -65,7 +65,7 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
     | ------------------ | -------------------- |
     | Gruppo di risorse     | `az104-rg4` (se necessario, crearne uno nuovo) |
     | Nome               | `CoreServicesVnet`     |
-    | Area             | (Stati Uniti) **Stati Uniti orientali**         |
+    | Paese             | (Stati Uniti) **Stati Uniti orientali**         |
 
 1. Passare alla **scheda Indirizzi** IP.
 
@@ -78,10 +78,10 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
 
     | **Subnet**             | **Opzione**           | **valore**              |
     | ---------------------- | -------------------- | ---------------------- |
-    | SharedServicesSubnet   | Nome subnet          | `SharedServicesSubnet`   |
+    | SharedServicesSubnet   | Nome della subnet          | `SharedServicesSubnet`   |
     |                        | Indirizzo iniziale     | `10.20.10.0`          |
     |                        | Dimensione                 | `/24` |
-    | DatabaseSubnet         | Nome subnet          | `DatabaseSubnet`         |
+    | DatabaseSubnet         | Nome della subnet          | `DatabaseSubnet`         |
     |                        | Indirizzo iniziale     | `10.20.20.0`        |
     |                        | Dimensione                 | `/24` |
 
@@ -115,7 +115,7 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
 
 1. Sostituire tutte le occorrenze di **CoreServicesVnet** con `ManufacturingVnet`. 
 
-1. Sostituire tutte le occorrenze di **10.20.0.0/16** con `10.30.0.0/16`. 
+1. Sostituire tutte le occorrenze di **10.20.0.0** con `10.30.0.0`. 
 
 ### Apportare modifiche alle subnet ManufacturingVnet
 
@@ -218,7 +218,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
     | Gruppi di sicurezza delle applicazioni di origine | **asg-web** |
     | Intervalli porte di origine |  * |
     | Destinazione | **Any** |
-    | Servizio | **Personalizzato** (si notino le altre opzioni) |
+    | Service | **Personalizzato** (si notino le altre opzioni) |
     | Intervalli porte di destinazione | **80,443** |
     | Protocollo | **TCP** |
     | Azione | **Consenti** |
@@ -266,7 +266,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
     | Subscription | **Selezionare la sottoscrizione** |
     | Gruppo di risorse | **az04-rg4** |
     | Nome | `contoso.com` (se riservato regolare il nome) |
-    | Area |**Stati Uniti** orientali (esaminare l'icona informativa) |
+    | Paese |**Stati Uniti** orientali (esaminare l'icona informativa) |
 
 1. Selezionare **Rivedi crea** e quindi **Crea**.
    
