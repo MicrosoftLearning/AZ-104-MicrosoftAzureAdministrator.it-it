@@ -71,8 +71,7 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
 
     |  **Opzione**         | **valore**            |
     | ------------------ | -------------------- |
-
-    | Spazio indirizzi IPv4 | `10.20.0.0/16` (separare le voci) |
+    | Spazio indirizzi IPv4 | `10.20.0.0/16` (separare le voci)    |
 
 1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. 
 
