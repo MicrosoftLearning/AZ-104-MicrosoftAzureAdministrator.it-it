@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 05: Implementare Connessione ivity tra siti'
+  title: 'Lab 05: Implementare la connettività tra siti'
   module: Administer Intersite Connectivity
 ---
 
@@ -58,10 +58,10 @@ In questa attività si crea una rete virtuale di servizi di base con una macchin
     | Subscription |  *sottoscrizione in uso* |
     | Gruppo di risorse |  `az104-rg5` (se necessario, **Crea nuovo**. )
     | Virtual machine name |    `CoreServicesVM` |
-    | Area | **(Stati Uniti) Stati Uniti orientali** |
+    | Paese | **(Stati Uniti) Stati Uniti orientali** |
     | Opzioni di disponibilità | La ridondanza dell'infrastruttura non è richiesta |
     | Tipo di sicurezza | **Standard** |
-    | Image | **Windows Server 2019 Datacenter: x64 Gen2** (si notino le altre opzioni) |
+    | Immagine | **Windows Server 2019 Datacenter: x64 Gen2** (si notino le altre opzioni) |
     | Dimensione | **Standard_DS2_v3** |
     | Username | `localadmin` | 
     | Password | **Specificare una password complessa** |
@@ -105,7 +105,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
     | Subscription |  *sottoscrizione in uso* |
     | Gruppo di risorse |  `az104-rg5` |
     | Virtual machine name |    `ManufacturingVM` |
-    | Area | **(Stati Uniti) Stati Uniti orientali** |
+    | Paese | **(Stati Uniti) Stati Uniti orientali** |
     | Tipo di sicurezza | **Standard** |
     | Opzioni di disponibilità | La ridondanza dell'infrastruttura non è richiesta |
     | Immagine | **Windows Server 2019 Datacenter: x64 Gen2** |
@@ -194,7 +194,8 @@ In questa attività viene creato un peering di rete virtuale per abilitare le co
 
 1. Esaminare le impostazioni e selezionare **Aggiungi**.
 
-    ![Screenshot della pagina di peering.](../media/az104-lab05-peering.png)
+![Screenshot della pagina di peering.](../media/az104-lab05-peering.png)
+
  
 1. In CoreServicesVnet | Peer verificare che il peering **CoreServicesVnet-to-ManufacturingVnet** sia elencato. Aggiornare la pagina per assicurarsi che lo **stato** del peering sia **Connessione.**
 
