@@ -263,7 +263,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
     | Proprietà | valore    |
     |:---------|:---------|
     | Subscription | **Selezionare la sottoscrizione** |
-    | Gruppo di risorse | **az04-rg4** |
+    | Gruppo di risorse | **az-104-rg4** |
     | Nome | `contoso.com` (se riservato regolare il nome) |
     | Paese |**Stati Uniti** orientali (esaminare l'icona informativa) |
 
@@ -306,7 +306,7 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
     | Proprietà | valore    |
     |:---------|:---------|
     | Subscription | **Selezionare la sottoscrizione** |
-    | Gruppo di risorse | **az04-rg4** |
+    | Gruppo di risorse | **az-104-rg4** |
     | Nome | `private.contoso.com` (regolare se è necessario rinominare) |
     | Area geografica |**Stati Uniti orientali** |
 
