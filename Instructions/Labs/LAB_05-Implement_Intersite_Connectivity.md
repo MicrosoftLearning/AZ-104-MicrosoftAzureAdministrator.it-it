@@ -77,7 +77,7 @@ In questa attività si crea una rete virtuale di servizi di base con una macchin
 
     | Impostazione | valore | 
     | --- | --- |
-    | Nome | `CoreServicesVNet` (Crea nuovo) |
+    | Nome | `CoreServicesVnet` (Crea nuovo) |
     | Intervallo di indirizzi | `10.0.0.0/16`  |
     | Nome della subnet | `Core` | 
     | Intervallo di indirizzi subnet | `10.0.0.0/24` |
@@ -122,7 +122,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
 
     | Impostazione | valore | 
     | --- | --- |
-    | Nome | `ManufacturingVNet` |
+    | Nome | `ManufacturingVnet` |
     | Intervallo di indirizzi | `172.16.0.0/16`  |
     | Nome della subnet | `Manufacturing` |
     | Intervallo di indirizzi subnet | `172.16.0.0/24` |
@@ -177,20 +177,20 @@ In questa attività viene creato un peering di rete virtuale per abilitare le co
 | --------------------------------------------- | ------------------------------------- |
 | **Questa rete virtuale**                                       |                                       |
 | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Consentire a CoreServicesVNet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
-| Consentire a CoreServicesVNet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
-| Consentire al gateway in CoreServicesVNet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
-| Abilitare CoreServicesVNet per l'uso del gateway remoto delle reti virtuali con peering       | Non selezionato (impostazione predefinita)                        |
+| Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
+| Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
+| Consentire al gateway in CoreServicesVnet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
+| Abilitare CoreServicesVnt per l'uso del gateway remoto delle reti virtuali con peering       | Non selezionato (impostazione predefinita)                        |
 | **Rete virtuale remota**                                   |                                       |
 | Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
 | Modello di distribuzione della rete virtuale              | **Resource Manager**                      |
 | Conosco l'ID della risorsa                         | Non selezionato                          |
 | Subscription                                  | *sottoscrizione in uso*    |
 | Rete virtuale                               | **ManufacturingVnet**                     |
-| Consentire a ManufacturingVNet di accedere a CoreServicesVNet  | selezionato (impostazione predefinita)                       |
-| Consentire a ManufacturingVNet di ricevere traffico inoltrato da CoreServicesVNet | Opzione selezionata                        |
-| Consentire al gateway in CoreServicesVNet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
-| Abilitare ManufacturingVNet per l'uso del gateway remoto di CoreServicesVNet       | Non selezionato (impostazione predefinita)                        |
+| Consentire a ManufacturingVnet di accedere a CoreServicesVnet  | selezionato (impostazione predefinita)                       |
+| Consentire a ManufacturingVnet di ricevere traffico inoltrato da CoreServicesVnet | Opzione selezionata                        |
+| Consentire al gateway in CoreServicesVnet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
+| Abilitare ManufacturingVnet per l'uso del gateway remoto di CoreServicesVnet       | Non selezionato (impostazione predefinita)                        |
 
 1. Esaminare le impostazioni e selezionare **Aggiungi**.
 

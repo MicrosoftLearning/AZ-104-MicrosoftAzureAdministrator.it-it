@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 06: Implementare la gestione del traffico'
+  title: 'Lab 06: Implementare Gestione del traffico'
   module: Administer Network Traffic Management
 ---
 
@@ -89,7 +89,7 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | **az104-rg6** |
     | Nome | `az104-lb` |
-    | Area | La **stessa** area in cui sono state distribuite le macchine virtuali |
+    | Paese | La **stessa** area in cui sono state distribuite le macchine virtuali |
     | SKU  | **Standard** |
     | Type | **Pubblica** |
     | Livello | **Regional** |
@@ -128,7 +128,7 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
     | az104-06-vm0 | **Selezionare la casella** |
     | az104-06-vm1 | **Selezionare la casella** |
 
-1. Poiché si ha tempo, esaminare le altre schede, quindi fare clic su **Rivedi e crea**. Assicurarsi che non siano presenti errori di convalida, quindi fare clic su **Crea**.
+1. Quando si ha tempo, esaminare le altre schede, quindi fare clic su **Rivedi e crea**. Assicurarsi che non siano presenti errori di convalida, quindi fare clic su **Crea**.
 
 1. Attendere che il servizio di bilanciamento del carico venga distribuito e quindi fare clic su **Vai alla risorsa**.
 
@@ -136,7 +136,7 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
 
 1. Nel pannello **Impostazioni** selezionare **Regole** di bilanciamento del carico.
 
-1. Selezionare **Aggiungi una regola** di bilanciamento del carico. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni.  Quando si configura la regola, usare le icone informative per ottenere informazioni su ogni impostazione. Al termine, fare clic su **Salva**.
+1. Seleziona **+ Aggiungi**. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni.  Quando si configura la regola, usare le icone informative per ottenere informazioni su ogni impostazione. Al termine, fare clic su **Salva**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -145,12 +145,12 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
     | Indirizzo IP front-end | **az104-fe** |
     | Pool back-end | **az104-be** |
     | Protocollo | **TCP** |
-    | Port | `80` |
+    | Porta | `80` |
     | Porta back-end | `80` |
     | Probe di integrità | **  Crea nuovo** |
     | Nome | `az104-hp` |
     | Protocollo | **TCP** |
-    | Port | `80` |
+    | Porta | `80` |
     | Intervallo | `5` |
     | Chiudere la finestra di creazione di un probe di integrità | **Salva** |
     | Persistenza della sessione | **Nessuno** |
@@ -194,7 +194,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
     > **Nota**: questa subnet verrà usata dal gateway di app Azure lication. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
 
-1. Nella portale di Azure cercare e selezionare `Application Gateways` e nel pannello **gateway applicazione s** fare clic su **+ Crea**.
+1. Nella portale di Azure cercare e selezionare `Application gateways` e nel pannello **gateway applicazione s** fare clic su **+ Crea**.
 
 1. Nella scheda **Generale** specificare ora le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni:
 
@@ -203,7 +203,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg6` |
     | Nome del gateway applicazione | `az104-appgw` |
-    | Area | La stessa** area di Azure usata nell'attività **1 |
+    | Paese | La stessa** area di Azure usata nell'attività **1 |
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
     | Numero minimo di istanze | `2` |
@@ -225,7 +225,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
     >**Nota:** il gateway applicazione può avere un indirizzo IP pubblico e privato.
  
-1. Fare clic su **Avanti: Back-end >** e quindi su **Aggiungi un pool back-end**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
+1. Fare clic su **Avanti: back-end >** e quindi **su Aggiungi un pool** back-end. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -250,16 +250,16 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
     | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** |
 
-1. Selezionare **Avanti: Configurazione** e quindi **Aggiungi regole** di routing. Completare le informazioni.
+1. Selezionare **Avanti : Configurazione >** e quindi **Aggiungere una regola** di routing. Completare le informazioni.
 
     | Impostazione | Valore |
     | --- | --- |
     | Nome regola | `az104-gwrule` |
     | Priorità | `10` |
     | Nome listener | `az104-listener` |
-    | IP front-end | **Pubblica** |
+    | IP front-end | **IPv4 pubblico** |
     | Protocollo | **HTTP** |
-    | Port | `80` |
+    | Porta | `80` |
     | Tipo di listener | **Base** |
 
 1. Passare alla **scheda Destinazioni** back-end. Selezionare **Aggiungi** dopo aver completato le informazioni di base.
@@ -291,9 +291,9 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-videobe` |
 
-1. Assicurarsi di salvare **** e controllare le modifiche, quindi selezionare **Avanti: Tag >**. Non sono necessarie modifiche.
+1. Assicurarsi di salvare **** e controllare le modifiche, quindi selezionare **Avanti : Tag >**. Non sono necessarie modifiche.
 
-1. Selezionare **Avanti: Rivedi e crea >** e quindi fare clic su **Crea**.
+1. Selezionare **Avanti : Rivedi e crea >** e quindi fare clic su **Crea**.
 
     > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione richiederà circa 5-10 minuti. Durante l'attesa, è consigliabile esaminare alcuni dei collegamenti di training auto-passo alla fine di questa pagina.
 
