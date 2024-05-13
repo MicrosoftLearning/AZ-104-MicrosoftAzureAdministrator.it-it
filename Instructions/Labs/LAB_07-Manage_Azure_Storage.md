@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 07: Gestire l''archiviazione di Azure'
+  title: 'Lab 07: Gestire Archiviazione di Azure'
   module: Administer Azure Storage
 ---
 
@@ -51,7 +51,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
     | Subscription          | nome della sottoscrizione di Azure  |
     | Gruppo di risorse        | **az104-rg7** (create new) |
     | Nome account di archiviazione  | Qualsiasi nome univoco globale composto da 3-24 lettere e numeri |
-    | Area                | **(Stati Uniti) Stati Uniti orientali**  |
+    | Paese                | **(Stati Uniti) Stati Uniti orientali**  |
     | Prestazioni           | **Standard** (si noti l'opzione Premium) |
     | Ridondanza            | **Archiviazione** con ridondanza geografica (si notino le altre opzioni)|
     | Rendere l'accesso in lettura ai dati in caso di disponibilità a livello di area | Selezionare la casella |
@@ -245,6 +245,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Fornire uno script di Azure PowerShell per creare un account di archiviazione con un contenitore BLOB. 
++ Fornire un elenco di controllo che è possibile usare per assicurarsi che l'account di archiviazione di Azure sia sicuro.
++ Creare una tabella per confrontare i modelli di ridondanza di Archiviazione di Azure.
+
+## Altre informazioni con la formazione autogestita
+
++ [Ottimizzare i costi con Archiviazione BLOB di Azure](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Informazioni su come ottimizzare i costi con Archiviazione BLOB di Azure.
++ [Controllare l'accesso alle Archiviazione di Azure con firme](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/) di accesso condiviso. Concedere l'accesso ai dati archiviati negli account di archiviazione di Azure in modo sicuro tramite l'uso di firme di accesso condiviso.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -254,8 +266,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + L'archiviazione BLOB di Azure consente di archiviare grandi quantità di dati non strutturati nella piattaforma di archiviazione dati di Microsoft. BLOB è l'acronimo di oggetto binario di grandi dimensioni, che include oggetti quali immagini e file multimediali.
 + Il file di Azure Archiviazione fornisce l'archiviazione condivisa per i dati strutturati. I dati possono essere organizzati in cartelle.
 + L'archiviazione non modificabile ti offre la possibilità di archiviare i dati in uno stato WORM (Write Once, Read Many). I criteri di archiviazione non modificabili possono essere basati sul tempo o con blocco legale.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Ottimizzare i costi con Archiviazione BLOB di Azure](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Informazioni su come ottimizzare i costi con Archiviazione BLOB di Azure.
-+ [Controllare l'accesso alle Archiviazione di Azure con firme](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/) di accesso condiviso. Concedere l'accesso ai dati archiviati negli account di archiviazione di Azure in modo sicuro tramite l'uso di firme di accesso condiviso.

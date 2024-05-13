@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 01: Gestire le identità id di Microsoft Entra'
+  title: 'Lab 01: Gestire le identità di Microsoft Entra ID'
   module: Administer Identity
 ---
 
@@ -80,7 +80,7 @@ In questa attività verranno creati e configurati gli account utente. Gli accoun
     | E-mail | Indirizzo di posta elettronica |
     | Nome visualizzato | nome dell'utente |
     | Invia messaggio di invito | **Selezionare la casella** |
-    | Messaggio | `Welcome to Azure and our group project` |
+    | Message | `Welcome to Azure and our group project` |
 
 1. Passare alla **scheda Proprietà** . Completare le informazioni di base, inclusi questi campi. 
 
@@ -144,14 +144,14 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
   
-## Punti chiave
 
-Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali per questo lab:
+## Estendere l'apprendimento con Copilot
 
-+ Un tenant rappresenta l'organizzazione e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni.
-+ Microsoft Entra ID ha account utente e guest. Ogni account ha un livello di accesso specifico per l'ambito del lavoro previsto.
-+ I gruppi combinano utenti o dispositivi correlati. Esistono due tipi di gruppi, tra cui Sicurezza e Microsoft 365.
-+ L'appartenenza al gruppo può essere assegnata in modo statico o dinamico.
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
++ Quali sono i comandi di Azure PowerShell e dell'interfaccia della riga di comando per creare un gruppo di sicurezza denominato Amministrazione IT? Specificare la pagina di riferimento ufficiale del comando.  
++ Fornire una strategia dettagliata per la gestione di utenti e gruppi in Microsoft Entra ID.
++ Quali sono i passaggi della portale di Azure per creare in blocco utenti e gruppi?
++ Fornire una tabella di confronto degli account utente interni ed esterni di Microsoft Entra ID. 
 
 
 ## Altre informazioni con la formazione autogestita
@@ -161,4 +161,11 @@ Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali pe
 + [Consentire agli utenti di reimpostare la password con la reimpostazione della password self-service di Microsoft Entra](https://learn.microsoft.com/training/modules/allow-users-reset-their-password/). Valutare la funzionalità di reimpostazione della password self-service per consentire agli utenti dell'organizzazione di reimpostare una password o sbloccare un account. Impostare, configurare e testare la reimpostazione della password self-service.
 
 
+## Punti chiave
 
+Congratulazioni per il completamento del lab. Ecco alcuni passaggi principali per questo lab:
+
++ Un tenant rappresenta l'organizzazione e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni.
++ Microsoft Entra ID ha account utente e guest. Ogni account ha un livello di accesso specifico per l'ambito del lavoro previsto.
++ I gruppi combinano utenti o dispositivi correlati. Esistono due tipi di gruppi, tra cui Sicurezza e Microsoft 365.
++ L'appartenenza al gruppo può essere assegnata in modo statico o dinamico.

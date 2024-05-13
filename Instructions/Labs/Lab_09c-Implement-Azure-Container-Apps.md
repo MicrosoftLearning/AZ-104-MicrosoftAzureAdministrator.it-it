@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 09c: Implementare app di Azure Container'
+  title: 'Lab 09c: Implementare App contenitore di Azure'
   module: Administer PaaS Compute Options
 ---
 
@@ -43,10 +43,10 @@ App Contenitore di Azure considerano ulteriormente il concetto di cluster Kubern
 
     | Impostazione | Azione |
     |---|---|
-    | Abbonamento | Selezionare la Sottoscrizione di Azure |
+    | Abbonamento | Selezionare la sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg9` |
     | Nome dell'app contenitore |  `my-app` |
-    | Area    | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze) |
+    | Paese    | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze) |
     | Ambiente app contenitore | Lasciare il valore predefinito |
 
 1. **Nella scheda Contenitore** assicurarsi che **l'opzione Usa immagine** di avvio rapido sia abilitata e che l'immagine di avvio rapido sia impostata su **Contenitore Hello World** semplice.
@@ -75,6 +75,15 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Riepilogare i passaggi per creare e configurare un'app contenitore di Azure.
++ Confrontare e confrontare le app di Azure Container con servizio Azure Kubernetes.
+
+## Altre informazioni con la formazione autogestita
+
++ [Configurare un'app contenitore in App](https://learn.microsoft.com/training/modules/configure-container-app-azure-container-apps/) Azure Container. Esamina le funzionalità e le funzionalità di App Azure Container e quindi illustra come creare, configurare, ridimensionare e gestire app contenitore usando App Contenitore di Azure.
 
 
 ## Punti chiave
@@ -85,7 +94,4 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + App contenitore fornisce informazioni dettagliate sulla configurazione del server, sull'orchestrazione dei contenitori e sulla distribuzione. 
 + I carichi di lavoro in ACA sono in genere processi a esecuzione prolungata, ad esempio un'app Web.
 
-## Altre informazioni con la formazione autogestita
-
-+ [Configurare un'app contenitore in App](https://learn.microsoft.com/training/modules/configure-container-app-azure-container-apps/) Azure Container. Esamina le funzionalità e le funzionalità di App Azure Container e quindi illustra come creare, configurare, ridimensionare e gestire app contenitore usando App Contenitore di Azure.
      

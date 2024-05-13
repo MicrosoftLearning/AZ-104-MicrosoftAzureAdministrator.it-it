@@ -46,10 +46,10 @@ In questa attività si creerà una semplice applicazione Web usando un'immagine 
 
     | Impostazione | Valore |
     | ---- | ---- |
-    | Abbonamento | Selezionare la Sottoscrizione di Azure |
+    | Subscription | Selezionare la sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
     | Nome contenitore | `az104-c1` |
-    | Area | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze)|
+    | Paese | **Stati Uniti** orientali (o un'area disponibile nelle vicinanze)|
     | Origine immagine | **Immagini di avvio rapido** |
     | Immagine | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
@@ -95,6 +95,15 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Riepilogare i passaggi per creare e configurare un'istanza di Azure Container.
++ Quali sono i modi in cui è possibile eseguire un contenitore serverless in Azure?
+
+## Altre informazioni con la formazione autogestita
+
++ [Eseguire immagini del contenitore in Istanze di Azure Container](https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/). Informazioni su come Istanze di Azure Container consente di distribuire rapidamente i contenitori, su come impostare le variabili di ambiente e specificare i criteri di riavvio del contenitore.
 
 ## Punti chiave
 
@@ -104,9 +113,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + ACI non richiede il provisioning o la gestione di un'infrastruttura sottostante.
 + ACI supporta sia contenitori Linux che contenitori Windows.
 + I carichi di lavoro in Istanze di Azure Container vengono in genere avviati e arrestati da un certo tipo di processo o trigger e sono in genere di breve durata. 
-
-## Altre informazioni con la formazione autogestita
-
-+ [Eseguire immagini del contenitore in Istanze di Azure Container](https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/). Informazioni su come Istanze di Azure Container consente di distribuire rapidamente i contenitori, su come impostare le variabili di ambiente e specificare i criteri di riavvio del contenitore.
 
     

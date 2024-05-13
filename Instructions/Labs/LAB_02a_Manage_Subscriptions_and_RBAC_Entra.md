@@ -72,7 +72,7 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
 
 1. **Aggiornare** la pagina del gruppo di gestione per assicurarsi che venga visualizzato il nuovo gruppo di gestione. L'operazione potrebbe richiedere un minuto. 
 
-   >**Nota:** si è notato il gruppo di gestione radice? Il gruppo di gestione radice è integrato nella gerarchia in modo che tutti i gruppi di gestione e le sottoscrizioni si ripieghino su di esso. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di ruolo di Azure a livello di directory. Dopo aver creato un gruppo di gestione, aggiungere tutte le sottoscrizioni che devono essere incluse nel gruppo. 
+   >**Nota:** si è notato il gruppo di gestione radice? Il gruppo di gestione radice è integrato nella gerarchia in modo che tutti i gruppi di gestione e le sottoscrizioni vi possano confluire. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di ruolo di Azure a livello di directory. Dopo aver creato un gruppo di gestione, aggiungere tutte le sottoscrizioni che devono essere incluse nel gruppo. 
 
 ## Attività 2: Esaminare e assegnare un ruolo di Azure predefinito
 
@@ -157,6 +157,19 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
   
+## Estendere l'apprendimento con Copilot
+
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
++ Creare due tabelle che evidenziano comandi importanti di PowerShell e dell'interfaccia della riga di comando per ottenere informazioni sulle sottoscrizioni dell'organizzazione in Azure e spiegare ogni comando nella colonna "Spiegazione". 
++ Qual è il formato del file JSON del controllo degli accessi in base al ruolo di Azure?
++ Quali sono i passaggi di base per la creazione di un ruolo controllo degli accessi in base al ruolo di Azure personalizzato?
++ Qual è la differenza tra i ruoli controllo degli accessi in base al ruolo di Azure e i ruoli microsoft Entra ID?
+
+## Altre informazioni con la formazione autogestita
+
++ [Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse in Azure.
++ [Creare ruoli personalizzati per le risorse di Azure con il controllo](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/) degli accessi in base al ruolo. Informazioni sulla struttura delle definizioni di ruolo per il controllo di accesso. Identificare le proprietà dei ruoli da usare per definire le autorizzazioni del ruolo personalizzato. Creare un ruolo personalizzato di Azure e assegnarlo a un utente.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -166,13 +179,7 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Azure ha molti ruoli predefiniti. È possibile assegnare questi ruoli per controllare l'accesso alle risorse.
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
-+ È possibile usare il log attività per monitorare le assegnazioni di ruolo. 
-
-## Altre informazioni con la formazione autogestita
-
-+ [Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse in Azure.
-+ [Creare ruoli personalizzati per le risorse di Azure con il controllo](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/) degli accessi in base al ruolo. Informazioni sulla struttura delle definizioni di ruolo per il controllo di accesso. Identificare le proprietà dei ruoli da usare per definire le autorizzazioni del ruolo personalizzato. Creare un ruolo personalizzato di Azure e assegnarlo a un utente.
-
++ È possibile usare il log attività per monitorare le assegnazioni di ruolo.
 
 
 

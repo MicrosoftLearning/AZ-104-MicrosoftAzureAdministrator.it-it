@@ -322,7 +322,21 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
-  
+
+## Estendere l'apprendimento con Copilot
+
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Confrontare e confrontare Azure Load Balancer con il gateway di app Azure lication.
++ Come è possibile risolvere i problemi di connettività in ingresso a un'istanza di Azure Load Balancer?
++ Quali sono i passaggi di base per la configurazione del gateway di app Azure lication?
++ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere queste colonne: protocolli supportati, bilanciamento del carico privato, bilanciamento del carico globale, criteri di routing, ambienti supportati, svuotamento Connessione ion, affinità di sessione, bilanciamento del carico basato su host e percorso, offload TLS, accelerazione del sito, sicurezza, memorizzazione nella cache e compressione.
+
+## Altre informazioni con la formazione autogestita
+
++ [Migliorare la scalabilità e la resilienza delle applicazioni usando Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). Presentazione dei diversi servizi di bilanciamento del carico in Azure e di come scegliere la soluzione di bilanciamento del carico di Azure appropriata per soddisfare i requisiti.
++ [Bilanciare il carico del traffico del servizio Web con gateway applicazione](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). È possibile migliorare la resilienza dell'applicazione distribuendo il carico tra più server e usare il routing basato sul percorso per indirizzare il traffico Web.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab.
@@ -333,8 +347,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Il gateway applicazione di Azure è un servizio di bilanciamento del carico del traffico Web (livello OSI 7) che consente di gestire il traffico verso le applicazioni Web.
 + Il livello gateway applicazione Standard offre tutte le funzionalità L7, incluso il bilanciamento del carico, il livello WAF aggiunge un firewall per verificare la presenza di traffico dannoso.
 + Un gateway applicazione può prendere decisioni di routing basate su attributi aggiuntivi di una richiesta HTTP, ad esempio percorso URI o intestazioni host.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Migliorare la scalabilità e la resilienza delle applicazioni usando Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). Presentazione dei diversi servizi di bilanciamento del carico in Azure e di come scegliere la soluzione di bilanciamento del carico di Azure appropriata per soddisfare i requisiti.
-+ [Bilanciare il carico del traffico del servizio Web con gateway applicazione](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). È possibile migliorare la resilienza dell'applicazione distribuendo il carico tra più server e usare il routing basato sul percorso per indirizzare il traffico Web.

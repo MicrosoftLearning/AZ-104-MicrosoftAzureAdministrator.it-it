@@ -287,6 +287,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Come è possibile usare i comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure per aggiungere un peering di rete virtuale tra vnet1 e vnet2?
++ Creare una tabella che evidenzia vari strumenti di monitoraggio di Azure e di terze parti supportati in Azure. Evidenziare quando usare ogni strumento. 
++ Quando si crea una route di rete personalizzata in Azure?
+
+## Altre informazioni con la formazione autogestita
+
++ [Distribuire i servizi tra reti virtuali di Azure e integrarli usando il peering di](https://learn.microsoft.com/en-us/training/modules/integrate-vnets-with-vnet-peering/) rete virtuale. Usare il peering di rete virtuale per consentire le comunicazioni tra le reti virtuali in modo sicuro e con la massima semplicità.
++ [Gestire e controllare il flusso del traffico nella distribuzione di Azure con route](https://learn.microsoft.com/training/modules/control-network-traffic-flow-with-routes/). Informazioni su come controllare il traffico di rete virtuale di Azure implementando route personalizzate.
+
 
 ## Punti chiave
 
@@ -298,8 +310,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Il traffico tra macchine virtuali nelle reti virtuali con peering usa l'infrastruttura backbone Microsoft.
 + Le route definite dal sistema vengono create automaticamente per ogni subnet in una rete virtuale. Le route definite dall'utente eseguono l'override o aggiungono alle route di sistema predefinite. 
 + Azure Network Watcher offre una suite di strumenti per monitorare, diagnosticare e visualizzare metriche e log per le risorse IaaS di Azure.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Distribuire i servizi tra reti virtuali di Azure e integrarli usando il peering di](https://learn.microsoft.com/en-us/training/modules/integrate-vnets-with-vnet-peering/) rete virtuale. Usare il peering di rete virtuale per consentire le comunicazioni tra le reti virtuali in modo sicuro e con la massima semplicità.
-+ [Gestire e controllare il flusso del traffico nella distribuzione di Azure con route](https://learn.microsoft.com/training/modules/control-network-traffic-flow-with-routes/). Informazioni su come controllare il traffico di rete virtuale di Azure implementando route personalizzate.

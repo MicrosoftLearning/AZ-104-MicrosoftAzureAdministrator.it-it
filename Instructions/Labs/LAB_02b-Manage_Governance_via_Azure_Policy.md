@@ -238,6 +238,17 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
++ Quali sono i comandi di Azure PowerShell e dell'interfaccia della riga di comando per aggiungere ed eliminare blocchi di risorse in un gruppo di risorse?
++ Le differenze tra i criteri di Azure e il controllo degli accessi in base al ruolo di Azure includono esempi.
++ Quali sono i passaggi per applicare i criteri di Azure e correggere le risorse che non sono conformi?
++ Come è possibile ottenere un report delle risorse di Azure con tag specifici?
+
+## Altre informazioni con la formazione autogestita
+
++ [Progettare una strategia](https://learn.microsoft.com/training/modules/enterprise-governance/) di governance aziendale. Usare il controllo degli accessi in base al ruolo e Criteri di Azure per limitare l'accesso alle soluzioni di Azure e determinare quale metodo è adatto agli obiettivi di sicurezza.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -246,10 +257,5 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Una condizione confronta un valore o un campo proprietà della risorsa con un valore richiesto. Esistono molte definizioni di criteri predefinite ed è possibile personalizzare i criteri. 
 + La funzionalità Criteri di Azure attività di correzione viene usata per rendere le risorse conformi in base a una definizione e un'assegnazione. Le risorse non conformi a un'assegnazione di definizione modify o deployIfNotExist possono essere inserite in conformità usando un'attività di correzione.
 + È possibile configurare un blocco delle risorse in una sottoscrizione, un gruppo di risorse o una risorsa. Il blocco può proteggere una risorsa da eliminazioni e modifiche accidentali dell'utente. Un blocco esegue l'override di tutte le autorizzazioni utente.
-+ Criteri di Azure è una procedura di sicurezza pre-distribuzione. Il controllo degli accessi in base al ruolo e i blocchi delle risorse sono procedure di sicurezza post-distribuzione. 
-
-## Altre informazioni con la formazione autogestita
-
-+ [Progettare una strategia](https://learn.microsoft.com/training/modules/enterprise-governance/) di governance aziendale. Usare il controllo degli accessi in base al ruolo e Criteri di Azure per limitare l'accesso alle soluzioni di Azure e determinare quale metodo è adatto agli obiettivi di sicurezza.
-  
++ Criteri di Azure è una procedura di sicurezza pre-distribuzione. Il controllo degli accessi in base al ruolo e i blocchi delle risorse sono procedure di sicurezza post-distribuzione.
 

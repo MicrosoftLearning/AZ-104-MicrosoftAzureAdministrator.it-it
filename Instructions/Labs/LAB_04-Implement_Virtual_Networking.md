@@ -77,10 +77,10 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
 
     | **Subnet**             | **Opzione**           | **valore**              |
     | ---------------------- | -------------------- | ---------------------- |
-    | SharedServicesSubnet   | Nome della subnet          | `SharedServicesSubnet`   |
+    | SharedServicesSubnet   | Nome subnet          | `SharedServicesSubnet`   |
     |                        | Indirizzo iniziale     | `10.20.10.0`          |
     |                        | Dimensione                 | `/24` |
-    | DatabaseSubnet         | Nome della subnet          | `DatabaseSubnet`         |
+    | DatabaseSubnet         | Nome subnet          | `DatabaseSubnet`         |
     |                        | Indirizzo iniziale     | `10.20.20.0`        |
     |                        | Dimensione                 | `/24` |
 
@@ -343,7 +343,23 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
- 
+
+## Estendere l'apprendimento con Copilot
+
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
++ Condividere le prime 10 procedure consigliate per la distribuzione e la configurazione di una rete virtuale in Azure.
++ Ricerca per categorie usare i comandi di Azure PowerShell e dell'interfaccia della riga di comando di Azure per creare una rete virtuale con un indirizzo IP pubblico e una subnet. 
++ Spiegare le regole in ingresso e in uscita del gruppo di sicurezza di rete di Azure e come vengono usate.
++ Qual è la differenza tra i gruppi di sicurezza di rete di Azure e i gruppi di sicurezza di app Azure lication? Condividere esempi di quando usare ognuno di questi gruppi. 
++ Fornire una guida dettagliata su come risolvere eventuali problemi di rete riscontrati durante la distribuzione di una rete in Azure. Condividere anche il processo di pensiero usato per ogni passaggio della risoluzione dei problemi.
+
+## Altre informazioni con la formazione autogestita
+
++ [Introduzione alle reti virtuali di Azure](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/). Progettare e implementare un'infrastruttura di rete di Azure di base, ad esempio reti virtuali, INDIRIZZI IP pubblici e privati, DNS, peering di rete virtuale, routing e NAT virtuale di Azure.
++ [Progettare uno schema](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) di indirizzamento IP. Identificare le funzionalità di indirizzamento IP privato e pubblico delle reti virtuali locali e di Azure.
++ [Proteggere e isolare l'accesso alle risorse di Azure usando i gruppi di sicurezza di rete e gli endpoint di](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) servizio. I gruppi di sicurezza e gli endpoint aiutano a proteggere le macchine virtuali e i servizi di Azure dall'accesso non autorizzato alla rete.
++ [Ospitare il dominio in DNS](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) di Azure. Creare una zona DNS per il nome di dominio. Crea record DNS per eseguire il mapping del dominio a un indirizzo IP. Verificare che il nome di dominio venga risolto nel server Web.
+  
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -354,11 +370,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Un gruppo di sicurezza di rete contiene regole di sicurezza che consentono o negano il traffico di rete. Esistono regole predefinite in ingresso e in uscita che è possibile personalizzare in base alle proprie esigenze.
 + I gruppi di sicurezza delle applicazioni vengono usati per proteggere i gruppi di server con una funzione comune, ad esempio server Web o server di database.
 + DNS di Azure è un servizio di hosting per i domini DNS che fornisce la risoluzione dei nomi. È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico.  È anche possibile usare zone DNS private per assegnare nomi DNS alle macchine virtuali nelle reti virtuali di Azure.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Introduzione alle reti virtuali di Azure](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/). Progettare e implementare un'infrastruttura di rete di Azure di base, ad esempio reti virtuali, INDIRIZZI IP pubblici e privati, DNS, peering di rete virtuale, routing e NAT virtuale di Azure.
-+ [Progettare uno schema](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) di indirizzamento IP. Identificare le funzionalità di indirizzamento IP privato e pubblico delle reti virtuali locali e di Azure.
-+ [Proteggere e isolare l'accesso alle risorse di Azure usando i gruppi di sicurezza di rete e gli endpoint di](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) servizio. I gruppi di sicurezza e gli endpoint aiutano a proteggere le macchine virtuali e i servizi di Azure dall'accesso non autorizzato alla rete.
-+ [Ospitare il dominio in DNS](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) di Azure. Creare una zona DNS per il nome di dominio. Crea record DNS per eseguire il mapping del dominio a un indirizzo IP. Verificare che il nome di dominio venga risolto nel server Web.
-  

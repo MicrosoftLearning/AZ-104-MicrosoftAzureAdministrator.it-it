@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 10: Implementare la protezione dei dati'
+  title: 'Lab 10: Implementare la protezione dati'
   module: Administer Data Protection
 ---
 
@@ -229,7 +229,7 @@ In questa attività si distribuirà un account di archiviazione di Azure. Si con
     | Subscription | nome della sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg-region2` (Se necessario, selezionare **Crea nuovo**) |
     | Nome dell'insieme di credenziali | `az104-rsv-region2` |
-    | Area | **Stati Uniti occidentali** |
+    | Paese | **Stati Uniti occidentali** |
 
     >**Nota**: assicurarsi di specificare un'area **diversa** rispetto alla macchina virtuale.
 
@@ -284,6 +284,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Quali prodotti supportano Backup di Azure?
++ Riepilogare i passaggi per eseguire il backup e il ripristino di una macchina virtuale di Azure con Backup di Azure.
++ Come è possibile usare Azure PowerShell o l'interfaccia della riga di comando per controllare lo stato di un processo Backup di Azure.
++ Fornire almeno cinque procedure consigliate per la configurazione dei backup delle macchine virtuali di Azure.  
+
+## Altre informazioni con la formazione autogestita
+
++ [Proteggere le macchine virtuali usando Backup di Azure](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/). Usare Backup di Azure per proteggere server locali, macchine virtuali, istanze di SQL Server, File di Azure e altri carichi di lavoro.
++ [Proteggi l'infrastruttura di Azure con Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). È possibile ottenere funzionalità di ripristino di emergenza per l'infrastruttura di Azure personalizzando la replica, il failover e il failback di macchine virtuali di Azure con Azure Site Recovery.
 
 ## Punti chiave
 
@@ -295,8 +307,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Azure Site Recovery è una soluzione di ripristino di emergenza che fornisce protezione per le macchine virtuali e le applicazioni.
 + Azure Site Recovery replica i carichi di lavoro in un sito secondario e, in caso di interruzione o emergenza, è possibile eseguire il failover nel sito secondario e riprendere le operazioni con tempi di inattività minimi.
 + Un insieme di credenziali di Servizi di ripristino archivia i dati di backup e riduce al minimo il sovraccarico di gestione.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Proteggere le macchine virtuali usando Backup di Azure](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/). Usare Backup di Azure per proteggere server locali, macchine virtuali, istanze di SQL Server, File di Azure e altri carichi di lavoro.
-+ [Proteggi l'infrastruttura di Azure con Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). È possibile ottenere funzionalità di ripristino di emergenza per l'infrastruttura di Azure personalizzando la replica, il failover e il failback di macchine virtuali di Azure con Azure Site Recovery.

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 09a: Implementare App Web'
+  title: 'Lab 09a: Implementare app Web'
   module: Administer PaaS Compute Options
 ---
 
@@ -177,7 +177,16 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
 
++ Riepilogare i passaggi per creare e configurare un'app Web di Azure.
++ Quali sono i modi in cui è possibile ridimensionare un'app Web di Azure?
+
+## Altre informazioni con la formazione autogestita
+
++ [Preparare la distribuzione di un'app Web per il test e il rollback usando servizio app slot](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/) di distribuzione. Usare gli slot di distribuzione per semplificare la distribuzione e il rollback di un'app Web nel servizio app di Azure.
++ [Ridimensionare un'app Web servizio app per soddisfare in modo efficiente la domanda con servizio app aumentare e aumentare le prestazioni](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/). Rispondere ai periodi di maggiore attività aumentando in modo incrementale le risorse disponibili e quindi, per ridurre i costi, riducendo queste risorse quando l'attività scende.
 
 ## Punti chiave
 
@@ -188,8 +197,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Gli slot di distribuzione consentono di creare ambienti separati per la distribuzione e il test dell'app Web.
 + È possibile ridimensionare manualmente o automaticamente un'app Web per gestire una domanda aggiuntiva.
 + Sono disponibili un'ampia gamma di strumenti di diagnostica e test. 
-
-## Altre informazioni con la formazione autogestita
-
-+ [Preparare la distribuzione di un'app Web per il test e il rollback usando servizio app slot](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/) di distribuzione. Usare gli slot di distribuzione per semplificare la distribuzione e il rollback di un'app Web nel servizio app di Azure.
-+ [Ridimensionare un'app Web servizio app per soddisfare in modo efficiente la domanda con servizio app aumentare e aumentare le prestazioni](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/). Rispondere ai periodi di maggiore attività aumentando in modo incrementale le risorse disponibili e quindi, per ridurre i costi, riducendo queste risorse quando l'attività scende.

@@ -179,7 +179,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Subscription | nome della sottoscrizione di Azure  |
     | Gruppo di risorse | **az104-rg8**  |
     | Nome del set di scalabilità di macchine virtuali | `vmss1` |
-    | Area | **(Stati Uniti) Stati Uniti orientali** |
+    | Paese | **(Stati Uniti) Stati Uniti orientali** |
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Modalità di orchestrazione | **Uniforme** |
     | Tipo di sicurezza | **Standard** |
@@ -224,7 +224,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Origine | **Any** |
     | Intervalli porte di origine | * |
     | Destinazione | **Any** |
-    | Servizio | **HTTP** |
+    | Service | **HTTP** |
     | Azione | **Consenti** |
     | Priorità | **1010** |
     | Nome | `allow-http` |
@@ -329,7 +329,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
     | Impostazione | Valore |
     | --- | --- |
-    | Requisiti minimi | **2** |
+    | Minimo | **2** |
     | Massimo | **10** |
     | Default | **2** |
 
@@ -418,6 +418,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Fornire i passaggi e i comandi dell'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux. 
++ Esaminare i modi in cui è possibile ridimensionare le macchine virtuali e migliorare le prestazioni.
++ Descrivere i criteri di gestione del ciclo di vita di Archiviazione di Azure e come ottimizzare i costi.
+
+## Altre informazioni con la formazione autogestita
+
++ [Creare una macchina virtuale Windows in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Creare una macchina virtuale Windows con il portale di Azure. Connettersi alla macchina virtuale Windows in esecuzione usando Desktop remoto
++ [Creare un'applicazione scalabile con set di scalabilità di macchine virtuali](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Abilitare il ridimensionamento automatico di un'applicazione in base alle variazioni del carico riducendo al minimo i costi con i set di scalabilità di macchine virtuali.
++ [Connessione alle macchine virtuali tramite il portale di Azure usando Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Distribuire Azure Bastion per connettersi in modo sicuro alle macchine virtuali di Azure direttamente all'interno del portale di Azure per sostituire in modo efficace una soluzione jumpbox esistente, monitorare le sessioni remote usando i log di diagnostica e gestire le sessioni remote disconnettendo una sessione utente.
 
 ## Punti chiave
 
@@ -429,10 +441,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico.
 + Le macchine virtuali in un set di scalabilità di macchine virtuali vengono create dalla stessa immagine e configurazione.
 + In un set di scalabilità di macchine virtuali il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Creare una macchina virtuale Windows in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Creare una macchina virtuale Windows con il portale di Azure. Connettersi alla macchina virtuale Windows in esecuzione usando Desktop remoto
-+ [Creare un'applicazione scalabile con set di scalabilità di macchine virtuali](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Abilitare il ridimensionamento automatico di un'applicazione in base alle variazioni del carico riducendo al minimo i costi con i set di scalabilità di macchine virtuali.
-+ [Connessione alle macchine virtuali tramite il portale di Azure usando Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Distribuire Azure Bastion per connettersi in modo sicuro alle macchine virtuali di Azure direttamente all'interno del portale di Azure per sostituire in modo efficace una soluzione jumpbox esistente, monitorare le sessioni remote usando i log di diagnostica e gestire le sessioni remote disconnettendo una sessione utente.
-  

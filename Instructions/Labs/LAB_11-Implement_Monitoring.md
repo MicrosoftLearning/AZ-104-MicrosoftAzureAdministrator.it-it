@@ -249,6 +249,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Quali sono i passaggi di configurazione di base da avvisare in Azure quando una macchina virtuale è inattiva?
++ Come è possibile ricevere una notifica quando viene attivato un avviso di Azure?
++ Creare una query di Monitoraggio di Azure per fornire informazioni sulle prestazioni della CPU della macchina virtuale.
+
+## Altre informazioni con la formazione autogestita
+
++ [Migliorare la risposta agli eventi imprevisti con gli avvisi in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/). Rispondere agli eventi imprevisti e alle attività nell'infrastruttura tramite le funzionalità di avviso di Monitoraggio di Azure.
++ [Monitorare le macchine virtuali di Azure con Monitoraggio](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/) di Azure. Monitorare le macchine virtuali di Azure usando Monitoraggio di Azure per raccogliere e analizzare le metriche e i log degli host e dei client delle macchine virtuali.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -258,8 +270,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + Una regola di avviso monitora i dati e acquisisce un segnale che indica che sta accadendo qualcosa nella risorsa specificata.
 + Se vengono soddisfatte le condizioni della regola di avviso, viene attivato un avviso. È possibile attivare diverse azioni (posta elettronica, SMS, push, voce).
 + I gruppi di azioni includono utenti che devono ricevere una notifica di un avviso.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Migliorare la risposta agli eventi imprevisti con gli avvisi in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/). Rispondere agli eventi imprevisti e alle attività nell'infrastruttura tramite le funzionalità di avviso di Monitoraggio di Azure.
-+ [Monitorare le macchine virtuali di Azure con Monitoraggio](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/) di Azure. Monitorare le macchine virtuali di Azure usando Monitoraggio di Azure per raccogliere e analizzare le metriche e i log degli host e dei client delle macchine virtuali.
