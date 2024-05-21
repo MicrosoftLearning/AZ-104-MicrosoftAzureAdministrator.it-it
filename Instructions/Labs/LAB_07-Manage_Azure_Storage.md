@@ -60,7 +60,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
 
 1. **Nella scheda Avanzate** usare le icone informative per altre informazioni sulle scelte. Accettare le impostazioni predefinite. 
 
-1. Nella **scheda Rete** esaminare le opzioni disponibili, selezionare **Disabilita l'accesso pubblico e usare l'accesso privato.**
+1. Nella **scheda Rete** esaminare le opzioni disponibili, selezionare **Disabilita l'accesso pubblico e usare l'accesso** privato.
 
 1. Esaminare la **scheda Protezione dati** . Si noti che 7 giorni è il criterio di conservazione predefinito per l'eliminazione temporanea. Si noti che è possibile abilitare il controllo delle versioni dei BLOB. Accettare i valori predefiniti.
 
@@ -72,7 +72,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
 
 1. Esaminare il pannello **Panoramica** e le configurazioni aggiuntive che è possibile modificare. Si tratta di impostazioni globali per l'account di archiviazione. Si noti che l'account di archiviazione può essere usato per contenitori BLOB, condivisioni file, code e tabelle.
 
-1. Dalla sezione **Sicurezza e rete** selezionare **Rete**. Si noti che l'accesso alla rete pubblica è disabilitato.
+1. **Nella sezione Sicurezza e rete** selezionare **Rete**. Si noti che l'accesso alla rete pubblica è disabilitato.
 
     + Modificare il **livello** di accesso pubblico su **Abilitato da reti virtuali e indirizzi** IP selezionati.
     + **Nella sezione Firewall** selezionare la casella **Aggiungi l'indirizzo IP del client.**
@@ -182,7 +182,7 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 1. Fare clic su **+ Condivisione** file e nella **scheda Informazioni di base** assegnare alla condivisione file un nome, `share1`. 
 
-1. Si notino le **opzioni di livello** . Mantenere ottimizzata la transazione predefinita****.
+1. Si notino le **opzioni del livello** di accesso. Mantenere ottimizzata la transazione predefinita****.
    
 1. Passare alla scheda Backup** e verificare che **l'opzione **Abilita backup** non** sia **selezionata. Il backup viene disabilitato per semplificare la configurazione del lab.
 
@@ -192,7 +192,7 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 ### Esplorare Archiviazione Browser e caricare un file
 
-1. Tornare all'account di archiviazione e selezionare **Archiviazione Browser**. Il browser Archiviazione di Azure è uno strumento del portale che consente di visualizzare rapidamente tutti i servizi di archiviazione nell'account.
+1. Tornare all'account di archiviazione e selezionare **Archiviazione browser**. Il browser Archiviazione di Azure è uno strumento del portale che consente di visualizzare rapidamente tutti i servizi di archiviazione nell'account.
 
 1. Selezionare **Condivisioni** file e verificare che la **directory share1** sia presente.
 
