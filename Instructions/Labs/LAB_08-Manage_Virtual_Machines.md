@@ -294,7 +294,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     | Nome metrica | **Percentuale CPU** (rivedere le altre scelte) |
     | Operatore | **Maggiore di** |
     | Soglia della metrica per l'attivazione dell'azione di dimensionamento | **70** |
-    | Durata (minuti) | **10** |
+    | Durata (in minuti) | **10** |
     | Statistica intervallo di tempo | **Media** |
     | Operazione | **Aumentare la percentuale per** (rivedere altre scelte) |
     | Disattiva regole dopo (minuti) | **5** |
@@ -343,7 +343,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Usare l'icona (in alto a destra) per avviare una **sessione di Cloud Shell** . In alternativa, passare direttamente a `https://shell.azure.com`.
 
-1. Assicurarsi di selezionare **PowerShell**. Se necessario, usare Mostra **impostazioni** avanzate e configurare l'archiviazione della shell.
+1. Assicurarsi di selezionare **PowerShell**. Se necessario, configurare l'archiviazione della shell.
 
 1. Eseguire il comando seguente per creare una macchina virtuale. Quando richiesto, specificare un nome utente e una password per la macchina virtuale. Durante l'attesa, vedere le informazioni di riferimento sui [comandi New-AzVM](https://learn.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-11.1.0) per tutti i parametri associati alla creazione di una macchina virtuale.
 
@@ -384,7 +384,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Usare l'icona (in alto a destra) per avviare una **sessione di Cloud Shell** . In alternativa, passare direttamente a `https://shell.azure.com`.
 
-1. Assicurarsi di selezionare **Bash**. Se necessario, usare Mostra **impostazioni** avanzate e configurare l'archiviazione della shell.
+1. Assicurarsi di selezionare **Bash**. Se necessario, configurare l'archiviazione della shell.
 
 1. Eseguire il comando seguente per creare una macchina virtuale. Quando richiesto, specificare un nome utente e una password per la macchina virtuale. Durante l'attesa, vedere il riferimento al [comando az vm create](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) per tutti i parametri associati alla creazione di una macchina virtuale.
 

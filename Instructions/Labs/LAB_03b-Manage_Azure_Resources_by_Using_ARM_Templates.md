@@ -139,19 +139,23 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
 
     >**Lo sapevi?**  Se si lavora principalmente con sistemi Linux, Bash (CLI) si sente più familiare. Se si lavora principalmente con i sistemi Windows, Azure PowerShell è più familiare. 
 
-1. Nella **schermata Non è installato** spazio di archiviazione selezionare **Mostra impostazioni** avanzate e specificare le informazioni necessarie. 
+1. Nella **schermata Attività iniziali** selezionare **Montare l'account** di archiviazione e quindi **creare un account** di archiviazione.  
 
-    >**Nota:** quando si lavora con Cloud Shell è necessario un account di archiviazione e una condivisione file. 
-
+    >**Nota:** per questo lab è necessario un account di archiviazione. Specificare le informazioni necessarie. 
+    
     | Impostazione | Valori |
     |  -- | -- |
+    | Subscription | *selezionare la sottoscrizione* |
     | Gruppo di risorse | **az104-rg3** |
+    | Paese | *selezionare l'area geografica* | 
     | account Archiviazione (Crea nuovo) | *deve essere univoco a livello globale, tra 3 e 24 caratteri di lunghezza e usare solo numeri e lettere minuscole* |
     | Condivisione file (Crea nuovo) | `fs-cloudshell` |
 
-1. Al termine, selezionare **Crea archiviazione**. È sufficiente eseguire questa operazione la prima volta che si usa Cloud Shell. Il provisioning dell'archiviazione richiederà alcuni minuti.
+1. Al termine, selezionare **Avanti**. È sufficiente eseguire questa operazione la prima volta che si usa Cloud Shell. Il provisioning dell'archiviazione richiederà alcuni minuti.
 
 1. Usare l'icona **Carica/Scarica file** per caricare il file di modelli e parametri dalla directory dei download. Sarà necessario caricare ogni file separatamente.
+
+   >**Nota:** se in qualsiasi momento viene richiesto di **passare a Cloud Shell** classico, eseguire questa operazione. 
 
 1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell. 
 
