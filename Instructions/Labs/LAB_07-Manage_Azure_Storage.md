@@ -212,11 +212,11 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 1. Attendere la distribuzione della rete virtuale e quindi selezionare **Vai alla risorsa**.
 
-1. **Nella sezione Impostazioni** selezionare il **pannello Subnet**.
-    + Selezionare la **subnet predefinita** .
-    + **Nella sezione Endpoint servizio** scegliere **Microsoft.Archiviazione** nell'elenco **a discesa Servizi**.
-    + Non apportare altre modifiche.    
-    + Assicurarsi di **salvare** le modifiche. 
+1. **Nella sezione Impostazioni** selezionare il **pannello Endpoint servizio**.
+    + Selezionare **Aggiungi**. 
+    + Nell'elenco **a discesa Servizi** selezionare **Microsoft.Archiviazione**.
+    + Nell'elenco **a discesa Subnet** selezionare la **subnet Predefinita** .
+    + Fare clic su **Aggiungi** per salvare le modifiche.  
 
 1. Tornare all'account di archiviazione.
 
