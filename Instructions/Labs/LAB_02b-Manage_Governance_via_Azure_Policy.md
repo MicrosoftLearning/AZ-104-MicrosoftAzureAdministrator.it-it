@@ -230,6 +230,8 @@ In questa attività viene configurato e testato un blocco delle risorse. I blocc
 
     ![Screenshot dell'errore di eliminazione del messaggio.](../media/az104-lab02b-failuretodelete.png) 
 
+    >**Nota:** se si intende eliminare il gruppo di risorse, sarà necessario rimuovere il blocco. 
+    
 ## Pulire le risorse
 
 Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
