@@ -49,7 +49,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
 
 1. Accedere al portale di Azure - `https://portal.azure.com`.
 
-1. Cercare e selezionare `Virtual machines`, nel pannello **Macchine** virtuali fare clic su **+ Crea** e quindi selezionare nell'elenco a discesa **+ Macchina** virtuale di Azure. Si notino le altre opzioni.
+1. Cercare e selezionare `Virtual machines`, nel pannello **Macchine** virtuali fare clic su **+ Crea** e quindi selezionare nell'elenco a discesa **Macchina** virtuale di Azure. Si notino le altre opzioni.
 
 1. Nel menu a discesa Zona di disponibilità della **scheda Informazioni di base** posizionare un segno di spunta accanto a **Zona 2**.**** Questa opzione deve selezionare sia La zona 1** che ****la zona 2**.
 
@@ -76,7 +76,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
 
     ![Screenshot della pagina crea macchina virtuale.](../media/az104-lab08-create-vm.png)
 
-1. Fare clic su **Avanti: Dischi >** , specificare le impostazioni seguenti (lasciare i valori predefiniti per altri utenti):
+1. Fare clic su **Avanti : Dischi >** , specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
@@ -84,7 +84,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Elimina con macchina virtuale | **** selezionato (impostazione predefinita) |
     | Abilita compatibilità disco Ultra | **Non selezionato** |
 
-1. Fare clic su **Avanti: Rete >** accettare le impostazioni predefinite, ma non fornire un servizio di bilanciamento del carico.
+1. Fare clic su **Avanti : Rete >** accettare le impostazioni predefinite, ma non fornire un servizio di bilanciamento del carico.
 
     | Impostazione | Valore |
     | --- | --- |
@@ -92,19 +92,19 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Opzioni di bilanciamento del carico | **Nessuno** |
 
 
-1. Fare clic su **Avanti: Gestione >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
+1. Fare clic su **Avanti : Gestione >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
     | Opzioni di orchestrazione patch | **Azure orchestrato** |  
 
-1. Fare clic su **Avanti: Monitoraggio >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
+1. Fare clic su **Avanti : Monitoraggio >** e specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |
     | Diagnostica di avvio | **Disabilita** |
 
-1. Fare clic su **Avanti: Avanzate >**, impostare le impostazioni predefinite, quindi fare clic su **Rivedi e crea**.
+1. Fare clic su **Avanti : Avanzate >**, impostare le impostazioni predefinite, quindi fare clic su **Rivedi e crea**.
 
 1. Dopo la convalida, fare clic su **Crea**.
 
@@ -194,7 +194,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
     ![Screenshot della pagina crea vmss. ](../media/az104-lab08-create-vmss.png)
 
-1. Nella **scheda Spot** accettare le impostazioni predefinite e selezionare **Avanti: Dischi >**.
+1. Nella **scheda Spot** accettare le impostazioni predefinite e selezionare **Avanti : Dischi >**.
 
 1. Nella **scheda Dischi** accettare i valori predefiniti e fare clic su **Avanti : Rete >**.
 
@@ -283,7 +283,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 ### Regola di aumento del numero di istanze
 
-1. Selezionare **Scalabilità automatica personalizzata**. modificare quindi la modalità** di scalabilità **in **Ridimensiona in base alla metrica**. Quindi selezionare **Aggiungi regola**.
+1. Selezionare **Scalabilità automatica personalizzata**. Modificare quindi la **modalità** di ridimensionamento in **Scala in base alla metrica**. Quindi selezionare **Aggiungi una regola**.
 
 1. Si creerà una regola che aumenta automaticamente il numero di istanze di macchina virtuale. Questa regola aumenta il numero di istanze quando il carico medio della CPU è maggiore del 70% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene aumentato del 20%.
 

@@ -79,7 +79,7 @@ In questa attività verrà creato uno slot di distribuzione di staging. Gli slot
 
     >**Nota**: l'app Web, a questo punto, ha un singolo slot di distribuzione con etichetta **PRODUCTION**.
 
-1. Fare clic su **+ Add slot** (Aggiungi slot) e aggiungere un nuovo slot con le impostazioni seguenti:
+1. Fare clic su **Aggiungi slot** e aggiungere un nuovo slot con le impostazioni seguenti:
 
     | Impostazione | valore |
     | --- | ---|
