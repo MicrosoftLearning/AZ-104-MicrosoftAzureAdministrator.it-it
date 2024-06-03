@@ -8,49 +8,49 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab si apprenderà come configurare e testare un servizio di bilanciamento del carico pubblico e un gateway applicazione.
+In questo lab si apprenderà come configurare e testare un Azure Load Balancer e un gateway applicazione di Azure.
 
-Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti** orientali.
+Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti orientali**.
 
 ## Tempo stimato: 50 minuti
 
 ## Scenario laboratorio
 
-L'organizzazione ha un sito Web pubblico. È necessario bilanciare il carico delle richieste pubbliche in ingresso tra macchine virtuali diverse. È anche necessario fornire immagini e video da macchine virtuali diverse. Si prevede di implementare azure Load Balancer e un gateway di app Azure lication. Tutte le risorse si trovano nella stessa area.
+L'organizzazione ha un sito Web pubblico. È necessario bilanciare il carico delle richieste pubbliche in ingresso tra macchine virtuali diverse. È anche necessario fornire immagini e video da macchine virtuali diverse. Si prevede di implementare Azure Load Balancer e gateway applicazione di Azure. Tutte le risorse si trovano nella stessa area.
 
-## Simulazioni di lab interattive
+## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti dei concetti di base sono gli stessi. Non è necessaria una sottoscrizione di Azure.
+Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
 
-+ [Creare e configurare e il servizio](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer) di bilanciamento del carico di Azure. Creare una rete virtuale, i server back-end, il servizio di bilanciamento del carico e quindi testare il servizio di bilanciamento del carico.
-+ [Distribuire app Azure lication Gateway](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway). Creare un gateway applicazione, creare macchine virtuali, creare il pool back-end e testare il gateway.
-+ [Implementare la gestione](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010) del traffico. Implementare una rete hub-spoke completa, tra cui macchine virtuali, reti virtuali, peering, bilanciamento del carico e gateway applicazione.
++ [Creare e configurare bilanciamento del carico di Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer). Creare una rete virtuale, server back-end, bilanciamento del carico e quindi testare il bilanciamento del carico.
++ [Distribuire il gateway applicazione di Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway). Creare un gateway applicazione, creare macchine virtuali, creare il pool back-end e quindi testare il gateway.
++ [Implementare gestione del traffico](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010). Implementare una rete hub-spoke completa, comprendente macchine virtuali, reti virtuali, peering, bilanciamento del carico e gateway applicazione.
 
 ## Competenze mansione
 
-+ Attività 1: usare un modello per effettuare il provisioning di un'infrastruttura.
-+ Attività 2: Configurare un servizio di bilanciamento del carico di Azure.
-+ Attività 3: Configurare un gateway di app Azure lication.
++ Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
++ Attività 2: Configurare un Azure Load Balancer.
++ Attività 3: Configurare un gateway applicazione di Azure.
 
 ## Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura
 
 In questa attività si userà un modello per distribuire una rete virtuale, un gruppo di sicurezza di rete e due macchine virtuali.
 
-1. Scaricare i **\\file lab Allfiles\\Lab06** (modelli e parametri).
+1. Scaricare i file lab **\\Allfiles\\Lab06** (modelli e parametri).
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
 1. Cercare e selezionare `Deploy a custom template`.
 
-1. Nella pagina di distribuzione personalizzata selezionare **Compila un modello personalizzato nell'editor**.
+1. Nella pagina di distribuzione personalizzata, selezionare **Creare un modello personalizzato nell’editor**.
 
-1. Nella pagina modifica modello selezionare **Carica file**.
+1. Nella pagina di modifica del modello, selezionare **Carica file**.
 
-1. Individuare e selezionare il **\\file Allfiles\\Lab06\\az104-06-vms-template.json** e selezionare **Apri**.
+1. Individuare e selezionare il file **\\Allfiles\\Lab06\\az104-06-vms-template.json**, quindi selezionare **Apri**.
 
 1. Seleziona **Salva**.
 
-1. Selezionare **Modifica parametri** e caricare il **\\file Allfiles\\Lab06\\az104-06-vms-parameters.json** .
+1. Selezionare **Modifica parametri** e caricare il file **\\Allfiles\\Lab06\\az104-06-vms-parameters.json**.
 
 1. Seleziona **Salva**.
 
@@ -62,50 +62,50 @@ In questa attività si userà un modello per distribuire una rete virtuale, un g
     | Gruppo di risorse | `az104-rg6` (Se necessario, selezionare **Crea nuovo**) |
     | Password      | Specificare una password sicura |
 
-    >**Nota**: se viene visualizzato un errore che indica che le dimensioni della macchina virtuale non sono disponibili, selezionare uno SKU disponibile nella sottoscrizione e che abbia almeno 2 core.
+    >**Nota**: Se viene visualizzato un errore indicante che le dimensioni della macchina virtuale non sono disponibili, selezionare uno SKU disponibile nella sottoscrizione, che disponga di almeno 2 core.
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-    >**Nota**: attendere il completamento della distribuzione prima di passare all'attività successiva. La distribuzione dovrebbe richiedere circa 5 minuti.
+    >**Nota**: Prima di passare all'attività successiva, attendere il completamento della distribuzione. La distribuzione dovrebbe richiedere circa 5 minuti.
 
-    >**Nota**: esaminare le risorse distribuite. Sarà presente una rete virtuale con tre subnet. Ogni subnet avrà una macchina virtuale.
+    >**Nota**: Esaminare le risorse distribuite. Sarà presente una rete virtuale con tre subnet. Ogni subnet disporrà di una macchina virtuale.
 
-## Attività 2: Configurare un servizio di bilanciamento del carico di Azure
+## Attività 2: Configurare Azure Load Balancer
 
-In questa attività si implementa un'istanza di Azure Load Balancer davanti alle due macchine virtuali di Azure nella rete virtuale. I servizi di bilanciamento del carico in Azure offrono connettività di livello 4 tra le risorse, ad esempio le macchine virtuali. La configurazione di Load Balancer include un indirizzo IP front-end per accettare connessioni, un pool back-end e regole che definiscono il modo in cui le connessioni devono attraversare il servizio di bilanciamento del carico.
+In questa attività si implementa Azure Load Balancer davanti alle due macchine virtuali di Azure nella rete virtuale. I servizi di bilanciamento del carico in Azure offrono connettività di livello 4 tra le risorse, ad esempio le macchine virtuali. La configurazione di Load Balancer include un indirizzo IP front-end per accettare connessioni, un pool back-end e le regole che definiscono il modo in cui le connessioni devono attraversare il servizio di bilanciamento del carico.
 
 ## Diagramma dell'architettura - Load Balancer
 
->**Nota: si noti** che load Balancer distribuisce tra due macchine virtuali nella stessa rete virtuale.
+>**Nota**: Si noti che Load Balancer distribuisce tra due macchine virtuali nella stessa rete virtuale.
 
 ![Diagramma delle attività del lab.](../media/az104-lab06-lb-architecture.png)
 
-1. Nella portale di Azure cercare e selezionare `Load balancers` e nel pannello Servizi di bilanciamento** del **carico fare clic su **+ Crea**.
+1. Nel portale di Azure cercare e selezionare `Load balancers` e nel pannello **Servizi di bilanciamento del carico** fare clic su **+ Crea**.
 
-1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti (lasciare altri con i valori predefiniti) e quindi fare clic su **Avanti: Configurazione** IP front-end:
+1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti (lasciare le altre con i rispettivi valori predefiniti) quindi fare clic su **Avanti: Configurazione IP front-end**:
 
     | Impostazione | Valore |
     | --- | --- |
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | **az104-rg6** |
     | Nome | `az104-lb` |
-    | Paese | La **stessa** area in cui sono state distribuite le macchine virtuali |
+    | Paese | La **stessa** area in cui sono state distribuite le VM |
     | SKU  | **Standard** |
     | Type | **Pubblica** |
     | Livello | **Regional** |
 
-     ![Screenshot della pagina di creazione del servizio di bilanciamento del carico.](../media/az104-lab06-create-lb1.png)
+     ![Screenshot della pagina Crea bilanciamento del carico.](../media/az104-lab06-create-lb1.png)
 
-1. Nella **scheda Configurazione** IP front-end fare clic su **Aggiungi una configurazione** IP front-end e usare le impostazioni seguenti:  
+1. Nella scheda **Configurazione IP front-end** fare clic su **Aggiungi una configurazione IP front-end** e usare le impostazioni seguenti:  
 
     | Impostazione | valore |
     | --- | --- |
     | Nome | `az104-fe` |
     | Tipo di IP | Indirizzo IP |
-    | Load Balancer Gateway | None |
+    | Bilanciamento del carico del gateway | None |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** (usare le istruzioni nel passaggio successivo) |
 
-1. **Nella finestra popup Aggiungi un indirizzo** IP pubblico usare le impostazioni seguenti prima di fare clic su **OK** e quindi su **Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**.
+1. Nella finestra popup **Aggiungi indirizzo IP pubblico**, usare le impostazioni seguenti, poi fare clic su **OK** e quindi scegliere **Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -113,11 +113,11 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
     | SKU | Standard |
     | Livello | Regional |
     | Assegnazione | Statico |
-    | Preferenza di routing | **Rete Microsoft** |
+    | Preferenza routing | **Microsoft.Network** |
 
-    >**Nota:** lo SKU Standard fornisce un indirizzo IP statico. Gli indirizzi IP statici vengono assegnati alla risorsa e rilasciati quando la risorsa viene eliminata.  
+    >**Nota:** Lo SKU Standard fornisce un indirizzo IP statico. Gli indirizzi IP statici vengono assegnati alla risorsa e rilasciati quando questa viene eliminata.  
 
-1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte) e quindi su **Avanti: Regole** in ingresso.
+1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte), quindi su **Avanti: Regole in ingresso**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -134,9 +134,9 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
 
 **Aggiungere una regola per determinare la modalità di distribuzione del traffico in ingresso**
 
-1. Nel pannello **Impostazioni** selezionare **Regole** di bilanciamento del carico.
+1. Nel pannello **Impostazioni** selezionare **Regole di bilanciamento del carico**.
 
-1. Seleziona **+ Aggiungi**. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni.  Quando si configura la regola, usare le icone informative per ottenere informazioni su ogni impostazione. Al termine, fare clic su **Salva**.
+1. Seleziona **+ Aggiungi**. Aggiungere una regola di bilanciamento del carico con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni.  Quando si configura la regola, usare le icone informative per ottenere informazioni su ciascuna impostazione. Al termine, fare clic su **Salva**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -159,7 +159,7 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
     | IP mobile | **Disabilitato** |
     | SNAT (Network Address Translation) di origine in uscita | **Consigliato** |
 
-1. Selezionare **Configurazione** IP front-end nella pagina Load Balancer. Copiare l'indirizzo IP pubblico.
+1. Selezionare **Configurazione IP front-end** nella pagina Load Balancer. Copiare l'indirizzo IP pubblico.
 
 1. Aprire un'altra scheda del browser e passare all'indirizzo IP. Verificare che nella finestra del browser sia visualizzato il messaggio **Hello World from az104-06-vm0** o **Hello World from az104-06-vm1**.
 
@@ -167,23 +167,23 @@ In questa attività si implementa un'istanza di Azure Load Balancer davanti alle
 
     > **Nota**: potrebbe essere necessario aggiornare più volte la visualizzazione o aprire una nuova finestra del browser in modalità InPrivate.
 
-## Attività 3: Configurare un gateway di app Azure lication
+## Attività 3: Configurare un gateway applicazione di Azure
 
-In questa attività si implementa un gateway di app Azure lication davanti a due macchine virtuali di Azure. Un gateway applicazione fornisce il bilanciamento del carico di livello 7, web application firewall (WAF), la terminazione SSL e la crittografia end-to-end per le risorse definite nel pool back-end. Il gateway applicazione instrada le immagini a una macchina virtuale e video all'altra macchina virtuale.
+In questa attività si implementa un gateway applicazione di Azure davanti a due macchine virtuali di Azure. Un gateway applicazione fornisce bilanciamento del carico di livello 7, Web application firewall (WAF), terminazione SSL e crittografia end-to-end per le risorse definite nel pool back-end. Il gateway applicazione instrada le immagini a una macchina virtuale e i video all'altra macchina virtuale.
 
-## Diagramma dell'architettura - gateway applicazione
+## Diagramma dell'architettura - Gateway applicazione
 
->**Nota**: questo gateway applicazione funziona nella stessa rete virtuale del servizio di bilanciamento del carico. Questo potrebbe non essere tipico in un ambiente di produzione.
+>**Nota**: Questo gateway applicazione lavora nella stessa rete virtuale di Load Balancer. Questo potrebbe non essere tipico in un ambiente di produzione.
 
 ![Diagramma delle attività del lab.](../media/az104-lab06-gw-architecture.png)
 
-1. Nella portale di Azure cercare e selezionare `Virtual networks`.
+1. Nel portale di Azure cercare e selezionare `Virtual networks`.
 
-1. Nel pannello **Reti** virtuali fare clic su **az104-06-vnet1** nell'elenco delle reti virtuali.
+1. Nel pannello **Reti virtuali**, nell'elenco di reti virtuali, fare clic su **az104-06-vnet1**.
 
-1. Nella sezione Impostazioni del **pannello az104-06-vnet1** **fare clic su **Subnet** e quindi su **+ Subnet**.**
+1. Nel pannello della rete virtuale **az104-06-vnet1**, nella sezione **Impostazioni**, fare clic su **Subnet** e quindi su **+ Subnet**.
 
-1. Aggiungere una subnet con le impostazioni seguenti (lasciare altri con i valori predefiniti).
+1. Aggiungere una subnet con le impostazioni seguenti (lasciare le altre con i rispettivi valori predefiniti).
 
     | Impostazione | valore |
     | --- | --- |
@@ -192,9 +192,9 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
 1. Fare clic su **Salva**
 
-    > **Nota**: questa subnet verrà usata dal gateway di app Azure lication. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
+    > **Nota**: Questa subnet verrà usata dal gateway applicazione di Azure. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
 
-1. Nella portale di Azure cercare e selezionare `Application gateways` e nel pannello **gateway applicazione s** fare clic su **+ Crea**.
+1. Nel portale di Azure cercare e selezionare `Application gateways` e nel pannello **Gateway applicazione** fare clic su **+ Crea**.
 
 1. Nella scheda **Generale** specificare ora le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni:
 
@@ -203,7 +203,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg6` |
     | Nome del gateway applicazione | `az104-appgw` |
-    | Paese | La stessa** area di Azure usata nell'attività **1 |
+    | Paese | La **stessa** area di Azure usata nell'attività 1 |
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
     | Numero minimo di istanze | `2` |
@@ -223,9 +223,9 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Nome | `az104-gwpip` |
     | Zona di disponibilità | **Nessuno** |
 
-    >**Nota:** il gateway applicazione può avere un indirizzo IP pubblico e privato.
+    >**Nota:** Gateway applicazione può avere un indirizzo IP sia pubblico sia privato.
  
-1. Fare clic su **Avanti: back-end >** e quindi **su Aggiungi un pool** back-end. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
+1. Fare clic su **Avanti: Back-end >** e quindi **Aggiungi un pool back-end**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -234,7 +234,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Macchina virtuale | **az104-rg6-nic1 (10.60.1.4)** |
     | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** |
 
-1. Fare clic su **Aggiungi un pool** back-end. Si tratta del pool back-end per **le immagini**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
+1. Fare clic su **Aggiungi un pool back-end**. Si tratta del pool back-end per **immagini**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -242,7 +242,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
     | Macchina virtuale | **az104-rg6-nic1 (10.60.1.4)** |
 
-1. Fare clic su **Aggiungi un pool** back-end. Questo è il pool back-end per **il video**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
+1. Fare clic su **Aggiungi un pool back-end**. Questo è il pool back-end per **video**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -250,7 +250,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
     | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** |
 
-1. Selezionare **Avanti : Configurazione >** e quindi **Aggiungere una regola** di routing. Completare le informazioni.
+1. Selezionare **Avanti: Configurazione >** e quindi **Aggiungi una regola di gestione**. Completare le informazioni.
 
     | Impostazione | Valore |
     | --- | --- |
@@ -262,18 +262,18 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Porta | `80` |
     | Tipo di listener | **Base** |
 
-1. Passare alla **scheda Destinazioni** back-end. Selezionare **Aggiungi** dopo aver completato le informazioni di base.
+1. Passare alla scheda **destinazioni back-end**. Dopo aver completato le informazioni di base, selezionare **Aggiungi**.
 
    | Impostazione | Valore |
     | --- | --- |
     | Destinazione back-end | `az104-appgwbe` |
     | Impostazioni back-end | `az104-http` (crea nuovo) |
 
-   >**Nota:** leggere le informazioni sull'affinità **** basata su cookie e **sullo svuotamento** delle Connessione.
+   >**Nota:** Leggere le informazioni relativa a **Affinità basata su cookie** e **Svuotamento della connessione**.
 
-1. **Nella sezione Routing basato su** percorso selezionare **Aggiungi più destinazioni per creare una regola** basata sul percorso. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi su **Aggiungi** dopo la seconda regola. 
+1. Nella sezione **Routing basato su percorso** selezionare **Aggiungi più destinazioni per creare una regola basata sul percorso**. Verranno create due regole. Fare clic su **Aggiungi** dopo la prima regola e quindi su **Aggiungi** dopo la seconda regola. 
 
-    **Regola : routing al back-end delle immagini**
+    **Regola: routing a back-end immagini**
 
     | Impostazione | Valore |
     | --- | --- |
@@ -282,7 +282,7 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-imagebe` |
 
-    **Regola : routing al back-end dei video**
+    **Regola: routing a back-end video**
 
     | Impostazione | Valore |
     | --- | --- |
@@ -291,25 +291,25 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-videobe` |
 
-1. Assicurarsi di salvare **** e controllare le modifiche, quindi selezionare **Avanti : Tag >**. Non sono necessarie modifiche.
+1. Assicurarsi di **salvare** e controllare le modifiche, quindi selezionare **Avanti: Tag >**. Non sono necessarie modifiche.
 
-1. Selezionare **Avanti : Rivedi e crea >** e quindi fare clic su **Crea**.
+1. Selezionare **Avanti: Rivedi e crea >**, quindi fare clic su **Crea**.
 
-    > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione richiederà circa 5-10 minuti. Durante l'attesa, è consigliabile esaminare alcuni dei collegamenti di training auto-passo alla fine di questa pagina.
+    > **Nota**: attendere la creazione dell'istanza del gateway applicazione. L'operazione richiederà circa 5-10 minuti. Durante l'attesa, è consigliabile esaminare alcuni dei collegamenti alla fine di questa pagina, per eseguire il training autogestito.
 
 1. Dopo la distribuzione del gateway applicazione, cercare e selezionare **az104-appgw**.
 
-1. Nella sezione Monitoraggio** della **risorsa **gateway applicazione** selezionare **Integrità** back-end.
+1. Nella risorsa **Gateway applicazione**, nella sezione **Monitoraggio** selezionare **Integrità back-end**.
 
 1. Verificare che entrambi i server nel pool back-end visualizzino **Integro**.
 
-1. Nel pannello **Panoramica** copiare il valore dell'indirizzo** IP pubblico front-end**.
+1. Nel pannello **Panoramica**, copiare il valore di **Indirizzo IP pubblico front-end**.
 
-1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/image/`.
+1. Avviare un'altra finestra del browser e testare l’URL: `http://<frontend ip address>/image/`.
 
-1. Verificare di essere indirizzati al server di immagini (vm1).
+1. Verificare di essere indirizzati al server immagini (vm1).
 
-1. Avviare un'altra finestra del browser e testare questo URL - `http://<frontend ip address>/video/`.
+1. Avviare un'altra finestra del browser e testare l’URL: `http://<frontend ip address>/video/`.
 
 1. Verificare di essere indirizzati al server video (vm2).
 
@@ -317,33 +317,33 @@ In questa attività si implementa un gateway di app Azure lication davanti a due
 
 ## Pulire le risorse
 
-Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare le risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
 
-+ Nella portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse, **Immettere il nome** del gruppo** di risorse e quindi fare clic su **Elimina**.
-+ Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
++ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
 
-Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può essere utile anche in aree non coperte nel lab o dove occorrono altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Dedicare qualche minuto alla prova di queste richieste.
 
-+ Confrontare e confrontare Azure Load Balancer con il gateway di app Azure lication.
-+ Come è possibile risolvere i problemi di connettività in ingresso a un'istanza di Azure Load Balancer?
-+ Quali sono i passaggi di base per la configurazione del gateway di app Azure lication?
-+ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere queste colonne: protocolli supportati, bilanciamento del carico privato, bilanciamento del carico globale, criteri di routing, ambienti supportati, svuotamento Connessione ion, affinità di sessione, bilanciamento del carico basato su host e percorso, offload TLS, accelerazione del sito, sicurezza, memorizzazione nella cache e compressione.
++ Confrontare e contrapporre Azure Load Balancer con gateway applicazione di Azure.
++ Come è possibile risolvere i problemi di connettività in ingresso di Azure Load Balancer?
++ Quali sono i passaggi di base per la configurazione di gateway applicazione di Azure?
++ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere le colonne: Protocolli supportati, Bilanciamento del carico privato, Bilanciamento del carico globale, Criteri di routing, Ambienti supportati, Svuotamento della connessione, Affinità di sessione, Bilanciamento del carico basato su host e percorso, Offload TLS, Accelerazione del sito, Sicurezza, Memorizzazione nella cache e Compressione.
 
 ## Altre informazioni con la formazione autogestita
 
-+ [Migliorare la scalabilità e la resilienza delle applicazioni usando Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). Presentazione dei diversi servizi di bilanciamento del carico in Azure e di come scegliere la soluzione di bilanciamento del carico di Azure appropriata per soddisfare i requisiti.
-+ [Bilanciare il carico del traffico del servizio Web con gateway applicazione](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). È possibile migliorare la resilienza dell'applicazione distribuendo il carico tra più server e usare il routing basato sul percorso per indirizzare il traffico Web.
++ [Migliorare la scalabilità e la resilienza delle applicazioni tramite Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). Presentazione dei diversi servizi di bilanciamento del carico in Azure e di come scegliere la soluzione di bilanciamento del carico di Azure appropriata per soddisfare i requisiti.
++ [Bilanciare il carico del traffico del servizio Web con il gateway applicazione](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). È possibile migliorare la resilienza dell'applicazione distribuendo il carico tra più server e usare il routing basato sul percorso per indirizzare il traffico Web.
 
 ## Punti chiave
 
-Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab.
+Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo lab.
 
-+ Azure Load Balancer è un'ottima scelta per distribuire il traffico di rete tra più macchine virtuali a livello di trasporto (livello OSI 4 - TCP e UDP).
++ Al livello di trasporto (livello OSI 4 - TCP e UDP), Azure Load Balancer è un'ottima scelta per distribuire il traffico di rete tra più macchine virtuali.
 + Si usano i bilanciamenti del carico pubblici per bilanciare il carico del traffico Internet verso le macchine virtuali. Il bilanciamento del carico interno (o privato) viene usato se gli indirizzi IP privati sono necessari solo sul front-end.
-+ Il servizio di bilanciamento del carico Basic è destinato alle applicazioni su scala ridotta che non necessitano di disponibilità elevata o ridondanza. Il servizio di bilanciamento del carico Standard è per prestazioni elevate e latenza ultra bassa.
++ Il bilanciamento del carico Basic è destinato ad applicazioni su scala ridotta che non necessitano di disponibilità elevata o ridondanza. Il bilanciamento del carico Standard è finalizzato per prestazioni elevate e latenza ultra bassa.
 + Il gateway applicazione di Azure è un servizio di bilanciamento del carico del traffico Web (livello OSI 7) che consente di gestire il traffico verso le applicazioni Web.
-+ Il livello gateway applicazione Standard offre tutte le funzionalità L7, incluso il bilanciamento del carico, il livello WAF aggiunge un firewall per verificare la presenza di traffico dannoso.
-+ Un gateway applicazione può prendere decisioni di routing basate su attributi aggiuntivi di una richiesta HTTP, ad esempio percorso URI o intestazioni host.
++ Il livello Standard di gateway applicazione offre tutte le funzionalità L7, incluso il bilanciamento del carico. Il livello WAF aggiunge un firewall per verificare la presenza di traffico dannoso.
++ Un gateway applicazione può prendere decisioni di routing basate su attributi aggiuntivi di una richiesta HTTP, ad esempio il percorso URI o le intestazioni host.
