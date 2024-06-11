@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 07: Gestire l''archiviazione di Azure'
+  title: 'Lab 07: Gestire Archiviazione di Azure'
   module: Administer Azure Storage
 ---
 
@@ -51,7 +51,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
     | Subscription          | nome della sottoscrizione di Azure  |
     | Gruppo di risorse        | **az104-rg7** (create new) |
     | Nome account di archiviazione  | Qualsiasi nome univoco globale composto da 3-24 lettere e numeri |
-    | Area                | **(Stati Uniti) Stati Uniti orientali**  |
+    | Paese                | **(Stati Uniti) Stati Uniti orientali**  |
     | Prestazioni           | **Standard** (si noti l'opzione Premium) |
     | Ridondanza            | **Archiviazione** con ridondanza geografica (si notino le altre opzioni)|
     | Rendere l'accesso in lettura ai dati in caso di disponibilità a livello di area | Selezionare la casella |
@@ -60,7 +60,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
 
 1. **Nella scheda Avanzate** usare le icone informative per altre informazioni sulle scelte. Accettare le impostazioni predefinite. 
 
-1. Nella **scheda Rete** esaminare le opzioni disponibili, selezionare **Disabilita l'accesso pubblico e usare l'accesso privato.**
+1. Nella **scheda Rete** esaminare le opzioni disponibili, selezionare **Disabilita l'accesso pubblico e usare l'accesso** privato.
 
 1. Esaminare la **scheda Protezione dati** . Si noti che 7 giorni è il criterio di conservazione predefinito per l'eliminazione temporanea. Si noti che è possibile abilitare il controllo delle versioni dei BLOB. Accettare i valori predefiniti.
 
@@ -72,7 +72,7 @@ In questa attività si creerà e si configurerà un account di archiviazione. L'
 
 1. Esaminare il pannello **Panoramica** e le configurazioni aggiuntive che è possibile modificare. Si tratta di impostazioni globali per l'account di archiviazione. Si noti che l'account di archiviazione può essere usato per contenitori BLOB, condivisioni file, code e tabelle.
 
-1. Dalla sezione **Sicurezza e rete** selezionare **Rete**. Si noti che l'accesso alla rete pubblica è disabilitato.
+1. **Nella sezione Sicurezza e rete** selezionare **Rete**. Si noti che l'accesso alla rete pubblica è disabilitato.
 
     + Modificare il **livello** di accesso pubblico su **Abilitato da reti virtuali e indirizzi** IP selezionati.
     + **Nella sezione Firewall** selezionare la casella **Aggiungi l'indirizzo IP del client.**
@@ -182,7 +182,7 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 1. Fare clic su **+ Condivisione** file e nella **scheda Informazioni di base** assegnare alla condivisione file un nome, `share1`. 
 
-1. Si notino le **opzioni di livello** . Mantenere ottimizzata la transazione predefinita****.
+1. Si notino le **opzioni del livello** di accesso. Mantenere ottimizzata la transazione predefinita****.
    
 1. Passare alla scheda Backup** e verificare che **l'opzione **Abilita backup** non** sia **selezionata. Il backup viene disabilitato per semplificare la configurazione del lab.
 
@@ -192,7 +192,7 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 ### Esplorare Archiviazione Browser e caricare un file
 
-1. Tornare all'account di archiviazione e selezionare **Archiviazione Browser**. Il browser Archiviazione di Azure è uno strumento del portale che consente di visualizzare rapidamente tutti i servizi di archiviazione nell'account.
+1. Tornare all'account di archiviazione e selezionare **Archiviazione browser**. Il browser Archiviazione di Azure è uno strumento del portale che consente di visualizzare rapidamente tutti i servizi di archiviazione nell'account.
 
 1. Selezionare **Condivisioni** file e verificare che la **directory share1** sia presente.
 
@@ -212,11 +212,11 @@ In questa attività verranno create e configurate condivisioni file di Azure. Si
 
 1. Attendere la distribuzione della rete virtuale e quindi selezionare **Vai alla risorsa**.
 
-1. **Nella sezione Impostazioni** selezionare il **pannello Subnet**.
-    + Selezionare la **subnet predefinita** .
-    + **Nella sezione Endpoint servizio** scegliere **Microsoft.Archiviazione** nell'elenco **a discesa Servizi**.
-    + Non apportare altre modifiche.    
-    + Assicurarsi di **salvare** le modifiche. 
+1. **Nella sezione Impostazioni** selezionare il **pannello Endpoint servizio**.
+    + Selezionare **Aggiungi**. 
+    + Nell'elenco **a discesa Servizi** selezionare **Microsoft.Archiviazione**.
+    + Nell'elenco **a discesa Subnet** selezionare la **subnet Predefinita** .
+    + Fare clic su **Aggiungi** per salvare le modifiche.  
 
 1. Tornare all'account di archiviazione.
 
@@ -245,6 +245,18 @@ Se si usa **la propria sottoscrizione** , è necessario un minuto per eliminare 
 + Uso di Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Uso dell'interfaccia della riga di comando di `az group delete --name resourceGroupName`.
 
+## Estendere l'apprendimento con Copilot
+Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può anche assistere in aree non coperte nel lab o dove sono necessarie altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Per provare queste richieste, richiedere alcuni minuti.
+
++ Fornire uno script di Azure PowerShell per creare un account di archiviazione con un contenitore BLOB. 
++ Fornire un elenco di controllo che è possibile usare per assicurarsi che l'account di archiviazione di Azure sia sicuro.
++ Creare una tabella per confrontare i modelli di ridondanza di Archiviazione di Azure.
+
+## Altre informazioni con la formazione autogestita
+
++ [Ottimizzare i costi con Archiviazione BLOB di Azure](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Informazioni su come ottimizzare i costi con Archiviazione BLOB di Azure.
++ [Controllare l'accesso alle Archiviazione di Azure con firme](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/) di accesso condiviso. Concedere l'accesso ai dati archiviati negli account di archiviazione di Azure in modo sicuro tramite l'uso di firme di accesso condiviso.
+
 ## Punti chiave
 
 Congratulazioni per il completamento del lab. Ecco le principali considerazioni per questo lab. 
@@ -254,8 +266,3 @@ Congratulazioni per il completamento del lab. Ecco le principali considerazioni 
 + L'archiviazione BLOB di Azure consente di archiviare grandi quantità di dati non strutturati nella piattaforma di archiviazione dati di Microsoft. BLOB è l'acronimo di oggetto binario di grandi dimensioni, che include oggetti quali immagini e file multimediali.
 + Il file di Azure Archiviazione fornisce l'archiviazione condivisa per i dati strutturati. I dati possono essere organizzati in cartelle.
 + L'archiviazione non modificabile ti offre la possibilità di archiviare i dati in uno stato WORM (Write Once, Read Many). I criteri di archiviazione non modificabili possono essere basati sul tempo o con blocco legale.
-
-## Altre informazioni con la formazione autogestita
-
-+ [Ottimizzare i costi con Archiviazione BLOB di Azure](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Informazioni su come ottimizzare i costi con Archiviazione BLOB di Azure.
-+ [Controllare l'accesso alle Archiviazione di Azure con firme](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/) di accesso condiviso. Concedere l'accesso ai dati archiviati negli account di archiviazione di Azure in modo sicuro tramite l'uso di firme di accesso condiviso.

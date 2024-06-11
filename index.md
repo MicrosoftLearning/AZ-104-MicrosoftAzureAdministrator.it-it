@@ -13,7 +13,7 @@ I file necessari per il lab possono essere [SCARICATI QUI](https://github.com/Mi
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
 | Modulo | Lab |
 | --- | --- | 
-{% per l'attività nei lab %}| {{ activity.lab.module }} | [{{ activity.lab.title }}{% if activity.lab.type %} - {{ activity.lab.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
+{% for activity in labs  %}| {{ activity.lab.module }} | [{{ activity.lab.title }}{% if activity.lab.type %} - {{ activity.lab.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}
 
 ## Dimostrazioni
@@ -21,5 +21,5 @@ I file necessari per il lab possono essere [SCARICATI QUI](https://github.com/Mi
 {% assign demos = site.pages | where_exp:"page", "page.url contains '/Instructions/Demos'" %}
 | Modulo | Dimostrazione |
 | --- | --- | 
-{% per l'attività nelle demo %}| {{ activity.demo.module }} | [{{ activity.demo.title }}]({{ site.github.url }}{{ activity.url }}) |
+{% for activity in demos  %}| {{ activity.demo.module }} | [{{ activity.demo.title }}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}
