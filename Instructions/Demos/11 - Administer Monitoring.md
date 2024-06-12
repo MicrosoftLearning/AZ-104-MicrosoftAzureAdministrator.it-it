@@ -1,52 +1,52 @@
 ---
 demo:
-  title: 'Dimostrazione 11: monitoraggio Amministrazione ister'
-  module: Administer Monitoring
+    title: 'Demonstration 11: Administer Monitoring'
+    module: 'Administer Monitoring'
 ---
 
-# 11 - Amministrare il monitoraggio
+# 11 - Administer Monitoring
 
-## Configurare gli avvisi di Azure
+## Configure Azure Alerts
 
-In questa dimostrazione verrà creata una regola di avviso.
+In this demonstration, we will create an alert rule.
 
-**Riferimento**: [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric)
+**Reference**: [Create, view, and manage Metric Alerts Using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric)
 
-**Creare una regola di avviso**
+**Create an alert rule**
 
-1. Usare il portale di Azure.
+1. Use the Azure portal.
 
-1. Cercare e selezionare **Monitoraggio** e quindi **Avvisi**.
+1. Search for and select **Monitor** and then **Alerts**.
 
-1. Selezionare un ambito per la regola di avviso. Informazioni su come filtrare in base a sottoscrizione, tipo di risorsa o percorso della risorsa.
+1. Select a scope for the alert rule. Discuss how You can filter by subscription, resource type, or resource location.
 
-1. Impostare le condizioni per la regola di avviso. Illustrare in che modo i segnali definiscono ciò che si vuole misurare. 
+1. Set the conditions for the alert rule. Discuss how signals define what you want to measure. 
 
-1. Impostare le azioni per la regola di avviso. Esaminare i gruppi di azioni e il tipo di notifiche disponibili. 
+1. Set the actions for the alert rule. Review action groups and the type of notifications that are available. 
 
-1. Impostare i dettagli per la regola di avviso. Esaminare i dettagli comuni, ad esempio la gravità. 
+1. Set the details for the alert rule. Review common details like severity. 
 
-1. Completare la configurazione dell'avviso ed esaminare gli avvisi attivati. 
+1. Finish configuring your alert and review any alerts which have fired. 
 
-## Configurare Log Analytics
+## Configure Log Analytics
 
-In questa dimostrazione verrà utilizzato il linguaggio di query di Log Analytics.
+In this demonstration, you will work with the Log Analytics query language.
 
-1. Usare il portale di Azure.
+1. Use the Azure portal.
 
-1. Cercare e selezionare **Monitoraggio** e quindi **Log**.
+1. Search for and select **Monitor** and then **Logs**.
 
-1. Se visualizzato, chiudere la schermata iniziale.
+1. If shown, close the splash screen.
 
-1. Selezionare un ambito e **applicare** le modifiche. 
+1. Select a scope and **apply** your changes. 
 
-1. Esaminare la modalità di organizzazione delle informazioni sui log nelle tabelle. Esplorare diverse tabelle.
+1. Review how log information is organized in tables. Browse several of the tables.
 
-1. Passare alla **scheda query** . Selezionare una query e **caricarla nell'editor**. Informazioni sul numero di query comuni già create.
+1. Move to the **queries** tab. Select a query and **load to editor**. Discuss how many common queries have already been created.
 
-1. Esaminare brevemente la sintassi KQL. 
+1. Briefly review the KQL syntax. 
 
-1. Quando si ha tempo, sperimentare con **** Preferiti e **Query** salvate.
+1. As you have time, experiment with **Favorites** and **Saved Queries**.
 
 
 
