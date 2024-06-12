@@ -1,106 +1,106 @@
 ---
 demo:
-  title: 'Dimostrazione 09: opzioni di calcolo PaaS Amministrazione ister'
-  module: Administer PaaS Compute Options
+    title: 'Demonstration 09: Administer PaaS Compute Options'
+    module: 'Administer PaaS Compute Options'
 ---
 
-# 09 - Opzioni di calcolo PaaS Amministrazione ister
+# 09 - Administer PaaS Compute Options
 
-## Configurare i piani di servizio app di Azure
+## Configure Azure App Service Plans
 
-In questa dimostrazione verranno creati e utilizzati piani di Servizio app di Azure.
+In this demonstration, we will create and work with Azure App Service plans.
 
-**Riferimento**: [Gestire il piano di servizio app - Servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage)
+**Reference**: [Manage App Service plan - Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-plan-manage)
 
-**Riferimento**: [Aumentare le prestazioni di un'app nel servizio app Azure](https://learn.microsoft.com/azure/app-service/manage-scale-up)
+**Reference**: [Scale up an app in Azure App Service](https://learn.microsoft.com/azure/app-service/manage-scale-up)
 
-**Riferimento**: [Scalabilità automatica nel servizio app Azure](https://learn.microsoft.com/azure/app-service/manage-automatic-scaling?tabs=azure-portal)
+**Reference**: [Automatic scaling in Azure App Service](https://learn.microsoft.com/azure/app-service/manage-automatic-scaling?tabs=azure-portal)
 
-1. Usare il portale di Azure. 
+1. Use the Azure portal. 
 
-1. Cercare e selezionare ** servizio app piani**.
+1. Search for and select **App Service plans**.
 
-1. Creare un piano servizio app semplice. Discutere la necessità di selezionare Windows o Linux. Discutere i piani tariffari ora o nei passaggi successivi. 
+1. Create a simple App Service plan. Discuss the need to select Windows or Linux. Discuss pricing plans now or in the next steps. 
 
-1. Distribuire il nuovo piano di servizio app. 
+1. Deploy your new app service plan. 
 
-1. Esaminare il **pannello Aumento delle prestazioni (piano servizio app).** Illustrare la differenza tra **i piani di sviluppo/test** e **produzione** . Esaminare l'elenco delle funzionalità. 
+1. Review the **Scale up (App Service Plan)** blade. Discuss the difference between **Dev/Test** and **Production** plans. Review the feature list. 
 
-1. Esaminare il pannello **Scale out (piano servizio app).** Esaminare la differenza tra **Manuale** e **Basato su** regole. 
+1. Review the **Scale out (App Service Plan)** blade. Review the difference between **Manual** and **Rule-based**. 
 
-## Configurare i servizi app di Azure
+## Configure Azure App Services
 
-In questa dimostrazione verrà creata una nuova app Web che esegue un contenitore Docker. Il contenitore visualizza un messaggio di benvenuto.
+In this demonstration, we will create a new web app that runs a Docker container. The container displays a Welcome message.
 
-**Riferimento**: [Creare un'app Web](https://learn.microsoft.com/training/modules/host-a-web-app-with-azure-app-service/3-exercise-create-a-web-app-in-the-azure-portal?pivots=csharp)
+**Reference**: [Create a Web App](https://learn.microsoft.com/training/modules/host-a-web-app-with-azure-app-service/3-exercise-create-a-web-app-in-the-azure-portal?pivots=csharp)
 
-In questa attività verrà creata un'app Web del servizio app Azure.
+In this task, we will create an Azure App Service Web App.
 
-1. Usare il portale di Azure. 
+1. Use the Azure portal. 
 
-1. Cercare e selezionare ** servizio app s**.
+1. Search for and select **App Services**.
 
-1. **Creare** un'app**** Web.
+1. **Create** a **Web App**.
 
-    - Pubblica: **codice**. Rivedere le altre scelte.
-    - Stack di runtime: **.Net**. Rivedere le altre scelte.
-    - Sistema operativo: **Linux**
+    - Publish: **Code**. Review other choices.
+    - Runtime stack: **.Net**. Review other choices.
+    - Operating system: **Linux**
 
-1. Selezionare il **piano di servizio F1** gratuito.
+1. Select the **Free F1** service plan.
 
-1. **Rivedi e crea** l'app Web. Attendere la distribuzione della risorsa.
+1. **Review + create** the web app. Wait for the resource to deploy.
 
-1. **Nella pagina Panoramica** verificare che lo **stato** sia **in esecuzione**.
+1. On the **Overview** page, ensure the **Status** is **Running**.
 
-1. Selezionare l'URL **** e assicurarsi che la pagina segnaposto predefinita venga caricata.
+1. Select the **URL** and ensure the default placeholder page loads.
 
-1. Quando si ha tempo, esplorare le **opzioni Slot** di distribuzione.
+1. As you have time, explore the **Deployment slots** options.
    
-## Configurare Istanze di Azure Container
+## Configure Azure Container Instances
 
-In questa dimostrazione viene creato, configurato e distribuito un contenitore usando Istanze di Azure Container (ACI) dal portale di Azure. L'applicazione ACI visualizza una pagina HTML statica con l'immagine Microsoft Hello World pubblica. 
+In this demonstration we create, configure, and deploy a container by using Azure Container Instances (ACI) from the Azure Portal. The ACI application displays a static HTML page with the public Microsoft Hello World image. 
 
-**Riferimento**: Guida introduttiva - [Distribuire un contenitore Docker nell'istanza del contenitore](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal)
+**Reference**: [Quickstart - Deploy Docker container to container instance](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal)
 
-1. Usare il portale di Azure.
+1. Use the Azure portal.
 
-1. Cercare e selezionare **Istanze** di Contenitore.
+1. Search for and select **Container instances**.
 
-1. **Creare** una nuova istanza del contenitore. 
+1. **Create** a new container instance. 
 
-1. Compilare il **gruppo** di risorse e **il nome** del contenitore. 
+1. Fill in the **Resource group** and **Container name**. 
 
-1. Discutere le **opzioni origine** immagine. Usare immagini **** di avvio rapido.
+1. Discuss the **Image source** options. Use **Quickstart images**.
 
-1. Per l'immagine del contenitore usare mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux).For **Container image** use **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)**. In questa immagine Linux di esempio è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
+1. For **Container image** use **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)**. This sample Linux image packages a small web app written in Node.js that serves a static HTML page.
 
-1. Nella pagina **Rete** specificare un'**etichetta del nome DNS** per il contenitore. 
+1. On the **Networking** page, specify a **DNS name label** for your container. 
 
-1. Lasciare tutte le altre impostazioni predefinite, quindi selezionare **Rivedi e crea**.
+1. Leave all other settings as their defaults, then select **Review + create**.
 
-1. Attendere la distribuzione della risorsa.
+1. Wait for the resource to deploy.
 
-1. **Nella pagina Panoramica** della risorsa verificare che lo **stato** sia **in esecuzione**.
+1. On the **Overview** page for the resource, ensure the **Status** is **Running**.
 
-1. Passare al **nome di dominio completo** per l'istanza del contenitore e assicurarsi che venga visualizzata la pagina iniziale. 
+1. Navigate to the **FQDN** for the container instance and ensure the welcome page displays. 
 
-**Nota**: per evitare costi aggiuntivi, eliminare la risorsa. 
+**Note**: To avoid additional costs, delete the resource. 
 
-## Configurare le app di Azure Container
+## Configure Azure Container Apps
 
-In questa dimostrazione si creerà e si lavorerà con App Azure Container. 
+In this demonstration, we will create and work with Azure Container Apps. 
 
-**Riferimento**: Guida introduttiva: [Distribuire la prima app contenitore usando il portale di Azure](https://learn.microsoft.com/azure/container-apps/quickstart-portal)
+**Reference**: [Quickstart: Deploy your first container app using the Azure portal](https://learn.microsoft.com/azure/container-apps/quickstart-portal)
 
-1. Cercare e selezionare **App** contenitore.
+1. Search for and select **Container Apps**.
 
-1. Completare i dettagli** del **progetto e creare l'ambiente** delle app **contenitore.
+1. Complete the **Project details** and create the container apps **environment**.
 
-1. **Esaminare e creare** l'app contenitore.
+1. **Review and create** the container app.
 
-1. Usare il **collegamento URL** applicazione per visualizzare l'applicazione.
+1. Use the **Application URL** link to view your application.
 
-1. Verificare che nel browser sia visualizzato il **messaggio Benvenuto in App** Azure Container. 
+1. Verify the browser displays the **Welcome to Azure Container Apps** message. 
 
 
 

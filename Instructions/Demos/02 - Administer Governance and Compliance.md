@@ -1,111 +1,112 @@
 ---
+
 demo:
-  title: 'Dimostrazione 02: governance e conformità Amministrazione ister'
-  module: Administer Governance and Compliance
+    title: 'Demonstration 02: Administer Governance and Compliance'
+    module: 'Administer Governance and Compliance'
 ---
 
-# 02 - Governance e conformità Amministrazione ster
+# 02 - Administer Governance and Compliance
 
-## Configurare le sottoscrizioni
+## Configure Subscriptions
 
-Per questa area non è disponibile una dimostrazione formale. 
+This area does not have a formal demonstration. 
 
-**Riferimento**: [Creare una sottoscrizione di Azure aggiuntiva](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+**Reference**: [Create an additional Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
 
-## Configurare Criteri di Azure
+## Configure Azure Policy
 
-In questa dimostrazione verranno applicati i criteri di Azure.
+In this demonstration, we will work with Azure policies.
 
-**Riferimento**: Esercitazione: [Creare criteri per applicare la conformità - Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Reference**: [Tutorial: Build policies to enforce compliance - Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Assegnare un criterio**
+**Assign a policy**
 
-1.  Accedere al portale di Azure.
+1.  Access the Azure portal.
 
-2.  Cercare e selezionare **Criteri**.
+2.  Search for and select **Policy**.
 
-3.  Selezionare **Assegnazioni **e quindi **Assegna criterio**.
+3.  Select **Assignments** and then **Assign Policy**.
 
-5.  Discutere l'ambito **** che determina le risorse o il raggruppamento delle risorse a cui viene applicata l'assegnazione dei criteri.
+5.  Discuss the **Scope** which determines what resources or grouping of resources the policy assignment is enforced on.
 
-6.  Selezionare i **puntini di sospensione per la definizione** dei criteri per aprire l'elenco delle definizioni disponibili. Esaminare le definizioni di criteri predefinite.
+6.  Select the **Policy definition** ellipsis to open the list of available definitions. Take some time to review the built-in policy definitions.
 
-7.  Cercare e selezionare il **criterio Percorsi** consentiti. Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse.
+7.  Search for and select the **Allowed locations** policy. This policy enables you to restrict the locations your organization can specify when deploying resources.
 
-8.  Spostare la **scheda Parametri** e selezionare una o più posizioni consentite nell'elenco a discesa.
+8.  Move the **Parameters** tab and using the drop-down select one or more allowed locations.
 
-9.  Fare clic su Rivedi e crea ** e quindi **su**Crea** per creare i criteri.
+9.  Click **Review + create** and then **Create** to create the policy.
 
-**Creare e assegnare una definizione di iniziativa**
+**Create and assign an initiative definition**
 
-1.  Tornare alla pagina Criteri di Azure e selezionare **Definizioni** in Creazione.
+1.  Return to the Azure Policy page and select **Definitions** under Authoring.
 
-2.  Selezionare **Definizione** iniziativa nella parte superiore della pagina.
+2.  Select **Initiative Definition** at the top of the page.
 
-3.  Specificare un nome ** e **una**descrizione**.
+3.  Provide a **Name** and **Description**.
 
-4.  **Crea nuova** categoria.
+4.  **Create new** Category.
 
-5.  Nel pannello **destro Aggiungere** i **criteri Percorsi** consentiti.
+5.  From the right panel **Add** the **Allowed locations** policy.
 
-6.  Aggiungere un criterio aggiuntivo di propria scelta.
+6.  Add one additional policy of your choosing.
 
-7.  **Salvare** le modifiche e quindi **Assegnare** la definizione dell'iniziativa alla sottoscrizione.
+7.  **Save** your changes and then **Assign** your initiative definition to your subscription.
 
-**Verificare la conformità**
+**Check for compliance**
 
-1.  Tornare alla pagina di servizio Criteri di Azure.
+1.  Return to the Azure Policy service page.
 
-2.  Selezionare **Conformità**.
+2.  Select **Compliance**.
 
-3.  Esaminare lo stato dei criteri e la definizione.
+3.  Review the status of your policy and your definition.
 
-**Verificare se sono presenti attività di correzione**
+**Check for remediation tasks**
 
-1.  Tornare alla pagina di servizio Criteri di Azure.
+1.  Return to the Azure Policy service page.
 
-2.  Selezionare Correzione ****.
+2.  Select **Remediation**.
 
-3.  Esaminare tutte le attività di correzione elencate.
+3.  Review any remediation tasks that are listed.
 
-4. Quando si ha tempo, rimuovere i criteri e l'iniziativa. 
+4. As you have time, remove the policy and the initiative. 
 
-## Configurare il controllo degli accessi in base al ruolo
+## Configure Role-Based Access Control
 
-In questa dimostrazione verranno trattate le assegnazioni di ruolo.
+In this demonstration, we will learn about role assignments.
 
-**Riferimento**: Esercitazione: [Concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+**Reference**: [Tutorial: Grant a user access to Azure resources using the Azure portal - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-**Riferimento**: Guida introduttiva - [Controllare l'accesso per un utente alle risorse di Azure - Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+**Reference**: [Quickstart - Check access for a user to Azure resources - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
-**Individuare il riquadro Controllo di accesso**
+**Locate Access Control blade**
 
-1.  Accedere al portale di Azure e selezionare un gruppo di risorse. Prendere nota del gruppo di risorse in uso.
+1.  Access the Azure portal and select a resource group. Make a note of what resource group you use.
 
-2.  Selezionare il pannello ** Controllo di accesso (IAM).** 
+2.  Select the **Access Control (IAM)** blade.
 
-3.  Questo pannello sarà disponibile per molte risorse diverse, in modo da poter controllare le autorizzazioni.
+3.  This blade will be available for many different resources so you can control permissions.
 
-**Esaminare le autorizzazioni dei ruoli**
+**Review role permissions**
 
-1.  Selezionare la **scheda Ruoli** (in alto).
+1.  Select the **Roles** tab (top).
 
-1.  Esaminare il numero elevato di ruoli predefiniti disponibili.
+1.  Review the large number of built-in roles that are available.
 
-1.  Fare doppio clic su un ruolo e quindi selezionare **Autorizzazioni**  (in alto).
+1.  Double-click a role, and then select **Permissions** (top).
 
-1.  Continuare a eseguire il drill-in del ruolo fino a quando non è possibile visualizzare le **azioni Lettura, Scrittura ed Eliminazione** per tale ruolo.
+1.  Continue drilling into the role until you can view the **Read, Write, and Delete** actions for that role.
 
-1.  Tornare al ** pannello Controllo di accesso (IAM).** 
+1.  Return to the **Access Control (IAM)** blade.
 
-**Aggiungere un'assegnazione di ruolo**
+**Add a role assignment**
 
-1.  Creare un utente o selezionare un utente esistente.
+1.  Create a user or select an existing user.
 
-1.  Selezionare **Aggiungi assegnazione di** ruolo e selezionare un ruolo. Ad esempio, *proprietario*.
+1.  Select **Add role assignment** and select a role. For example, *owner*.
 
-1.  Selezionare **Controlla accesso**.
+1.  Select **Check access**.
 
-1.  Esaminare le autorizzazioni utente.
+1.  Review the user permissions.
 
-1.  Si noti che è possibile **negare le assegnazioni**.
+1.  Note that you can **Deny assignments**.
