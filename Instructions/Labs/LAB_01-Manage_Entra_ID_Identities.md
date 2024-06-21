@@ -122,7 +122,7 @@ In questa attività si crea un account di gruppo. Gli account di gruppo possono 
 
 1. Selezionare **Nessun proprietario selezionato**.
 
-1. Nella pagina **Aggiungi proprietari** cercare e **selezionare** se stessi come proprietario. Si noti che è possibile avere più di un proprietario. 
+1. **Nella pagina Aggiungi proprietari** cercare e **selezionare** se stessi (visualizzati nell'angolo in alto a destra) come proprietario. Si noti che è possibile avere più di un proprietario. 
 
 1. Selezionare **Nessun membro selezionato**.
 
@@ -138,10 +138,10 @@ In questa attività si crea un account di gruppo. Gli account di gruppo possono 
    
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche un minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
   
 
