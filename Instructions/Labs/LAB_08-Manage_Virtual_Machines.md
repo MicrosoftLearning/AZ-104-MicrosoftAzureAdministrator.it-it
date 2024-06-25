@@ -240,20 +240,13 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Opzioni di bilanciamento del carico | **Azure Load Balancer** |
     | Selezionare un servizio di bilanciamento del carico | **Creare un servizio di bilanciamento del carico** |
 
-1. Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su **Crea** e quindi su **Avanti: Ridimensionamento >**.
+1. Nella pagina **Crea un servizio di bilanciamento del carico** specificare il nome del servizio di bilanciamento del carico e accettare le impostazioni predefinite. Al termine, fare clic su Crea e quindi su ****Avanti : Gestione >**.**
 
     | Impostazione | Valore |
     | --- | --- |
     | Nome del servizio di bilanciamento del carico | `vmss-lb` |
 
     >**Nota:** Sospendere per un minuto ed esaminare le operazioni eseguite. A questo punto, è stato configurato il set di scalabilità di macchine virtuali con dischi e rete. Nella configurazione di rete è stato creato un gruppo di sicurezza di rete ed è stato consentito l’HTTP. È stato anche creato un servizio di bilanciamento del carico con un indirizzo IP pubblico.
-
-1. Nella scheda **Ridimensionamento** specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti) e fare clic su **Avanti: Gestione >**:
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Numero di istanze iniziale | `2` |
-    | Criteri di ridimensionamento | **Manualee** |
 
 1. Nella scheda **Gestione** specificare le impostazioni seguenti (lasciare gli altri con i valori predefiniti):
 
@@ -277,7 +270,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Selezionare **Vai alla risorsa** o cercare e selezionare il set di scalabilità **vmss1**.
 
-1. Scegliere **Proporzioni** dal menu nella parte sinistra della finestra del set di scalabilità.
+1. Scegliere **Disponibilità e ridimensionamento dal menu a sinistra, quindi scegliere **Ridimensionamento****.
 
 >**Suggerimenti utili** È possibile eseguire il **Ridimensionamento manuale** o la **Scalabilità automatica personalizzata**. Nei set di scalabilità con un numero ridotto di istanze di macchine virtuali, l'aumento o la riduzione del numero di istanze (scalabilità manuale) può essere ottimale. Nei set di scalabilità con un numero elevato di istanze di macchine virtuali, il ridimensionamento in base alle metriche (scalabilità automatica personalizzata) può essere più appropriato.
 

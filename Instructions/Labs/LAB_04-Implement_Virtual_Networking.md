@@ -71,9 +71,9 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
 
     |  **Opzione**         | **valore**            |
     | ------------------ | -------------------- |
-    | Spazio indirizzi IPv4 | `10.20.0.0/16` (separare le voci)    |
+    | Spazio indirizzi IPv4 | Sostituire lo spazio indirizzi IPv4 prepopolato con `10.20.0.0/16` (separare le voci)  |
 
-1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. 
+1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. Assicurarsi di eliminare la subnet predefinita, prima o dopo la creazione delle altre subnet.
 
     | **Subnet**             | **Opzione**           | **valore**              |
     | ---------------------- | -------------------- | ---------------------- |
@@ -338,10 +338,10 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
