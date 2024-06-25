@@ -124,7 +124,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Tornare al pannello **Slot di distribuzione**, quindi selezionare **Scambia**.
 
-1. Analizzare le impostazioni predefinite e cliccare su **Scambia**.
+1. Esaminare le impostazioni predefinite e fare clic su **Avvia scambio**.
 
 1. Nel pannello **Panoramica** dell'app Web selezionare il collegamento **Dominio predefinito** per visualizzare la home page del sito Web.
 

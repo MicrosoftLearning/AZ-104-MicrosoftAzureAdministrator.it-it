@@ -20,7 +20,7 @@ L'organizzazione segmenta le app e i servizi IT principali (come i servizi DNS e
 
 ## Simulazioni interattive del lab
 
-Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
+Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
 
 + [Connettere due reti virtuali di Azure usando il peering di reti virtuali globale](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering). Testare la connessione tra due macchine virtuali in reti virtuali diverse. Creare un peering di reti virtuali ed effettuare un nuovo test.
 
@@ -169,38 +169,21 @@ In questa attività viene creato un peering di reti virtuali per abilitare le co
 
 1. In CoreServicesVnet, in **Impostazioni** selezionare **Peer**.
 
-1. In CoreServicesVnet | Peer selezionare **+ Aggiungi**.
-
-1. Usare le informazioni nella tabella seguente per creare il peering.
+1. In CoreServicesVnet | Peer selezionare **+ Aggiungi**. Se non specificato, accettare il valore predefinito. 
 
 | **Parametro**                                    | **valore**                             |
-| --------------------------------------------- | ------------------------------------- |
-| **Questa rete virtuale**                                       |                                       |
+| --------------------------------------------- | ------------------------------------- |                                
 | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
-| Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
-| Consentire al gateway in CoreServicesVnet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
-| Abilitare CoreServicesVnt per l'uso del gateway remoto delle reti virtuali con peering       | Non selezionato (impostazione predefinita)                        |
-| **Rete virtuale remota**                                   |                                       |
-| Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
-| Modello di distribuzione della rete virtuale              | **Resource Manager**                      |
-| Conosco l'ID della risorsa                         | Non selezionato                          |
-| Subscription                                  | *sottoscrizione in uso*    |
-| Rete virtuale                               | **ManufacturingVnet**                     |
+| Rete virtuale    | **ManufacturingVM-net (az104-rg5)**  |
 | Consentire a ManufacturingVnet di accedere a CoreServicesVnet  | selezionato (impostazione predefinita)                       |
 | Consentire a ManufacturingVnet di ricevere traffico inoltrato da CoreServicesVnet | Opzione selezionata                        |
-| Consentire al gateway in CoreServicesVnet di inoltrare il traffico alla rete virtuale con peering | Non selezionato (impostazione predefinita) |
-| Abilitare ManufacturingVnet per l'uso del gateway remoto di CoreServicesVnet       | Non selezionato (impostazione predefinita)                        |
+| Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
+| Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
+| Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
 
-1. Rivedere le impostazioni e selezionare **Aggiungi**.
-
-![Screenshot della pagina di peering.](../media/az104-lab05-peering.png)
-
- 
 1. In CoreServicesVnet | Peer verificare che il peering **CoreServicesVnet-to-ManufacturingVnet** sia elencato. Aggiornare la pagina per assicurarsi che lo **stato del peering** sia **Connesso**.
 
 1. Passare a **ManufacturingVnet** e verificare che il peering **ManufacturingVnet-to-CoreServicesVnet** sia elencato. Verificare che lo **stato del peering** sia **Connesso**. Può essere necessario **aggiornare** la pagina. 
-
 
 ## Attività 5: Usare Azure PowerShell per testare la connessione tra macchine virtuali
 
@@ -281,10 +264,10 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot

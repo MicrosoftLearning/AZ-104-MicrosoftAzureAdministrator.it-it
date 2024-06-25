@@ -41,6 +41,8 @@ In questa attività verranno creati e configurati account utente. Gli account ut
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
+1. Per passare al portale, selezionare **Annulla** nella **schermata iniziale di Benvenuto in Azure** . 
+
     >**Nota:** Il portale di Azure viene usato in tutti i lab. Se non si ha una versione di Azure, cercare e selezionare `Quickstart Center`. Prendersi alcuni minuti per guardare il video **Guida introduttiva al portale di Azure**. Anche se in precedenza è stato usato il portale, sono disponibili alcuni suggerimenti e trucchi per esplorare e personalizzare l'interfaccia.
     
 1. Cercare e selezionare `Microsoft Entra ID`. Microsoft Entra ID è una soluzione di gestione delle identità e degli accessi basata sul cloud di Azure. Prendersi alcuni minuti per acquisire familiarità con alcune delle funzionalità elencate nel riquadro a sinistra. 
@@ -49,7 +51,9 @@ In questa attività verranno creati e configurati account utente. Gli account ut
 
     >**Suggerimenti utili** Un tenant è un'istanza specifica di Microsoft Entra ID contenente account e gruppi. A seconda della situazione, è possibile creare più tenant e **passare** da un tenant all'altro. 
 
-1. Tornare alla pagina **Entra ID** e selezionare **Licenze**. Da qui è possibile acquistare una licenza, gestire le licenze disponibili e assegnare le licenze a utenti e gruppi. Selezionare **Funzionalità con licenza** per vedere quali sono disponibili.
+1. Tornare alla **pagina Entra ID** premendo indietro nel browser o selezionando l'opzione nel menu di navigazione.
+
+1. Selezionare **Licenze**. Da qui è possibile acquistare una licenza, gestire le licenze disponibili e assegnare le licenze a utenti e gruppi. Selezionare **Funzionalità con licenza** per vedere quali sono disponibili.
    
 ### Creare un nuovo utente
 

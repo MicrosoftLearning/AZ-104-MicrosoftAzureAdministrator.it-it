@@ -43,13 +43,13 @@ Esistono alcune simulazioni di lab interattive che potrebbero risultare utili pe
 ## Competenze mansione
 
 + Attività 1: Implementare i gruppi di gestione.
-+ Attività 2: Esaminare e assegnare un ruolo predefinito di Azure.
-+ Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato.
++ Attività 2. Esaminare e assegnare un ruolo di Azure predefinito.
++ Attività 3. Creare un ruolo Controllo degli accessi in base al ruolo personalizzato.
 + Attività 4: Monitorare le assegnazioni di ruolo con il log attività.
 
 ## Attività 1: Implementare i gruppi di gestione
 
-In questa attività si creeranno e configureranno gruppi di gestione. I gruppi di gestione vengono usati per organizzare logicamente le sottoscrizioni. Le sottoscrizioni devono essere segmentate e consentire l'assegnazione e l'ereditarietà di Criteri di Azure e controllo degli accessi in base al ruolo ad altri gruppi di gestione e sottoscrizioni. Ad esempio, se l'organizzazione ha un team di supporto dedicato per l'Europa, è possibile organizzare le sottoscrizioni europee in un gruppo di gestione per fornire al personale di supporto l'accesso a tali sottoscrizioni (senza fornire l'accesso individuale a tutte le sottoscrizioni). Nello scenario tutti gli utenti dell'Help Desk dovranno creare una richiesta di supporto in tutte le sottoscrizioni. 
+In questa attività si creeranno e configureranno gruppi di gestione. I gruppi di gestione vengono usati per organizzare e segmentare in modo logico le sottoscrizioni. Consentono di assegnare e ereditare il controllo degli accessi in base al ruolo e le Criteri di Azure ad altri gruppi di gestione e sottoscrizioni. Ad esempio, se l'organizzazione ha un team di supporto dedicato per l'Europa, è possibile organizzare le sottoscrizioni europee in un gruppo di gestione per fornire al personale di supporto l'accesso a tali sottoscrizioni (senza fornire l'accesso individuale a tutte le sottoscrizioni). Nello scenario tutti gli utenti dell'Help Desk dovranno creare una richiesta di supporto in tutte le sottoscrizioni. 
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
@@ -151,9 +151,9 @@ In questa attività viene visualizzato il log attività per determinare se qualc
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
 + Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
   
