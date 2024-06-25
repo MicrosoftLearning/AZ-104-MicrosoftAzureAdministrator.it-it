@@ -138,7 +138,7 @@ In questa attività si crea un account di gruppo. Gli account di gruppo possono 
    
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. Si noti che non verranno rimossi gli utenti o i gruppi entra ID creati. 
 
 + Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
 + Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.

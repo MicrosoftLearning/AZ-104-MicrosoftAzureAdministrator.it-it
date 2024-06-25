@@ -9,7 +9,7 @@ lab:
 
 ## Introduzione al lab
 
-Questo lab fornisce informazioni sulle app Web di Azure. Si apprenderà a configurare un'app Web per visualizzare un'applicazione Hello World in un repository GitHub esterno. Si apprenderà a creare uno slot di staging e scambiarlo con lo slot di produzione. Si apprenderà anche la scalabilità automatica per soddisfare le modifiche della domanda.
+Questo lab fornisce informazioni sulle app Web di Azure. Verrà illustrata la configurazione di una app Web in modo che mostri un'applicazione Hello World in un repository GitHub esterno. Si apprenderà a creare uno slot di staging e scambiarlo con lo slot di produzione. Si apprenderà anche la scalabilità automatica per soddisfare le modifiche della domanda.
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando Stati Uniti orientali.
 
@@ -106,7 +106,7 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
 1. Nel campo repository immettere `https://github.com/Azure-Samples/php-docs-hello-world`
 
-1. Nel campo ramo immettere `master`.
+1. Nel campo ramo immettere `main`.
 
 1. Seleziona **Salva**.
 
@@ -159,7 +159,7 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 1. Nella **panoramica** | **Aggiungi richieste HTTP** selezionare **Crea**.
 
-1. Per l'**URL di test**, incollare nell'URL del **dominio predefinito**. Assicurarsi che sia formattato correttamente e inizi con **https://**.
+1. Nella **scheda Piano** di test fare clic su **Aggiungi richiesta**. **Nel campo** URL incollare l'URL **di dominio** predefinito. Assicurarsi che sia formattato correttamente e inizi con **https://**.
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
@@ -171,10 +171,10 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche un minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot

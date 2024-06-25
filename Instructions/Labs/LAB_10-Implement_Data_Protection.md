@@ -27,9 +27,9 @@ L'organizzazione sta valutando come eseguire il backup e il ripristino di macchi
 ## Competenze mansione
 
 + Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
-+ Attività 2: Creare e configurare un insieme di credenziali di Servizi di ripristino.
-+ Attività 3: Configurare il backup a livello di macchina virtuale di Azure.
-+ Attività 4: Monitorare Backup di Azure.
++ Attività 2. Creare e configurare un insieme di credenziali di Servizi di ripristino.
++ Attività 3. Configurare il backup a livello di macchina virtuale di Azure.
++ Attività 4. Monitorare Backup di Azure.
 + Attività 5: Abilitare la replica delle macchine virtuali. 
 
 ## Tempo stimato: 40 minuti
@@ -113,11 +113,9 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
     
     >**Suggerimenti utili** L'opzione [Ripristino tra aree](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore) consente di ripristinare i dati in un'area secondaria abbinata di Azure. 
 
-1. Tornare al pannello Insieme di credenziali di Servizi di ripristino, fare clic sul collegamento **Aggiorna** in **Impostazioni di sicurezza > Eliminazione temporanea e impostazioni di sicurezza**.
+1. Selezionare il **collegamento Aggiorna** in **Impostazioni di sicurezza > etichetta delle impostazioni** di sicurezza e eliminazione temporanea.
 
 1. Nel pannello **Impostazioni di sicurezza** si noti che l'opzione **Eliminazione temporanea (per carichi di lavoro in esecuzione in Azure)** è **abilitata**. Si noti che **periodo di conservazione per l'eliminazione temporanea** è di **14** giorni. 
-
-1. Tornare al pannello Insieme di credenziali di Servizi di ripristino e selezionare il pannello **Panoramica**.
 
 >**Suggerimenti utili** In Azure esistono due tipi di insiemi di credenziali: Insiemi di credenziali di Servizi di ripristino e insiemi di credenziali di Backup. La differenza principale è costituita dalle origini dati di cui è possibile eseguire il backup. Vedere altre informazioni sulle [differenze](https://learn.microsoft.com/answers/questions/405915/what-is-difference-between-recovery-services-vault).
 
@@ -278,10 +276,10 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche un minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
