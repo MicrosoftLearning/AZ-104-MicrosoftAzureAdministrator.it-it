@@ -106,7 +106,7 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
 1. Nel campo repository immettere `https://github.com/Azure-Samples/php-docs-hello-world`
 
-1. Nel campo ramo immettere `main`.
+1. Nel campo ramo immettere `master`.
 
 1. Seleziona **Salva**.
 
