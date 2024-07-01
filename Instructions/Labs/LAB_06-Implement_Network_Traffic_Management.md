@@ -29,7 +29,7 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 ## Competenze mansione
 
 + Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
-+ Attività 2: Configurare un Azure Load Balancer.
++ Attività 2: configurare un Azure Load Balancer.
 + Attività 3: Configurare un gateway applicazione di Azure.
 
 ## Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura
@@ -188,7 +188,8 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | Impostazione | valore |
     | --- | --- |
     | Nome | `subnet-appgw` |
-    | Intervallo di indirizzi subnet | `10.60.3.224/27` |
+    | Indirizzo iniziale| `10.60.3.224` |
+    | Dimensione | `/27` |
 
 1. Fare clic su **Salva**
 
@@ -207,7 +208,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
     | Numero minimo di istanze | `2` |
-    | Zona di disponibilità | **Zona 1** |
+    | Zona di disponibilità | **1** (impostazione predefinita) |
     | HTTP2 | **Disabilitato** |
     | Rete virtuale | **az104-06-vnet1** |
     | Subnet | **subnet-appgw (10.60.3.224/27)** |
@@ -231,8 +232,8 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | --- | --- |
     | Nome | `az104-appgwbe` |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
-    | Macchina virtuale | **az104-rg6-nic1 (10.60.1.4)** |
-    | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** |
+    | Macchina virtuale | **az104-06-nic1 (10.60.1.4)** |
+    | Macchina virtuale | **az104-06-nic2 (10.60.2.4)** |
 
 1. Fare clic su **Aggiungi un pool back-end**. Si tratta del pool back-end per **immagini**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
@@ -240,7 +241,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | --- | --- |
     | Nome | `az104-imagebe` |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
-    | Macchina virtuale | **az104-rg6-nic1 (10.60.1.4)** |
+    | Macchina virtuale | **az104-06-nic1 (10.60.1.4)** |
 
 1. Fare clic su **Aggiungi un pool back-end**. Questo è il pool back-end per **video**. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine, fare clic su **Aggiungi**.
 
@@ -248,7 +249,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | --- | --- |
     | Nome | `az104-videobe` |
     | Aggiunta di uni pool back-end senza destinazioni | **No** |
-    | Macchina virtuale | **az104-rg6-nic2 (10.60.2.4)** |
+    | Macchina virtuale | **az104-06-nic2 (10.60.2.4)** |
 
 1. Selezionare **Avanti: Configurazione >** e quindi **Aggiungi una regola di gestione**. Completare le informazioni.
 
@@ -317,10 +318,10 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot

@@ -103,7 +103,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
 
-1. Nel pannello dell'insieme di credenziali di Servizi di ripristino, nella sezione **Impostazioni** fare clic su **Proprietà**.
+1. Nella **sezione Impostazioni** fare clic su **Proprietà**.
 
 1. Selezionare il collegamento **Aggiorna** in **Configurazione di backup**.
 

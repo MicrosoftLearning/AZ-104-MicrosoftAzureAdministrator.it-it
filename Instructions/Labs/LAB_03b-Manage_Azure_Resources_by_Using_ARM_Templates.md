@@ -33,8 +33,8 @@ Il team vuole esaminare i modi per automatizzare e semplificare le distribuzioni
 ## Competenze mansione
 
 + Attività 1: Creare un modello di Azure Resource Manager.
-+ Attività 2: Modificare un modello di Azure Resource Manager e ridistribuire il modello.
-+ Attività 3: Configurare Cloud Shell e distribuire un modello con Azure PowerShell.
++ Attività 2. Modificare un modello di Azure Resource Manager e ridistribuirlo.
++ Attività 3. Configurare Cloud Shell e distribuire un modello con Azure PowerShell.
 + Attività 4: Distribuire un modello con l'interfaccia della riga di comando. 
 + Attività 5: Distribuire una risorsa usando Azure Bicep.
 
@@ -127,7 +127,7 @@ In questa attività si usa il modello scaricato per distribuire un nuovo disco g
 
 1. Selezionare una distribuzione ed esaminare il contenuto dei pannelli **Input** e **Modello**.
 
-## Attività 3: Configurare Cloud Shell e distribuire un modello con Azure PowerShell
+## Attività 3: Configurare Cloud Shell e distribuire un modello con PowerShell 
 
 In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cloud Shell è un terminale interattivo, autenticato e accessibile dal browser per la gestione delle risorse di Azure. Offre la possibilità di scegliere l'esperienza shell più adatta al proprio modo di lavorare, Bash o PowerShell. In questa attività si usa PowerShell per distribuire un modello. 
 
@@ -139,32 +139,28 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
 
     >**Suggerimenti utili**  Se si lavora principalmente con sistemi Linux, Bash (CLI) risulta più familiare. Se si lavora principalmente con i sistemi Windows, Azure PowerShell risulta più familiare. 
 
-1. Nella schermata **Attività iniziali** selezionare **Montare l'account di archiviazione** e quindi **Voglio creare un account di archiviazione**.  
+1. Nella **schermata Attività iniziali** selezionare **Montare l'account** di archiviazione, selezionare la **sottoscrizione** dell'account di archiviazione e quindi selezionare **Applica**.
 
-    >**Nota:** Per questo lab è necessario un account di archiviazione. Specificare le informazioni necessarie. 
+1. Selezionare **Voglio creare un account** di archiviazione e quindi **Avanti**. Completare le **informazioni su Crea account** di archiviazione. 
     
     | Impostazione | Valori |
     |  -- | -- |
-    | Subscription | *Selezionare la sottoscrizione* |
     | Gruppo di risorse | **az104-rg3** |
     | Paese | *Selezionare l'area* | 
     | Account di archiviazione (crea nuovo) | *deve essere univoco a livello globale, tra 3 e 24 caratteri, e usare solo numeri e lettere minuscole* |
     | Condivisione file (creare nuova) | `fs-cloudshell` |
 
-1. Al termine, selezionare **Avanti**. È sufficiente eseguire questa operazione la prima volta che si usa Cloud Shell. Il provisioning dell'archiviazione richiederà alcuni minuti.
+1. Al termine, selezionare **Crea**.
 
-1. Usare l'icona **Carica/Scarica file** per caricare il file di modelli e parametri dalla directory dei download. Sarà necessario caricare ogni file separatamente.
+    >Il provisioning dell'archiviazione richiederà alcuni minuti.
 
-   >**Nota:** Se in qualsiasi momento viene richiesto di **Passare a Cloud Shell classico**, eseguire questa operazione. 
+1. Selezionare **Impostazioni** (barra superiore) e quindi **Vai alla versione** classica.
 
-1. Verificare che i file siano disponibili nell'archiviazione di Cloud Shell. 
+1. Selezionare l'icona **Carica/Scarica file** (barra superiore) e quindi selezionare **Carica**.
 
-    ```powershell
-    dir
-    ```
-    >**Nota**: Se necessario, è possibile usare **cls** per cancellare la finestra di comando. È possibile usare i tasti di direzione per spostare la cronologia dei comandi.
-   
-1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file JSON del modello.
+1. Caricare sia i file di modello che di parametri dalla **directory Download** . 
+
+1. Selezionare l'icona **Editor (parentesi graffe)** e passare al file JSON del modello a sinistra nel riquadro di spostamento.
 
 1. Apportare una modifica. Ad esempio, modificare il nome del disco in **az104-disk3**. Usare **CTRL+S** per salvare le modifiche. 
 
@@ -251,10 +247,10 @@ In questa attività si userà un file Bicep per distribuire un disco gestito. Bi
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
