@@ -4,7 +4,7 @@
 
 Questo repository è pensato per i docenti dei corsi Microsoft. Se si è in classe, chiedere assistenza al docente. 
 
-- **[Collegamento ai lab (formato HTML)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
+- **[Collegamento ai lab (formato HTML)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator.it-it/)**
 - **Si è un Microsoft Certified Trainer?** - Esaminare la [guida per utenti di GitHub per Microsoft Certified Trainer](https://microsoftlearning.github.io/MCT-User-Guide/)
 - Per visualizzare in anteprima questo corso in un formato autogestito, vedere le **[simulazioni di lab interattive](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator)**. Si potrebbero notare piccole differenza tra le simulazioni interattive e i lab ospitati, ma i concetti e le idee principali dimostrati sono gli stessi.
 
