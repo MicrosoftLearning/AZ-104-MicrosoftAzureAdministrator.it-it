@@ -76,7 +76,7 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
 
 ## Attività 2: Esaminare e assegnare un ruolo predefinito di Azure
 
-In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli predefiniti](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
+, si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli predefiniti](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
 1. Selezionare il gruppo di gestione **az104-mg1**.
 
@@ -129,7 +129,7 @@ In questa attività verrà creato un ruolo controllo degli accessi in base al ru
 
 1. Nell'elenco delle autorizzazioni posizionare una casella di controllo accanto a **Altro: Registra il provider di risorse di supporto** e quindi selezionare **Aggiungi**. Il ruolo deve essere aggiornato per includere questa autorizzazione come *NotAction*.
 
-    >**Nota:** Un provider di risorse di Azure è un set di operazioni REST che consentono la funzionalità per un servizio di Azure specifico. Non vogliamo che l'Help Desk sia in grado di avere questa funzionalità, quindi viene rimossa dal ruolo clonato. È anche possibile selezionare e aggiungere altre funzionalità al nuovo ruolo. 
+    >**Nota:** Un provider di risorse di Azure è un set di operazioni REST che consentono la funzionalità per un servizio di Azure specifico. Non vogliamo che l'Help Desk sia in grado di avere questa funzionalità, quindi viene rimossa dal ruolo clonato. 
 
 1. Nella scheda **Ambiti assegnabili** verificare che il gruppo di gestione sia elencato e quindi fare clic su **Avanti**.
 
