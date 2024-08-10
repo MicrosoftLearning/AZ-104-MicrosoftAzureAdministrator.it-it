@@ -76,7 +76,7 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
 
 ## Attività 2: Esaminare e assegnare un ruolo predefinito di Azure
 
-, si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli predefiniti](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
+In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli predefiniti](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
 1. Selezionare il gruppo di gestione **az104-mg1**.
 
@@ -106,7 +106,7 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
     
 ## Attività 3: Creare un ruolo controllo degli accessi in base al ruolo personalizzato
 
-In questa attività verrà creato un ruolo controllo degli accessi in base al ruolo personalizzato. I ruoli personalizzati sono una parte fondamentale dell'implementazione del principio dei privilegi minimi per un ambiente. I ruoli predefiniti potrebbero avere troppe autorizzazioni per lo scenario. In questa attività verrà creato un nuovo ruolo e verranno rimosse le autorizzazioni non necessarie. Si prevede di gestire le autorizzazioni sovrapposte?
+In questa attività verrà creato un ruolo controllo degli accessi in base al ruolo personalizzato. I ruoli personalizzati sono una parte fondamentale dell'implementazione del principio dei privilegi minimi per un ambiente. I ruoli predefiniti potrebbero avere troppe autorizzazioni per lo scenario. Verrà anche creato un nuovo ruolo e verranno rimosse le autorizzazioni non necessarie. Si prevede di gestire le autorizzazioni sovrapposte?
 
 1. Continuare a lavorare sul gruppo di gestione. Nel pannello **Controllo di accesso (IAM)** selezionare la scheda **Controlla accesso**.
 
@@ -117,7 +117,7 @@ In questa attività verrà creato un ruolo controllo degli accessi in base al ru
     | Impostazione | Valore |
     | --- | --- |
     | Nome del ruolo personalizzato | `Custom Support Request` |
-    | Descrizione | ``Un ruolo collaboratore personalizzato per le richieste di supporto.` |
+    | Descrizione | `A custom contributor role for support requests.` |
 
 1. Per **Autorizzazioni di base** selezionare **Clona un ruolo**. Nel menu a discesa **Ruolo da clonare** selezionare **Collaboratore richiesta di supporto**.
 
