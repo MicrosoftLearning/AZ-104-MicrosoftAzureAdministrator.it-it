@@ -19,15 +19,8 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione sta creando un nuovo ambiente lab per i test di pre-produzione di app e servizi.  Vengono assunti alcuni tecnici per gestire l'ambiente lab, incluse le macchine virtuali. Per consentire ai tecnici di eseguire l'autenticazione tramite Microsoft Entra ID, è stato necessario eseguire il provisioning di utenti e gruppi. Per ridurre al minimo il sovraccarico amministrativo, l'appartenenza ai gruppi deve essere aggiornata automaticamente in base alle posizioni. 
 
-## Simulazione interattiva del lab
-
-Questo lab usa una simulazione interattiva del lab. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
->**Nota:** Questa simulazione viene aggiornata. Microsoft Entra ID è il nuovo nome di Azure Active Directory (Azure AD). 
-
-+ [Gestire identità Entra ID](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201). Creare e configurare gli utenti e assegnarli ai gruppi. Creare un tenant di Azure e gestire gli account guest. 
-
 ## Diagramma dell'architettura
+
 ![Diagramma dell'architettura del lab 01.](../media/az104-lab01-architecture.png)
 
 ## Competenze mansione
