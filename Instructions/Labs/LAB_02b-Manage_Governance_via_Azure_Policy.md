@@ -8,7 +8,7 @@ lab:
 
 ## Introduzione al lab
 
-In questo lab si apprenderà come implementare i piani di governance dell'organizzazione. Si apprenderà come i criteri di Azure possono garantire l'applicazione delle decisioni operative nell'intera organizzazione. Si apprenderà come usare l'assegnazione di tag alle risorse per migliorare la creazione di report. 
+In questo lab si apprenderà come implementare i piani di governance dell'organizzazione. Verrà illustrato come i criteri di Azure possono garantire l'applicazione delle decisioni operative in tutta l'organizzazione. Si apprenderà come usare l'assegnazione di tag alle risorse per migliorare la creazione di report. 
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti orientali**. 
 
@@ -42,9 +42,9 @@ Esistono diverse simulazioni di lab interattive che potrebbero risultare utili p
 
 ## Competenze mansione
 
-+ Attività 1: Creare e assegnare tag tramite il portale di Azure.
-+ Attività 2: Applicare l'assegnazione di tag tramite Criteri di Azure.
-+ Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure.
++ Attività 1. Creare e assegnare tag tramite il portale di Azure.
++ Attività 2. Eseguire l'assegnazione di tag tramite Criteri di Azure.
++ Attività 3. Applicare l'assegnazione di tag tramite Criteri di Azure.
 + Attività 4: Configurare e testare i blocchi delle risorse. 
 
 ## Attività 1: Assegnare tag tramite il portale di Azure
@@ -234,10 +234,10 @@ In questa attività viene configurato e testato un blocco delle risorse. I blocc
     
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
@@ -255,7 +255,7 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 
 Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo lab. 
 
-+ I tag di Azure sono metadati costituiti da una coppia chiave-valore. I tag descrivono una determinata risorsa nell'ambiente. In particolare, l'assegnazione di tag in Azure consente di etichettare le risorse in un manne logico.
++ I tag di Azure sono metadati costituiti da una coppia chiave-valore. I tag descrivono una determinata risorsa nell'ambiente. In particolare, l'assegnazione di tag in Azure consente di etichettare le risorse in modo logico.
 + Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Una condizione confronta un valore o un campo proprietà della risorsa con un valore richiesto. Esistono molte definizioni di criteri predefinite ed è possibile personalizzare i criteri. 
 + La funzionalità di attività di correzione di Criteri di Azure viene usata per rendere le risorse conformi in base a una definizione e un'assegnazione. Le risorse non conformi a un'assegnazione di definizione modify o deployIfNotExist possono essere inserite in conformità usando un'attività di correzione.
 + È possibile configurare un blocco delle risorse in una sottoscrizione, un gruppo di risorse o una risorsa. Il blocco può proteggere una risorsa da eliminazioni e modifiche accidentali dell'utente. Un blocco esegue l'override di tutte le autorizzazioni utente.
