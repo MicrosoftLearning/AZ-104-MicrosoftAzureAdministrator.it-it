@@ -108,9 +108,9 @@ In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo
 
 In questa attività verrà creato un ruolo controllo degli accessi in base al ruolo personalizzato. I ruoli personalizzati sono una parte fondamentale dell'implementazione del principio dei privilegi minimi per un ambiente. I ruoli predefiniti potrebbero avere troppe autorizzazioni per lo scenario. Verrà anche creato un nuovo ruolo e verranno rimosse le autorizzazioni non necessarie. Si prevede di gestire le autorizzazioni sovrapposte?
 
-1. Continuare a lavorare sul gruppo di gestione. Nel pannello **Controllo di accesso (IAM)** selezionare la scheda **Controlla accesso**.
+1. Continuare a lavorare sul gruppo di gestione. Passare al pannello **Controllo di accesso (IAM).**
 
-1. Nella casella **Crea un ruolo personalizzato** selezionare **Aggiungi**.
+1. Selezionare **+ Aggiungi** dal menu a discesa, selezionare **Aggiungi ruolo** personalizzato.
 
 1. Nella scheda Informazioni di base completare la configurazione.
 
