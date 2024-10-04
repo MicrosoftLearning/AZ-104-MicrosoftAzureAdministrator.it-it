@@ -47,7 +47,7 @@ App contenitore di Azure amplia ulteriormente il concetto di cluster Kubernetes 
     | Gruppo di risorse | `az104-rg9` |
     | Nome app contenitore |  `my-app` |
     | Paese    | **Stati Uniti orientali** (oppure un'area disponibile nelle vicinanze) |
-    | Ambiente App contenitore | Lasciare il valore predefinito |
+    | Ambiente App contenitore | Selezionare Crea nuovo > Imposta nome ambiente su **my-environment**** > Create** **** |
 
 1. Nella scheda **Contenitore** assicurarsi che **Usare immagine di avvio rapido** sia abilitata e che l'immagine di avvio rapido sia impostata su **Contenitore semplice Hello World**.
 
@@ -69,10 +69,10 @@ Per impostazione predefinita, l'app contenitore di Azure creata accetterà il tr
    
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personale** dedicare qualche un minuto all’eliminazione delle risorse del lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse del lab consiste nell'eliminazione del gruppo di risorse del lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e quindi fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot

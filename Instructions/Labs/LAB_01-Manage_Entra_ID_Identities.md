@@ -97,7 +97,7 @@ In questa attività verranno creati e configurati account utente. Gli account ut
 
 In questa attività si crea un account di gruppo. Gli account di gruppo possono includere account utente o dispositivi. Questi sono due modi di base in cui i membri vengono assegnati ai gruppi: In modo statico e dinamico. I gruppi statici richiedono agli amministratori di aggiungere e rimuovere i membri manualmente.  I gruppi dinamici vengono aggiornati automaticamente in base alle proprietà di un account utente o di un dispositivo. Ad esempio, la posizione. 
 
-1. Nel portale di Azure, cercare e selezionare `Groups`.
+1. Nel portale di Azure, cercare e selezionare `Microsoft Entra ID`. Nel pannello **Gestisci** selezionare **Gruppi**. 
 
 1. Prendersi un minuto per acquisire familiarità con le impostazioni del gruppo nel riquadro a sinistra.
 
@@ -133,15 +133,6 @@ In questa attività si crea un account di gruppo. Gli account di gruppo possono 
 
 >**Nota:** È possibile gestire un numero elevato di gruppi. L'organizzazione ha un piano per la creazione di gruppi e l'aggiunta di membri?
    
-## Pulire le risorse
-
-Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. Si noti che non verranno rimossi gli utenti o i gruppi entra ID creati. 
-
-+ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
-+ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
-  
-
 ## Estendere l'apprendimento con Copilot
 
 Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può essere utile anche in aree non coperte nel lab o dove occorrono altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Dedicare qualche minuto alla prova di queste richieste.
