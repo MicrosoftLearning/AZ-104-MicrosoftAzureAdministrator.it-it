@@ -18,7 +18,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione globale prevede di implementare reti virtuali. L'obiettivo immediato è quello di contenere tutte le risorse esistenti. Tuttavia, l'organizzazione è in una fase di crescita e vuole garantire una capacità aggiuntiva per la crescita.
 
-La rete virtuale **CoreServicesVnet** ha il maggior numero di risorse. È prevista una forte crescita, quindi è necessario uno spazio degli indirizzi di grandi dimensioni per questa rete virtuale.
+La **rete virtuale CoreServicesVnet** ha il maggior numero di risorse. È prevista una forte crescita, quindi è necessario uno spazio degli indirizzi di grandi dimensioni per questa rete virtuale.
 
 La rete virtuale **ManufacturingVnet** contiene sistemi per le operazioni degli impianti di produzione. L'organizzazione prevede un numero elevato di dispositivi connessi interni per i sistemi da cui recuperare i dati. 
 
@@ -316,14 +316,16 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
 1. Si noti che nel pannello **Panoramica** non sono presenti record del server dei nomi. 
 
-1. Selezionare **+ Collegamenti di rete virtuale** e quindi selezionare **+ Aggiungi**. 
+1. Selezionare **Impostazioni** e quindi **Gestione** DNS.
+
+1. Selezionare **Collegamenti** di rete virtuale e configurare il collegamento. 
 
     | Proprietà | valore    |
     |:---------|:---------|
     | Nome collegamento | `manufacturing-link` |
     | Rete virtuale | `ManufacturingVnet` |
 
-1. Selezionare **OK** e attendere la creazione del collegamento. 
+1. Selezionare **Crea** e attendere la creazione del collegamento. 
 
 1. Nel pannello **Panoramica** selezionare **+ Set di record**. Ora si aggiunge un record per ogni macchina virtuale che richiede il supporto per la risoluzione dei nomi privata.
 
