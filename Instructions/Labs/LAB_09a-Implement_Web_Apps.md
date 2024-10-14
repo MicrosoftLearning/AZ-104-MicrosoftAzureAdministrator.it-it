@@ -60,12 +60,14 @@ In questa attività verrà creata un'app Web di Azure. Servizi app di Azure è u
     | Stack di runtime | **PHP 8.2** |
     | Sistema operativo | **Linux** |
     | Area | **Stati Uniti orientali** |
-    | Piani dei prezzi | accettare i valori predefiniti |
+    | Piani dei prezzi | **Premium V3 P1V3** |
     | Ridondanza della zona | accettare i valori predefiniti |
 
  1. Fare clic su **Rivedi e crea** e quindi su **Crea**.
 
     >**Nota**: Attendere che venga creata l'app Web prima di procedere all'attività successiva. L'operazione dovrebbe richiedere circa un minuto.
+    
+    >**Nota**: se la distribuzione non riesce, passare a un'altra area e riprovare. Ad esempio, passare a **Stati Uniti orientali 2**. 
 
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
