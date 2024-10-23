@@ -176,7 +176,7 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Nella pagina Account di archiviazione selezionare **Crea**.
 
-1. Usare le informazioni seguenti per definire l'account di archiviazione e quindi selezionare **Rivedi**.
+1. Usare le informazioni seguenti per definire l'account di archiviazione e quindi selezionare **Rivedi e crea**.
 
     | Impostazioni | Valore |
     | --- | --- | 
@@ -185,13 +185,13 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
     | Nome account di archiviazione  | Specificare un nome globalmente univoco   |
     | Area geografica                | **Stati Uniti orientali**   |
 
-1. Nella scheda Rivedi selezionare **Crea**.
+1. Seleziona **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione dovrebbe richiedere circa un minuto.
 
 1. Cercare e selezionare l'insieme di credenziali di Servizi di ripristino.
 
-1. Selezionare **Impostazioni di diagnostica** e quindi **Aggiungi impostazione di diagnostica**.
+1. Nel pannello **Monitoraggio** selezionare **Impostazioni** di diagnostica e quindi selezionare **Aggiungi impostazione** di diagnostica.
 
 1. Assegnare il nome `Logs and Metrics to storage` all'impostazione.
 
