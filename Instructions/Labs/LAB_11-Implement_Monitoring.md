@@ -20,7 +20,7 @@ L'organizzazione dell’utente ha eseguito la migrazione della sua infrastruttur
 
 ## Simulazione interattiva del lab
 
-È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
+È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
 
 + [Implementare il monitoraggio.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Creare un'area di lavoro Log Analytics e soluzioni di automazione Azure. Esaminare le impostazioni di monitoraggio e diagnostica per le macchine virtuali. Esaminare la funzionalità di Monitoraggio di Azure e analisi dei log. 
 
@@ -32,7 +32,7 @@ L'organizzazione dell’utente ha eseguito la migrazione della sua infrastruttur
 
 + Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
 + Attività 2: Creare un avviso.
-+ Attività 3: Configurare notifiche e-mail per il gruppo di azioni.
++ Attività 3 : Configurare le notifiche per un gruppo di azioni.
 + Attività 4: Attivare un avviso e accertarsi che funzioni.
 + Attività 5: Creare una regola di elaborazione degli avvisi.
 + Attività 6: Usare query di log di Monitoraggio di Azure.
@@ -157,7 +157,7 @@ In questa attività si attiva l'avviso e si conferma che viene inviata una notif
 
 1. Dalla barra dei menu selezionare **Elimina**.
 
-1. Selezionare la casella **Applica eliminazione forzata**. Immettere `delete` per confermare, quindi selezionare **Elimina**. 
+1. Selezionare la casella **Applica eliminazione forzata**. Selezionare la casella nella parte inferiore che conferma che si vuole eliminare le risorse e selezionare **Elimina**. 
 
 1. Nella barra del titolo, selezionare l'icona **Notifiche** e attendere l'eliminazione di **vm0**.
 
@@ -243,10 +243,10 @@ In questa attività si userà Monitoraggio di Azure per eseguire query sui dati 
 
 ## Pulire le risorse
 
-Se si usa la **sottoscrizione personalizzata** dedicare qualche un minuto all’eliminazione delle risorse lab. In tal modo, vengono liberate risorse e i costi vengono ridotti al minimo. Il modo più semplice per eliminare queste risorse lab consiste nell'eliminazione del gruppo di risorse lab. 
+Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’eliminazione delle risorse del lab. In questo modo le risorse vengono liberate e i costi vengono ridotti al minimo. Il modo più semplice per eliminare le risorse del lab consiste nell'eliminare il gruppo di risorse lab. 
 
-+ Nel portale di Azure, selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse** e fare clic su **Elimina**.
-+ Usando Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Nel portale di Azure selezionare il gruppo di risorse, selezionare **Elimina il gruppo di risorse**, **Immettere il nome del gruppo di risorse**, quindi fare clic su **Elimina**.
++ Tramite Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
 + Usando l’interfaccia della riga di comando, `az group delete --name resourceGroupName`.
 
 ## Estendere l'apprendimento con Copilot
