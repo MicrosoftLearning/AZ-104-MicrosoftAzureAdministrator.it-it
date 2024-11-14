@@ -329,8 +329,8 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 + Confrontare e contrapporre Azure Load Balancer con gateway applicazione di Azure.
 + Come è possibile risolvere i problemi di connettività in ingresso di Azure Load Balancer?
 + Quali sono i passaggi di base per la configurazione di gateway applicazione di Azure?
-+ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere le colonne: Protocolli supportati, Bilanciamento del carico privato, Bilanciamento del carico globale, Criteri di routing, Ambienti supportati, Svuotamento della connessione, Affinità di sessione, Bilanciamento del carico basato su host e percorso, Offload TLS, Accelerazione del sito, Sicurezza, Memorizzazione nella cache e Compressione.
-
++ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere queste colonne: protocolli supportati, criteri di routing, affinità di sessione e offload TLS.
+  
 ## Altre informazioni con la formazione autogestita
 
 + [Migliorare la scalabilità e la resilienza delle applicazioni tramite Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). Presentazione dei diversi servizi di bilanciamento del carico in Azure e di come scegliere la soluzione di bilanciamento del carico di Azure appropriata per soddisfare i requisiti.
@@ -338,7 +338,7 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 
 ## Punti chiave
 
-Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo lab.
+Congratulazioni per aver completato il lab. Ecco i punti chiave per questo lab.
 
 + Al livello di trasporto (livello OSI 4 - TCP e UDP), Azure Load Balancer è un'ottima scelta per distribuire il traffico di rete tra più macchine virtuali.
 + Si usano i bilanciamenti del carico pubblici per bilanciare il carico del traffico Internet verso le macchine virtuali. Il bilanciamento del carico interno (o privato) viene usato se gli indirizzi IP privati sono necessari solo sul front-end.
