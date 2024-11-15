@@ -326,10 +326,10 @@ Se si usa la **sottoscrizione personale**, dedicare qualche minuto all’elimina
 
 Copilot può essere utile per imparare a usare gli strumenti di scripting di Azure. Copilot può essere utile anche in aree non coperte nel lab o dove occorrono altre informazioni. Aprire un browser Edge e scegliere Copilot (in alto a destra) o passare a *copilot.microsoft.com*. Dedicare qualche minuto alla prova di queste richieste.
 
-+ Confrontare e contrapporre Azure Load Balancer con gateway applicazione di Azure.
-+ Come è possibile risolvere i problemi di connettività in ingresso di Azure Load Balancer?
-+ Quali sono i passaggi di base per la configurazione di gateway applicazione di Azure?
-+ Creare una tabella che evidenzia le soluzioni di bilanciamento del carico di Azure. Includere queste colonne: protocolli supportati, criteri di routing, affinità di sessione e offload TLS.
++ Confrontare e contrapporre Azure Load Balancer con gateway applicazione di Azure. Aiutami a decidere in quali scenari dovrei usare ogni prodotto.
++ Quali strumenti sono disponibili per risolvere i problemi relativi alle connessioni a un'istanza di Azure Load Balancer? 
++ Quali sono i passaggi di base per la configurazione di gateway applicazione di Azure? Fornire un elenco di controllo generale. 
++ Creare una tabella che evidenzia tre soluzioni di bilanciamento del carico di Azure. Per ogni soluzione vengono visualizzati protocolli supportati, criteri di routing, affinità di sessione e offload TLS.
   
 ## Altre informazioni con la formazione autogestita
 
