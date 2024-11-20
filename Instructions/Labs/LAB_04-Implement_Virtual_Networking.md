@@ -316,9 +316,7 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
 1. Si noti che nel pannello **Panoramica** non sono presenti record del server dei nomi. 
 
-1. Selezionare **Impostazioni** e quindi **Gestione** DNS.
-
-1. Selezionare **Collegamenti** di rete virtuale e configurare il collegamento. 
+1. Selezionare **Gestione** DNS e quindi collegamenti **** di rete virtuale. Configurare il collegamento. 
 
     | Proprietà | valore    |
     |:---------|:---------|
@@ -327,7 +325,7 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
 1. Selezionare **Crea** e attendere la creazione del collegamento. 
 
-1. Nel pannello **Panoramica** selezionare **+ Set di record**. Ora si aggiunge un record per ogni macchina virtuale che richiede il supporto per la risoluzione dei nomi privata.
+1. Nel pannello **Gestione** DNS selezionare **+ Recordset**. Ora si aggiunge un record per ogni macchina virtuale che richiede il supporto per la risoluzione dei nomi privata.
 
     | Proprietà | valore    |
     |:---------|:---------|
