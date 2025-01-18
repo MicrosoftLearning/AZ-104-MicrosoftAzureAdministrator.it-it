@@ -175,7 +175,9 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Fare clic su **Rivedi e crea** e, dopo la convalida, su **Crea**.
 
-### Creare il gruppo di sicurezza di rete e associarlo alla subnet ASG
+>**Nota:** a questo punto, associare il gruppo di sicurezza di azure alle macchine virtuali. Questi computer saranno interessati dalla regola NSG in ingresso creata nell'attività successiva.  
+
+### Creare il gruppo di sicurezza di rete e associarlo a CoreServicesVnet
 
 1. Nel portale di Azure, cercare e selezionare `Network security groups`.
 
