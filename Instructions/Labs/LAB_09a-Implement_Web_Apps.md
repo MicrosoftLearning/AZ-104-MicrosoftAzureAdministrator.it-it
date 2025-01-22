@@ -169,7 +169,7 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 1. Analizzare i risultati del test, tra cui **Utenti virtuali**, **Tempo di risposta** e **Richieste/sec**.
 
-1. Selezionare **Arresta** per completare l'esecuzione del test.
+1. Selezionare **Arresta** per completare l'esecuzione del test. Non è necessario attendere il completamento del test. 
 
 ## Pulire le risorse
 
