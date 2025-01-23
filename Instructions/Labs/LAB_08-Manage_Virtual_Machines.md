@@ -183,7 +183,8 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Zona di disponibilità | **Zone 1, 2, 3** |
     | Modalità di orchestrazione | **Uniforme** |
     | Tipo di sicurezza | **Standard** |
-    | Immagine | **Windows Server 2019 Datacenter - x64 Gen2** |
+    | Opzioni di scalabilità | **Esaminare e accettare le impostazioni predefinite**. Questa operazione verrà modificata nell'attività successiva. |
+    | Image | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Eseguire con sconto di Spot Azure | **Non selezionato** |
     | Dimensione | **Standard D2s_v3** |
     | Username | `localadmin` |
@@ -203,7 +204,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Impostazione | valore |
     | --- | --- |
     | Nome | `vmss-vnet` |
-    | Intervallo di indirizzi | `10.82.0.0/20` (modificare quello che c'è) |
+    | Intervallo di indirizzi | `10.82.0.0/20` (eliminare l'intervallo di indirizzi esistente) |
     | Nome subnet | `subnet0` |
     | Intervallo di subnet | `10.82.0.0/24` |
 
@@ -270,11 +271,11 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Selezionare **Vai alla risorsa** o cercare e selezionare il set di scalabilità **vmss1**.
 
-1. Scegliere **Disponibilità e ridimensionamento dal menu a sinistra, quindi scegliere **Ridimensionamento****.
+1. Scegliere **Disponibilità e scalabilità** dal menu a sinistra e quindi scegliere **Ridimensionamento**.
 
->**Suggerimenti utili** È possibile eseguire il **Ridimensionamento manuale** o la **Scalabilità automatica personalizzata**. Nei set di scalabilità con un numero ridotto di istanze di macchine virtuali, l'aumento o la riduzione del numero di istanze (scalabilità manuale) può essere ottimale. Nei set di scalabilità con un numero elevato di istanze di macchine virtuali, il ridimensionamento in base alle metriche (scalabilità automatica personalizzata) può essere più appropriato.
+    >**Suggerimenti utili** È possibile eseguire il **Ridimensionamento manuale** o la **Scalabilità automatica personalizzata**. Nei set di scalabilità con un numero ridotto di istanze di macchine virtuali, l'aumento o la riduzione del numero di istanze (scalabilità manuale) può essere ottimale. Nei set di scalabilità con un numero elevato di istanze di macchine virtuali, il ridimensionamento in base alle metriche (scalabilità automatica personalizzata) può essere più appropriato.
 
-### Regola di aumento del numero di istanze
+**Regola di aumento del numero di istanze**
 
 1. Selezionare **Scalabilità automatica personalizzata**. Modificare quindi la **modalità di ridimensionamento** in **Scalabilità in base alla metrica**. Selezionare quindi **Aggiungi una regola**.
 
@@ -291,13 +292,13 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     | Statistica intervallo di tempo | **Media** |
     | Operazione | **Aumentare la percentuale per** (rivedere altre scelte) |
     | Disattiva regole dopo (minuti) | **5** |
-    | Percentuale | **20** |
+    | Percentuale | **50** |
 
     ![Screenshot della pagina aggiungi regola di ridimensionamento.](../media/az104-lab08-scale-rule.png)
 
 1. Assicurarsi di **salvare** le modifiche.
 
-### Regola di riduzione del numero delle istanze
+**Regola di scalabilità orizzontale**
 
 1. Durante le serate o i fine settimana, la domanda può diminuire, quindi è importante creare una regola di ridimensionamento.
 
@@ -310,11 +311,11 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
     | Operatore | **Minore di** |
     | Threshold | **30** |
     | Operazione | **Ridurre la percentuale di** (esaminare le altre scelte) |
-    | Percentuale | **20** |
+    | Percentuale | **50** |
 
 1. Assicurarsi di **salvare** le modifiche.
 
-### Impostare i limiti dell'istanza
+**Impostare i limiti dell'istanza**
 
 1. Quando vengono applicate le regole di scalabilità automatica, i limiti dell'istanza assicurano che non si scalino oltre il numero massimo di istanze o che non si scalino oltre il numero minimo di istanze.
 
