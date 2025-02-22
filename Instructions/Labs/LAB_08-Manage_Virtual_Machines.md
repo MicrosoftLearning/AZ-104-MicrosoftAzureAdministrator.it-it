@@ -279,7 +279,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 
 1. Selezionare **Scalabilità automatica personalizzata**. Modificare quindi la **modalità di ridimensionamento** in **Scalabilità in base alla metrica**. Selezionare quindi **Aggiungi una regola**.
 
-1. Si creerà una regola che aumenta automaticamente il numero di istanze di macchina virtuale. Questa regola aumenta il numero di istanze quando il carico medio della CPU è maggiore del 70% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene aumentato del 20%.
+1. Si creerà una regola che aumenta automaticamente il numero di istanze di macchina virtuale. Questa regola aumenta il numero di istanze quando il carico medio della CPU è maggiore del 70% in un periodo di 10 minuti. Quando la regola viene attivata, il numero di istanze di macchine virtuali viene aumentato del 50%.
 
     | Impostazione | Valore |
     | --- | --- |
