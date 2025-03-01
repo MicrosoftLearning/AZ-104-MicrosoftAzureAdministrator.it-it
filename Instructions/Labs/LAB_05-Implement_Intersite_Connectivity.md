@@ -241,7 +241,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 1. Dopo la distribuzione della tabella di route, selezionare **Vai alla risorsa**.
 
-1. Selezionare **Route**, quindi **+ Aggiungi**. Creare una route dall'appliance virtuale di rete futura verso la rete virtuale CoreServices. 
+1. Selezionare **Route**, quindi **+ Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
 
     | Impostazione | Valore | 
     | --- | --- |
