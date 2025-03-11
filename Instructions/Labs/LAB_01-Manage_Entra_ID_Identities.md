@@ -46,7 +46,7 @@ In questa attività verranno creati e configurati account utente. Gli account ut
 
 1. Tornare alla **pagina Entra ID** premendo indietro nel browser o selezionando l'opzione nel menu di navigazione.
 
-1. Selezionare **Licenze**. Da qui è possibile acquistare una licenza, gestire le licenze disponibili e assegnare le licenze a utenti e gruppi. Selezionare **Funzionalità con licenza** per vedere quali sono disponibili.
+1. Quando si ha tempo, esplorare altre opzioni, ad **esempio licenze** e **reimpostazione** della password.
    
 ### Creare un nuovo utente
 
