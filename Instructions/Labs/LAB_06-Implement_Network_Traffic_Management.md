@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 'Lab 06: Implementare Gestione del traffico'
+  title: 'Lab 06: Implementare la gestione del traffico di rete'
   module: Administer Network Traffic Management
 ---
 
-# Lab 06 - Implementare Gestione traffico
+# Lab 06 - Implementare la gestione del traffico di rete
 
 ## Introduzione al lab
 
@@ -187,7 +187,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | `subnet-appgw` |
+    | Name | `subnet-appgw` |
     | Indirizzo iniziale| `10.60.3.224` |
     | Dimensione | `/27` |
 
