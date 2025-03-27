@@ -199,7 +199,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Dischi** accettare i valori predefiniti e fare clic su **Avanti: Rete >**.
 
-1. Nella pagina **Rete** fare clic sul collegamento **Crea rete virtuale** sotto la casella di testo **Rete virtuale** e creare una nuova rete virtuale con le impostazioni seguenti (lasciare altri valori predefiniti).  Al termine selezionare **OK**.
+1. Nella **pagina Rete** selezionare **Modifica collegamento rete** virtuale. Apportare alcune modifiche. Al termine selezionare **OK**.
 
     | Impostazione | valore |
     | --- | --- |
