@@ -93,7 +93,7 @@ In questa attività viene creato un avviso per quando viene eliminata una macchi
 
 1. Selezionare **Crea +**, quindi selezionare **Regola di avviso**. 
 
-1. Selezionare la casella per il gruppo di risorse, quindi selezionare **Applica**. Questo avviso verrà applicato a tutte le macchine virtuali nel gruppo di risorse. In alternativa, è possibile specificare solo un computer specifico. 
+1. Selezionare la casella relativa alla sottoscrizione e quindi selezionare **Applica**. Questo avviso verrà applicato a tutte le macchine virtuali nella sottoscrizione. In alternativa, è possibile specificare solo un computer specifico. 
 
 1. Selezionare la scheda **Condizione**, quindi selezionare il collegamento **Visualizza tutti i segnali**.
 
@@ -136,6 +136,8 @@ In questa attività, se l'avviso viene attivato, inviare una notifica e-mail al 
 
     >**Nota:** Dovrebbe essere ricevuta una notifica e-mail indicante che l’utente è stato aggiunto a un gruppo di azioni. Potrebbe verificarsi un ritardo di alcuni minuti, ma ciò indica che la regola è stata distribuita correttamente.
 
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
+   
 1. Dopo aver creato il gruppo di azioni, passare alla scheda **Avanti: Dettagli** e immettere i valori seguenti per ogni impostazione.
 
     | Impostazione | Valore |
@@ -179,7 +181,7 @@ In questa attività viene creata una regola di avviso per sopprimere le notifich
 
 1. Continuare nel pannello **Avvisi**, selezionare **Regole di elaborazione degli avvisi** e scegliere **+ Crea**. 
    
-1. Selezionare il **gruppo di risorse**, quindi selezionare **Applica**.
+1. Selezionare la **sottoscrizione e quindi applica******.
    
 1. Selezionare **Avanti: Impostazioni regola**, quindi selezionare **Elimina notifiche**.
    
@@ -211,13 +213,15 @@ Immettere queste impostazioni per la pianificazione della regola di elaborazione
 
 In questa attività si userà Monitoraggio di Azure per eseguire query sui dati acquisiti dalla macchina virtuale.
 
-1. Nel portale di Azure, cercare e selezionare il pannello `Monitor` e fare clic su **Log**.
+1. Nella portale di Azure cercare e selezionare `Monitor`, quindi fare clic su **Log**.
 
 1. Se necessario, chiudere la schermata iniziale. 
 
-1. Selezionare un ambito, il proprio **gruppo di risorse**. Selezionare **Applica**. 
+1. Se necessario, selezionare un ambito, la **sottoscrizione**. Selezionare **Applica**. 
 
-1. Nella scheda **Query**, selezionare **Macchine virtuali** (riquadro sinistro). 
+1. Nella scheda **Query**, selezionare **Macchine virtuali** (riquadro sinistro). Potrebbe essere necessario riaprire il pannello.
+
+    ![Screenshot della scheda query.](../media/az104-lab11-queries.png)
 
 1. Esaminare le query disponibili. Selezionare **Esegui** (passare il puntatore del mouse sulla query) per la query **Conteggio heartbeat**.
 
