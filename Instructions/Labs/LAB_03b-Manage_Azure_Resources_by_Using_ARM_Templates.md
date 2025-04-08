@@ -44,8 +44,8 @@ In questa attività verrà creato un disco gestito nel portale di Azure. I disch
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Cercare e selezionare `Disks`.
-
+1. Cercare e selezionare `Disks`. 
+   
 1. Nella pagina Dischi selezionare **Crea**.
 
 1. Nella pagina **Creare un disco gestito** configurare il disco e quindi selezionare **Ok**. 
@@ -213,22 +213,26 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
 
 In questa attività si userà un file Bicep per distribuire un disco gestito. Bicep è uno strumento di automazione dichiarativa basato su modelli di Resource Manager.
 
+1. Individuare il **file \Allfiles\Lab03\azuredeploydisk.bicep** .
+
 1. Continuare a lavorare in **Cloud Shell** in una sessione **Bash**.
 
-1. Individuare e scaricare il file **\Allfiles\Lab03\azuredeploydisk.bicep**.
+1. Selezionare **Gestisci file** e quindi **Caricare** il file Bicep in Cloud Shell. 
 
-1. **Caricare** il file bicep in Cloud Shell. 
+1. Fare clic su **Editor** e quando viene richiesto **Confermare** il passaggio a Cloud Shell classico.
 
-1. Selezionare l'icona **Editor** (parentesi graffe) e passare al file.
+1. Selezionare il **file azuredeploydisk.bicep** 
 
-1. Prendersi un momento per leggere il file modello bicep. Si noti come viene definita la risorsa disco. 
+1. Leggere il file modello Bicep. Si noti come viene definita la risorsa disco. 
    
 1. Apportare le modifiche seguenti:
 
-    + Modificare il valore **managedDiskName** in `Disk4`.
-    + Modificare il valore del **nome sku** in `StandardSSD_LRS`.
-    + Modificare il valore **diskSizeinGiB** in `32`.
+    + Modificare il **valore managedDiskName** , riga 4, in Disk4.
+    + Modificare il valore del **nome** sku, riga 26, in StandardSSD_LRS.
+    + Modificare il **valore diskSizeinGiB** ; riga 7, impostarla su 32.
 
+    >**Nota:** nei file lab è disponibile un modello Bicep completato.
+    
 1. Usare **CTRL+S** per salvare le modifiche.
 
 1. Distribuire ora il modello.
