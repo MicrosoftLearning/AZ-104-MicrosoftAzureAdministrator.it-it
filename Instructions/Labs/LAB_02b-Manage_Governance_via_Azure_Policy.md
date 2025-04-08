@@ -65,12 +65,12 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
     >**Nota:** Per ogni lab di questo corso si creerà un nuovo gruppo di risorse. In questo modo è possibile individuare e gestire rapidamente le risorse del lab. 
 
-1. Al termine, selezionare **Avanti: Tag** e creare un nuovo tag.
+1. Selezionare **Avanti** e passare alla **scheda Tag** . Specificare le informazioni per un nuovo tag.
 
     | Impostazione | valore |
     | --- | --- |
-    | Nome | `Cost Center` |
-    | Valore | `000` |
+    | Name | Centro costi |
+    | Valore | 000 |
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
@@ -84,9 +84,9 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     ![Screenshot della definizione dei criteri.](../media/az104-lab02b-policytags.png)
 
-1. Fare clic sulla voce che rappresenta il criterio predefinito **Richiedi un tag con il relativo valore sulle risorse**. Esaminare la definizione. 
+1. Cercare i `Require a tag and its value on resources` criteri predefiniti. Selezionare il criterio e prendere un minuto per esaminare la definizione. 
 
-1. Nel pannello della definizione del criterio predefinito **Richiedi un tag con il relativo valore sulle risorse** fare clic su **Assegna**.
+1. Seleziona **Assegna criterio**.
 
 1. Specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti. Al termine, fare clic su **Seleziona**. 
 
@@ -101,8 +101,8 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'assegnazione | `Require Cost Center tag with Default value`|
-    | Descrizione | `Require Cost Center tag with default value for all resources in the resource group`|
+    | Nome dell'assegnazione | 'Require Cost Center tag and its value on resources |
+    | Descrizione | `Require Cost Center tag and its value on all resources in the resource group`|
     | Applicazione dei criteri | Attivata |
 
     >**Nota** il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome del criterio selezionato, ma è possibile cambiarlo. La **descrizione** è facoltativa. Si noti che è possibile disabilitare il criterio in qualsiasi momento. 
@@ -122,7 +122,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
     
     >**Nota**: L'applicazione del criterio potrebbe richiedere da 5 a 10 minuti.
 
-1. Nel portale cercare e selezionare `Storage Account`, quindi selezionare **+ Crea**. 
+1. Nel portale cercare e selezionare `Storage Accounts`, quindi selezionare **+ Crea**. 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** completare la configurazione.
 
@@ -137,7 +137,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     ![Screenshot dell'errore del criterio non consentito.](../media/az104-lab02b-policyerror.png) 
 
->**Nota**: Facendo clic sulla scheda **Errore non elaborato**, è possibile trovare altri dettagli sull'errore, incluso il nome della definizione del ruolo **Richiedi tag centro di costo con valore predefinito**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Centro di costo** con il relativo valore impostato su **Impostazione predefinita**.
+>**Nota**: facendo clic sulla **scheda Errore** non elaborato, è possibile trovare altri dettagli sull'errore, incluso il nome della definizione **del ruolo Richiedi un tag e il relativo valore sulle risorse**. La distribuzione non è riuscita perché l'account di archiviazione che si è tentato di creare non ha un tag denominato **Centro di costo** con il relativo valore impostato su **Impostazione predefinita**.
 
 ## Attività 3: Applicare l'assegnazione di tag tramite Criteri di Azure
 
@@ -147,7 +147,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Nella sezione **Creazione** fare clic su **Assegnazioni**. 
 
-1. Nell'elenco delle assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta l’assegnazione dei criteri **tag Richiedi centro di costo con valore predefinito** e usare la voce di menu **Elimina assegnazione** per eliminare l'assegnazione.
+1. Nell'elenco delle assegnazioni fare clic sull'icona con i puntini di sospensione nella riga che rappresenta il **tag Richiedi un tag e il relativo valore per l'assegnazione dei criteri delle risorse** e usare la **voce di menu Elimina assegnazione** per eliminare l'assegnazione.
 
 1. Fare clic su **Assegna criteri** e specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
 
@@ -189,7 +189,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
     
     >**Nota**: L'applicazione del criterio potrebbe richiedere da 5 a 10 minuti.
 
-1. Cercare e selezionare `Storage Account`, e fare clic su **+ Crea**. 
+1. Cercare e selezionare `Storage Account` e fare clic su **+ Crea**. 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi fare clic su **Rivedi**:
 
