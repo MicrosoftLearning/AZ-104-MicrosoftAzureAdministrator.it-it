@@ -65,7 +65,7 @@ In questa attività si creerà una semplice applicazione Web usando un'immagine 
 
 1. Fare clic su **Avanti: **> avanzate, esaminare le impostazioni senza apportare modifiche.
 
- 1. Fare clic su **Rivedi e crea**, assicurarsi che la convalida abbia avuto esito positivo e quindi selezionare **Crea**.
+1. Fare clic su **Rivedi e crea**, assicurarsi che la convalida abbia avuto esito positivo e quindi selezionare **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione dovrebbe richiedere 2-3 minuti.
 
@@ -75,7 +75,7 @@ In questa attività si creerà una semplice applicazione Web usando un'immagine 
 
 In questa attività viene esaminata la distribuzione dell'istanza di contenitore. Per impostazione predefinita, l'istanza di Azure Container è accessibile sulla porta 80. Dopo aver distribuito l'istanza, è possibile passare al contenitore usando il nome DNS fornito nell'attività precedente.
 
-1. Nel pannello della distribuzione fare clic sul collegamento **Vai alla risorsa**.
+1. Al termine della distribuzione, selezionare **Vai alla risorsa** .
 
 1. Nel pannello **Panoramica** dell'istanza di contenitore verificare che **Stato** indichi **In esecuzione**.
 
