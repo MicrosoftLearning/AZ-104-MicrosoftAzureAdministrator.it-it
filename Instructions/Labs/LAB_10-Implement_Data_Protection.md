@@ -152,12 +152,14 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
     ![Screenshot della pagina dei criteri di backup.](../media/az104-lab10-backup-policy.png)
 
-1. Fare clic su **OK** per creare il criterio e quindi nella sezione **Macchine virtuali** selezionare **Aggiungi**.
+1. Fare clic su **OK** per creare il criterio e quindi nella **sezione Macchine virtuali** selezionare **Aggiungi** (scorrere verso il basso).
 
 1. Nel pannello **Seleziona macchine virtuali** selezionare **az-104-10-vm0**, fare clic su **OK** e quindi di nuovo nel pannello **Backup** fare clic su **Abilita backup**.
 
     >**Nota**: attendere il completamento dell'abilitazione del backup. Per il completamento sono richiesti 2 minuti circa.
 
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+   
 1. Nella sezione **Elementi protetti** fare clic su **Elementi di backup** e quindi fare clic sulla voce **Macchina virtuale di Azure**.
 
 1. Selezionare il collegamento **Visualizza dettagli** per **az104-10-vm0** ed esaminare i valori delle voci **Controllo preliminare di backup** e **Stato ultimo backup**.
@@ -185,7 +187,7 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
     | Nome account di archiviazione  | Specificare un nome globalmente univoco   |
     | Area geografica                | **Stati Uniti orientali**   |
 
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 
     >**Nota**: attendere il completamento della distribuzione. L'operazione dovrebbe richiedere circa un minuto.
 
@@ -214,7 +216,7 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Individuare l'operazione di backup per la macchina virtuale **az104-10-vm0**. 
 
-1. Esaminare i dettagli del processo di backup.
+1. **Visualizzare i dettagli** (scorrere verso destra per il collegamento) del processo di backup.
 
 ## Attività 5: Abilitare la replica delle macchine virtuali
 
@@ -243,20 +245,11 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Nella scheda **Informazioni di base** notare l'**area di destinazione**.
 
-1. Passare alla scheda **Impostazioni avanzate**. Le selezioni delle risorse sono state effettuate automaticamente. È importante verificarle. 
+1. Selezionare **Successivo: impostazioni avanzate**. Le selezioni delle risorse sono state effettuate per l'utente. 
 
-1. Verificare le impostazioni di sottoscrizione, gruppo di risorse della macchina virtuale, rete virtuale e disponibilità (usare il valore predefinito).
+1. Scorrere verso il basso e **Creare** l'account di automazione. 
 
-1. In **Impostazioni di archiviazione** selezionare **Mostra dettagli**.
-
-    | Impostazione | Valore |
-    | ---- | ---- |
-    | Varianza per la macchina virtuale | **Varianza normale**  |
-    | Account di archiviazione della cache | **(nuovo) xxx**  |
-
-   >**Nota:** è importante che entrambe queste impostazioni siano popolate. In caso contrario, la convalida avrà esito negativo. Se i valori non sono presenti, provare ad aggiornare la pagina. Se non funziona, creare un account di archiviazione vuoto e tornare a questa pagina.
-
-1. In **Impostazioni di replica** selezionare **Mostra dettagli**. Si noti che l'insieme di credenziali delle risorse di ripristino nell'area 2 è stato selezionato automaticamente.
+   >**Nota:** è importante che le impostazioni vengano popolate o che la convalida non riesca. 
 
 1. Selezionare **Verifica e avvio della replica** e quindi **Abilita replica**.
 
