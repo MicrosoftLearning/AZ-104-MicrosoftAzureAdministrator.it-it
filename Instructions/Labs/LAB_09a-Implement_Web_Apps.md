@@ -67,7 +67,7 @@ In questa attività verrà creata un'app Web di Azure. Servizi app di Azure è u
 
     >**Nota**: Attendere che venga creata l'app Web prima di procedere all'attività successiva. L'operazione dovrebbe richiedere circa un minuto.
     
-    >**Nota**: se la distribuzione non riesce, passare a un'altra area e riprovare. Ad esempio, passare a **Stati Uniti orientali 2**. 
+    >**Nota**: se la distribuzione non riesce, passare a un'altra area e riprovare. Ciò è dovuto alle quote in aree diverse.  
 
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
@@ -79,8 +79,6 @@ In questa attività verrà creato uno slot di distribuzione di staging. Gli slot
 
 1. Chiudere la nuova scheda del browser e, di nuovo nel portale di Azure, nella sezione **Distribuzione** del pannello dell'app Web fare clic su **Add a Slot di distribuzione**.
 
-    >**Nota**: A questo punto l'app Web include un singolo slot di distribuzione denominato **PRODUCTION**.
-
 1. Fare clic su **Aggiungi slot** e aggiungere un nuovo slot con le impostazioni seguenti:
 
     | Impostazione | valore |
@@ -88,9 +86,11 @@ In questa attività verrà creato uno slot di distribuzione di staging. Gli slot
     | Nome | `staging` |
     | Clona le impostazioni da | **Non clonare le impostazioni**|
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** per creare lo slot.
 
-1. Tornare al pannello **Slot di distribuzione** dell'app Web e fare clic sulla voce che rappresenta lo slot di staging appena creato.
+1. Aggiornare la pagina per visualizzare gli slot di produzione e gestione temporanea. 
+
+1. Selezionare la voce che rappresenta lo slot di staging appena creato.
 
     >**Nota**: verrà visualizzato il pannello che mostra le proprietà dello slot di staging.
 
@@ -116,7 +116,7 @@ In questa attività verranno configurate le impostazioni della distribuzione Web
 
 1. Selezionare il collegamento **Dominio predefinito** e aprire l'URL in una nuova scheda. 
 
-1. Verificare che lo slot di staging mostri **Hello World**.
+1. Verificare che lo slot di staging mostri **Hello World**. 
 
 >**Nota:** La distribuzione può richiedere un minuto. Assicurarsi di **aggiornare** la pagina dell'applicazione.
 
@@ -126,11 +126,13 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Tornare al pannello **Slot di distribuzione**, quindi selezionare **Scambia**.
 
-1. Esaminare le impostazioni predefinite e fare clic su **Avvia scambio**.
+1. Esaminare le impostazioni predefinite e fare clic su **Avvia scambio**. Attendere la notifica che lo scambio è terminato.
 
-1. Nel pannello **Panoramica** dell'app Web selezionare il collegamento **Dominio predefinito** per visualizzare la home page del sito Web.
+1. Tornare alla home page del portale. È necessario disporre sia di un'app Web di produzione che dello slot di staging.
 
-1. Verificare che la pagina Web di produzione mostri **Hello World!** .
+1. Selezionare l'app Web servizio app e nel pannello **Panoramica** dell'app Web selezionare il **collegamento Dominio** predefinito per visualizzare la home page del sito Web.
+
+1. Verificare che la pagina Web di produzione visualizzi ora **Hello World.** .
 
     >**Nota:** Copiare l'**URL** di dominio predefinito necessario per i test di carico nell'attività successiva. 
 
@@ -159,15 +161,17 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 1. Attendere la creazione del test di carico, quindi selezionare **Vai alla risorsa**.
 
-1. Nella **panoramica** | **Aggiungi richieste HTTP** selezionare **Crea**.
+1. **Nella panoramica** | **Crea aggiungendo richieste** HTTP selezionare **Crea.**
 
-1. Nella **scheda Piano** di test fare clic su **Aggiungi richiesta**. **Nel campo** URL incollare l'URL **di dominio** predefinito. Assicurarsi che sia formattato correttamente e inizi con **https://**.
+1. Nella **scheda Piano** di test fare clic su **Aggiungi richiesta**. **Nel campo** URL incollare l'URL **di dominio** predefinito. Assicurarsi che sia formattato correttamente e inizi con **https://**. Selezionare **Aggiungi** per salvare le modifiche. 
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-    >**Nota:** La creazione del test può richiedere alcuni minuti. 
+    >**Nota:** La creazione del test può richiedere alcuni minuti. Guarda le notifiche.
 
-1. Analizzare i risultati del test, tra cui **Utenti virtuali**, **Tempo di risposta** e **Richieste/sec**.
+1. Passare al test (elencato nella home page). 
+
+1. Aggiornare ed esaminare le metriche attive, inclusi gli utenti** virtuali, **il tempo** di risposta e **le richieste/sec**.**
 
 1. Selezionare **Arresta** per completare l'esecuzione del test. Non è necessario attendere il completamento del test. 
 
