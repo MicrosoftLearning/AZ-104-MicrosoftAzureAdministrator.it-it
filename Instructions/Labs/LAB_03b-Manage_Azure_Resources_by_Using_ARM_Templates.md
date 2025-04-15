@@ -227,7 +227,7 @@ In questa attività si userà un file Bicep per distribuire un disco gestito. Bi
    
 1. Apportare le modifiche seguenti:
 
-    + Modificare il **valore managedDiskName** , riga 4, in Disk4.
+    + Modificare il **valore managedDiskName** , riga 2, in Disk4.
     + Modificare il valore del **nome** sku, riga 26, in StandardSSD_LRS.
     + Modificare il **valore diskSizeinGiB** ; riga 7, impostarla su 32.
 

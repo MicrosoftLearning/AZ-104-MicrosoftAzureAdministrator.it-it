@@ -120,9 +120,9 @@ In questa attività si ridimensiona una macchina virtuale modificandone le dimen
 
 1. Nella macchina virtuale **az104-vm1**, nel pannello **Disponibilità e scalabilità** selezionare **Dimensioni**.
 
-1. Impostare le dimensioni della macchina virtuale su **DS1_v2** e fare clic su **Ridimensiona**. Quando richiesto, confermare la modifica.
+1. Impostare le dimensioni della macchina virtuale su **D2ds_v4** e fare clic su **Ridimensiona**. Quando richiesto, confermare la modifica.
 
-    >**Nota**: scegliere un'altra dimensione se **Standard DS1_v2** non è disponibile. Il ridimensionamento è noto anche come ridimensionamento verticale, verso l’alto o verso il basso.
+    >**Nota**: scegliere un'altra dimensione se **D2ds_v4** non è disponibile. Il ridimensionamento è noto anche come ridimensionamento verticale, verso l’alto o verso il basso.
 
     ![Screenshot del ridimensionamento della macchina virtuale.](../media/az104-lab08-resize-vm.png)
 
