@@ -126,7 +126,7 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
 
 1. Modificare tutte le occorrenze di **10.20.20.0/24** in `10.30.21.0/24`.
 
-1. Leggere nuovamente il file e assicurarsi che tutto sia corretto.
+1. Leggere nuovamente il file e assicurarsi che tutto sia corretto. Usare il diagramma dell'architettura per i nomi delle risorse e gli indirizzi IP. 
 
 1. Assicurarsi di **salvare** le modifiche.
 
@@ -144,11 +144,17 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
    
 ### Distribuire il modello personalizzato
 
-1. Nel portale di Azure cercare e selezionare **Distribuisci un modello personalizzato**.
+1. Nel portale cercare e selezionare `Deploy a custom template`.
 
 1. Selezionare **Compila un modello personalizzato nell'editor** e quindi **Carica file**.
 
 1. Selezionare il file **templates.json** con le modifiche di produzione e quindi selezionare **Salva**.
+
+1. Selezionare **Modifica modello** e quindi **Carica file**.
+
+1. Selezionare il **file parameters.json** con le modifiche di produzione e quindi selezionare **Salva**.
+
+1. Verificare che il gruppo di risorse az104-rg4 **** sia selezionato. 
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
@@ -275,7 +281,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
 
 1. Nel pannello **Panoramica** si notino i nomi dei quattro server dei nomi DNS di Azure assegnati alla zona. **Copiare** uno degli indirizzi del server dei nomi. Sarà necessaria in un passaggio successivo. 
   
-1. Selezionare **+ Set di record**. Si aggiunge un record di collegamento di rete virtuale per ogni rete virtuale che necessita del supporto per la risoluzione dei nomi privati.
+1. Selezionare **+ Set di record**. **Aggiungere** un record di collegamento di rete virtuale per ogni rete virtuale che richiede il supporto per la risoluzione dei nomi privata.
 
     | Proprietà | valore    |
     |:---------|:---------|
@@ -286,9 +292,9 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
 
 >**Nota:**  In uno scenario reale immettere l'indirizzo IP pubblico del server Web.
 
-1. Selezionare **OK** e verificare che **contoso.com** abbia un set di record A denominato **www**.
+1. Selezionare **OK** e verificare che il dominio abbia un set di record A denominato **www**.
 
-1. Aprire un prompt dei comandi ed eseguire il comando seguente:
+1. Aprire un prompt dei comandi ed eseguire il comando seguente. Se il nome di dominio è stato modificato, apportare una modifica. 
 
    ```sh
    nslookup www.contoso.com <name server name>
