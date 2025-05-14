@@ -181,6 +181,8 @@ In questa attività viene creato un peering di reti virtuali per abilitare le co
 | Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
 | Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
 
+1. Fare clic su **Aggiungi**.
+
 1. In CoreServicesVnet | Peer verificare che il peering **CoreServicesVnet-to-ManufacturingVnet** sia elencato. Aggiornare la pagina per assicurarsi che lo **stato del peering** sia **Connesso**.
 
 1. Passare a **ManufacturingVnet** e verificare che il peering **ManufacturingVnet-to-CoreServicesVnet** sia elencato. Verificare che lo **stato del peering** sia **Connesso**. Può essere necessario **aggiornare** la pagina. 
@@ -221,7 +223,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 1. Cercare e selezionare `CoreServicesVnet`.
 
-1. Selezionare **Subnet**, quindi **+ Crea**. Assicurarsi di **salvare** le modifiche. 
+1. Selezionare **Subnet** e quindi **+ Subnet**. Assicurarsi di selezionare **Aggiungi** per salvare le modifiche. 
 
     | Impostazione | valore | 
     | --- | --- |
@@ -239,9 +241,11 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
     | Nome | `rt-CoreServices` |
     | Propaga route del gateway | **No** |
 
-1. Dopo la distribuzione della tabella di route, selezionare **Vai alla risorsa**.
+1. Dopo la distribuzione della tabella di route, cercare e selezionare le tabelle** di **route.
+   
+1. Selezionare la risorsa (non la casella di controllo) **rt-CoreServices**
 
-1. Selezionare **Route**, quindi **+ Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
+1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **+ Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
 
     | Impostazione | Valore | 
     | --- | --- |
@@ -251,9 +255,9 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
     | Tipo hop successivo | **Appliance virtuale** (si notino le altre opzioni) |
     | Indirizzo hop successivo | `10.0.1.7` (appliance virtuale di rete futura) |
 
-1. Selezionare **+ Aggiungi** al termine della route. L'ultima operazione da eseguire è associare la route alla subnet.
+1. Selezionare **+ Aggiungi**. L'ultima operazione da eseguire è associare la route alla subnet.
 
-1. Selezionare **Subnet**, quindi **Associa**. Completare la configurazione.
+1. Selezionare **Subnet** e quindi **+ Associa**. Completare la configurazione.
 
     | Impostazione | Valore | 
     | --- | --- |
