@@ -102,7 +102,7 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 1. Nel pannello **Archiviazione dati** selezionare **Contenitori**. 
 
-1. Cliccare su **+ Contenitore** e **Crea** un contenitore con le impostazioni seguenti:
+1. Fare clic su **+ Aggiungi contenitore** e **creare** un contenitore con le impostazioni seguenti:
 
     | Impostazione | valore |
     | --- | --- |

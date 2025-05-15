@@ -148,9 +148,9 @@ In questa attività si creano la rete virtuale ManufacturingVnet e le subnet ass
 
 1. Selezionare **Compila un modello personalizzato nell'editor** e quindi **Carica file**.
 
-1. Selezionare il file **templates.json** con le modifiche di produzione e quindi selezionare **Salva**.
+1. Selezionare il **file template.json** con le modifiche di produzione e quindi selezionare **Salva**.
 
-1. Selezionare **Modifica modello** e quindi **Carica file**.
+1. Selezionare **Modifica parametri** e quindi **Carica file**.
 
 1. Selezionare il **file parameters.json** con le modifiche di produzione e quindi selezionare **Salva**.
 
@@ -281,7 +281,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
 
 1. Nel pannello **Panoramica** si notino i nomi dei quattro server dei nomi DNS di Azure assegnati alla zona. **Copiare** uno degli indirizzi del server dei nomi. Sarà necessaria in un passaggio successivo. 
   
-1. Selezionare **+ Set di record**. **Aggiungere** un record di collegamento di rete virtuale per ogni rete virtuale che richiede il supporto per la risoluzione dei nomi privata.
+1. Espandere il **pannello Gestione** DNS e selezionare **+ Set** di record. Aggiungere un record di collegamento di rete virtuale per ogni rete virtuale che richiede il supporto per la risoluzione dei nomi privata.
 
     | Proprietà | valore    |
     |:---------|:---------|
@@ -324,7 +324,7 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
 1. Si noti che nel pannello **Panoramica** non sono presenti record del server dei nomi. 
 
-1. Selezionare **Gestione** DNS e quindi collegamenti **** di rete virtuale. Configurare il collegamento. 
+1. Espandere il pannello **Gestione** DNS e quindi selezionare **Collegamenti** di rete virtuale. Configurare il collegamento. 
 
     | Proprietà | valore    |
     |:---------|:---------|
