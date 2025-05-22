@@ -60,7 +60,7 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
 1. Nella scheda **Avanzate** usare le icone informative per altre indicazioni sulle opzioni. Accettare i valori predefiniti. 
 
-1. Nella sezione Accesso alla rete** pubblica della ****scheda Rete** selezionare **Disabilita**. Questo limiterà l'accesso in ingresso consentendo l'accesso in uscita. 
+1. Nella sezione Accesso** alla rete della **** scheda Rete** selezionare **Disabilita l'accesso pubblico e usare l'accesso** privato. Questo limiterà l'accesso in ingresso consentendo l'accesso in uscita. 
 
 1. Esaminare la scheda **Protezione dati**. Si noti che 7 giorni è il criterio di conservazione predefinito per l'eliminazione temporanea. Si noti che è possibile abilitare il controllo delle versioni per i BLOB. Accettare i valori predefiniti.
 
@@ -74,19 +74,17 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
 1. Nel pannello **Sicurezza e rete** selezionare **Rete**. Si noti che **l'accesso** alla rete pubblica è disabilitato.
 
-    + Selezionare **Gestisci** l'accesso**** alla rete pubblica.
-    + Modificare l'accesso **** alla rete pubblica in **Abilita**.
-    + Modificare l'azione **** Predefinita in **Abilita dalle reti** selezionate.
-    + Nella sezione Indirizzi** IP selezionare **Aggiungi l'indirizzo **** IP del client.
-    + Selezionare **Salva** per salvare le modifiche.
+    + Modificare l'accesso **** alla rete pubblica in **Abilita da reti e indirizzi** IP selezionati.
+    + **Nella sezione Firewall** selezionare la casella **di controllo Aggiungi indirizzo** IP client.
+    + Salva le modifiche.
   
 1. Nel pannello **Gestione** dati selezionare **Ridondanza**. Si notino le informazioni sulle posizioni del data center primario e secondario.
 
 1. Nel pannello **Gestione** dati selezionare **Gestione** del ciclo di vita e quindi selezionare **Aggiungi una regola**.
 
-    + **Assegnare un nome** alla regola `Movetocool`. Si notino le opzioni per limitare l'ambito della regola.
+    + **Assegnare un nome** alla regola `Movetocool`. Si notino le opzioni per limitare l'ambito della regola. Fare clic su **Avanti**. 
     
-    + Nella scheda **BLOB di base**, *se* i BLOB basati sono stati modificati più di `30 days` prima *allora* **passare all'archiviazione ad accesso sporadico**. Si notino le altre opzioni. 
+    + Nella **scheda BLOB di** base, *se* i BLOB basati sono stati modificati più di `30 days` prima *, passare* **all'archiviazione ad accesso sporadico**. Si notino le altre opzioni. 
     
     + Si noti che è possibile configurare altre condizioni. Selezionare **Aggiungi** al termine dell'esplorazione.
 
@@ -154,7 +152,7 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 ### Configurare l'accesso limitato all'archiviazione BLOB
 
-1. Selezionare il file caricato e quindi la scheda **Genera firma di accesso condiviso**. È possibile usare anche i puntini di sospensione (...) all'estrema destra. Specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni:
+1. Tornare al file caricato e selezionare i puntini di sospensione (...) all'estrema destra, quindi selezionare **Genera firma di accesso condiviso** e specificare le impostazioni seguenti (lasciare altri i valori predefiniti):
 
     | Impostazione | Valore |
     | --- | --- |

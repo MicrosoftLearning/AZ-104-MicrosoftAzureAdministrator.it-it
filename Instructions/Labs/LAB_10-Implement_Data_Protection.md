@@ -241,8 +241,6 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Nel pannello **Backup e ripristino di emergenza** selezionare **Ripristino di emergenza**. 
 
-1. Selezionare **Abilita replica**.
-
 1. Nella scheda **Informazioni di base** notare l'**area di destinazione**.
 
 1. Selezionare **Successivo: impostazioni avanzate**. Le selezioni delle risorse sono state effettuate per l'utente. 

@@ -79,7 +79,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Selezionare **Visualizza** nella casella **Informazioni dettagliate sulla macchina virtuale**, quindi selezionare **Configura informazioni dettagliate**.
 
-1. Selezionare la macchina virtuale, quindi **Abilita** (due volte).
+1. Selezionare **Abilita** accanto alla macchina virtuale e quindi **Abilitare nel pannello Monitoraggio di Azure - Onboarding** di Insights.
 
 1. Acquisire le impostazioni predefinite per le regole di sottoscrizione e raccolta dei dati, quindi selezionare **Configura**. 
 
@@ -109,7 +109,7 @@ In questa attività viene creato un avviso per quando viene eliminata una macchi
 
 In questa attività, se l'avviso viene attivato, inviare una notifica e-mail al team operativo. 
 
-1. Continua a lavorare sull’avviso. Al termine, selezionare **Avanti: Azioni**, quindi selezionare **Crea gruppo di azioni**.
+1. Continua a lavorare sull’avviso. Selezionare **Usa gruppi** di azioni e quindi selezionare **Crea gruppo** di azioni nel pannello **Seleziona gruppo** di azioni.
 
     >**Suggerimenti utili** Puoi aggiungere fino a cinque gruppi di azioni a una regola di avviso. I gruppi di azioni vengono eseguiti simultaneamente, senza un ordine specifico. Più regole di avviso possono usare lo stesso gruppo di azioni. 
 
@@ -227,7 +227,7 @@ In questa attività si userà Monitoraggio di Azure per eseguire query sui dati 
 
 1. Quando la macchina virtuale è in esecuzione, dovrebbe essere ottenuto un conteggio heartbeat.
 
-1. Esaminare la query. Questa query usa la tabella *heartbeat*. 
+1. Sul lato destro della schermata selezionare l'elenco a discesa accanto a **Modalità** semplice, scegliere **modalità** KQL. Esaminare la query. Questa query usa la tabella *heartbeat*.
 
 1. Sostituire la query con questa e fare clic su **Esegui**. Esaminare il grafico risultante. 
 
@@ -238,6 +238,8 @@ In questa attività si userà Monitoraggio di Azure per eseguire query sui dati 
     | summarize avg(Val) by bin(TimeGenerated, 5m), Computer //split up by computer
     | render timechart
    ```
+
+    >**Nota:** se la query non viene incollata correttamente, provare a incollare nel Blocco note e quindi copiare e incollare nuovamente nel campo della query.
 
 1. Quando si ha tempo, esaminare ed eseguire altre query. 
 
