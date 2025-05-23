@@ -130,6 +130,8 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Tornare alla home page del portale. È necessario disporre sia di un'app Web di produzione che dello slot di staging.
 
+1. `App Services` Cercare e selezionare l'app Web servizio app. Verrà restituito lo slot Di distribuzione di produzione.
+
 1. Selezionare l'app Web servizio app e nel pannello **Panoramica** dell'app Web selezionare il **collegamento Dominio** predefinito per visualizzare la home page del sito Web.
 
 1. Verificare che la pagina Web di produzione visualizzi ora **Hello World.** .

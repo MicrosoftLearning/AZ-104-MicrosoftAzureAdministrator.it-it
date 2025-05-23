@@ -49,7 +49,7 @@ Esistono diverse simulazioni di lab interattive che potrebbero risultare utili p
 
 ## Attività 1: Assegnare tag tramite il portale di Azure
 
-In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure. I tag sono un componente fondamentale di una strategia di governance, come descritto da Microsoft Well-Architected Framework e Cloud Adoption Framework. I tag consentono di identificare rapidamente i proprietari delle risorse, le date di scadenza, i contatti di gruppo e altre coppie nome/valore ritenute importanti dall'organizzazione. Per questa attività, si assegna un tag che identifica il ruolo della risorsa ('Infra' per 'Infrastruttura').
+In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di Azure tramite il portale di Azure. I tag sono un componente fondamentale di una strategia di governance, come descritto da Microsoft Well-Architected Framework e Cloud Adoption Framework. I tag consentono di identificare rapidamente i proprietari delle risorse, le date di scadenza, i contatti di gruppo e altre coppie nome/valore ritenute importanti dall'organizzazione. Per questa attività si assegna un tag che identifica il Centro costi risorse. 
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
       
