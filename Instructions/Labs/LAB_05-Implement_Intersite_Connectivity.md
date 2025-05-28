@@ -73,7 +73,7 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
 
 1. Nella scheda **Rete**, per Rete virtuale selezionare **Crea nuova**.
 
-1. Usare le informazioni seguenti per configurare la rete virtuale, quindi selezionare **OK**. Se necessario, rimuovere o sostituire le informazioni esistenti.
+1. Usare le informazioni seguenti per configurare la rete virtuale e quindi selezionare **OK**. Se necessario, rimuovere o sostituire le informazioni esistenti.
 
     | Impostazione | valore | 
     | --- | --- |
@@ -118,7 +118,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
 
 1. Nella scheda Rete, per Rete virtuale selezionare **Crea nuova**.
 
-1. Usare le informazioni seguenti per configurare la rete virtuale, quindi selezionare **OK**.  Se necessario, rimuovere o sostituire l'intervallo di indirizzi esistente.
+1. Usare le informazioni seguenti per configurare la rete virtuale e quindi selezionare **OK**.  Se necessario, rimuovere o sostituire l'intervallo di indirizzi esistente.
 
     | Impostazione | valore | 
     | --- | --- |
@@ -169,23 +169,23 @@ In questa attività viene creato un peering di reti virtuali per abilitare le co
 
 1. In CoreServicesVnet, in **Impostazioni** selezionare **Peer**.
 
-1. In CoreServicesVnet | Peer selezionare **+ Aggiungi**. Se non specificato, accettare il valore predefinito. 
+1. In CoreServicesVnet, in Peering selezionare **+ Aggiungi**. Se non specificato, accettare il valore predefinito. 
 
-| **Parametro**                                    | **valore**                             |
-| --------------------------------------------- | ------------------------------------- |                                
-| Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Rete virtuale    | **ManufacturingVM-net (az104-rg5)**  |
-| Consentire a ManufacturingVnet di accedere a CoreServicesVnet  | selezionato (impostazione predefinita)                       |
-| Consentire a ManufacturingVnet di ricevere traffico inoltrato da CoreServicesVnet | Opzione selezionata                        |
-| Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
-| Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita)                       |
-| Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata                       |
+    | **Parametro**                                    | **valore**                             |
+    | --------------------------------------------- | ------------------------------------- |                                
+    | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
+    | Rete virtuale    | **ManufacturingVM-net (az104-rg5)**  |
+    | Consentire a ManufacturingVnet di accedere a CoreServicesVnet  | selezionato (impostazione predefinita) |
+    | Consentire a ManufacturingVnet di ricevere traffico inoltrato da CoreServicesVnet | Opzione selezionata  |
+    | Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
+    | Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita) |
+    | Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata |
 
-1. Fare clic su **Aggiungi**.
+4. Fare clic su **Aggiungi**.
 
-1. In CoreServicesVnet | Peer verificare che il peering **CoreServicesVnet-to-ManufacturingVnet** sia elencato. Aggiornare la pagina per assicurarsi che lo **stato del peering** sia **Connesso**.
+5. In CoreServicesVnet, in Peering, verificare che sia elencato il **peering CoreServicesVnet-to-ManufacturingVnet** . Aggiornare la pagina per assicurarsi che lo **stato del peering** sia **Connesso**.
 
-1. Passare a **ManufacturingVnet** e verificare che il peering **ManufacturingVnet-to-CoreServicesVnet** sia elencato. Verificare che lo **stato del peering** sia **Connesso**. Può essere necessario **aggiornare** la pagina. 
+6. Passare a **ManufacturingVnet** e verificare che il peering **ManufacturingVnet-to-CoreServicesVnet** sia elencato. Verificare che lo **stato del peering** sia **Connesso**. Può essere necessario **aggiornare** la pagina. 
 
 ## Attività 5: Usare Azure PowerShell per testare la connessione tra macchine virtuali
 
@@ -231,7 +231,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
     | Intervallo di indirizzi subnet | `10.0.1.0/24`  |
 
    
-1. Nel portale di Azure cercare e selezionare `Route tables`, quindi selezionare **Crea**. 
+1. Nella portale di Azure cercare e selezionare , selezionare `Route tables`**Rivedi e crea** e quindi selezionare **Crea**. 
 
     | Impostazione | Valore | 
     | --- | --- |
@@ -245,7 +245,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
    
 1. Selezionare la risorsa (non la casella di controllo) **rt-CoreServices**
 
-1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **+ Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
+1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
 
     | Impostazione | Valore | 
     | --- | --- |

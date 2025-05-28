@@ -34,7 +34,7 @@ Esistono simulazioni di lab interattive che potrebbero risultare utili per quest
 
 ## Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura
 
-In questa attività si userà un modello per distribuire una rete virtuale, un gruppo di sicurezza di rete e due macchine virtuali.
+In questa attività si userà un modello per distribuire una rete virtuale, un gruppo di sicurezza di rete e tre macchine virtuali.
 
 1. Scaricare i file lab **\\Allfiles\\Lab06** (modelli e parametri).
 
@@ -105,7 +105,7 @@ In questa attività si implementa Azure Load Balancer davanti alle due macchine 
     | Bilanciamento del carico del gateway | None |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** (usare le istruzioni nel passaggio successivo) |
 
-1. Nella finestra popup **Aggiungi indirizzo IP pubblico**, usare le impostazioni seguenti, poi fare clic su **OK** e quindi scegliere **Aggiungi**. Al termine, fare clic su **Avanti: Pool back-end**.
+1. **Nella finestra popup Aggiungi un indirizzo** IP pubblico usare le impostazioni seguenti prima di fare clic su **Salva** due volte. Al termine, fare clic su **Avanti: Pool back-end**.
 
     | Impostazione | valore |
     | --- | --- |
@@ -117,7 +117,7 @@ In questa attività si implementa Azure Load Balancer davanti alle due macchine 
 
     >**Nota:** Lo SKU Standard fornisce un indirizzo IP statico. Gli indirizzi IP statici vengono assegnati alla risorsa e rilasciati quando questa viene eliminata.  
 
-1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su **+ Aggiungi** (due volte), quindi su **Avanti: Regole in ingresso**.
+1. Nella scheda **Pool back-end** fare clic su **Aggiungi un pool back-end** con le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni. Fare clic su Aggiungi e quindi su ****Salva**.** Fare clic su **Avanti: Regole** in ingresso.
 
     | Impostazione | valore |
     | --- | --- |
@@ -189,9 +189,9 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | --- | --- |
     | Name | `subnet-appgw` |
     | Indirizzo iniziale| `10.60.3.224` |
-    | Dimensione | `/27` |
+    | Dimensione | `/27`- Verificare che l'indirizzo **** iniziale sia ancora **10.63.3.224**|
 
-1. Fare clic su **Salva**
+1. Fare clic su **Aggiungi**
 
     > **Nota**: Questa subnet verrà usata dal gateway applicazione di Azure. Il gateway applicazione richiede una subnet dedicata di dimensioni /27 o superiori.
 
@@ -207,8 +207,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | Paese | La **stessa** area di Azure usata nell'attività 1 |
     | Livello | **Standard V2** |
     | Abilitare la scalabilità automatica | **No** |
-    | Numero minimo di istanze | `2` |
-    | Zona di disponibilità | **1** (impostazione predefinita) |
+    | Numero di istanze | `2` |
     | HTTP2 | **Disabilitato** |
     | Rete virtuale | **az104-06-vnet1** |
     | Subnet | **subnet-appgw (10.60.3.224/27)** |
@@ -290,7 +289,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | Impostazioni back-end | **az104-http** |
     | Destinazione back-end | `az104-videobe` |
 
-1. Assicurarsi di **salvare** e controllare le modifiche, quindi selezionare **Avanti: Tag >**. Non sono necessarie modifiche.
+1. Assicurarsi di controllare le modifiche, quindi selezionare **Avanti : Tag >**. Non sono necessarie modifiche.
 
 1. Selezionare **Avanti: Rivedi e crea >**, quindi fare clic su **Crea**.
 
