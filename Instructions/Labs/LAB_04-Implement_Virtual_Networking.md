@@ -281,7 +281,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
 
 1. Nel pannello **Panoramica** si notino i nomi dei quattro server dei nomi DNS di Azure assegnati alla zona. **Copiare** uno degli indirizzi del server dei nomi. Sarà necessaria in un passaggio successivo. 
   
-1. Espandere il **pannello Gestione** DNS e selezionare **+ Set** di record.
+1. Espandere il **pannello Gestione** DNS e selezionare **+ Set** di record. **Aggiungere** un record di collegamento di rete virtuale per ogni rete virtuale che richiede il supporto per la risoluzione dei nomi privata.
 
     | Proprietà | valore    |
     |:---------|:---------|
