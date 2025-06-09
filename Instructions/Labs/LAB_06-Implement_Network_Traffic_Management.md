@@ -189,7 +189,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
     | --- | --- |
     | Name | `subnet-appgw` |
     | Indirizzo iniziale| `10.60.3.224` |
-    | Dimensione | `/27`- Verificare che l'indirizzo **** iniziale sia ancora **10.63.3.224**|
+    | Dimensione | `/27`- Verificare che l'indirizzo **** iniziale sia ancora **10.60.3.224**|
 
 1. Fare clic su **Aggiungi**
 

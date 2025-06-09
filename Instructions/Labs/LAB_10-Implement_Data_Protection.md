@@ -204,7 +204,6 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
     - **Dati degli avvisi del componente aggiuntivo Backup di Azure**
     - **Processi di Azure Site Recovery**
     - **Eventi di Azure Site Recovery**
-    - **Integrità**
 
 1. In Dettagli destinazione posizionare un segno di spunta accanto a **Archivia in un account di archiviazione**.
 

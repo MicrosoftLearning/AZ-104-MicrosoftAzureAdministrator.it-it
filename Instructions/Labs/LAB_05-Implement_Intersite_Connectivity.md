@@ -227,11 +227,13 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
     | Impostazione | valore | 
     | --- | --- |
-    | Nome | `perimeter` |
-    | Intervallo di indirizzi subnet | `10.0.1.0/24`  |
+    | Name | `perimeter` |
+    | Indirizzo iniziale | `10.0.1.0/24`  |
 
    
-1. Nella portale di Azure cercare e selezionare , selezionare `Route tables`**Rivedi e crea** e quindi selezionare **Crea**. 
+1. Nella portale di Azure cercare e selezionare , selezionare `Route tables`**+ Crea**.
+
+1. Immettere i dettagli seguenti, selezionare **Rivedi e crea** e quindi selezionare **Crea**. 
 
     | Impostazione | Valore | 
     | --- | --- |
