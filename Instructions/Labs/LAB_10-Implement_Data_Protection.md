@@ -18,11 +18,9 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione sta valutando come eseguire il backup e il ripristino di macchine virtuali di Azure per evitare perdite di dati accidentali o causate da attacchi. Inoltre, l'organizzazione vuole esplorare l'uso di Azure Site Recovery per scenari di ripristino di emergenza. 
 
-## Simulazione interattiva del lab
+## Simulazioni interattive del lab
 
-È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
-+ **[Eseguire il backup di macchine virtuali e file locali.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)**. Creare un insieme di credenziali dei servizi di ripristino e implementare un backup di macchine virtuali di Azure. Implementare il backup di file e cartelle locali usando l'agente di Servizi di ripristino di Microsoft Azure. I backup locali non rientrano nell'ambito di questo lab, ma potrebbe essere utile visualizzare questi passaggi. 
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Competenze mansione
 

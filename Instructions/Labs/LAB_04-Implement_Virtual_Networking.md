@@ -24,15 +24,7 @@ La rete virtuale **ManufacturingVnet** contiene sistemi per le operazioni degli 
 
 ## Simulazioni interattive del lab
 
-Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
-
-+ [Traffico della rete protetta](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2013). Creare una macchina virtuale, una rete virtuale e un gruppo di sicurezza di rete. Aggiungere regole del gruppo di sicurezza di rete per consentire e impedire il traffico.
-  
-+ [Creare una semplice rete virtuale](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%204). Creare una rete virtuale con due macchine virtuali. Illustrare le macchine virtuali in grado di comunicare. 
-
-+ [Progettare e implementare una rete virtuale in Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure). Creare un gruppo di risorse e creare reti virtuali con subnet.  
-
-+ [Implementare la rete virtuale](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208). Creare e configurare una rete virtuale, distribuire macchine virtuali, configurare i gruppi di sicurezza di rete e configurare DNS di Azure.
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
 

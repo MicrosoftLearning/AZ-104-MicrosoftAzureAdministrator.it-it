@@ -21,11 +21,7 @@ L'organizzazione è interessata alle app Web di Azure per ospitare i siti Web az
 
 ## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
-+ [Creare un'app Web](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%202). Creare un'app Web che esegue un contenitore Docker.
-    
-+ [Implementare app Web di Azure](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013). Creare un'app Web di Azure, gestire la distribuzione e ridimensionare l'app. 
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
 

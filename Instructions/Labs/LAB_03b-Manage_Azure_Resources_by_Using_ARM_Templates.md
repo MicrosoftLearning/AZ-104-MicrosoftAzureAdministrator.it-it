@@ -16,11 +16,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 ## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
-
-+ [Gestire le risorse di Azure usando i modelli di Azure Resource Manager](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205). Esaminare, creare e distribuire dischi gestiti con un modello.
-  
-+ [Creare una macchina virtuale con un modello](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%209). Distribuire una macchina virtuale con un modello di avvio rapido.
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
   
 ## Scenario laboratorio
 

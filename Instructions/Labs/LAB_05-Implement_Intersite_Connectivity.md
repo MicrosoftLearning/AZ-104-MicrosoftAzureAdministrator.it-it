@@ -20,13 +20,7 @@ L'organizzazione segmenta le app e i servizi IT principali (come i servizi DNS e
 
 ## Simulazioni interattive del lab
 
-Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
-
-+ [Connettere due reti virtuali di Azure usando il peering di reti virtuali globale](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering). Testare la connessione tra due macchine virtuali in reti virtuali diverse. Creare un peering di reti virtuali ed effettuare un nuovo test.
-
-+ [Configurare il monitoraggio per le reti virtuali](https://learn.microsoft.com/training/modules/configure-monitoring-virtual-networks/). Informazioni su come usare Monitoraggio connessione di Azure Network Watcher, log dei flussi, diagnostica del gruppo di sicurezza di rete e acquisizione di pacchetti per monitorare la connettività tra le risorse di rete IaaS di Azure.
-
-+ [Implementare la connettività tra siti](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209). Eseguire un modello per creare un'infrastruttura di reti virtuali con diverse macchine virtuali. Configurare i peering di reti virtuali e testare le connessioni. 
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
 
