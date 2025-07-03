@@ -20,11 +20,7 @@ L'organizzazione ha un sito Web pubblico. È necessario bilanciare il carico del
 
 ## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
-+ [Creare e configurare bilanciamento del carico di Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer). Creare una rete virtuale, server back-end, bilanciamento del carico e quindi testare il bilanciamento del carico.
-+ [Distribuire il gateway applicazione di Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway). Creare un gateway applicazione, creare macchine virtuali, creare il pool back-end e quindi testare il gateway.
-+ [Implementare gestione del traffico](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010). Implementare una rete hub-spoke completa, comprendente macchine virtuali, reti virtuali, peering, bilanciamento del carico e gateway applicazione.
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Competenze mansione
 

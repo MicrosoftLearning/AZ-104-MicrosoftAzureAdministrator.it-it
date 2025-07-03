@@ -28,13 +28,7 @@ Il footprint del cloud dell'organizzazione è cresciuto notevolmente nell'ultimo
 
 ## Simulazioni interattive del lab
 
-Esistono diverse simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di fare clic su uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
-
-+ [Gestire i blocchi delle risorse](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2015). Aggiungere un blocco della risorsa e testare per confermare.
-  
-+ [Creare un criterio di Azure](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2017). Creare un criterio Azure che limiti la posizione delle risorse. Creare una nuova risorsa e assicurarsi che i criteri vengano applicati. 
-
-+ [Gestire la governance tramite criteri di Azure](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203). Creare e assegnare tag tramite il portale di Azure. Creare criteri di Azure che richiedono l'assegnazione di tag. Correggere le risorse non conformi.
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
 

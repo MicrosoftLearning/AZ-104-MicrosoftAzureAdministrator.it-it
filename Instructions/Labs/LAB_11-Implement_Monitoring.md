@@ -18,13 +18,12 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione dell’utente ha eseguito la migrazione della sua infrastruttura in Azure. È importante che gli amministratori vengano informati di eventuali modifiche significative dell'infrastruttura. Pianificare l’esame delle funzionalità di Monitoraggio di Azure, incluso Log Analytics.
 
-## Simulazione interattiva del lab
+## Simulazioni interattive del lab
 
-È disponibile una simulazione di lab interattiva che può risultare utile per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
-+ [Implementare il monitoraggio.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Creare un'area di lavoro Log Analytics e soluzioni di automazione Azure. Esaminare le impostazioni di monitoraggio e diagnostica per le macchine virtuali. Esaminare la funzionalità di Monitoraggio di Azure e analisi dei log. 
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
+
 
 ![Diagramma delle attività dell’architettura](../media/az104-lab11-architecture.png)
 

@@ -20,21 +20,13 @@ L'organizzazione vuole esplorare la distribuzione e la configurazione di macchin
 
 ## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure.
-
-+ [Creare una macchina virtuale nel portale](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%201). Creare una macchina virtuale, connettersi e installare il ruolo del server Web.
-
-+ [Distribuire una macchina virtuale con un modello](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%209). Esplorare la raccolta Avvio rapido e individuare un modello di macchina virtuale. Distribuire il modello e verificare la distribuzione.
-
-+ [Creare una macchina virtuale con PowerShell](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2010). Usare Azure PowerShell per distribuire una macchina virtuale. Esaminare le raccomandazioni di Azure Advisor.
-
-+ [Creare una macchina virtuale con l'interfaccia della riga di comando](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2011). Usare l'interfaccia della riga di comando per distribuire una macchina virtuale. Esaminare le raccomandazioni di Azure Advisor.
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Competenze mansione
 
-+ Attività 1: Distribuire macchine virtuali di Azure resilienti alla zona usando il portale di Azure.
-+ Attività 2: Gestire il ridimensionamento delle risorse di calcolo e archiviazione per le macchine virtuali.
-+ Attività 3: Creare e configurare set di scalabilità di macchine virtuali di Azure.
++ Attività 1: distribuire macchine virtuali di Azure con resilienza della zona usando il portale di Azure.
++ Attività 2: gestire il ridimensionamento delle risorse di calcolo e archiviazione per le macchine virtuali.
++ Attività 3: creare e configurare set di scalabilità di macchine virtuali di Azure.
 + Attività 4: Ridimensionare i set di scalabilità di macchine virtuali di Azure.
 + Attività 5: Creare una macchina virtuale usando Azure PowerShell (facoltativo 1).
 + Attività 6: Creare una macchina virtuale usando l'interfaccia della riga di comando (facoltativo 2).

@@ -20,11 +20,7 @@ L'organizzazione al momento archivia i dati negli archivi dati locali. Alla magg
 
 ## Simulazioni interattive del lab
 
-Esistono simulazioni di lab interattive che potrebbero risultare utili per questo argomento. La simulazione consente di eseguire uno scenario simile al proprio ritmo. Esistono differenze tra la simulazione interattiva e questo lab, ma molti concetti fondamentali sono identici. Non è necessaria una sottoscrizione di Azure. 
-
-+ [Creare l'archivio BLOB](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%205). Creare un account di archiviazione, gestire l'archiviazione BLOB e monitorare le attività di archiviazione. 
-  
-+ [Gestire Archiviazione di Azure](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011). Creare un account di archiviazione e rivedere la configurazione. Gestire i contenitori dell’archiviazione BLOB. Configurare la rete di archiviazione. 
+>**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
 
 ## Diagramma dell'architettura
 

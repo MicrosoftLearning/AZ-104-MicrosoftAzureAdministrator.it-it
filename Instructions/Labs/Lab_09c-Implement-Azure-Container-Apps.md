@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione ha un'applicazione Web che viene eseguita in una macchina virtuale nel data center locale. L'organizzazione vuole spostare tutte le applicazioni nel cloud, ma non vuole gestire un numero elevato di server. Si decide di valutare App contenitore di Azure.
 
-## Simulazioni interattive del lab
-
-Non sono disponibili simulazioni del lab interattive per questo argomento. 
-
 ## Diagramma dell'architettura
 
 ![Diagramma delle attività.](../media/az104-lab09b-aca-architecture.png)
@@ -47,7 +43,7 @@ App contenitore di Azure amplia ulteriormente il concetto di cluster Kubernetes 
     | Gruppo di risorse | `az104-rg9` |
     | Nome app contenitore |  `my-app` |
     | Paese    | **Stati Uniti** orientali (|
-    | Ambiente App contenitore | Selezionare Crea nuovo** > Imposta nome ambiente su**`my-environment` >  Crea **** |
+    | Ambiente delle app contenitore | Selezionare Crea nuovo** > Imposta nome ambiente su**`my-environment` >  Crea **** |
 
 1. Fare clic sulla **scheda Avanti: Contenitore** e verificare che **l'opzione Usa immagine** di avvio rapido sia selezionata. Potrebbe essere necessario scorrere verso l'alto per visualizzare questa impostazione. 
 
