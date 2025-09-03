@@ -179,6 +179,8 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Nel portale di Azure, cercare e selezionare `Network security groups`.
 
+>**Nota:** è anche possibile individuare questa risorsa usando il menu portale di Azure (icona in alto a sinistra). Selezionare **Crea una risorsa e quindi nel pannello** **Rete** selezionare **Gruppo** di sicurezza di rete. 
+
 1. Selezionare **+ Crea** e fornire informazioni nella scheda **Informazioni di base**. 
 
     | Impostazione | Valore |
@@ -194,7 +196,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. In **Impostazioni** fare clic su **Subnet** e quindi su **Associa**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | -- | -- |
     | Rete virtuale | **CoreServicesVnet (az104-rg4)** |
     | Subnet | **SharedServicesSubnet** |
@@ -235,15 +237,15 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
     | Impostazione | Valore |
     | -- | -- |
     | Origine | **Any** |
-    | Intervalli porte di origine |  * |
+    | Intervalli di porte di origine |  * |
     | Destinazione | **Tag di servizio** |
     | Tag del servizio di destinazione | **Internet** |
     | Servizioo | **Personalizzazione** |
-    | Intervalli porte di destinazione | **8080** |
+    | Intervalli di porte di destinazione | `*` |
     | Protocollo | **Any** |
     | Azione | **Nega** |
     | Priorità | **4096** |
-    | Nome | **DenyAnyCustom8080Outbound** |
+    | Nome | `DenyInternetOutbound` |
 
 
 ## Attività 4: Configurare zone DNS di Azure pubbliche e private
@@ -262,7 +264,7 @@ In questa attività verranno create e configurate zone DNS pubbliche e private.
 
     | Proprietà | valore    |
     |:---------|:---------|
-    | Subscription | **Selezionare la sottoscrizione** |
+    | Sottoscrizione | **Selezionare la sottoscrizione** |
     | Gruppo di risorse | **az-104-rg4** |
     | Nome | `contoso.com` (se riservato regolare il nome) |
     | Paese |**Stati Uniti orientali** (esaminare l'icona informativa) |
@@ -305,7 +307,7 @@ Una zona DNS privata fornisce servizi di risoluzione dei nomi all'interno delle 
 
     | Proprietà | valore    |
     |:---------|:---------|
-    | Subscription | **Selezionare la sottoscrizione** |
+    | Sottoscrizione | **Selezionare la sottoscrizione** |
     | Gruppo di risorse | **az-104-rg4** |
     | Nome | `private.contoso.com` (regolare se è necessario rinominare) |
     | Area geografica |**Stati Uniti orientali** |
@@ -370,3 +372,5 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + Un gruppo di sicurezza di rete contiene regole di sicurezza che consentono o negano il traffico di rete. Esistono regole predefinite in ingresso e in uscita che è possibile personalizzare in base alle proprie esigenze.
 + I gruppi di sicurezza delle applicazioni vengono usati per proteggere i gruppi di server con una funzione comune, ad esempio server Web o server di database.
 + DNS di Azure è un servizio di hosting per i domini DNS che fornisce la risoluzione dei nomi. È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico.  È anche possibile usare zone DNS private per assegnare nomi DNS alle macchine virtuali nelle reti virtuali di Azure.
+
+
