@@ -162,7 +162,6 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 ## Altre informazioni con la formazione autogestita
 
 + [Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Uso del controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse in Azure.
-+ [Creare ruoli personalizzati per le risorse di Azure con il controllo degli accessi in base al ruolo (RBAC)](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/). Informazioni sulla struttura delle definizioni di ruolo per il controllo di accesso. Identificare le proprietà dei ruoli da usare per definire le autorizzazioni del ruolo personalizzato. Creare un ruolo personalizzato di Azure e assegnarlo a un utente.
 
 ## Punti chiave
 
@@ -174,6 +173,7 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
 + È possibile usare il log attività per monitorare le assegnazioni di ruolo.
+
 
 
 
