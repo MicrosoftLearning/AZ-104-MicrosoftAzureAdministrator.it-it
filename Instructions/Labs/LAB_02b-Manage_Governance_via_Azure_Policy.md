@@ -61,7 +61,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 1. Selezionare **Avanti** e passare alla **scheda Tag** . Specificare le informazioni per un nuovo tag.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Name | Centro costi |
     | Valore | 000 |
@@ -240,10 +240,6 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 + Le differenze tra i criteri di Azure e il controllo degli accessi in base al ruolo di Azure includono esempi.
 + Quali sono i passaggi per applicare i criteri di Azure e correggere le risorse che non sono conformi?
 + Come è possibile ottenere un report delle risorse di Azure con tag specifici?
-
-## Altre informazioni con la formazione autogestita
-
-+ [Progettare una strategia di governance aziendale](https://learn.microsoft.com/training/modules/enterprise-governance/). Usare il controllo degli accessi in base al ruolo e Criteri di Azure per limitare l'accesso alle soluzioni di Azure e determinare il metodo adatto agli obiettivi di sicurezza.
 
 ## Punti chiave
 

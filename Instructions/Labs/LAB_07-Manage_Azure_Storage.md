@@ -56,7 +56,7 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
 1. Nella scheda **Avanzate** usare le icone informative per altre indicazioni sulle opzioni. Accettare i valori predefiniti. 
 
-1. Nella sezione Accesso** alla rete della **** scheda Rete** selezionare **Disabilita l'accesso pubblico e usare l'accesso** privato. Questo limiterà l'accesso in ingresso consentendo l'accesso in uscita. 
+1. Nella sezione Accesso alla rete** pubblica della ****scheda Rete** selezionare **Disabilita**. Questo limiterà l'accesso in ingresso consentendo l'accesso in uscita. 
 
 1. Esaminare la scheda **Protezione dati**. Si noti che 7 giorni è il criterio di conservazione predefinito per l'eliminazione temporanea. Si noti che è possibile abilitare il controllo delle versioni per i BLOB. Accettare i valori predefiniti.
 
@@ -70,8 +70,9 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
 1. Nel pannello **Sicurezza e rete** selezionare **Rete**. Si noti che **l'accesso** alla rete pubblica è disabilitato.
 
-    + Modificare l'accesso **** alla rete pubblica in **Abilita da reti e indirizzi** IP selezionati.
-    + **Nella sezione Firewall** selezionare la casella **di controllo Aggiungi indirizzo** IP client.
+    + Selezionare **Gestisci** e modificare l'impostazione **Accesso alla rete** pubblica su **Abilitato**. 
+    + Modificare l'ambito **di** accesso alla rete pubblica in **Abilita dalle reti** selezionate.
+    + Nella sezione Indirizzi** IPv4 selezionare **Aggiungi l'indirizzo **** IPv4 del client.
     + Salva le modifiche.
   
 1. Nel pannello **Gestione** dati selezionare **Ridondanza**. Si notino le informazioni sulle posizioni del data center primario e secondario.
@@ -80,7 +81,7 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
     + **Assegnare un nome** alla regola `Movetocool`. Si notino le opzioni per limitare l'ambito della regola. Fare clic su **Avanti**. 
     
-    + Nella **scheda BLOB di** base, *se* i BLOB basati sono stati modificati più di `30 days` prima *, passare* **all'archiviazione ad accesso sporadico**. Si notino le altre opzioni. 
+    + Nella **pagina Aggiungi regola** , *se* i BLOB di base sono stati modificati più di `30` giorni fa *, passare* **all'archiviazione ad accesso sporadico**. Si notino le altre opzioni. 
     
     + Si noti che è possibile configurare altre condizioni. Selezionare **Aggiungi** al termine dell'esplorazione.
 
@@ -98,7 +99,7 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 1. Fare clic su **+ Aggiungi contenitore** e **creare** un contenitore con le impostazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | `data`  |
     | Livello di accesso pubblico | Si noti che il livello di accesso è impostato su privato |
@@ -138,9 +139,9 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 1. Verificare di avere una nuova cartella e che il file sia stato caricato. 
 
-1. Selezionare il file di caricamento ed esaminare le opzioni tra cui **Scarica**, **Elimina**, **Cambia livello** e **Acquisisci lease**.
+1. Selezionare il file di caricamento ed esaminare le opzioni con i puntini di sospensione (...) tra cui Download, Elimina, Cambia livello** e **Acquisisci lease**. **********
 
-1. Copiare l'URL del file **(pannello Proprietà) e incollarlo in una nuova **finestra di esplorazione inprivate**.**
+1. Copiare l'URL del file **(impostazioni --> pannello Proprietà) e incollarlo in una nuova **finestra di esplorazione inprivate**.**
 
 1. Verrà visualizzato il messaggio in formato XML **ResourceNotFound**o **PublicAccessNotPermitted**.
 
@@ -200,7 +201,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 ### Limitare l'accesso alla rete all'account di archiviazione
 
-1. Nel portale cercare e selezionare **Reti virtuali**.
+1. Nel portale cercare e selezionare `Virtual networks`.
 
 1. Seleziona **+ Crea**. Selezionare il gruppo di risorse. e assegnare alla rete virtuale un **nome**, `vnet1`.
 
@@ -218,9 +219,13 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Nel pannello **Sicurezza e rete** selezionare **Rete**.
 
-1. Selezionare **Aggiungi rete** virtuale esistente e selezionare **vnet1** e **subnet predefinita** , selezionare **Aggiungi**.
+1. In **Accesso alla rete** pubblica selezionare **Gestisci**. 
 
-1. Nella sezione **Firewall**, scegliere **Elimina** l'indirizzo IP del computer. Il traffico consentito deve provenire solo dalla rete virtuale. 
+1. Selezionare **Aggiungi una rete** virtuale e quindi **Aggiungi rete** esistente.
+
+1. Selezionare vnet1** e **subnet predefinita**, selezionare **Aggiungi**.**
+
+1. Nella sezione **Indirizzi** IPv4 eliminare** l'indirizzo **IP del computer. Il traffico consentito deve provenire solo dalla rete virtuale. 
 
 1. Assicurarsi di **salvare** le modifiche.
 
@@ -228,7 +233,7 @@ In questa attività verranno create e configurate le condivisioni di File di Azu
 
 1. Selezionare il **browser archiviazione** e **aggiornare** la pagina. Passare alla condivisione file o al contenuto del BLOB.  
 
-    >**Nota:** Dovrebbe essere visualizzato un messaggio *non autorizzato a eseguire questa operazione*. Non ci si connette dalla rete virtuale. L'applicazione di questa operazione può richiedere alcuni minuti.
+    >**Nota:** Dovrebbe essere visualizzato un messaggio *non autorizzato a eseguire questa operazione*. Non ci si connette dalla rete virtuale. L'applicazione di questa operazione può richiedere alcuni minuti. È comunque possibile visualizzare la condivisione file, ma non i file o i BLOB nell'account di archiviazione. 
 
 
 ![Screenshot dell'accesso non autorizzato.](../media/az104-lab07-notauthorized.png)
@@ -250,8 +255,8 @@ Copilot può essere utile per imparare a usare gli strumenti di scripting di Azu
 
 ## Altre informazioni con la formazione autogestita
 
-+ [Ottimizzare i costi con Archiviazione BLOB di Azure](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Informazioni su come ottimizzare i costi con Archiviazione BLOB di Azure.
-+ [Controllare l'accesso ad archiviazione di Azure con firme di accesso condiviso](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/). Concedere l'accesso ai dati archiviati negli account di archiviazione di Azure in modo sicuro tramite l'uso di firme di accesso condiviso.
++ [Creare un account di archiviazione di Azure](https://learn.microsoft.com/training/modules/create-azure-storage-account/). Creare un account di Archiviazione di Azure con le opzioni più adatte alle esigenze aziendali.
++ [Gestire il ciclo di vita](https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle) dell'archiviazione BLOB di Azure. Informazioni su come gestire la disponibilità dei dati durante il ciclo di vita dell'archiviazione BLOB di Azure.
 
 ## Punti chiave
 
