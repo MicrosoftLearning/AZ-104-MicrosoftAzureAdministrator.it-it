@@ -172,7 +172,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
 1. Verificare che il disco sia stato creato.
 
    ```powershell
-   Get-AzDisk
+   Get-AzDisk | ft
    ```
    
 ## Attività 4: Distribuire un modello con l'interfaccia della riga di comando 
