@@ -77,7 +77,7 @@ In questa attività verrà creato uno slot di distribuzione di staging. Gli slot
 
 1. Fare clic su **Aggiungi slot** e aggiungere un nuovo slot con le impostazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | ---|
     | Nome | `staging` |
     | Clona le impostazioni da | **Non clonare le impostazioni**|
@@ -138,9 +138,9 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 In questa attività verrà configurata la scalabilità automatica dell'app Web di Azure. La scalabilità automatica consente di mantenere prestazioni ottimali per l'app Web quando aumenta il traffico verso di essa. Per determinare quando deve essere ridimensionata l’app, è possibile monitorare metriche come utilizzo della CPU, memoria o larghezza di banda.
 
-1. Nella sezione **Impostazioni** selezionare **Aumenta (piano di servizio app)**.
+1. Nel riquadro sinistro, nella **sezione servizio app piano** selezionare **Scale out**.
 
-    >**Nota:** Assicurarsi di lavorare nello slot di produzione e non nello slot di staging.  
+    >**Nota:** assicurarsi di lavorare sullo slot di produzione, non sullo slot di staging.  
 
 1. Nella sezione **Ridimensionamento** selezionare **Automatico**. Si noti l'opzione **Basato su regole**. Il ridimensionamento basato su regole può essere configurato per metriche app diverse. 
 

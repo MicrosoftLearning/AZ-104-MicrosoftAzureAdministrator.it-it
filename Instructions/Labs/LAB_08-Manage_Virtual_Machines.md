@@ -193,7 +193,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nella **pagina Rete** selezionare **Modifica collegamento rete** virtuale. Apportare alcune modifiche. Al termine selezionare **OK**.
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | `vmss-vnet` |
     | Intervallo di indirizzi | `10.82.0.0/20` (eliminare l'intervallo di indirizzi esistente) |
@@ -206,7 +206,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nel pannello **Crea gruppo di sicurezza di rete** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | --- | --- |
     | Nome | **vmss1-nsg** |
 
@@ -215,7 +215,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Impostazione | Valore |
     | --- | --- |
     | Origine | **Any** |
-    | Intervalli porte di origine | * |
+    | Intervalli di porte di origine | * |
     | Destinazione | **Any** |
     | Service | **HTTP** |
     | Azione | **Consenti** |
@@ -381,7 +381,7 @@ In questa attività si ridimensiona il set di scalabilità di macchine virtuali 
 1. Al termine del comando, usare **az vm show** per verificare che il computer sia stato creato.
 
     ```sh
-    az vm show --name  myCLIVM --resource-group az104-rg8 --show-details
+    az vm show --name  myCLIVM --resource-group az104-rg8 --show-details --output table
     ```
 
 1. Verificare che **powerState** sia **in esecuzione**.
