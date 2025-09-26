@@ -213,7 +213,7 @@ In questa attività si testa di nuovo la connessione tra le macchine virtuali di
 
 ## Attività 6: Creare una route personalizzata 
 
-In questa attività si vuole controllare il traffico di rete tra la subnet perimetrale e la subnet dei servizi principali interni. Un'appliance di rete virtuale verrà installata nella subnet dei servizi principali e tutto il traffico deve essere instradato lì. 
+In questa attività si vuole controllare il traffico di rete tra la subnet perimetrale e la subnet dei servizi principali interni. Un'appliance di rete virtuale verrà installata nella subnet perimetrale e tutto il traffico deve essere instradato. 
 
 1. Cercare e selezionare `CoreServicesVnet`.
 
@@ -243,7 +243,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
 
-    | Impostazione | Valore | 
+    | Impostazione | valore | 
     | --- | --- |
     | Nome route | `PerimetertoCore` |
     | Tipo destinazione | **Indirizzi IP** |
@@ -255,7 +255,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 1. Selezionare **Subnet** e quindi **+ Associa**. Completare la configurazione.
 
-    | Impostazione | Valore | 
+    | Impostazione | valore | 
     | --- | --- |
     | Rete virtuale | **CoreServicesVnet** |
     | Subnet | **Core** |    
