@@ -50,7 +50,7 @@ In questa attività verranno creati e configurati account utente. Gli account ut
    
 ### Creare un nuovo utente
 
-1. Selezionare **Utenti**, quindi nell'elenco a discesa **Nuovo utente** selezionare **Crea nuovo utente**. 
+1. Nel pannello **Gestisci** selezionare **Utenti**, quindi nell'elenco **a discesa Nuovo utente** selezionare **Crea nuovo utente**. 
 
 1. Creare un nuovo utente con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni). Nella scheda **Proprietà** si notino tutti i diversi tipi di informazioni che possono essere inclusi nell'account utente. 
 
@@ -157,3 +157,4 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + Microsoft Entra ID ha account utente e guest. Ogni account ha un livello di accesso specifico per l'ambito del lavoro previsto.
 + I gruppi combinano utenti o dispositivi correlati. Esistono due tipi di gruppi, tra cui Sicurezza e Microsoft 365.
 + L'appartenenza al gruppo può essere assegnata in modo statico o dinamico.
+
