@@ -19,10 +19,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione è interessata alle app Web di Azure per ospitare i siti Web aziendali. I siti Web sono attualmente ospitati in un data center locale. I siti Web sono in esecuzione su server Windows usando lo stack di runtime PHP. L'hardware sta terminando il suo ciclo di vita e presto sarà necessario sostituirlo. L'organizzazione vuole evitare nuovi costi hardware usando Azure per ospitare i siti Web. 
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma delle attività.](../media/az104-lab09a-architecture.png)
@@ -47,7 +43,7 @@ In questa attività verrà creata un'app Web di Azure. Servizi app di Azure è u
 
 1. Nella scheda **Informazioni di base** del pannello **Crea app Web** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | ---|
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
@@ -77,7 +73,7 @@ In questa attività verrà creato uno slot di distribuzione di staging. Gli slot
 
 1. Fare clic su **Aggiungi slot** e aggiungere un nuovo slot con le impostazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | ---|
     | Nome | `staging` |
     | Clona le impostazioni da | **Non clonare le impostazioni**|

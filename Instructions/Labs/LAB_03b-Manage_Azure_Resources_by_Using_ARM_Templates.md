@@ -14,10 +14,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 ## Tempo stimato: 50 minuti
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-  
 ## Scenario laboratorio
 
 Il team vuole esaminare i modi per automatizzare e semplificare le distribuzioni delle risorse. L'organizzazione sta cercando modi per ridurre il sovraccarico amministrativo, ridurre l'errore umano e aumentare la coerenza.  
@@ -46,7 +42,7 @@ In questa attività verrà creato un disco gestito nel portale di Azure. I disch
 
 1. Nella pagina **Creare un disco gestito** configurare il disco e quindi selezionare **Ok**. 
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | *sottoscrizione in uso* | 
     | Gruppo di risorse | `az104-rg3` (Se necessario, selezionare **Crea nuovo**).
@@ -104,7 +100,7 @@ In questa attività si usa il modello scaricato per distribuire un nuovo disco g
 
 1. Completare le impostazioni di distribuzione personalizzate:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- |--- |
     | Subscription | *sottoscrizione in uso* |
     | Gruppo di risorse | `az104-rg3` |

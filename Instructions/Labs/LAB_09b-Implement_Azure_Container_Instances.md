@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione ha un'applicazione Web che viene eseguita in una macchina virtuale nel data center locale. L'organizzazione vuole spostare tutte le applicazioni nel cloud, ma non vuole gestire un numero elevato di server. Si decide di valutare Istanze di Azure Container e Docker. 
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma delle attività.](../media/az104-lab09b-aci-architecture.png)
@@ -41,9 +37,9 @@ In questa attività si creerà una semplice applicazione Web usando un'immagine 
 
 1. Nella scheda **Dati principali** del pannello **Crea istanza di Container** specificare le impostazioni seguenti e non modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ---- | ---- |
-    | Subscription | Selezionare la sottoscrizione di Azure |
+    | Subscription | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | `az104-rg9` (Se necessario, selezionare **Crea nuovo**) |
     | Nome contenitore | `az104-c1` |
     | Paese | **Stati Uniti orientali** (o un'area disponibile nelle vicinanze)|

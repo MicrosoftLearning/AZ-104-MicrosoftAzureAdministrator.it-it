@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione sta valutando come eseguire il backup e il ripristino di macchine virtuali di Azure per evitare perdite di dati accidentali o causate da attacchi. Inoltre, l'organizzazione vuole esplorare l'uso di Azure Site Recovery per scenari di ripristino di emergenza. 
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Competenze mansione
 
 + Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
@@ -64,7 +60,7 @@ In questa attività si userà un modello per distribuire una macchina virtuale. 
 
 1. Usare le informazioni seguenti per completare i campi di distribuzione personalizzati, lasciando i valori predefiniti per tutti gli altri campi:
 
-    | Impostazione       | Valore         | 
+    | Impostazione       | valore         | 
     | ---           | ---           |
     | Subscription  | la propria sottoscrizione di Azure |
     | Gruppo di risorse| `az104-rg-region1` (se necessario, selezionare **Crea nuovo**)
@@ -140,7 +136,7 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
 
 1. Definire un nuovo criterio di backup con le impostazioni seguenti e non modificare i valori predefiniti per gli altri criteri:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ---- | ---- |
     | Nome del criterio | `az104-backup` |
     | Frequenza | **Giornaliero** |

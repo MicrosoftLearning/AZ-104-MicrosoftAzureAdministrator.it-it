@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione al momento archivia i dati negli archivi dati locali. Alla maggior parte di questi file non si accede di frequente. È possibile ridurre al minimo i costi di archiviazione inserendo i file a cui si accede raramente in livelli di archiviazione a prezzi più bassi. Verranno anche esplorati diversi meccanismi di protezione offerti da Archiviazione di Azure, tra cui l'accesso alla rete, l'autenticazione, l'autorizzazione e la replica. Infine, è possibile determinare in quale misura File di Azure è adatto per ospitare le condivisioni file locali.
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma delle attività.](../media/az104-lab07-architecture.png)
@@ -42,7 +38,7 @@ In questa attività verrà creato e configurato un account di archiviazione. L'a
 
 1. Nella scheda **Informazioni di base** del pannello **Crea un account di archiviazione** specificare le impostazioni seguenti, mantenendo i valori predefiniti per le altre:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription          | Il nome della propria sottoscrizione di Azure  |
     | Gruppo di risorse        | **az104-rg7** (crea nuovo) |
@@ -99,7 +95,7 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 1. Fare clic su **+ Aggiungi contenitore** e **creare** un contenitore con le impostazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | `data`  |
     | Livello di accesso pubblico | Si noti che il livello di accesso è impostato su privato |

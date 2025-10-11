@@ -26,10 +26,6 @@ Il footprint del cloud dell'organizzazione è cresciuto notevolmente nell'ultimo
 
 - usare i blocchi delle risorse per proteggere le risorse configurate
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma dell'architettura delle attività.](../media/az104-lab02b-architecture.png)
@@ -61,7 +57,7 @@ In questa attività si creerà e si assegnerà un tag a un gruppo di risorse di 
 
 1. Selezionare **Avanti** e passare alla **scheda Tag** . Specificare le informazioni per un nuovo tag.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Name | Centro costi |
     | Valore | 000 |
@@ -84,7 +80,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti. Al termine, fare clic su **Seleziona**. 
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | *sottoscrizione in uso* |
     | Gruppo di risorse | **az104-rg2** |
@@ -120,7 +116,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** completare la configurazione.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Gruppo di risorse | **az104-rg2** |
     | Nome account di archiviazione | *Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera* |
@@ -145,7 +141,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Fare clic su **Assegna criteri** e specificare un valore per **Ambito** facendo clic sul pulsante con i puntini di sospensione e selezionando le opzioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg2` |
@@ -187,7 +183,7 @@ In questa attività verrà usata una nuova definizione di criteri per correggere
 
 1. Nella scheda **Informazioni di base** del pannello **Crea account di archiviazione** verificare di usare il gruppo di risorse a cui è stato applicato il criterio e specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni), quindi fare clic su **Rivedi**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome account di archiviazione | *Qualsiasi combinazione univoca globale di 3-24 lettere minuscole e numeri, a partire da una lettera* |
 

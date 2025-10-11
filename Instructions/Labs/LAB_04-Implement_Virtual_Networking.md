@@ -22,10 +22,6 @@ La **rete virtuale CoreServicesVnet** ha il maggior numero di risorse. È previs
 
 La rete virtuale **ManufacturingVnet** contiene sistemi per le operazioni degli impianti di produzione. L'organizzazione prevede un numero elevato di dispositivi connessi interni per i sistemi da cui recuperare i dati. 
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Layout di rete](../media/az104-lab04-architecture.png)
@@ -164,7 +160,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Fare clic su **Crea** e specificare le informazioni di base.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | -- | -- |
     | Subscription | *sottoscrizione in uso* |
     | Gruppo di risorse | **az104-rg4** |
@@ -183,7 +179,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Selezionare **+ Crea** e fornire informazioni nella scheda **Informazioni di base**. 
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | -- | -- |
     | Subscription | *sottoscrizione in uso* |
     | Gruppo di risorse | **az104-rg4** |
@@ -213,7 +209,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Nel pannello **Aggiungi regola di sicurezza in ingresso**, usare le informazioni seguenti per aggiungere una regola di porta in ingresso. Questa regola consente il traffico del gruppo di sicurezza di Azure. Al termine, selezionare **Aggiungi**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | -- | -- |
     | Origine | **Gruppo di sicurezza delle applicazioni** |
     | Gruppi di sicurezza delle applicazioni di origine | **asg-web** |
@@ -234,7 +230,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Selezionare **+ Aggiungi** e quindi configurare una regola in uscita che nega l'accesso a Internet. Al termine, selezionare **Aggiungi**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | -- | -- |
     | Origine | **Any** |
     | Intervalli di porte di origine |  * |
@@ -372,6 +368,7 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + Un gruppo di sicurezza di rete contiene regole di sicurezza che consentono o negano il traffico di rete. Esistono regole predefinite in ingresso e in uscita che è possibile personalizzare in base alle proprie esigenze.
 + I gruppi di sicurezza delle applicazioni vengono usati per proteggere i gruppi di server con una funzione comune, ad esempio server Web o server di database.
 + DNS di Azure è un servizio di hosting per i domini DNS che fornisce la risoluzione dei nomi. È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico.  È anche possibile usare zone DNS private per assegnare nomi DNS alle macchine virtuali nelle reti virtuali di Azure.
+
 
 
 
