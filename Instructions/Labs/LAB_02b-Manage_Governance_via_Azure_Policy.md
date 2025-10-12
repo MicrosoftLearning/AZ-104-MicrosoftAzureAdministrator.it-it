@@ -91,7 +91,7 @@ In questa attività si assegnerà il criterio predefinito *Richiedi un tag con i
 
     | Impostazione | Valore |
     | --- | --- |
-    | Nome dell'assegnazione | 'Require Cost Center tag and its value on resources |
+    | Nome dell'assegnazione | `Require Cost Center tag and its value on resources` |
     | Descrizione | `Require Cost Center tag and its value on all resources in the resource group`|
     | Applicazione dei criteri | Attivata |
 

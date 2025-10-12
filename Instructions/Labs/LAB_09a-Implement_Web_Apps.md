@@ -120,7 +120,7 @@ In questa attività lo slot di staging verrà scambiato con lo slot di produzion
 
 1. Esaminare le impostazioni predefinite e fare clic su **Avvia scambio**. Attendere la notifica che lo scambio è terminato.
 
-1. Tornare alla home page del portale. È necessario disporre sia di un'app Web di produzione che dello slot di staging.
+1. Tornare alla home page del portale. È necessario disporre sia dell'app Web di produzione che dello slot di staging.
 
 1. `App Services` Cercare e selezionare l'app Web servizio app. Verrà restituito lo slot Di distribuzione di produzione.
 

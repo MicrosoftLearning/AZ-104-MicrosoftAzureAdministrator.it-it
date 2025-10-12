@@ -35,14 +35,14 @@ App contenitore di Azure amplia ulteriormente il concetto di cluster Kubernetes 
 
 1. Selezionare **+ Crea** dal menu a discesa App **** contenitore. Si notino le altre opzioni. 
 
-1. Usare le informazioni seguenti per compilare i dettagli nella scheda **Informazioni di base**.*.
+1. Usare le informazioni seguenti per compilare i dettagli nella **scheda Informazioni di base** .
 
     | Impostazione | Azione |
     |---|---|
-    | Abbonamento | Selezionare la sottoscrizione di Azure |
+    | Abbonamento | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | `az104-rg9` |
     | Nome app contenitore |  `my-app` |
-    | Paese    | **Stati Uniti** orientali (|
+    | Area geografica    | **Stati Uniti orientali** |
     | Ambiente delle app contenitore | Selezionare Crea nuovo** > Imposta nome ambiente su**`my-environment` >  Crea **** |
 
 1. Fare clic sulla **scheda Avanti: Contenitore** e verificare che **l'opzione Usa immagine** di avvio rapido sia selezionata. Potrebbe essere necessario scorrere verso l'alto per visualizzare questa impostazione. 

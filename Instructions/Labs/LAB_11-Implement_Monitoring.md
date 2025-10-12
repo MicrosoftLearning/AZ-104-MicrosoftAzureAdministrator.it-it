@@ -41,7 +41,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Nel portale di Azure, cercare e selezionare `Deploy a custom template`.
 
-1. Nella pagina di distribuzione personalizzata, selezionare **Creare un modello personalizzati nell’editor**.
+1. Nella pagina di distribuzione personalizzata, selezionare **Creare un modello personalizzato nell’editor**.
 
 1. Nella pagina di modifica del modello, selezionare **Carica file**.
 

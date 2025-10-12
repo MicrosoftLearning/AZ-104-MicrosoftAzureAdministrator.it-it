@@ -137,7 +137,7 @@ In questa attività verrà creato un contenitore BLOB è verrà caricata un’im
 
 1. Selezionare il file di caricamento ed esaminare le opzioni con i puntini di sospensione (...) tra cui Download, Elimina, Cambia livello** e **Acquisisci lease**. **********
 
-1. Copiare l'URL del file **(impostazioni --> pannello Proprietà) e incollarlo in una nuova **finestra di esplorazione inprivate**.**
+1. Copiare l'URL del file **(pannello Impostazioni --> Proprietà) e incollarlo in una nuova **finestra di esplorazione InPrivate**.**
 
 1. Verrà visualizzato il messaggio in formato XML **ResourceNotFound**o **PublicAccessNotPermitted**.
 
