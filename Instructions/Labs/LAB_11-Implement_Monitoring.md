@@ -18,12 +18,7 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione dell’utente ha eseguito la migrazione della sua infrastruttura in Azure. È importante che gli amministratori vengano informati di eventuali modifiche significative dell'infrastruttura. Pianificare l’esame delle funzionalità di Monitoraggio di Azure, incluso Log Analytics.
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
-
 
 ![Diagramma delle attività dell’architettura](../media/az104-lab11-architecture.png)
 
@@ -46,7 +41,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Nel portale di Azure, cercare e selezionare `Deploy a custom template`.
 
-1. Nella pagina di distribuzione personalizzata, selezionare **Creare un modello personalizzati nell’editor**.
+1. Nella pagina di distribuzione personalizzata, selezionare **Creare un modello personalizzato nell’editor**.
 
 1. Nella pagina di modifica del modello, selezionare **Carica file**.
 
@@ -56,7 +51,7 @@ In questa attività si distribuirà una macchina virtuale che verrà usata per t
 
 1. Usare le informazioni seguenti per completare i campi di distribuzione personalizzati, lasciando tutti gli altri campi con i valori predefiniti:
 
-    | Impostazione       | Valore         | 
+    | Impostazione       | valore         | 
     | ---           | ---           |
     | Subscription  | la propria sottoscrizione di Azure |
     | Gruppo di risorse| `az104-rg11` (se necessario, selezionare **Crea nuovo**)
@@ -200,7 +195,7 @@ Immettere queste impostazioni per la pianificazione della regola di elaborazione
 
 1. Selezionare **Avanti: Dettagli** e immettere le impostazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |---------|---------|
     | Gruppo di risorse | **az104-rg11** |
     | Nome regola | `Planned Maintenance` |

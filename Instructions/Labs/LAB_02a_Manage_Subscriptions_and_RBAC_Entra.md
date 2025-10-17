@@ -25,11 +25,6 @@ Per semplificare la gestione delle risorse di Azure nell'organizzazione, è stat
     - Creare e gestire macchine virtuali
     - Creare ticket di richiesta di supporto (non includere l'aggiunta di provider di Azure)
 
-
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma delle attività del lab.](../media/az104-lab02a-architecture.png)
@@ -173,6 +168,7 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
 + È possibile usare il log attività per monitorare le assegnazioni di ruolo.
+
 
 
 

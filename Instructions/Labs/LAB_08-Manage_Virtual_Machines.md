@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione vuole esplorare la distribuzione e la configurazione di macchine virtuali di Azure. Prima di tutto, si implementa una macchina virtuale di Azure con scalabilità manuale. Successivamente, si implementa un set di scalabilità di macchine virtuali e si esplora la scalabilità automatica.
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Competenze mansione
 
 + Attività 1: distribuire macchine virtuali di Azure con resilienza della zona usando il portale di Azure.
@@ -49,7 +45,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
 
 1. Nella scheda Informazioni di base continuare a completare la configurazione:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Il nome della propria sottoscrizione di Azure |
     | Gruppo di risorse |  **az104-rg8** (se necessario, fare clic su **Crea nuovo**) |
@@ -166,7 +162,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nella scheda **Informazioni di base** del pannello **Crea un set di scalabilità di macchine virtuali** specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti) e fare clic su **Avanti: Spot >**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | Il nome della propria sottoscrizione di Azure  |
     | Gruppo di risorse | **az104-rg8**  |
@@ -193,7 +189,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nella **pagina Rete** selezionare **Modifica collegamento rete** virtuale. Apportare alcune modifiche. Al termine selezionare **OK**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | `vmss-vnet` |
     | Intervallo di indirizzi | `10.82.0.0/20` (eliminare l'intervallo di indirizzi esistente) |
@@ -206,13 +202,13 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
 
 1. Nel pannello **Crea gruppo di sicurezza di rete** specificare le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Nome | **vmss1-nsg** |
 
 1. Fare clic su **Aggiungi una regola in ingresso** e aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti (lasciare i valori predefiniti per le altre impostazioni):
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Origine | **Any** |
     | Intervalli di porte di origine | * |

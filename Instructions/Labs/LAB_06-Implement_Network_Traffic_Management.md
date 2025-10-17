@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione ha un sito Web pubblico. È necessario bilanciare il carico delle richieste pubbliche in ingresso tra macchine virtuali diverse. È anche necessario fornire immagini e video da macchine virtuali diverse. Si prevede di implementare Azure Load Balancer e gateway applicazione di Azure. Tutte le risorse si trovano nella stessa area.
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Competenze mansione
 
 + Attività 1: Usare un modello per effettuare il provisioning di un'infrastruttura.
@@ -52,7 +48,7 @@ In questa attività si userà un modello per distribuire una rete virtuale, un g
 
 1. Usare le informazioni seguenti per completare i campi nella pagina di distribuzione personalizzata, lasciando tutti gli altri campi con il valore predefinito.
 
-    | Impostazione       | Valore         |
+    | Impostazione       | valore         |
     | ---           | ---           |
     | Subscription  | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg6` (Se necessario, selezionare **Crea nuovo**) |
@@ -80,7 +76,7 @@ In questa attività si implementa Azure Load Balancer davanti alle due macchine 
 
 1. Creare un servizio di bilanciamento del carico con le impostazioni seguenti (lasciare le altre con i rispettivi valori predefiniti) quindi fare clic su **Avanti: Configurazione IP front-end**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | **az104-rg6** |
@@ -195,7 +191,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
 
 1. Nella scheda **Generale** specificare ora le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Subscription | sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg6` |
@@ -210,7 +206,7 @@ In questa attività si implementa un gateway applicazione di Azure davanti a due
 
 1. Fare clic su **Avanti: Front-end >** e specificare le impostazioni seguenti, senza modificare i valori predefiniti per le altre impostazioni. Al termine fare clic su **OK**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | Tipo di indirizzo IP front-end | **Pubblica** |
     | Indirizzo IP pubblico| **Aggiungi nuovo** |

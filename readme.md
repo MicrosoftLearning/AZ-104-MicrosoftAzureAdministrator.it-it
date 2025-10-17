@@ -1,11 +1,3 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
 # AZ-104: Microsoft Azure Administrator
 
 ## Introduzione
@@ -18,7 +10,7 @@ Questo repository è pensato per i docenti dei corsi Microsoft. Se si è in clas
 
 ## Problema di sicurezza - Aprile 2023
 
-Con effetto immediato, la password Admin verrà rimossa dai file di parametri del modello JSON. Ciò implica che gli studenti dovranno fornire una password quando verrà distribuito il modello. Ciò riguarda i lab 4, 5, 6, 7, 10 e 11.  Le istruzioni del lab sono state modificate per riflettere questa modifica. 
+Con effetto immediato, la password Admin verrà rimossa dai file di parametri del modello JSON. Ciò implica che gli studenti dovranno fornire una password quando verrà distribuito il modello. Ciò influisce su Labs 4, 5, 6, 7, 10 e 11.  Le istruzioni del lab sono state modificate per riflettere questa modifica. 
 
 ## Cosa stiamo facendo?
 
@@ -36,9 +28,9 @@ Con effetto immediato, la password Admin verrà rimossa dai file di parametri de
 
 ## Come è possibile contribuire?
 
-- Ogni MCT può inviare una richiesta pull al codice o al contenuto della repository di GitHub, Microsoft e l'autore del corso si occuperanno di verificare e includere le modifiche al contenuto e al codice del lab, se necessario.
+- Qualsiasi MCT può inviare una richiesta pull al codice o al contenuto nella procedura di riproduzione di GitHub, Microsoft e chi ha creato il corso valuteranno e includeranno le modifiche al contenuto e al codice del lab in base alle esigenze.
 
-- È possibile inviare bug, modifiche, miglioramenti e idee.  Se si scopre in anticipo una nuova funzionalità di Azure?  Inviare una nuova demo.
+- È possibile inviare bug, modifiche, miglioramenti e idee.  È stata trovata una nuova funzionalità di Azure prima di avere?  Inviare una nuova demo.
 
 ## E per quanto riguarda le modifiche al manuale per gli studenti?
 

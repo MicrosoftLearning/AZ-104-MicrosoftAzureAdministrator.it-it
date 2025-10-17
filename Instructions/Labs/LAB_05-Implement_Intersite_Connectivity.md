@@ -18,10 +18,6 @@ Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può 
 
 L'organizzazione segmenta le app e i servizi IT principali (come i servizi DNS e di sicurezza) di altre parti dell'azienda, incluso il reparto di produzione. Tuttavia, in alcuni scenari, le app e i servizi dell'area principale devono comunicare con app e servizi dell'area di produzione. In questo lab viene configurata la connettività tra le aree segmentate. Si tratta di uno scenario comune per separare la produzione dallo sviluppo o separare una filiale da un'altra.  
 
-## Simulazioni interattive del lab
-
->**Nota**: le simulazioni lab fornite in precedenza sono state ritirate.
-
 ## Diagramma dell'architettura
 
 ![Diagramma dell'architettura del lab 05](../media/az104-lab05-architecture.png)
@@ -47,7 +43,7 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
 
 1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo, quindi selezionare **Avanti: Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
  
-    | Impostazione | Valore | 
+    | Impostazione | valore | 
     | --- | --- |
     | Subscription |  *sottoscrizione in uso* |
     | Gruppo di risorse |  `az104-rg5` (se necessario, **Crea nuovo**. )
@@ -94,7 +90,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
 
 1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo, quindi selezionare **Avanti: Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
  
-    | Impostazione | Valore | 
+    | Impostazione | valore | 
     | --- | --- |
     | Subscription |  *sottoscrizione in uso* |
     | Gruppo di risorse |  `az104-rg5` |
@@ -229,7 +225,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
 
 1. Immettere i dettagli seguenti, selezionare **Rivedi e crea** e quindi selezionare **Crea**. 
 
-    | Impostazione | Valore | 
+    | Impostazione | valore | 
     | --- | --- |
     | Subscription | sottoscrizione in uso |
     | Gruppo di risorse | `az104-rg5`  |
