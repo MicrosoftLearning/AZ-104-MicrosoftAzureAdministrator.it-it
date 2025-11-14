@@ -37,7 +37,7 @@ In questa attività verrà creata un'app Web di Azure. Servizi app di Azure è u
 
 1. Accedere al **portale di Azure** - `https://portal.azure.com`.
 
-1. Cercare e selezionare `App services`.
+1. Cercare e selezionare `App Services`.
 
 1. Selezionare **+ Crea** dal menu a discesa, **App Web**. Si notino le altre opzioni. 
 
@@ -146,7 +146,7 @@ In questa attività verrà configurata la scalabilità automatica dell'app Web d
 
 1. Seleziona **Salva**.
 
-1. Selezionare **Diagnostica e risoluzione dei problemi** (riquadro a sinistra).
+1. Selezionare **Diagnostica e risoluzione dei problemi** (riquadro sinistro della pagina principale dell'app Web).
 
 1. Nella casella **Test di carico dell'app** selezionare **Crea test di carico**.
 
