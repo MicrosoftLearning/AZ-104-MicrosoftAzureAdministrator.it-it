@@ -39,9 +39,9 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
 
 1. Cercare e selezionare `Virtual Machines`.
 
-1. Nella pagina macchine virtuali selezionare **Crea**, quindi selezionare **Macchina virtuale di Azure**.
+1. Nella pagina macchine virtuali selezionare **Crea** e quindi macchina **virtuale**.
 
-1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo, quindi selezionare **Avanti: Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
+1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo e quindi selezionare **Avanti : Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
  
     | Impostazione | valore | 
     | --- | --- |
@@ -51,7 +51,7 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
     | Paese | **(Stati Uniti) Stati Uniti orientali** |
     | Opzioni di disponibilità | La ridondanza dell'infrastruttura non è richiesta |
     | Tipo di sicurezza | **Standard** |
-    | Immagine | **Windows Server 2019 Datacenter: x64 Gen2** (si notino le altre opzioni) |
+    | Immagine (Vedi tutte le immagini) | **Windows Server 2019 Datacenter - x64 Gen2** (si notino le altre opzioni) |
     | Dimensione | **Standard_DS2_v3** |
     | Username | `localadmin` | 
     | Password | **Specificare una password complessa** |
@@ -59,7 +59,7 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
 
     ![Screenshot della pagina di creazione di macchine virtuali di base. ](../media/az104-lab05-createcorevm.png)
    
-1. Nella scheda **Dischi** accettare le impostazioni predefinite, quindi selezionare **Avanti: Rete >**.
+1. Nella **scheda Dischi accettare** le impostazioni predefinite e quindi selezionare **Avanti : Rete >**.
 
 1. Nella scheda **Rete**, per Rete virtuale selezionare **Crea nuova**.
 
@@ -67,14 +67,14 @@ In questa attività si crea una rete virtuale per i servizi principali con una m
 
     | Impostazione | valore | 
     | --- | --- |
-    | Nome | `CoreServicesVnet` (Crea nuovo) |
+    | Name | `CoreServicesVnet` (Crea o modifica) |
     | Intervallo di indirizzi | `10.0.0.0/16`  |
     | Nome della subnet | `Core` | 
     | Intervallo di indirizzi subnet | `10.0.0.0/24` |
 
-1. Selezionare la scheda **Monitoraggio**. Per Diagnostica di avvio selezionare **Disabilita**.
+1. Selezionare la **scheda Monitoraggio** . Per Diagnostica di avvio selezionare **Disabilita**.
 
-1. Selezionare **Rivedi e crea** e quindi **Crea**.
+1. Selezionare **Rivedi + Crea** e quindi selezionare **Crea**.
 
 1. Non è necessario attendere la creazione delle risorse. Passare all'attività successiva.
 
@@ -86,9 +86,9 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
 
 1. Nel portale di Azure cercare e passare a **Macchine virtuali**.
 
-1. Nella pagina macchine virtuali selezionare **Crea**, quindi selezionare **Macchina virtuale di Azure**.
+1. Nella pagina macchine virtuali selezionare **Crea** e quindi macchina **virtuale**.
 
-1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo, quindi selezionare **Avanti: Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
+1. Nella scheda Informazioni di base usare le informazioni seguenti per completare il modulo e quindi selezionare **Avanti : Dischi >**. Per qualsiasi impostazione non specificata, lasciare il valore predefinito.
  
     | Impostazione | valore | 
     | --- | --- |
@@ -98,13 +98,13 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
     | Paese | **(Stati Uniti) Stati Uniti orientali** |
     | Tipo di sicurezza | **Standard** |
     | Opzioni di disponibilità | La ridondanza dell'infrastruttura non è richiesta |
-    | Immagine | **Windows Server 2019 Datacenter x64 Gen2** |
+    | Immagine (Vedi tutte le immagini) | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Dimensione | **Standard_DS2_v3** | 
     | Username | `localadmin` | 
     | Password | **Specificare una password complessa** |
     | Porte in ingresso pubbliche | **Nessuno** |
 
-1. Nella scheda **Dischi** accettare le impostazioni predefinite, quindi selezionare **Avanti: Rete >**.
+1. Nella **scheda Dischi accettare** le impostazioni predefinite e quindi selezionare **Avanti : Rete >**.
 
 1. Nella scheda Rete, per Rete virtuale selezionare **Crea nuova**.
 
@@ -119,7 +119,7 @@ In questa attività si crea una rete virtuale di servizi di produzione con una m
 
 1. Selezionare la scheda **Monitoraggio**. Per Diagnostica di avvio selezionare **Disabilita**.
 
-1. Selezionare **Rivedi e crea** e quindi **Crea**.
+1. Selezionare **Rivedi + Crea** e quindi selezionare **Crea**.
 
 ## Attività 3: Usare Network Watcher per testare la connessione tra macchine virtuali 
 
@@ -136,7 +136,7 @@ In questa attività si verifica che le risorse nelle reti virtuali con peering p
     | --- | --- |
     | Source type           | **Macchina virtuale**   |
     | Macchina virtuale       | **CoreServicesVM**    | 
-    | Tipo destinazione      | **Macchina virtuale**   |
+    | Tipo destinazione      | **Selezionare una macchina virtuale**   |
     | Macchina virtuale       | **ManufacturingVM**   | 
     | Versione indirizzo IP preferita  | **Entrambi**              | 
     | Protocollo              | **TCP**               |
@@ -148,7 +148,7 @@ In questa attività si verifica che le risorse nelle reti virtuali con peering p
 
 1. Selezionare **Esegui test diagnostici**.
 
-    >**Nota**: La restituzione dei risultati potrebbe richiedere alcuni minuti. Le selezioni dello schermo verranno disattivate durante la raccolta dei risultati. Si noti che il **test di connettività** mostra **Irraggiungibile**. Ciò ha senso perché le macchine virtuali si trovano in reti virtuali diverse. 
+    >**Nota**: La restituzione dei risultati potrebbe richiedere alcuni minuti. Le selezioni dello schermo verranno disattivate durante la raccolta dei risultati. Si noti che il **test** di connettività mostra **Unreachable**. Ciò ha senso perché le macchine virtuali si trovano in reti virtuali diverse. 
 
  
 ## Attività 4: Configurare il peering tra reti virtuali
@@ -162,14 +162,14 @@ In questa attività viene creato un peering di reti virtuali per abilitare le co
 1. In CoreServicesVnet, in Peering selezionare **+ Aggiungi**. Se non specificato, accettare il valore predefinito. 
 
     | **Parametro**                                    | **valore**                             |
-    | --------------------------------------------- | ------------------------------------- |                                
-    | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
-    | Rete virtuale    | **ManufacturingVM-net (az104-rg5)**  |
-    | Consentire a ManufacturingVnet di accedere a CoreServicesVnet  | selezionato (impostazione predefinita) |
-    | Consentire a ManufacturingVnet di ricevere traffico inoltrato da CoreServicesVnet | Opzione selezionata  |
+    | --------------------------------------------- | ------------------------------------- |
     | Nome del collegamento di peering                             | `ManufacturingVnet-to-CoreServicesVnet` |
-    | Consentire a CoreServicesVnet di accedere alla rete virtuale con peering            | selezionato (impostazione predefinita) |
-    | Consentire a CoreServicesVnet di ricevere traffico inoltrato dalla rete virtuale con peering | Opzione selezionata |
+    | Rete virtuale    | **ManufacturingVnet (az104-rg5)**  |
+    | Consentire a 'CoreServicesVnet' di accedere a 'ManufacturingVnet'            | selezionato (impostazione predefinita) |
+    | Consentire a 'CoreServicesVnet' di ricevere traffico inoltrato da 'ManufacturingVnet' | Opzione selezionata |
+    | Nome del collegamento di peering                             | `CoreServicesVnet-to-ManufacturingVnet` |
+    | Consentire a 'ManufacturingVnet' di accedere a 'CoreServicesVnet'  | selezionato (impostazione predefinita) |
+    | Consentire a 'ManufacturingVnet' di ricevere traffico inoltrato da 'CoreServicesVnet' | Opzione selezionata  |
 
 4. Fare clic su **Aggiungi**.
 
@@ -200,7 +200,7 @@ In questa attività si testa di nuovo la connessione tra le macchine virtuali di
     ```Powershell
     Test-NetConnection <CoreServicesVM private IP address> -port 3389
     ```
-1. Il timeout dello script potrebbe richiedere alcuni minuti. Nella parte superiore della pagina viene visualizzato un messaggio informativo *Esecuzione script in corso*.
+1. Il timeout dello script potrebbe richiedere alcuni minuti. Nella parte superiore della pagina viene visualizzato un messaggio *informativo Esecuzione script in corso...*
 
    
 1. La connessione di test dovrebbe avere esito positivo perché il peering è stato configurato. Il nome del computer e l'indirizzo remoto in questo elemento grafico potrebbero essere diversi. 
@@ -237,7 +237,7 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
    
 1. Selezionare la risorsa (non la casella di controllo) **rt-CoreServices**
 
-1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
+1. Espandere **Impostazioni** , quindi selezionare **Route** e quindi **+ Aggiungi**. Creare una route da un'appliance virtuale di rete (NVA) futura alla rete virtuale CoreServices. 
 
     | Impostazione | valore | 
     | --- | --- |
@@ -247,13 +247,13 @@ In questa attività si vuole controllare il traffico di rete tra la subnet perim
     | Tipo hop successivo | **Appliance virtuale** (si notino le altre opzioni) |
     | Indirizzo hop successivo | `10.0.1.7` (appliance virtuale di rete futura) |
 
-1. Selezionare **+ Aggiungi**. L'ultima operazione da eseguire è associare la route alla subnet.
+1. Selezionare **Aggiungi**. L'ultima operazione da eseguire è associare la route alla subnet.
 
 1. Selezionare **Subnet** e quindi **+ Associa**. Completare la configurazione.
 
     | Impostazione | valore | 
     | --- | --- |
-    | Rete virtuale | **CoreServicesVnet** |
+    | Rete virtuale | **CoreServicesVnet (az104-rg5)** |
     | Subnet | **Core** |    
 
 >**Nota**: È stata creata una route definita dall'utente per indirizzare il traffico dalla rete perimetrale alla nuova appliance virtuale di rete.  

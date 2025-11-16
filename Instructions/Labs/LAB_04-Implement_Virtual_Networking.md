@@ -61,7 +61,9 @@ L'organizzazione pianifica una grande crescita per i servizi di base. In questa 
     | ------------------ | -------------------- |
     | Spazio indirizzi IPv4 | Sostituire lo spazio indirizzi IPv4 prepopolato con `10.20.0.0/16` (separare le voci)  |
 
-1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. Assicurarsi di eliminare la subnet predefinita, prima o dopo la creazione delle altre subnet.
+1. Selezionare **+ Aggiungi una subnet**. Completare le informazioni sul nome e sull'indirizzo per ogni subnet. Assicurarsi di selezionare **Aggiungi** per ogni nuova subnet. 
+
+    >**Nota:** assicurarsi di eliminare la subnet predefinita, prima o dopo la creazione delle altre subnet.
 
     | **Subnet**             | **Opzione**           | **valore**              |
     | ---------------------- | -------------------- | ---------------------- |
@@ -226,7 +228,7 @@ In questa attività vengono creati un gruppo di sicurezza delle applicazioni e u
 
 1. Dopo aver creato la regola del gruppo di sicurezza di rete in ingresso, selezionare **Regole di sicurezza in uscita**. 
 
-1. Si noti la regola **AllowInternetOutboundRule**. Si noti anche che la regola non può essere eliminata e la priorità è 65001.
+1. Si noti la **regola AllowInternetOutBound** . Si noti anche che la regola non può essere eliminata e la priorità è 65001.
 
 1. Selezionare **+ Aggiungi** e quindi configurare una regola in uscita che nega l'accesso a Internet. Al termine, selezionare **Aggiungi**.
 
@@ -368,6 +370,8 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + Un gruppo di sicurezza di rete contiene regole di sicurezza che consentono o negano il traffico di rete. Esistono regole predefinite in ingresso e in uscita che è possibile personalizzare in base alle proprie esigenze.
 + I gruppi di sicurezza delle applicazioni vengono usati per proteggere i gruppi di server con una funzione comune, ad esempio server Web o server di database.
 + DNS di Azure è un servizio di hosting per i domini DNS che fornisce la risoluzione dei nomi. È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico.  È anche possibile usare zone DNS private per assegnare nomi DNS alle macchine virtuali nelle reti virtuali di Azure.
+
+
 
 
 

@@ -198,7 +198,7 @@ In questa attività si lavora con Azure Cloud Shell e Azure PowerShell. Azure Cl
 1. Verificare che il disco sia stato creato.
 
      ```sh
-     az disk list --output table
+     az disk list --resource-group az104-rg3 --output table
      ```
    
 ## Attività 5: Distribuire una risorsa usando Azure Bicep
@@ -234,7 +234,7 @@ In questa attività si userà un file Bicep per distribuire un disco gestito. Bi
 1. Verificare che il disco sia stato creato.
 
     ```sh
-    az disk list --output table
+    az disk list --resource-group az104-rg3 --output table
     ```
 
     >**Nota:** Sono stati distribuiti cinque dischi gestiti, ognuno in modo diverso. L'operazione è stata completata.

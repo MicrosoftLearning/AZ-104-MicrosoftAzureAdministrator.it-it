@@ -80,7 +80,7 @@ In questa attività verrà creato un insieme di credenziali di Servizi di ripris
 
 1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- |
     | Subscription | Il nome della propria sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg-region1`  |
@@ -126,7 +126,7 @@ In questa attività verrà implementato il backup a livello di macchina virtuale
     | Impostazioni | Valore |
     | --- | --- |
     | Dove viene eseguito il carico di lavoro? | **Azure** (si notino le altre opzioni) |
-    | Di quali elementi si vuole eseguire il backup? | **Macchina virtuale** (si notino le altre opzioni) |
+    | Di quali elementi si vuole eseguire il backup? | **Macchina** virtuale (si notino le altre opzioni)|
 
 1. Selezionare **Backup**.
 
@@ -174,7 +174,7 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Usare le informazioni seguenti per definire l'account di archiviazione e quindi selezionare **Rivedi e crea**.
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- | 
     | Subscription          | *Sottoscrizione in uso*    |
     | Gruppo di risorse        | **az104-rg-region1**        |
@@ -217,7 +217,7 @@ In questa attività verrà distribuito un account di archiviazione di Azure. Si 
 
 1. Nel pannello **Crea Insieme di credenziali di Servizi di ripristino** specificare le impostazioni seguenti:
 
-    | Impostazioni | Valore |
+    | Impostazioni | valore |
     | --- | --- |
     | Subscription | Il nome della propria sottoscrizione di Azure |
     | Gruppo di risorse | `az104-rg-region2` (se necessario, selezionare **Crea nuovo**) |

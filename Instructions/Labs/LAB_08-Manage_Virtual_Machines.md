@@ -54,7 +54,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Opzioni di disponibilità | **Zona di disponibilità** |
     | Zona di disponibilità | **Zona 1, 2** (leggere la nota sull'uso dei set di scalabilità di macchine virtuali) |
     | Tipo di sicurezza | **Standard** |
-    | Immagine | **Windows Server 2019 Datacenter - x64 Gen2** |
+    | Immagine (Vedi tutte le immagini) | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Istanza Spot di Azure | **unchecked** |
     | Dimensione | **Standard D2s v3** |
     | Username | `localadmin` |
@@ -172,7 +172,7 @@ In questa attività si distribuirà un set di scalabilità di macchine virtuali 
     | Modalità di orchestrazione | **Uniforme** |
     | Tipo di sicurezza | **Standard** |
     | Opzioni di scalabilità | **Esaminare e accettare le impostazioni predefinite**. Questa operazione verrà modificata nell'attività successiva. |
-    | Image | **Windows Server 2019 Datacenter - x64 Gen2** |
+    | Immagine (Vedi tutte le immagini) | **Windows Server 2019 Datacenter - x64 Gen2** |
     | Eseguire con sconto di Spot Azure | **Non selezionato** |
     | Dimensione | **Standard D2s_v3** |
     | Username | `localadmin` |
