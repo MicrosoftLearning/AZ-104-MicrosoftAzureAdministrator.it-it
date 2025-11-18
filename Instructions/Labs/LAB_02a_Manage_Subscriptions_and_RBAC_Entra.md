@@ -46,7 +46,7 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
 
 1. Nel pannello **Gestisci** selezionare **Proprietà**.
 
-1. Esaminare l'area **Gestione degli accessi per le risorse di Azure**. Assicurarsi di poter gestire l'accesso a tutte le sottoscrizioni e i gruppi di gestione di Azure nel tenant.
+1. Esaminare l'area **Gestione degli accessi per le risorse di Azure**. Si noti o si legge che è possibile gestire l'accesso a tutte le sottoscrizioni e i gruppi di gestione di Azure nel tenant.
    
 1. Cercare e selezionare **Gruppi di gestione**.
 
@@ -168,6 +168,7 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
 + È possibile usare il log attività per monitorare le assegnazioni di ruolo.
+
 
 
 
