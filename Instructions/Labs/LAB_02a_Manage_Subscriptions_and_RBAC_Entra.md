@@ -67,6 +67,8 @@ In questa attività si creeranno e configureranno gruppi di gestione. I gruppi d
 
 In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo Collaboratore macchina virtuale a un membro dell'Help Desk. Azure offre un numero elevato di [ruoli predefiniti](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
+>**Nota:** nei passaggi seguenti si assegnerà il ruolo al gruppo helpdesk****. Se non si ha un gruppo help desk, è necessario prendersi un minuto per crearlo.
+
 1. Selezionare il gruppo di gestione **az104-mg1**.
 
 1. Selezionare il pannello **Controllo di accesso (IAM)** e quindi la scheda **Ruoli**.
@@ -77,11 +79,9 @@ In questa attività si esamineranno i ruoli predefiniti e si assegnerà il ruolo
 
 1. Nel pannello **Aggiungi assegnazione di ruolo**, cercare e selezionare **Collaboratore macchina virtuale**. il ruolo Collaboratore Macchina virtuale consente di gestire le macchine virtuali, ma non di accedere al relativo sistema operativo né di gestire la rete virtuale e l'account di archiviazione a cui sono connesse. Questo è un buon ruolo per l'Help Desk. Selezionare **Avanti**.
 
-    >**Suggerimenti utili** Azure ha originariamente fornito solo il modello di distribuzione **classico**. Questa operazione è stata sostituita dal modello di distribuzione **Azure Resource Manager**. Come procedura consigliata, non usare le risorse classiche. 
+    >**Suggerimenti utili** Azure ha originariamente fornito solo il modello di distribuzione **classico**. Questa operazione è stata sostituita dal modello di distribuzione **Azure Resource Manager**. Come procedura consigliata, non usare le risorse classiche.
 
 1. Nella scheda **Membri**, **Seleziona membri**.
-
-    >**Nota:** Il passaggio successivo assegna il ruolo al gruppo **helpdesk**. Se non si ha un gruppo help desk, è necessario prendersi un minuto per crearlo.
 
 1. Cercare e selezionare il `helpdesk` gruppo. Fare clic su **Seleziona**. 
 
@@ -168,6 +168,8 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
 + È possibile usare il log attività per monitorare le assegnazioni di ruolo.
+
+
 
 
 
