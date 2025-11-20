@@ -80,11 +80,7 @@ In questa attività si distribuiranno due macchine virtuali di Azure in zone di 
     | Opzioni di bilanciamento del carico | **Nessuno** |
 
 
-1. Fare clic su **Avanti: Gestione >** e specificare le impostazioni seguenti (lasciare le altre con i valori predefiniti):
-
-    | Impostazione | Valore |
-    | --- | --- |
-    | Opzioni di orchestrazione patch | **Orchestrata da Azure** |  
+1. Fare clic su **Avanti : Gestione >** ed esaminare le impostazioni. Non apportare modifiche. 
 
 1. Fare clic su **Avanti: Monitoraggio >** e specificare le impostazioni seguenti (lasciare altri valori predefiniti):
 
