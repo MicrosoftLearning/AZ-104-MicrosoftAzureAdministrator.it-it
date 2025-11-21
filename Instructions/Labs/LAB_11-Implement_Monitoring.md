@@ -207,7 +207,7 @@ Immettere queste impostazioni per la pianificazione della regola di elaborazione
 
 In questa attività si userà Monitoraggio di Azure per eseguire query sui dati acquisiti dalla macchina virtuale.
 
-    >**Note:** It can take 15-30 minutes for data to appear. Concentrate on the method and types of queries, rather than the results. 
+   >**Nota:** va bene se i dati non vengono visualizzati. Concentrarsi sui passaggi per esaminare le informazioni di monitoraggio, incluse le query di log preconfigurate e personalizzate. 
 
 1. Nella portale di Azure cercare e selezionare `Monitor`, quindi fare clic su **Log**.
 
