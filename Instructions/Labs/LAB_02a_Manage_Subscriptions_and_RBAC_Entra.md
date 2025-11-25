@@ -12,7 +12,7 @@ In questo lab vengono fornite informazioni sul controllo degli accessi in base a
 
 Questo lab richiede una sottoscrizione di Azure. Il tipo di sottoscrizione può influire sulla disponibilità delle funzionalità in questo lab. È possibile modificare l'area, ma i passaggi vengono scritti usando **Stati Uniti orientali**. 
 
-## Tempo stimato: 30 minuti
+## Tempo stimato: 20 minuti
 
 ## Scenario laboratorio
 
@@ -168,6 +168,7 @@ Congratulazioni per aver completato il lab. Ecco i concetti chiave per questo la
 + È possibile creare nuovi ruoli o personalizzare i ruoli esistenti.
 + I ruoli vengono definiti in un file in formato JSON e includono *Actions*, *NotActions* e *AssignableScopes*.
 + È possibile usare il log attività per monitorare le assegnazioni di ruolo.
+
 
 
 
